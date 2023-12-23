@@ -1,0 +1,17 @@
+<div class="input-text" [ngClass]="{ 'has-error': error, success: error }">
+  <div class="input-text_header">
+    <label [for]="id">{{ label }}</label>
+
+    <div class="input-text_header_right">
+      <ng-content select="[right]"></ng-content>
+    </div>
+  </div>
+
+  <input
+    [(ngModel)]="value"
+    [id]="id"
+    [name]="id"
+    [type]="type"
+    [placeholder]="placeholder"
+  />
+</div>
