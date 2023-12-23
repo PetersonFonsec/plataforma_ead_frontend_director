@@ -1,0 +1,25 @@
+.input-color {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    display: none;
+  }
+
+  &_header {
+    margin-bottom: var(--space-4);
+    color: var(--font-color-dark);
+    font-family: var(--primary-font-family);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3);
+    font-style: normal;
+  }
+
+  &_square {
+    border-radius: 6px;
+    border: 1px solid var(--neutral-color-1);
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+  }
+}

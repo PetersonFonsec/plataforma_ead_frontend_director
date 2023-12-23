@@ -1,0 +1,14 @@
+<div (click)="input.click()" class="input-color">
+  <div class="input-color_header">
+    <label [for]="id">{{ label }}</label>
+  </div>
+
+  <div
+    class="input-color_square"
+    [ngStyle]="{
+      backgroundColor: value
+    }"
+  ></div>
+
+  <input #input type="color" [(ngModel)]="value" [id]="id" [name]="id" />
+</div>
