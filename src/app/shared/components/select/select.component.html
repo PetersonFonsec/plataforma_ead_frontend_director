@@ -1,0 +1,24 @@
+<div class="select">
+  <div class="select_input">
+    <app-input-text
+      (click)="showOptions = true"
+      (blur)="showOptions = false"
+      label="Produto"
+      placeholder="Nome do produto"
+      [(ngModel)]="inputValue"
+      (ngModelChange)="filterOptions()"
+      [id]="id"
+    >
+    </app-input-text>
+  </div>
+
+  <ul class="select_options scroll-style" [ngClass]="{ show: showOptions }">
+    @for(option of _options; track $index){
+    <li (click)="setValue(option)" class="select_options_item">
+      {{ option.label }}
+    </li>
+    } @empty {
+    <li class="select_options_empty">sem resultados</li>
+    }
+  </ul>
+</div>
