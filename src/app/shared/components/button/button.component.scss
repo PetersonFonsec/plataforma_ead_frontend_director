@@ -20,12 +20,13 @@
   }
 
   &--secundary {
-    background: var(--secundary-color-2);
-    color: var(--neutral-color-3);
+    background: var(--secundary-color-4);
+    color: var(--secundary-color-1);
 
     &:active,
     &:hover {
       background-color: var(--secundary-color-1);
+      color: var(--neutral-color-3);
     }
   }
 

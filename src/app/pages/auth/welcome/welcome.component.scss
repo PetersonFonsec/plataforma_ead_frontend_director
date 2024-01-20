@@ -1,0 +1,21 @@
+.welcome {
+  text-align: center;
+
+  &-title {
+    display: block;
+    margin-bottom: var(--space-10);
+  }
+
+  &-description {
+    color: var(--font-color-ligth);
+    margin-bottom: 68px;
+  }
+
+  &-button {
+    display: block;
+  }
+
+  &-button:not(:last-child) {
+    margin-bottom: var(--space-6);
+  }
+}
