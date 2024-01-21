@@ -1,0 +1,24 @@
+.login {
+  text-align: center;
+
+  &-form {
+    margin-bottom: var(--space-13);
+
+    app-input-text {
+      display: block;
+
+      & ~ app-input-text {
+        margin-top: var(--space-6);
+      }
+    }
+  }
+
+  .link:not(:last-child) {
+    margin-bottom: var(--space-7);
+  }
+
+  &-button {
+    margin-top: var(--space-10);
+    display: block;
+  }
+}

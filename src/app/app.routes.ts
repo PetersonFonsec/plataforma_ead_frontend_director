@@ -25,5 +25,5 @@ export const routes: Routes = [
     ]
   },
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
+  // { path: '**', component: NotFoundComponent }
 ];

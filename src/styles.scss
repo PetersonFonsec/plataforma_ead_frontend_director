@@ -32,6 +32,7 @@ img {
   margin: 0 auto;
 }
 
+.links,
 .title,
 .subtitle,
 .text {
@@ -40,6 +41,8 @@ img {
   font-style: normal;
   line-height: normal;
   margin: 0;
+  display: block;
+  text-decoration: none;
 }
 
 .title {
@@ -56,4 +59,14 @@ img {
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-regular);
   line-height: 137.5%;
+}
+
+.link {
+  @extend .text;
+  color: var(--font-color-ligth);
+
+  span {
+    color: var(--font-color-dark);
+    font-weight: var(--font-weight-bold);
+  }
 }

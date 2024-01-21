@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="login">
+  <form #form="ngForm" class="login-form">
+    <app-input-text
+      [(ngModel)]="payload.email"
+      id="email"
+      name="email"
+      [required]="true"
+      label="Email"
+      type="text"
+      placeholder="Informe o seu email"
+    ></app-input-text>
+
+    <app-input-text
+      name="password"
+      [(ngModel)]="payload.password"
+      id="password"
+      type="password"
+      label="Senha"
+      placeholder="Informe a sua senha"
+    ></app-input-text>
+  </form>
+
+  <a class="link" routerLink="../recuperar-senha">
+    Esqueceu a senha ? <span>Clique aqui.</span>
+  </a>
+
+  <a class="link" routerLink="../cadastrar">
+    Ainda não tem uma conta ? <span>Cadastre-se !</span>
+  </a>
+
+  <div class="login-form-footer">
+    <app-button [disabled]="!!form.invalid"> Entrar </app-button>
+  </div>
+</div>

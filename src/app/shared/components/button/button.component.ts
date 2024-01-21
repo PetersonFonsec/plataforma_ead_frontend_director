@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() color: "primary" | "secundary" = "primary";
   @Input() size: "small" | "medium" = "medium";
+  @Input() disabled = false;
 }

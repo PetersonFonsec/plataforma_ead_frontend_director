@@ -1,3 +1,6 @@
-<button class="button button--{{ color }} button--{{ size }}">
+<button
+  [disabled]="disabled"
+  class="button button--{{ color }} button--{{ size }}"
+>
   <ng-content></ng-content>
 </button>

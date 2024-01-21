@@ -1,1 +1,49 @@
-<p>register works!</p>
+<div class="register">
+  <form #form="ngForm" class="register-form">
+    <app-input-text
+      [(ngModel)]="payload.email"
+      id="email"
+      name="email"
+      [required]="true"
+      label="Email"
+      type="text"
+      placeholder="Informe o seu email"
+    ></app-input-text>
+
+    <app-input-text
+      name="password"
+      [(ngModel)]="payload.password"
+      id="password"
+      type="password"
+      label="Senha"
+      placeholder="Informe a sua senha"
+    ></app-input-text>
+
+    <app-input-text
+      name="confirm_password"
+      [(ngModel)]="payload.confirm_password"
+      id="confirm_password"
+      type="password"
+      label="Confirme sua Senha"
+      placeholder="Confirme sua senha"
+    ></app-input-text>
+
+    <app-input-text
+      [(ngModel)]="payload.document_number"
+      id="document_number"
+      name="document_number"
+      [required]="true"
+      label="CPF"
+      type="text"
+      placeholder="Informe o seu email"
+    ></app-input-text>
+  </form>
+
+  <a class="link" routerLink="./recuperar-senha">
+    Já tem uma conta ? <span>Entre!</span>
+  </a>
+
+  <div class="register-form-footer">
+    <app-button [disabled]="!!form.invalid"> Entrar </app-button>
+  </div>
+</div>
