@@ -1,0 +1,67 @@
+@import "../../scss/index.scss";
+
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  max-width: 1418px;
+  flex-wrap: wrap;
+  padding: 0 32px;
+  position: relative;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (min-width: $desktop-lg) {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &-image {
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 88px;
+
+    @media (min-width: $tablet) {
+      height: auto;
+      flex: 1;
+    }
+
+    img {
+      object-fit: contain;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+
+  &-route {
+    width: 350px;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    height: 250px;
+
+    @media (min-width: $tablet) {
+      text-align: center;
+    }
+  }
+
+  &-description {
+    margin-bottom: var(--space-19);
+    display: block;
+  }
+}

@@ -1,1 +1,23 @@
-<p>not-found works!</p>
+<div class="not-found">
+  <div class="not-found-image">
+    <picture>
+      <source
+        srcset="/assets/ilustrations/email-sm.png"
+        media="(max-width: 768px)"
+      />
+      <img
+        src="/assets/ilustrations/email-lg.png"
+        alt="ilustração de dois jovens em volta de um smartfone"
+        priority
+        fetchpriority="high"
+      />
+    </picture>
+  </div>
+  <div class="not-found-route">
+    <h3 class="not-found-description text">
+      Em breve você recebera um email nosso com um link para cadastrar uma nova
+      senha.
+    </h3>
+    <app-button routerLink="/"> Voltar para tela inicial </app-button>
+  </div>
+</div>

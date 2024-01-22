@@ -4,6 +4,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
+import { NewPasswordComponent } from './pages/auth/new-password/new-password.component';
 
 export const routes: Routes = [
   {
@@ -12,18 +13,27 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: WelcomeComponent
+        component: WelcomeComponent,
+        data: { animation: 'WelcomePage' }
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { animation: 'LoginPage' }
       },
       {
         path: 'cadastrar',
-        component: RegisterComponent
+        component: RegisterComponent,
+        data: { animation: 'RegisterPage' }
+      },
+      {
+        path: 'nova-senha/:token',
+        component: NewPasswordComponent,
+        data: { animation: 'NewPassword' }
       },
     ]
   },
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
-  // { path: '**', component: NotFoundComponent }
+  { path: 'recuperar-senha', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];

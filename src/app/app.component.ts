@@ -10,7 +10,7 @@ import { ButtonComponent } from './shared/components/button/button.component';
   standalone: true,
   imports: [CommonModule, RouterOutlet, AuthComponent, NotFoundComponent, ButtonComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'director';
