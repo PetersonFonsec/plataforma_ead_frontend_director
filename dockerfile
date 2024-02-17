@@ -1,5 +1,19 @@
-FROM node:20
+FROM node:20-alpine as angular
 
-WORKDIR /home/node/app
+WORKDIR /app
 
-CMD ["tail", "-f", "/dev/null"]
+COPY package.json /app
+
+RUN npm install --silent
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:alpine
+
+VOLUME /var/cache/nginx
+
+COPY --from=angular app/dist/director/browser /usr/share/nginx/html
+
+COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf

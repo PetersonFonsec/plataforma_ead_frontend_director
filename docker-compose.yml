@@ -1,0 +1,8 @@
+version: "3.3"
+
+services:
+  front-director:
+    image: front-director
+    build: .
+    ports:
+      - 8081:80
