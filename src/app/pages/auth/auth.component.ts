@@ -24,4 +24,5 @@ import { fadeAnimation } from '../../shared/animations/fade/fade.animation';
   ]
 })
 export class AuthComponent {
+  logo = "";
 }
