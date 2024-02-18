@@ -28,12 +28,17 @@ jobs:
     - name: Build application
       run: npm run build
       
-    # - name: Build the Docker image
-    #   run: docker build . --file Dockerfile --tag front-director:$(date +%s)
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag front-director:$(date +%s)
       
-    # - name: Build-DB
-    #   run: docker-compose build
+    - name: Build-DB
+      run: docker-compose build
       
-    # - name: start docker
-    #   run: docker-compose up -d
+    - name: start docker
+      run: docker-compose up -d
 
