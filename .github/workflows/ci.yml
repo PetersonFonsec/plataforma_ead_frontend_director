@@ -10,5 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag front-director:$(date +%s)
+      
+    # - name: Build-DB
+    #   run: docker-compose build
+      
+    - name: start docker
+      run: docker-compose up -d
+
+    - name: Test application
+      run: npm run test
+      
+    - name: Build application
+      run: npm run build
