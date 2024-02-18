@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { InputTextComponent } from '../input-text/input-text.component';
-import { SelectOptionsFilterPipe } from '../../pipes/select-options-filter/select-options-filter.pipe';
 
 export interface ISelectOptions {
   value: string;
@@ -12,7 +11,6 @@ export interface ISelectOptions {
 @Component({
   selector: 'app-select',
   standalone: true,
-  viewProviders: [SelectOptionsFilterPipe],
   imports: [CommonModule, FormsModule, InputTextComponent],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
