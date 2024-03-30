@@ -33,14 +33,13 @@ jobs:
   storybook:
     needs: build
     runs-on: ubuntu-latest
-    name: Deploying to surge
+    
     strategy:
       matrix:
         node_version: ['18', '>=20']
     
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node_version}}
           
