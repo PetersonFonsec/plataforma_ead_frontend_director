@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { ButtonColors, ButtonComponent } from './button.component';
+import { ButtonComponent } from './button.component';
 import { argsToTemplate } from '@storybook/angular';
 
 type ButtonStory = ButtonComponent & { label?: string };

@@ -2,6 +2,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { NgClass } from '@angular/common';
 
+export enum InputTextTypes {
+  password = "password",
+  text = "text"
+}
+
 @Component({
   selector: 'app-input-text',
   standalone: true,
@@ -18,10 +23,11 @@ import { NgClass } from '@angular/common';
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = '';
+  @Input() success = false;
   @Input() error = false;
   @Input() label = '';
   @Input() id = '';
-  @Input() type = 'text';
+  @Input() type: InputTextTypes = InputTextTypes.text;
   val = '';
 
   ngOnInit(): void { }

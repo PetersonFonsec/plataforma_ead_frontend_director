@@ -213,7 +213,7 @@
         },
         {
             "name": "AvatarComponent",
-            "id": "component-AvatarComponent-ad58d23546ba9aacda618400523d9449ad6aebcd0ff50b75606b9a2158f0049feaed78b9a982db3f0e3cbf5b56a642f73511847b3d6565c6dd396c311f575c3f",
+            "id": "component-AvatarComponent-c1a2a07bbad6cffd9029983285045d53ff8245de32ee7280e5a7a490e3c996a81da7e93a21884f8baeb0041299bb199d6d99ee2cc833600aae54ebbb071d8f2e",
             "file": "src/app/shared/components/avatar/avatar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -234,7 +234,7 @@
                     "defaultValue": "\"\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 18,
                     "type": "string",
                     "decorators": []
                 },
@@ -243,7 +243,7 @@
                     "defaultValue": "\"\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
@@ -252,17 +252,17 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 20,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "size",
-                    "defaultValue": "\"sm\"",
+                    "defaultValue": "AvatarSizeParam.small",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "\"sm\" | \"md\" | \"lg\"",
+                    "line": 21,
+                    "type": "AvatarSizeParam",
                     "decorators": []
                 },
                 {
@@ -270,7 +270,7 @@
                     "defaultValue": "\"\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 17,
                     "type": "string",
                     "decorators": []
                 }
@@ -291,7 +291,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-avatar',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './avatar.component.html',\n  styleUrl: './avatar.component.scss'\n})\nexport class AvatarComponent {\n  @Input() src = \"\";\n  @Input() alt = \"\";\n  @Input() id = \"\";\n  @Input() loading = true;\n  @Input() size: \"sm\" | \"md\" | \"lg\" = \"sm\";\n}\n",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport { Component, Input } from '@angular/core';\n\nexport enum AvatarSizeParam {\n  \"small\" = \"sm\",\n  \"medium\" = \"md\",\n  \"large\" = \"lg\"\n}\n@Component({\n  selector: 'app-avatar',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './avatar.component.html',\n  styleUrl: './avatar.component.scss'\n})\nexport class AvatarComponent {\n  @Input() src = \"\";\n  @Input() alt = \"\";\n  @Input() id = \"\";\n  @Input() loading = true;\n  @Input() size: AvatarSizeParam = AvatarSizeParam.small;\n}\n",
             "styleUrl": "./avatar.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1882,6 +1882,16 @@
                 "defaultValue": "trigger('fade', [\r\n  transition('* <=> *', [\r\n    query(':enter', [\r\n      style({ opacity: 0 }),\r\n      stagger(30, [\r\n        animate('300ms ease-in', style({ opacity: 1 })),\r\n      ])\r\n    ]),\r\n  ])\r\n])"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/components/input-color/input-color.story.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputColorStory>",
+                "defaultValue": "{\r\n  component: InputColorComponent,\r\n  render: ({ label, ...args }) => ({\r\n    props: args,\r\n    template: `\r\n    <app-input-color ${argsToTemplate(args)}>\r\n    </app-input-color>`,\r\n  }),\r\n\r\n}"
+            },
+            {
                 "name": "optional",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1890,6 +1900,16 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{ optional: true }"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/components/input-color/input-color.story.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: \"Peterson\",\r\n  },\r\n}"
             }
         ],
         "functions": [
@@ -1991,6 +2011,17 @@
                 "kind": 184
             },
             {
+                "name": "InputColorStory",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "InputColorComponent",
+                "file": "src/app/shared/components/input-color/input-color.story.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
                 "name": "Method",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -2000,6 +2031,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputColorStory>",
+                "file": "src/app/shared/components/input-color/input-color.story.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             },
             {
                 "name": "UnboxPromise",
@@ -2014,6 +2056,35 @@
             }
         ],
         "enumerations": [
+            {
+                "name": "AvatarSizeParam",
+                "childs": [
+                    {
+                        "name": "small",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "sm"
+                    },
+                    {
+                        "name": "medium",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "md"
+                    },
+                    {
+                        "name": "large",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "lg"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/components/avatar/avatar.component.ts"
+            },
             {
                 "name": "ButtonColors",
                 "childs": [
@@ -2094,6 +2165,28 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{ optional: true }"
+                }
+            ],
+            "src/app/shared/components/input-color/input-color.story.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/components/input-color/input-color.story.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputColorStory>",
+                    "defaultValue": "{\r\n  component: InputColorComponent,\r\n  render: ({ label, ...args }) => ({\r\n    props: args,\r\n    template: `\r\n    <app-input-color ${argsToTemplate(args)}>\r\n    </app-input-color>`,\r\n  }),\r\n\r\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/components/input-color/input-color.story.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: \"Peterson\",\r\n  },\r\n}"
                 }
             ]
         },
@@ -2177,6 +2270,37 @@
             ]
         },
         "groupedEnumerations": {
+            "src/app/shared/components/avatar/avatar.component.ts": [
+                {
+                    "name": "AvatarSizeParam",
+                    "childs": [
+                        {
+                            "name": "small",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "sm"
+                        },
+                        {
+                            "name": "medium",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "md"
+                        },
+                        {
+                            "name": "large",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "lg"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/components/avatar/avatar.component.ts"
+                }
+            ],
             "src/app/shared/components/button/button.component.ts": [
                 {
                     "name": "ButtonColors",
@@ -2271,6 +2395,30 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 194
+                }
+            ],
+            "src/app/shared/components/input-color/input-color.story.ts": [
+                {
+                    "name": "InputColorStory",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "InputColorComponent",
+                    "file": "src/app/shared/components/input-color/input-color.story.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputColorStory>",
+                    "file": "src/app/shared/components/input-color/input-color.story.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
                 }
             ]
         }
@@ -2407,6 +2555,26 @@
                 "name": "InputColorComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/components/input-color/input-color.story.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/components/input-color/input-color.story.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
