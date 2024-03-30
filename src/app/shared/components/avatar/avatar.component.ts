@@ -1,6 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
+export enum AvatarSizeParam {
+  "small" = "sm",
+  "medium" = "md",
+  "large" = "lg"
+}
 @Component({
   selector: 'app-avatar',
   standalone: true,
@@ -13,5 +18,5 @@ export class AvatarComponent {
   @Input() alt = "";
   @Input() id = "";
   @Input() loading = true;
-  @Input() size: "sm" | "md" | "lg" = "sm";
+  @Input() size: AvatarSizeParam = AvatarSizeParam.small;
 }
