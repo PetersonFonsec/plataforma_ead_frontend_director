@@ -39,15 +39,17 @@ jobs:
         node_version: ['18', '>=20']
     
     steps:
-      - uses: actions/checkout@v3
-        with:
-          node-version: ${{matrix.node_version}}
+    - uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{matrix.node_version}}
           
-      - name: Install Surge
-      - run: npm install -g surge
-      
-      - name: Deployment storybook to Surge
-      - run: surge ./storybook-static ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+    - name: Install Surge
+    - run: npm install -g surge
+    
+    - name: Deployment storybook to Surge
+    - run: surge ./storybook-static ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
   docker:
     needs: build
     runs-on: ubuntu-latest
