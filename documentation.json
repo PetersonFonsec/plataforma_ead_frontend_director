@@ -624,7 +624,7 @@
         },
         {
             "name": "InputTextComponent",
-            "id": "component-InputTextComponent-fabe327aa1b56d1235ccf63c04460a04995f23f154db8b51c412e5f77d6811501cd3cee9a415adadf4c55a3ca1df94a4504e08892ff8bd6d06089243796e4da7",
+            "id": "component-InputTextComponent-d044e118225cefba5498b9ab351ba1b975b07109c156a05d2e3d07cd787e7a2e8325e9d8b2f3b906c822fb2911eef2e153995a9e9aa7bf92daa73b0af1fa00d5",
             "file": "src/app/shared/components/input-text/input-text.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -650,7 +650,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 27,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -659,7 +659,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 29,
                     "type": "string",
                     "decorators": []
                 },
@@ -668,7 +668,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 28,
                     "type": "string",
                     "decorators": []
                 },
@@ -677,17 +677,26 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 },
                 {
-                    "name": "type",
-                    "defaultValue": "'text'",
+                    "name": "success",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
-                    "type": "string",
+                    "line": 26,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "InputTextTypes.text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "InputTextTypes",
                     "decorators": []
                 }
             ],
@@ -701,7 +710,7 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 29
+                    "line": 35
                 },
                 {
                     "name": "onTouched",
@@ -711,7 +720,7 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 31
+                    "line": 37
                 },
                 {
                     "name": "val",
@@ -721,7 +730,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 31
                 }
             ],
             "methodsClass": [
@@ -731,7 +740,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -741,7 +750,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -758,7 +767,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -786,7 +795,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -814,7 +823,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -847,7 +856,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';\nimport { Component, Input, OnInit, forwardRef } from '@angular/core';\nimport { NgClass } from '@angular/common';\n\n@Component({\n  selector: 'app-input-text',\n  standalone: true,\n  imports: [FormsModule, NgClass],\n  templateUrl: './input-text.component.html',\n  styleUrl: './input-text.component.scss',\n  providers: [\n    {\n      multi: true,\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => InputTextComponent),\n    },\n  ],\n})\nexport class InputTextComponent implements OnInit, ControlValueAccessor {\n  @Input() placeholder = '';\n  @Input() error = false;\n  @Input() label = '';\n  @Input() id = '';\n  @Input() type = 'text';\n  val = '';\n\n  ngOnInit(): void { }\n\n  onChange: any = () => { };\n\n  onTouched: any = () => { };\n\n  get value() {\n    return this.val;\n  }\n\n  set value(val) {\n    if (val !== undefined && val !== null) {\n      this.val = val;\n      this.onChange(val);\n      this.onTouched(val);\n    }\n  }\n\n  onBlur() { }\n\n  writeValue(value: any) {\n    this.value = value;\n  }\n\n  registerOnChange(fn: any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';\nimport { Component, Input, OnInit, forwardRef } from '@angular/core';\nimport { NgClass } from '@angular/common';\n\nexport enum InputTextTypes {\n  password = \"password\",\n  text = \"text\"\n}\n\n@Component({\n  selector: 'app-input-text',\n  standalone: true,\n  imports: [FormsModule, NgClass],\n  templateUrl: './input-text.component.html',\n  styleUrl: './input-text.component.scss',\n  providers: [\n    {\n      multi: true,\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => InputTextComponent),\n    },\n  ],\n})\nexport class InputTextComponent implements OnInit, ControlValueAccessor {\n  @Input() placeholder = '';\n  @Input() success = false;\n  @Input() error = false;\n  @Input() label = '';\n  @Input() id = '';\n  @Input() type: InputTextTypes = InputTextTypes.text;\n  val = '';\n\n  ngOnInit(): void { }\n\n  onChange: any = () => { };\n\n  onTouched: any = () => { };\n\n  get value() {\n    return this.val;\n  }\n\n  set value(val) {\n    if (val !== undefined && val !== null) {\n      this.val = val;\n      this.onChange(val);\n      this.onTouched(val);\n    }\n  }\n\n  onBlur() { }\n\n  writeValue(value: any) {\n    this.value = value;\n  }\n\n  registerOnChange(fn: any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any) {\n    this.onTouched = fn;\n  }\n}\n",
             "styleUrl": "./input-text.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -874,7 +883,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 37,
+                        "line": 43,
                         "jsdoctags": [
                             {
                                 "name": "val",
@@ -891,11 +900,11 @@
                         "name": "value",
                         "type": "",
                         "returnType": "",
-                        "line": 33
+                        "line": 39
                     }
                 }
             },
-            "templateData": "<div class=\"input-text\" [ngClass]=\"{ 'has-error': error, success: error }\">\n  <div class=\"input-text_header\">\n    <label [for]=\"id\">{{ label }}</label>\n\n    <div class=\"input-text_header_right\">\n      <ng-content select=\"[right]\"></ng-content>\n    </div>\n  </div>\n\n  <input\n    [(ngModel)]=\"value\"\n    [id]=\"id\"\n    [name]=\"id\"\n    [type]=\"type\"\n    [placeholder]=\"placeholder\"\n  />\n</div>\n"
+            "templateData": "<div class=\"input-text\" [ngClass]=\"{ 'has-error': error, success: success }\">\n  <div class=\"input-text_header\">\n    <label [for]=\"id\">{{ label }}</label>\n\n    <div class=\"input-text_header_right\">\n      <ng-content select=\"[right]\"></ng-content>\n    </div>\n  </div>\n\n  <input\n    [(ngModel)]=\"value\"\n    [id]=\"id\"\n    [name]=\"id\"\n    [type]=\"type\"\n    [placeholder]=\"placeholder\"\n  />\n</div>\n"
         },
         {
             "name": "InputUploadComponent",
@@ -1882,16 +1891,6 @@
                 "defaultValue": "trigger('fade', [\r\n  transition('* <=> *', [\r\n    query(':enter', [\r\n      style({ opacity: 0 }),\r\n      stagger(30, [\r\n        animate('300ms ease-in', style({ opacity: 1 })),\r\n      ])\r\n    ]),\r\n  ])\r\n])"
             },
             {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/shared/components/input-color/input-color.story.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<InputColorStory>",
-                "defaultValue": "{\r\n  component: InputColorComponent,\r\n  render: ({ label, ...args }) => ({\r\n    props: args,\r\n    template: `\r\n    <app-input-color ${argsToTemplate(args)}>\r\n    </app-input-color>`,\r\n  }),\r\n\r\n}"
-            },
-            {
                 "name": "optional",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1900,16 +1899,6 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{ optional: true }"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/shared/components/input-color/input-color.story.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: \"Peterson\",\r\n  },\r\n}"
             }
         ],
         "functions": [
@@ -2011,17 +2000,6 @@
                 "kind": 184
             },
             {
-                "name": "InputColorStory",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "InputColorComponent",
-                "file": "src/app/shared/components/input-color/input-color.story.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
                 "name": "Method",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
@@ -2031,17 +2009,6 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<InputColorStory>",
-                "file": "src/app/shared/components/input-color/input-color.story.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
             },
             {
                 "name": "UnboxPromise",
@@ -2130,6 +2097,29 @@
                 "deprecationMessage": "",
                 "description": "",
                 "file": "src/app/shared/components/button/button.component.ts"
+            },
+            {
+                "name": "InputTextTypes",
+                "childs": [
+                    {
+                        "name": "password",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "password"
+                    },
+                    {
+                        "name": "text",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "text"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/components/input-text/input-text.component.ts"
             }
         ],
         "groupedVariables": {
@@ -2165,28 +2155,6 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{ optional: true }"
-                }
-            ],
-            "src/app/shared/components/input-color/input-color.story.ts": [
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/components/input-color/input-color.story.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<InputColorStory>",
-                    "defaultValue": "{\r\n  component: InputColorComponent,\r\n  render: ({ label, ...args }) => ({\r\n    props: args,\r\n    template: `\r\n    <app-input-color ${argsToTemplate(args)}>\r\n    </app-input-color>`,\r\n  }),\r\n\r\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/components/input-color/input-color.story.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: \"Peterson\",\r\n  },\r\n}"
                 }
             ]
         },
@@ -2348,6 +2316,31 @@
                     "description": "",
                     "file": "src/app/shared/components/button/button.component.ts"
                 }
+            ],
+            "src/app/shared/components/input-text/input-text.component.ts": [
+                {
+                    "name": "InputTextTypes",
+                    "childs": [
+                        {
+                            "name": "password",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "password"
+                        },
+                        {
+                            "name": "text",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "text"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/components/input-text/input-text.component.ts"
+                }
             ]
         },
         "groupedTypeAliases": {
@@ -2395,30 +2388,6 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 194
-                }
-            ],
-            "src/app/shared/components/input-color/input-color.story.ts": [
-                {
-                    "name": "InputColorStory",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "InputColorComponent",
-                    "file": "src/app/shared/components/input-color/input-color.story.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                },
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<InputColorStory>",
-                    "file": "src/app/shared/components/input-color/input-color.story.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
                 }
             ]
         }
@@ -2558,32 +2527,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/components/input-color/input-color.story.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/shared/components/input-color/input-color.story.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/shared/components/input-text/input-text.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputTextComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
