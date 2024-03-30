@@ -17,7 +17,7 @@ export enum ButtonSize {
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-  @Input() color: ButtonColors = ButtonColors.primary;
-  @Input() size: ButtonSize = ButtonSize.medium;
+  @Input() color = "primary";
+  @Input() size = "medium";
   @Input() disabled = false;
 }

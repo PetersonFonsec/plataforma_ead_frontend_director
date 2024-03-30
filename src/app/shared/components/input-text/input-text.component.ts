@@ -27,7 +27,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() error = false;
   @Input() label = '';
   @Input() id = '';
-  @Input() type: InputTextTypes = InputTextTypes.text;
+  @Input() type = "text";
   val = '';
 
   ngOnInit(): void { }
