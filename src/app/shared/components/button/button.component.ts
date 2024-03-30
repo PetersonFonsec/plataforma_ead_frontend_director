@@ -1,5 +1,14 @@
 import { Component, Input } from '@angular/core';
 
+export enum ButtonColors {
+  "primary" = "primary",
+  "secundary" = "secundary"
+}
+export enum ButtonSize {
+  "small" = "small",
+  "medium" = "medium"
+}
+
 @Component({
   selector: 'app-button',
   standalone: true,
@@ -8,7 +17,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-  @Input() color: "primary" | "secundary" = "primary";
-  @Input() size: "small" | "medium" = "medium";
+  @Input() color: ButtonColors = ButtonColors.primary;
+  @Input() size: ButtonSize = ButtonSize.medium;
   @Input() disabled = false;
 }
