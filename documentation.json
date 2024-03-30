@@ -301,7 +301,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-82fc52d1072f1b97949a4ca0979074853cf3a5f380d01a8e74012b303e10546d15affd9a73045f111486451423740b3691984c2d0a9de5891770bd9a18f56fe0",
+            "id": "component-ButtonComponent-062c728cd5d1cebed67e3771f8aabf3d151c806da13b96ff39f509d86fce6f3568a55dc8308fb032d11ee8581fdebec39881c057246b52aa7bfcd6807c680cee",
             "file": "src/app/shared/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -319,11 +319,11 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "defaultValue": "\"primary\"",
+                    "defaultValue": "ButtonColors.primary",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
-                    "type": "\"primary\" | \"secundary\"",
+                    "line": 20,
+                    "type": "ButtonColors",
                     "decorators": []
                 },
                 {
@@ -331,17 +331,17 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "size",
-                    "defaultValue": "\"medium\"",
+                    "defaultValue": "ButtonSize.medium",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
-                    "type": "\"small\" | \"medium\"",
+                    "line": 21,
+                    "type": "ButtonSize",
                     "decorators": []
                 }
             ],
@@ -357,7 +357,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss'\r\n})\r\nexport class ButtonComponent {\r\n  @Input() color: \"primary\" | \"secundary\" = \"primary\";\r\n  @Input() size: \"small\" | \"medium\" = \"medium\";\r\n  @Input() disabled = false;\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\nexport enum ButtonColors {\r\n  \"primary\" = \"primary\",\r\n  \"secundary\" = \"secundary\"\r\n}\r\nexport enum ButtonSize {\r\n  \"small\" = \"small\",\r\n  \"medium\" = \"medium\"\r\n}\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss'\r\n})\r\nexport class ButtonComponent {\r\n  @Input() color: ButtonColors = ButtonColors.primary;\r\n  @Input() size: ButtonSize = ButtonSize.medium;\r\n  @Input() disabled = false;\r\n}\r\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2013,7 +2013,54 @@
                 "kind": 194
             }
         ],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "ButtonColors",
+                "childs": [
+                    {
+                        "name": "primary",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "primary"
+                    },
+                    {
+                        "name": "secundary",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "secundary"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/components/button/button.component.ts"
+            },
+            {
+                "name": "ButtonSize",
+                "childs": [
+                    {
+                        "name": "small",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "small"
+                    },
+                    {
+                        "name": "medium",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "medium"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/components/button/button.component.ts"
+            }
+        ],
         "groupedVariables": {
             "src/app/app.config.ts": [
                 {
@@ -2129,7 +2176,56 @@
                 }
             ]
         },
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "src/app/shared/components/button/button.component.ts": [
+                {
+                    "name": "ButtonColors",
+                    "childs": [
+                        {
+                            "name": "primary",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "primary"
+                        },
+                        {
+                            "name": "secundary",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "secundary"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/components/button/button.component.ts"
+                },
+                {
+                    "name": "ButtonSize",
+                    "childs": [
+                        {
+                            "name": "small",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "small"
+                        },
+                        {
+                            "name": "medium",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "medium"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/components/button/button.component.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {
             "src/app/shared/decorators/debounce/debounce.model.ts": [
                 {
