@@ -27,7 +27,15 @@ jobs:
       
     - name: Build application
       run: npm run build
+
+    - name: Generate documentation with storybook
+      run: npm run build-storybook
       
+    - name: Install Surge
+    - run: npm install -g surge
+
+    - name: Deployment storybook bundle
+    - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
   docker:
     needs: build
     runs-on: ubuntu-latest
