@@ -19,5 +19,6 @@ export enum ButtonSize {
 export class ButtonComponent {
   @Input() color = "primary";
   @Input() size = "medium";
+  @Input({ transform: (value: string) => `${value}-button` }) id = "";
   @Input() disabled = false;
 }

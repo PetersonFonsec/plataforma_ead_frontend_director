@@ -6,6 +6,7 @@
       name="email"
       [required]="true"
       label="Email"
+      email
       type="text"
       placeholder="Informe o seu email"
     ></app-input-text>
@@ -15,6 +16,7 @@
       [(ngModel)]="payload.password"
       id="password"
       type="password"
+      [required]="true"
       label="Senha"
       placeholder="Informe a sua senha"
     ></app-input-text>
@@ -24,6 +26,7 @@
       [(ngModel)]="payload.confirm_password"
       id="confirm_password"
       type="password"
+      [required]="true"
       label="Confirme sua Senha"
       placeholder="Confirme sua senha"
     ></app-input-text>
@@ -39,11 +42,13 @@
     ></app-input-text>
   </form>
 
-  <a class="link" routerLink="../login">
+  <a class="link" id="register-login-link" routerLink="../login">
     Já tem uma conta ? <span>Entre!</span>
   </a>
 
   <div class="register-form-footer">
-    <app-button [disabled]="!!form.invalid"> Entrar </app-button>
+    <app-button id="register-submit" [disabled]="!!form.invalid">
+      Entrar
+    </app-button>
   </div>
 </div>
