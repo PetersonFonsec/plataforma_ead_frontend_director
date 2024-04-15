@@ -28,7 +28,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() success = false;
   @Input() error = false;
   @Input() label = '';
-  @Input() id = '';
+  @Input({ transform: (value: string) => `${value}-input` }) id = "";
   @Input() type = "text";
   @Input() mask = "";
   val = '';
