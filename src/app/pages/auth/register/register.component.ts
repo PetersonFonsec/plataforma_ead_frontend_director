@@ -1,12 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { Router, RouterLink } from '@angular/router';
-import { InputTextComponent } from '../../../shared/components/input-text/input-text.component';
+
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth/auth.service';
-import { ErrorDefault } from '../../../shared/interfaces/error.model';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+
+import { InputTextComponent } from '../../../shared/components/input-text/input-text.component';
 import { AlertComponent, AlertTypes } from '../../../shared/components/alert/alert.component';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { ErrorDefault } from '../../../shared/interfaces/error.model';
+import { AuthService } from '../services/auth/auth.service';
 import { Roles } from '../../../shared/enums/roles.enum';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -35,8 +38,9 @@ export class RegisterComponent {
       next: () => {
         this.#router.navigateByUrl("/home")
       },
-      error: (error: ErrorDefault) => {
-        this.error = error.message
+      error: (error: HttpErrorResponse) => {
+        console.log(error)
+        this.error = error.error.message
       }
     })
   }

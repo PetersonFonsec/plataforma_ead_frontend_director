@@ -19,8 +19,8 @@ import { fadeAnimation } from '../../../shared/animations/fade/fade.animation';
 })
 export class LoginComponent {
   #authService = inject(AuthService);
-  #router = inject(Router);
   alertType = AlertTypes.error;
+  #router = inject(Router);
   error = ""
 
   payload = {
