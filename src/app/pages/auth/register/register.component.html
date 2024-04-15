@@ -1,5 +1,15 @@
 <div class="register">
-  <form #form="ngForm" class="register-form">
+  <form #form="ngForm" (ngSubmit)="submit()" class="register-form">
+    <app-input-text
+      [(ngModel)]="payload.name"
+      id="name"
+      name="name"
+      [required]="true"
+      label="Nome"
+      type="text"
+      placeholder="Informe o seu nome"
+    ></app-input-text>
+
     <app-input-text
       [(ngModel)]="payload.email"
       id="email"
@@ -32,7 +42,7 @@
     ></app-input-text>
 
     <app-input-text
-      [(ngModel)]="payload.document_number"
+      [(ngModel)]="payload.documentNumber"
       id="document_number"
       name="document_number"
       [required]="true"
@@ -40,15 +50,19 @@
       type="text"
       placeholder="Informe o seu email"
     ></app-input-text>
+
+    <a class="link" id="register-login-link" routerLink="../login">
+      Já tem uma conta ? <span>Entre!</span>
+    </a>
+
+    <div class="register-form-footer">
+      <app-button id="register-submit" [disabled]="!!form.invalid">
+        Entrar
+      </app-button>
+    </div>
   </form>
 
-  <a class="link" id="register-login-link" routerLink="../login">
-    Já tem uma conta ? <span>Entre!</span>
-  </a>
-
-  <div class="register-form-footer">
-    <app-button id="register-submit" [disabled]="!!form.invalid">
-      Entrar
-    </app-button>
-  </div>
+  @if (error) {
+    <alert @fade [type]="alertType"> {{ error }} </alert>
+  }
 </div>

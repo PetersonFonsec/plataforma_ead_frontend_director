@@ -13,6 +13,7 @@ export interface LoginResponse {
 }
 
 export interface RegisterRequest {
+  confirm_password: string,
   documentNumber: string,
   password: string,
   email: string,

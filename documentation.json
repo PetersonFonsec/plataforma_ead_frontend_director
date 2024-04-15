@@ -66,17 +66,203 @@
             "kind": 171,
             "methods": [],
             "extends": []
+        },
+        {
+            "name": "LoginRequest",
+            "id": "interface-LoginRequest-fe274a331b6a510cc392eda86aee7015320bcd47aea4c4f1e6d02a2591a58807c5ad63e25d3312914f4ea27575c94d3e4902133e004b549beffe35833d4ce458",
+            "file": "src/app/pages/auth/services/auth/auth.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface LoginRequest {\r\n  email: string,\r\n  password: string\r\n}\r\n\r\nexport interface LoginResponse {\r\n  email: string,\r\n  password: string\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "password",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "LoginResponse",
+            "id": "interface-LoginResponse-fe274a331b6a510cc392eda86aee7015320bcd47aea4c4f1e6d02a2591a58807c5ad63e25d3312914f4ea27575c94d3e4902133e004b549beffe35833d4ce458",
+            "file": "src/app/pages/auth/services/auth/auth.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface LoginRequest {\r\n  email: string,\r\n  password: string\r\n}\r\n\r\nexport interface LoginResponse {\r\n  email: string,\r\n  password: string\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "password",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
         }
     ],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "AuthService",
+            "id": "injectable-AuthService-e2ec878e7bf919e5948b1c67e7916b2a37d7ff17a1e045ecbb00598a38264f1e47458e46709ff226e5665ff0997823363f8a38fd12820f88a913effd832b858c",
+            "file": "src/app/pages/auth/services/auth/auth.service.ts",
+            "properties": [
+                {
+                    "name": "#http",
+                    "defaultValue": "inject(HttpClient)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "type": "LoginRequest",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<LoginResponse>",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "type": "LoginRequest",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { HttpClient } from '@angular/common/http';\nimport { Injectable, inject } from '@angular/core';\nimport { Observable } from 'rxjs';\n\nimport { LoginRequest, LoginResponse } from './auth.model';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n  #http = inject(HttpClient)\n\n  login({ email, password }: LoginRequest): Observable<LoginResponse> {\n    return this.#http.post<LoginResponse>(\"http://localhost:3000/\", { email, password })\n  }\n}\n",
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
     "classes": [],
     "directives": [],
     "components": [
         {
+            "name": "AlertComponent",
+            "id": "component-AlertComponent-42bb90b94e25fa809b11e72432bd32388806d001d03704966deb7952f76c9533e35a6852de65ea1cd4c9dfee541ca187a95e3ca5d161739f8f99adcfb830e1b8",
+            "file": "src/app/shared/components/alert/alert.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "alert",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./alert.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "type",
+                    "defaultValue": "AlertTypes.error",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "AlertTypes",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FontAwesomeModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FontAwesomeModule } from '@fortawesome/angular-fontawesome';\nimport { faInfoCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';\n\nexport enum AlertTypes {\n  error = \"error\",\n  warning = \"warning\",\n  success = \"success\",\n  info = \"info\"\n}\n\n@Component({\n  selector: 'alert',\n  standalone: true,\n  imports: [FontAwesomeModule],\n  templateUrl: './alert.component.html',\n  styleUrl: './alert.component.scss'\n})\nexport class AlertComponent {\n  @Input() type: AlertTypes = AlertTypes.error\n\n  get icon() {\n    return this.type != AlertTypes.success ? faInfoCircle : faCheckCircle\n  };\n}\n",
+            "styleUrl": "./alert.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "icon": {
+                    "name": "icon",
+                    "getSignature": {
+                        "name": "icon",
+                        "type": "",
+                        "returnType": "",
+                        "line": 22
+                    }
+                }
+            },
+            "templateData": "<div role=\"alert\" class=\"alert alert-{{ type }}\">\n  <fa-icon class=\"alert-icon\" [icon]=\"icon\"></fa-icon>\n  <ng-content></ng-content>\n</div>\n"
+        },
+        {
             "name": "AppComponent",
-            "id": "component-AppComponent-95bde1efa7ec1a98c60d7c9580f0be2fe4fccdafd00868ac98eb210cf82b89812eb8020a8ec68e77e9e0bfad725fa263f4634be71c71223abb7f81d097da6d8d",
+            "id": "component-AppComponent-b0640d5211604e5dc08bcf7ab2efab833ed254b7ed6c8dec1195e58924071ebb9803ad1b6756b567bcf6c0f5cf04315ab83d14119d882f319e6c835f1853ff3e",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -135,17 +321,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { AuthComponent } from './pages/auth/auth.component';\r\nimport { NotFoundComponent } from './pages/not-found/not-found.component';\r\nimport { ButtonComponent } from './shared/components/button/button.component';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [CommonModule, RouterOutlet, AuthComponent, NotFoundComponent, ButtonComponent],\r\n  templateUrl: './app.component.html',\r\n  styleUrl: './app.component.scss',\r\n})\r\nexport class AppComponent {\r\n  title = 'director';\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterOutlet } from '@angular/router';\nimport { AuthComponent } from './pages/auth/auth.component';\nimport { NotFoundComponent } from './pages/not-found/not-found.component';\nimport { ButtonComponent } from './shared/components/button/button.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, AuthComponent, NotFoundComponent, ButtonComponent],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'director';\n}\n",
             "styleUrl": "./app.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<router-outlet></router-outlet>\r\n"
+            "templateData": "<router-outlet></router-outlet>\n"
         },
         {
             "name": "AuthComponent",
-            "id": "component-AuthComponent-0871a54ba316c3d291aba58653f32b09be78750f9baee37fc9e3fccb6527a64e8b8b523fd0d88bd23481520c58979be0799598e4bf7cbc61aa23b0862899cfcf",
+            "id": "component-AuthComponent-1ae2f99ab8747b5bad14703f5a121685650949ff024b2dec47ffed2f201b57c1603184feb6d961b4bc3640a44ec33e95ae5be8c63edfb1d348b60b242bec2071",
             "file": "src/app/pages/auth/auth.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -203,13 +389,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { NgOptimizedImage } from '@angular/common';\r\n\r\nimport { LoginComponent } from './login/login.component';\r\nimport { RegisterComponent } from './register/register.component';\r\n\r\nimport { ButtonComponent } from '../../shared/components/button/button.component';\r\nimport { fadeAnimation } from '../../shared/animations/fade/fade.animation';\r\n@Component({\r\n  selector: 'app-auth',\r\n  standalone: true,\r\n  imports: [\r\n    RouterOutlet,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n    NgOptimizedImage,\r\n    ButtonComponent,\r\n  ],\r\n  templateUrl: './auth.component.html',\r\n  styleUrl: './auth.component.scss',\r\n  animations: [\r\n    fadeAnimation\r\n  ]\r\n})\r\nexport class AuthComponent {\r\n  logo = \"\";\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport { NgOptimizedImage } from '@angular/common';\n\nimport { LoginComponent } from './login/login.component';\nimport { RegisterComponent } from './register/register.component';\n\nimport { ButtonComponent } from '../../shared/components/button/button.component';\nimport { fadeAnimation } from '../../shared/animations/fade/fade.animation';\n@Component({\n  selector: 'app-auth',\n  standalone: true,\n  imports: [\n    RouterOutlet,\n    LoginComponent,\n    RegisterComponent,\n    NgOptimizedImage,\n    ButtonComponent,\n  ],\n  templateUrl: './auth.component.html',\n  styleUrl: './auth.component.scss',\n  animations: [\n    fadeAnimation\n  ]\n})\nexport class AuthComponent {\n  logo = \"\";\n}\n",
             "styleUrl": "./auth.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<main class=\"auth\">\r\n  @if(logo){\r\n  <header class=\"auth-header\">\r\n    <img\r\n      src=\"/assets/ilustrations/celular-lg.png\"\r\n      alt=\"ilustração de dois jovens em volta de um smartfone\"\r\n      priority\r\n      fetchpriority=\"high\"\r\n    />\r\n  </header>\r\n  }\r\n  <div class=\"auth-image\">\r\n    <picture>\r\n      <source\r\n        srcset=\"/assets/ilustrations/celular-sm.png\"\r\n        media=\"(max-width: 768px)\"\r\n      />\r\n      <img\r\n        src=\"/assets/ilustrations/celular-lg.png\"\r\n        alt=\"ilustração de dois jovens em volta de um smartfone\"\r\n        priority\r\n        fetchpriority=\"high\"\r\n      />\r\n    </picture>\r\n  </div>\r\n  <div class=\"auth-route\">\r\n    <div [@fade]=\"outlet.isActivated ? outlet.activatedRoute : ''\">\r\n      <router-outlet #outlet=\"outlet\"></router-outlet>\r\n    </div>\r\n  </div>\r\n</main>\r\n"
+            "templateData": "<main class=\"auth\">\n  @if(logo){\n  <header class=\"auth-header\">\n    <img\n      src=\"/assets/ilustrations/celular-lg.png\"\n      alt=\"ilustração de dois jovens em volta de um smartfone\"\n      priority\n      fetchpriority=\"high\"\n    />\n  </header>\n  }\n  <div class=\"auth-image\">\n    <picture>\n      <source\n        srcset=\"/assets/ilustrations/celular-sm.png\"\n        media=\"(max-width: 768px)\"\n      />\n      <img\n        src=\"/assets/ilustrations/celular-lg.png\"\n        alt=\"ilustração de dois jovens em volta de um smartfone\"\n        priority\n        fetchpriority=\"high\"\n      />\n    </picture>\n  </div>\n  <div class=\"auth-route\">\n    <div [@fade]=\"outlet.isActivated ? outlet.activatedRoute : ''\">\n      <router-outlet #outlet=\"outlet\"></router-outlet>\n    </div>\n  </div>\n</main>\n"
         },
         {
             "name": "AvatarComponent",
@@ -301,7 +487,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-062c728cd5d1cebed67e3771f8aabf3d151c806da13b96ff39f509d86fce6f3568a55dc8308fb032d11ee8581fdebec39881c057246b52aa7bfcd6807c680cee",
+            "id": "component-ButtonComponent-605c8829e1b3ce9696078989a3b2e118addfdcc4b4137e4fa7a748c2023444391c9581a287251cc9dc0c5f921f8cf92d747fdf6b4379dfe1c63390c54d81b0d2",
             "file": "src/app/shared/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -319,11 +505,11 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "defaultValue": "ButtonColors.primary",
+                    "defaultValue": "\"primary\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 20,
-                    "type": "ButtonColors",
+                    "type": "string",
                     "decorators": []
                 },
                 {
@@ -331,17 +517,27 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
+                    "required": false,
+                    "name": "id",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
                     "name": "size",
-                    "defaultValue": "ButtonSize.medium",
+                    "defaultValue": "\"medium\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 21,
-                    "type": "ButtonSize",
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -357,13 +553,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\nexport enum ButtonColors {\r\n  \"primary\" = \"primary\",\r\n  \"secundary\" = \"secundary\"\r\n}\r\nexport enum ButtonSize {\r\n  \"small\" = \"small\",\r\n  \"medium\" = \"medium\"\r\n}\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss'\r\n})\r\nexport class ButtonComponent {\r\n  @Input() color: ButtonColors = ButtonColors.primary;\r\n  @Input() size: ButtonSize = ButtonSize.medium;\r\n  @Input() disabled = false;\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\nexport enum ButtonColors {\r\n  \"primary\" = \"primary\",\r\n  \"secundary\" = \"secundary\"\r\n}\r\nexport enum ButtonSize {\r\n  \"small\" = \"small\",\r\n  \"medium\" = \"medium\"\r\n}\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.scss'\r\n})\r\nexport class ButtonComponent {\r\n  @Input() color = \"primary\";\r\n  @Input() size = \"medium\";\r\n  @Input({ transform: (value: string) => `${value}-button` }) id = \"\";\r\n  @Input() disabled = false;\r\n}\r\n",
             "styleUrl": "./button.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<button\n  [disabled]=\"disabled\"\n  class=\"button button--{{ color }} button--{{ size }}\"\n>\n  <ng-content></ng-content>\n</button>\n"
+            "templateData": "<button\r\n  [disabled]=\"disabled\"\r\n  id=\"{{ id }}\"\r\n  class=\"button button--{{ color }} button--{{ size }}\"\r\n>\r\n  <ng-content></ng-content>\r\n</button>\r\n"
         },
         {
             "name": "InputColorComponent",
@@ -624,7 +820,7 @@
         },
         {
             "name": "InputTextComponent",
-            "id": "component-InputTextComponent-d044e118225cefba5498b9ab351ba1b975b07109c156a05d2e3d07cd787e7a2e8325e9d8b2f3b906c822fb2911eef2e153995a9e9aa7bf92daa73b0af1fa00d5",
+            "id": "component-InputTextComponent-801fc3521a2f8ecf3762c18068fab8a7afa346aa2c97c80e76d813e827dfac6bc4fb72fd2fa4f8bd779de8384fbcb616bc44d0c8e20bad3f78577661a1835a60",
             "file": "src/app/shared/components/input-text/input-text.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -692,11 +888,11 @@
                 },
                 {
                     "name": "type",
-                    "defaultValue": "InputTextTypes.text",
+                    "defaultValue": "\"text\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 30,
-                    "type": "InputTextTypes",
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -856,7 +1052,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';\nimport { Component, Input, OnInit, forwardRef } from '@angular/core';\nimport { NgClass } from '@angular/common';\n\nexport enum InputTextTypes {\n  password = \"password\",\n  text = \"text\"\n}\n\n@Component({\n  selector: 'app-input-text',\n  standalone: true,\n  imports: [FormsModule, NgClass],\n  templateUrl: './input-text.component.html',\n  styleUrl: './input-text.component.scss',\n  providers: [\n    {\n      multi: true,\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => InputTextComponent),\n    },\n  ],\n})\nexport class InputTextComponent implements OnInit, ControlValueAccessor {\n  @Input() placeholder = '';\n  @Input() success = false;\n  @Input() error = false;\n  @Input() label = '';\n  @Input() id = '';\n  @Input() type: InputTextTypes = InputTextTypes.text;\n  val = '';\n\n  ngOnInit(): void { }\n\n  onChange: any = () => { };\n\n  onTouched: any = () => { };\n\n  get value() {\n    return this.val;\n  }\n\n  set value(val) {\n    if (val !== undefined && val !== null) {\n      this.val = val;\n      this.onChange(val);\n      this.onTouched(val);\n    }\n  }\n\n  onBlur() { }\n\n  writeValue(value: any) {\n    this.value = value;\n  }\n\n  registerOnChange(fn: any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';\nimport { Component, Input, OnInit, forwardRef } from '@angular/core';\nimport { NgClass } from '@angular/common';\n\nexport enum InputTextTypes {\n  password = \"password\",\n  text = \"text\"\n}\n\n@Component({\n  selector: 'app-input-text',\n  standalone: true,\n  imports: [FormsModule, NgClass],\n  templateUrl: './input-text.component.html',\n  styleUrl: './input-text.component.scss',\n  providers: [\n    {\n      multi: true,\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: forwardRef(() => InputTextComponent),\n    },\n  ],\n})\nexport class InputTextComponent implements OnInit, ControlValueAccessor {\n  @Input() placeholder = '';\n  @Input() success = false;\n  @Input() error = false;\n  @Input() label = '';\n  @Input() id = '';\n  @Input() type = \"text\";\n  val = '';\n\n  ngOnInit(): void { }\n\n  onChange: any = () => { };\n\n  onTouched: any = () => { };\n\n  get value() {\n    return this.val;\n  }\n\n  set value(val) {\n    if (val !== undefined && val !== null) {\n      this.val = val;\n      this.onChange(val);\n      this.onTouched(val);\n    }\n  }\n\n  onBlur() { }\n\n  writeValue(value: any) {\n    this.value = value;\n  }\n\n  registerOnChange(fn: any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn: any) {\n    this.onTouched = fn;\n  }\n}\n",
             "styleUrl": "./input-text.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1218,7 +1414,7 @@
         },
         {
             "name": "LoginComponent",
-            "id": "component-LoginComponent-60c841168597eeaf4020509677c839739e8829e26eb04770494302edec8821d0a6f3acc0286f47236ba81cb6339071beee1e56f9e5253ed4c7b7bed0160ed90c",
+            "id": "component-LoginComponent-021b6ed1f7147393e65d3774772de1274ab263d0d7a4c9f5ed54b8f0052c321e39f62a4006ebc0546fd97e053729f3a91b227acb8e14334ce20dcdd2a3b74d02",
             "file": "src/app/pages/auth/login/login.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1237,14 +1433,50 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "payload",
-                    "defaultValue": "{\r\n    password: \"\",\r\n    email: \"\",\r\n  } as any",
+                    "name": "#authService",
+                    "defaultValue": "inject(AuthService)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 18,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "#router",
+                    "defaultValue": "inject(Router)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "alertType",
+                    "defaultValue": "AlertTypes.error",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "payload",
+                    "defaultValue": "{\n    password: \"\",\n    email: \"\",\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
                 }
             ],
             "methodsClass": [
@@ -1254,7 +1486,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1279,18 +1511,22 @@
                 {
                     "name": "FormsModule",
                     "type": "module"
+                },
+                {
+                    "name": "AlertComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterLink } from '@angular/router';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\r\nimport { InputTextComponent } from '../../../shared/components/input-text/input-text.component';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  standalone: true,\r\n  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule],\r\n  templateUrl: './login.component.html',\r\n  styleUrl: './login.component.scss'\r\n})\r\nexport class LoginComponent {\r\n  payload = {\r\n    password: \"\",\r\n    email: \"\",\r\n  } as any;\r\n\r\n  submit() {\r\n\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, inject } from '@angular/core';\nimport { Router, RouterLink } from '@angular/router';\nimport { FormsModule } from '@angular/forms';\n\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\nimport { InputTextComponent } from '../../../shared/components/input-text/input-text.component';\nimport { AuthService } from '../services/auth/auth.service';\nimport { AlertComponent, AlertTypes } from '../../../shared/components/alert/alert.component';\n\n@Component({\n  selector: 'app-login',\n  standalone: true,\n  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent],\n  templateUrl: './login.component.html',\n  styleUrl: './login.component.scss'\n})\nexport class LoginComponent {\n  #authService = inject(AuthService);\n  #router = inject(Router);\n  alertType = AlertTypes.error;\n\n  payload = {\n    password: \"\",\n    email: \"\",\n  };\n\n  submit() {\n    this.#authService.login(this.payload).subscribe({\n      next: () => {\n        this.#router.navigateByUrl(\"/home\")\n      },\n      error: (error) => {\n      }\n    })\n  }\n}\n",
             "styleUrl": "./login.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"login\">\r\n  <form #form=\"ngForm\" class=\"login-form\">\r\n    <app-input-text\r\n      [(ngModel)]=\"payload.email\"\r\n      id=\"email\"\r\n      name=\"email\"\r\n      [required]=\"true\"\r\n      label=\"Email\"\r\n      type=\"text\"\r\n      placeholder=\"Informe o seu email\"\r\n    ></app-input-text>\r\n\r\n    <app-input-text\r\n      name=\"password\"\r\n      [(ngModel)]=\"payload.password\"\r\n      id=\"password\"\r\n      type=\"password\"\r\n      [required]=\"true\"\r\n      label=\"Senha\"\r\n      placeholder=\"Informe a sua senha\"\r\n    ></app-input-text>\r\n  </form>\r\n\r\n  <a class=\"link\" routerLink=\"../recuperar-senha\">\r\n    Esqueceu a senha ? <span>Clique aqui.</span>\r\n  </a>\r\n\r\n  <a class=\"link\" routerLink=\"../cadastrar\">\r\n    Ainda não tem uma conta ? <span>Cadastre-se !</span>\r\n  </a>\r\n\r\n  <div class=\"login-form-footer\">\r\n    <app-button [disabled]=\"!!form.invalid\"> Entrar </app-button>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"login\">\n  <form #form=\"ngForm\" class=\"login-form\">\n    <app-input-text\n      [(ngModel)]=\"payload.email\"\n      id=\"email\"\n      name=\"email\"\n      [required]=\"true\"\n      label=\"Email\"\n      email\n      type=\"text\"\n      placeholder=\"Informe o seu email\"\n    ></app-input-text>\n\n    <app-input-text\n      name=\"password\"\n      [(ngModel)]=\"payload.password\"\n      id=\"password\"\n      type=\"password\"\n      [required]=\"true\"\n      label=\"Senha\"\n      placeholder=\"Informe a sua senha\"\n    ></app-input-text>\n\n    <a class=\"link\" id=\"login-forget-link\" routerLink=\"../recuperar-senha\">\n      Esqueceu a senha ? <span>Clique aqui.</span>\n    </a>\n\n    <a class=\"link\" id=\"login-register-link\" routerLink=\"../cadastrar\">\n      Ainda não tem uma conta ? <span>Cadastre-se !</span>\n    </a>\n\n    <div class=\"login-form-footer\">\n      <app-button id=\"login-submit\" [disabled]=\"!!form.invalid\">\n        Entrar\n      </app-button>\n    </div>\n  </form>\n\n  <alert> Error </alert>\n</div>\n"
         },
         {
             "name": "NewPasswordComponent",
@@ -1359,7 +1595,7 @@
         },
         {
             "name": "NotFoundComponent",
-            "id": "component-NotFoundComponent-43c1dd2e119e453c08aa38bd78d1c05ac3aa63658fa1fa2c5b1ddfe7e873117f4156bcde380e26809ca6ba301eac5ece744c6ac80959796c3d7a7c562e1a2cee",
+            "id": "component-NotFoundComponent-be249e0604f95154af9167def19d3979bcdd90dbded660d60052252df2531418895955b45f6703aae5dbffb4396344e6f919370ddc0c4746e4d3fa12b3d75a65",
             "file": "src/app/pages/not-found/not-found.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1401,17 +1637,17 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgOptimizedImage } from '@angular/common';\r\nimport { Component } from '@angular/core';\r\nimport { RouterLink, RouterOutlet } from '@angular/router';\r\nimport { ButtonComponent } from '../../shared/components/button/button.component';\r\n\r\n@Component({\r\n  selector: 'app-not-found',\r\n  standalone: true,\r\n  imports: [\r\n    RouterOutlet,\r\n    NgOptimizedImage,\r\n    ButtonComponent,\r\n    RouterLink\r\n  ],\r\n  templateUrl: './not-found.component.html',\r\n  styleUrl: './not-found.component.scss'\r\n})\r\nexport class NotFoundComponent {\r\n\r\n}\r\n",
+            "sourceCode": "import { NgOptimizedImage } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { RouterLink, RouterOutlet } from '@angular/router';\nimport { ButtonComponent } from '../../shared/components/button/button.component';\n\n@Component({\n  selector: 'app-not-found',\n  standalone: true,\n  imports: [\n    RouterOutlet,\n    NgOptimizedImage,\n    ButtonComponent,\n    RouterLink\n  ],\n  templateUrl: './not-found.component.html',\n  styleUrl: './not-found.component.scss'\n})\nexport class NotFoundComponent {\n\n}\n",
             "styleUrl": "./not-found.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"not-found\">\r\n  <div class=\"not-found-image\">\r\n    <picture>\r\n      <source\r\n        srcset=\"/assets/ilustrations/email-sm.png\"\r\n        media=\"(max-width: 768px)\"\r\n      />\r\n      <img\r\n        src=\"/assets/ilustrations/email-lg.png\"\r\n        alt=\"ilustração de dois jovens em volta de um smartfone\"\r\n        priority\r\n        fetchpriority=\"high\"\r\n      />\r\n    </picture>\r\n  </div>\r\n  <div class=\"not-found-route\">\r\n    <h3 class=\"not-found-description text\">\r\n      Em breve você recebera um email nosso com um link para cadastrar uma nova\r\n      senha.\r\n    </h3>\r\n    <app-button routerLink=\"/\"> Voltar para tela inicial </app-button>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"not-found\">\n  <div class=\"not-found-image\">\n    <picture>\n      <source\n        srcset=\"/assets/ilustrations/email-sm.png\"\n        media=\"(max-width: 768px)\"\n      />\n      <img\n        src=\"/assets/ilustrations/email-lg.png\"\n        alt=\"ilustração de dois jovens em volta de um smartfone\"\n        priority\n        fetchpriority=\"high\"\n      />\n    </picture>\n  </div>\n  <div class=\"not-found-route\">\n    <h3 class=\"not-found-description text\">\n      Em breve você recebera um email nosso com um link para cadastrar uma nova\n      senha.\n    </h3>\n    <app-button routerLink=\"/\"> Voltar para tela inicial </app-button>\n  </div>\n</div>\n"
         },
         {
             "name": "RegisterComponent",
-            "id": "component-RegisterComponent-33dbb71272aac9cb823d960382d5f55958d814b8a756705a605f7922a15a90fc3d95cfd1efb5199f3d0441a4a06af28633835fb494c3340bee49eb8b422fc910",
+            "id": "component-RegisterComponent-73b421f2bbd54dfb9e729acdac69438c9cede13b4d08728c518ab89b77ab1045589009f4c36de2ba5ed77fd4a6f25352bbd969beea23e264e268569d43e60d9b",
             "file": "src/app/pages/auth/register/register.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1431,7 +1667,7 @@
             "propertiesClass": [
                 {
                     "name": "payload",
-                    "defaultValue": "{\r\n    password: \"\",\r\n    email: \"\",\r\n  } as any",
+                    "defaultValue": "{\n    password: \"\",\n    email: \"\",\n  } as any",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -1466,13 +1702,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\r\nimport { RouterLink } from '@angular/router';\r\nimport { InputTextComponent } from '../../../shared/components/input-text/input-text.component';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  standalone: true,\r\n  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule],\r\n  templateUrl: './register.component.html',\r\n  styleUrl: './register.component.scss'\r\n})\r\nexport class RegisterComponent {\r\n  payload = {\r\n    password: \"\",\r\n    email: \"\",\r\n  } as any;\r\n\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\nimport { RouterLink } from '@angular/router';\nimport { InputTextComponent } from '../../../shared/components/input-text/input-text.component';\nimport { FormsModule } from '@angular/forms';\n\n@Component({\n  selector: 'app-register',\n  standalone: true,\n  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule],\n  templateUrl: './register.component.html',\n  styleUrl: './register.component.scss'\n})\nexport class RegisterComponent {\n  payload = {\n    password: \"\",\n    email: \"\",\n  } as any;\n\n}\n",
             "styleUrl": "./register.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"register\">\r\n  <form #form=\"ngForm\" class=\"register-form\">\r\n    <app-input-text\r\n      [(ngModel)]=\"payload.email\"\r\n      id=\"email\"\r\n      name=\"email\"\r\n      [required]=\"true\"\r\n      label=\"Email\"\r\n      type=\"text\"\r\n      placeholder=\"Informe o seu email\"\r\n    ></app-input-text>\r\n\r\n    <app-input-text\r\n      name=\"password\"\r\n      [(ngModel)]=\"payload.password\"\r\n      id=\"password\"\r\n      type=\"password\"\r\n      label=\"Senha\"\r\n      placeholder=\"Informe a sua senha\"\r\n    ></app-input-text>\r\n\r\n    <app-input-text\r\n      name=\"confirm_password\"\r\n      [(ngModel)]=\"payload.confirm_password\"\r\n      id=\"confirm_password\"\r\n      type=\"password\"\r\n      label=\"Confirme sua Senha\"\r\n      placeholder=\"Confirme sua senha\"\r\n    ></app-input-text>\r\n\r\n    <app-input-text\r\n      [(ngModel)]=\"payload.document_number\"\r\n      id=\"document_number\"\r\n      name=\"document_number\"\r\n      [required]=\"true\"\r\n      label=\"CPF\"\r\n      type=\"text\"\r\n      placeholder=\"Informe o seu email\"\r\n    ></app-input-text>\r\n  </form>\r\n\r\n  <a class=\"link\" routerLink=\"../login\">\r\n    Já tem uma conta ? <span>Entre!</span>\r\n  </a>\r\n\r\n  <div class=\"register-form-footer\">\r\n    <app-button [disabled]=\"!!form.invalid\"> Entrar </app-button>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"register\">\n  <form #form=\"ngForm\" class=\"register-form\">\n    <app-input-text\n      [(ngModel)]=\"payload.email\"\n      id=\"email\"\n      name=\"email\"\n      [required]=\"true\"\n      label=\"Email\"\n      email\n      type=\"text\"\n      placeholder=\"Informe o seu email\"\n    ></app-input-text>\n\n    <app-input-text\n      name=\"password\"\n      [(ngModel)]=\"payload.password\"\n      id=\"password\"\n      type=\"password\"\n      [required]=\"true\"\n      label=\"Senha\"\n      placeholder=\"Informe a sua senha\"\n    ></app-input-text>\n\n    <app-input-text\n      name=\"confirm_password\"\n      [(ngModel)]=\"payload.confirm_password\"\n      id=\"confirm_password\"\n      type=\"password\"\n      [required]=\"true\"\n      label=\"Confirme sua Senha\"\n      placeholder=\"Confirme sua senha\"\n    ></app-input-text>\n\n    <app-input-text\n      [(ngModel)]=\"payload.document_number\"\n      id=\"document_number\"\n      name=\"document_number\"\n      [required]=\"true\"\n      label=\"CPF\"\n      type=\"text\"\n      placeholder=\"Informe o seu email\"\n    ></app-input-text>\n  </form>\n\n  <a class=\"link\" id=\"register-login-link\" routerLink=\"../login\">\n    Já tem uma conta ? <span>Entre!</span>\n  </a>\n\n  <div class=\"register-form-footer\">\n    <app-button id=\"register-submit\" [disabled]=\"!!form.invalid\">\n      Entrar\n    </app-button>\n  </div>\n</div>\n"
         },
         {
             "name": "SelectComponent",
@@ -1822,7 +2058,7 @@
         },
         {
             "name": "WelcomeComponent",
-            "id": "component-WelcomeComponent-1e598966ff96cad10ef5193c498dfa23cbbc5cdcf7ad2b931ba465d156dba47885514c2dc2c31043440746688f183879f8ad8583dcbd3cb1ddfeaaae311b98b0",
+            "id": "component-WelcomeComponent-be718248c3ed088aba15053bcd4d84045169ff989344e7afba39aae476feffbec539f3d95ab97c64353536ff7ad0bfe33ba6bb53895aa7343d04db799e27d169",
             "file": "src/app/pages/auth/welcome/welcome.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1858,13 +2094,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\r\nimport { RouterLink } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-welcome',\r\n  standalone: true,\r\n  imports: [ButtonComponent, RouterLink],\r\n  templateUrl: './welcome.component.html',\r\n  styleUrl: './welcome.component.scss'\r\n})\r\nexport class WelcomeComponent {\r\n\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { ButtonComponent } from '../../../shared/components/button/button.component';\nimport { RouterLink } from '@angular/router';\n\n@Component({\n  selector: 'app-welcome',\n  standalone: true,\n  imports: [ButtonComponent, RouterLink],\n  templateUrl: './welcome.component.html',\n  styleUrl: './welcome.component.scss'\n})\nexport class WelcomeComponent {\n\n}\n",
             "styleUrl": "./welcome.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"welcome\">\r\n  <h1 class=\"welcome-title title\">Entre na sua conta</h1>\r\n\r\n  <p class=\"welcome-description subtitle\">\r\n    Transforme seu aprendizado com cursos online de alta qualidade. Junte-se a\r\n    nós agora!\r\n  </p>\r\n\r\n  <app-button routerLink=\"./login\" class=\"welcome-button\"> Login </app-button>\r\n  <app-button routerLink=\"./cadastrar\" color=\"secundary\" class=\"welcome-button\">\r\n    Cadastre-se\r\n  </app-button>\r\n</div>\r\n"
+            "templateData": "<div class=\"welcome\">\n  <h1 class=\"welcome-title title\">Entre na sua conta</h1>\n\n  <p class=\"welcome-description subtitle\">\n    Transforme seu aprendizado com cursos online de alta qualidade. Junte-se a\n    nós agora!\n  </p>\n\n  <app-button\n    id=\"welcome-login-button\"\n    routerLink=\"./login\"\n    class=\"welcome-button\"\n  >\n    Login\n  </app-button>\n  <app-button\n    id=\"welcome-register-button\"\n    routerLink=\"./cadastrar\"\n    color=\"secundary\"\n    class=\"welcome-button\"\n  >\n    Cadastre-se\n  </app-button>\n</div>\n"
         }
     ],
     "modules": [],
@@ -1878,7 +2114,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimations()]\n}"
+                "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimations(), provideHttpClient(withFetch())]\n}"
             },
             {
                 "name": "fadeAnimation",
@@ -1888,7 +2124,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "trigger('fade', [\r\n  transition('* <=> *', [\r\n    query(':enter', [\r\n      style({ opacity: 0 }),\r\n      stagger(30, [\r\n        animate('300ms ease-in', style({ opacity: 1 })),\r\n      ])\r\n    ]),\r\n  ])\r\n])"
+                "defaultValue": "trigger('fade', [\n  transition('* <=> *', [\n    query(':enter', [\n      style({ opacity: 0 }),\n      stagger(30, [\n        animate('300ms ease-in', style({ opacity: 1 })),\n      ])\n    ]),\n  ])\n])"
             },
             {
                 "name": "optional",
@@ -2024,6 +2260,41 @@
         ],
         "enumerations": [
             {
+                "name": "AlertTypes",
+                "childs": [
+                    {
+                        "name": "error",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "error"
+                    },
+                    {
+                        "name": "warning",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "warning"
+                    },
+                    {
+                        "name": "success",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "success"
+                    },
+                    {
+                        "name": "info",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "info"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/components/alert/alert.component.ts"
+            },
+            {
                 "name": "AvatarSizeParam",
                 "childs": [
                     {
@@ -2132,7 +2403,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimations()]\n}"
+                    "defaultValue": "{\n  providers: [provideRouter(routes), provideAnimations(), provideHttpClient(withFetch())]\n}"
                 }
             ],
             "src/app/shared/animations/fade/fade.animation.ts": [
@@ -2144,7 +2415,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "trigger('fade', [\r\n  transition('* <=> *', [\r\n    query(':enter', [\r\n      style({ opacity: 0 }),\r\n      stagger(30, [\r\n        animate('300ms ease-in', style({ opacity: 1 })),\r\n      ])\r\n    ]),\r\n  ])\r\n])"
+                    "defaultValue": "trigger('fade', [\n  transition('* <=> *', [\n    query(':enter', [\n      style({ opacity: 0 }),\n      stagger(30, [\n        animate('300ms ease-in', style({ opacity: 1 })),\n      ])\n    ]),\n  ])\n])"
                 },
                 {
                     "name": "optional",
@@ -2238,6 +2509,43 @@
             ]
         },
         "groupedEnumerations": {
+            "src/app/shared/components/alert/alert.component.ts": [
+                {
+                    "name": "AlertTypes",
+                    "childs": [
+                        {
+                            "name": "error",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "error"
+                        },
+                        {
+                            "name": "warning",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "success",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "success"
+                        },
+                        {
+                            "name": "info",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "info"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/components/alert/alert.component.ts"
+                }
+            ],
             "src/app/shared/components/avatar/avatar.component.ts": [
                 {
                     "name": "AvatarSizeParam",
@@ -2431,7 +2739,7 @@
                 "linktype": "component",
                 "name": "LoginComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2450,6 +2758,33 @@
                 "name": "RegisterComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/auth/services/auth/auth.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LoginRequest",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/auth/services/auth/auth.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LoginResponse",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/auth/services/auth/auth.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AuthService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -2500,6 +2835,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/shared/components/alert/alert.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AlertComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/shared/components/avatar/avatar.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -2514,7 +2858,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
