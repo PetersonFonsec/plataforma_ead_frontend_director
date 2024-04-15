@@ -46,6 +46,7 @@
       id="document_number"
       name="document_number"
       [required]="true"
+      mask="000.000.000-AA"
       label="CPF"
       type="text"
       placeholder="Informe o seu email"
@@ -67,6 +68,6 @@
   </form>
 
   @if (error) {
-    <alert [type]="alertType"> {{ error }} </alert>
+    <alert @fade [type]="alertType"> {{ error }} </alert>
   }
 </div>
