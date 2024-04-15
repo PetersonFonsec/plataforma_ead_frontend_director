@@ -1,5 +1,5 @@
 <div class="login">
-  <form #form="ngForm" class="login-form">
+  <form #form="ngForm" (ngSubmit)="submit()" class="login-form">
     <app-input-text
       [(ngModel)]="payload.email"
       id="email"
@@ -20,19 +20,23 @@
       label="Senha"
       placeholder="Informe a sua senha"
     ></app-input-text>
+
+    <a class="link" id="login-forget-link" routerLink="../recuperar-senha">
+      Esqueceu a senha ? <span>Clique aqui.</span>
+    </a>
+
+    <a class="link" id="login-register-link" routerLink="../cadastrar">
+      Ainda não tem uma conta ? <span>Cadastre-se !</span>
+    </a>
+
+    <div class="login-form-footer">
+      <app-button type="submit" id="login-submit" [disabled]="!!form.invalid">
+        Entrar
+      </app-button>
+    </div>
   </form>
 
-  <a class="link" id="login-forget-link" routerLink="../recuperar-senha">
-    Esqueceu a senha ? <span>Clique aqui.</span>
-  </a>
-
-  <a class="link" id="login-register-link" routerLink="../cadastrar">
-    Ainda não tem uma conta ? <span>Cadastre-se !</span>
-  </a>
-
-  <div class="login-form-footer">
-    <app-button id="login-submit" [disabled]="!!form.invalid">
-      Entrar
-    </app-button>
-  </div>
+  @if (error) {
+    <alert @fade [type]="alertType"> {{ error }} </alert>
+  }
 </div>

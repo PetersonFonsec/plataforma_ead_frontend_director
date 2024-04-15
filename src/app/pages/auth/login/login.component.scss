@@ -14,7 +14,7 @@
   }
 
   .link:not(:last-child) {
-    margin-bottom: var(--space-7);
+    margin: var(--space-7) 0;
   }
 
   &-button {
