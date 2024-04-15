@@ -21,4 +21,5 @@ export class ButtonComponent {
   @Input() size = "medium";
   @Input({ transform: (value: string) => `${value}-button` }) id = "";
   @Input() disabled = false;
+  @Input() type = "button";
 }
