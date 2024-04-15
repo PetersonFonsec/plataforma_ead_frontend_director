@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCircleInfo, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 export enum AlertTypes {
   error = "error",
@@ -20,6 +20,6 @@ export class AlertComponent {
   @Input() type: AlertTypes = AlertTypes.error
 
   get icon() {
-    return this.type != AlertTypes.success ? faCircleInfo : faCircleCheck
+    return this.type != AlertTypes.success ? faInfoCircle : faCheckCircle
   };
 }
