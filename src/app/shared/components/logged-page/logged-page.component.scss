@@ -1,18 +1,40 @@
-$aside: 264px;
+@import "../../../scss/index.scss";
 
 .logged-page {
   background-color: var(--primary-color-2);
   display: flex;
   height: 100vh;
-  margin-left: -264px;
+  overflow: hidden;
+  position: relative;
   transition: var(--transition);
-  width: calc(100vw + $aside);
+  width: 100vw;
+
+  &-aside {
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 280px;
+
+    @media (min-width: $tablet) {
+      width: 320px;
+    }
+  }
 
   &-content {
     background-color: var(--background-color-1);
     flex: 1;
-    padding: 24px;
+    min-width: 100vw;
+    padding: 24px 32px;
     transition: var(--transition);
+    z-index: 1;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
   }
 
   &.open {
@@ -22,12 +44,13 @@ $aside: 264px;
     height: 100vh;
 
     .logged-page-content {
-      border-radius: 16px;
-      transform: scale(0.9);
+      border-radius: 16px 0 0 16px;
+      transform: scale(1, 0.9) translateX(280px);
+      overflow: hidden;
+
+      @media (min-width: $tablet) {
+        transform: scale(1, 0.9) translateX(320px);
+      }
     }
   }
 }
-
-// left: 0;
-// position: fixed;
-// top: 0;

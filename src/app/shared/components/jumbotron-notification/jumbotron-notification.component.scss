@@ -1,0 +1,19 @@
+.jumbotron-notification {
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  font-family: var(--primary-font-family);
+  display: flex;
+  align-items: center;
+
+  &-content {
+    font-weight: var(--font-weight-bold);
+    flex: 1;
+    padding: 14px;
+    text-align: left;
+  }
+
+  &-ilustration {
+    max-width: 100%;
+    width: 132px;
+  }
+}

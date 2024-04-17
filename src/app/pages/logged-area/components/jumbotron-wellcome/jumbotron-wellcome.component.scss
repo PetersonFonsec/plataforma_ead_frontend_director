@@ -1,10 +1,62 @@
+@import "../../../../scss/index.scss";
+
 app-jumbotron {
   max-width: 400px;
   display: block;
+
+  @media (min-width: $tablet) {
+    max-width: var(--container-size);
+
+    & ::ng-deep {
+      .jumbotron-header {
+        display: none;
+      }
+
+      .jumbotron {
+        flex-direction: row;
+      }
+
+      .jumbotron-content {
+        flex: 2;
+
+        img {
+          width: auto;
+          max-width: unset;
+        }
+      }
+
+      .jumbotron-footer {
+        max-width: 320px;
+      }
+    }
+  }
 
   app-button,
   img {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
+  }
+
+  p.subtitle {
+    display: none;
+    margin: 24px auto;
+
+    @media (min-width: $tablet) {
+      display: block;
+    }
+  }
+
+  .hide-mobile {
+    display: none;
+    @media (min-width: $tablet) {
+      display: block;
+    }
+  }
+
+  .hide-descktop {
+    @media (min-width: $tablet) {
+      display: none;
+    }
   }
 }

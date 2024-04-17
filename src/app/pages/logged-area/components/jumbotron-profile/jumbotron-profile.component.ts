@@ -3,12 +3,12 @@ import { JumbotronComponent } from '../../../../shared/components/jumbotron/jumb
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 @Component({
-  selector: 'jumbotron-wellcome',
+  selector: 'jumbotron-profile',
   standalone: true,
   imports: [JumbotronComponent, ButtonComponent],
-  templateUrl: './jumbotron-wellcome.component.html',
-  styleUrl: './jumbotron-wellcome.component.scss'
+  templateUrl: './jumbotron-profile.component.html',
+  styleUrl: './jumbotron-profile.component.scss'
 })
-export class JumbotronWellcomeComponent {
+export class JumbotronProfileComponent {
 
 }

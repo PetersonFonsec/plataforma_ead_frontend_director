@@ -141,6 +141,7 @@ img {
   margin: 0;
   display: block;
   text-decoration: none;
+  max-width: 100%;
 }
 
 .title {
@@ -151,6 +152,23 @@ img {
 .subtitle {
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-bold);
+  width: max-content;
+
+  &.border {
+    position: relative;
+    padding-bottom: 12px;
+
+    &::after {
+      content: "";
+      background-color: #181818;
+      bottom: 0;
+      border-radius: 8px;
+      left: 0;
+      height: 4px;
+      position: absolute;
+      width: calc(100% + 14px);
+    }
+  }
 }
 
 .text {

@@ -9,7 +9,10 @@
   </div>
 
   <div class="logged-page-content">
-    <app-button-menu [isOpen]="open" (click)="open = !open"></app-button-menu>
+    <header class="logged-page-header container">
+      <app-button-menu [isOpen]="open" (click)="open = !open"></app-button-menu>
+      <app-avatar></app-avatar>
+    </header>
     <ng-content></ng-content>
   </div>
 </main>

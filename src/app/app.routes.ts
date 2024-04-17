@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
 import { NewPasswordComponent } from './pages/auth/new-password/new-password.component';
 import { LoggedAreaComponent } from './pages/logged-area/logged-area.component';
+import { HomeComponent } from './pages/logged-area/pages/home/home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -41,7 +42,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: NewPasswordComponent,
+        component: HomeComponent,
         data: { animation: 'home' }
       },
       {
