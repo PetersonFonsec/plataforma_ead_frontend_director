@@ -1,0 +1,33 @@
+$aside: 264px;
+
+.logged-page {
+  background-color: var(--primary-color-2);
+  display: flex;
+  height: 100vh;
+  margin-left: -264px;
+  transition: var(--transition);
+  width: calc(100vw + $aside);
+
+  &-content {
+    background-color: var(--background-color-1);
+    flex: 1;
+    padding: 24px;
+    transition: var(--transition);
+  }
+
+  &.open {
+    margin-left: 0;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+
+    .logged-page-content {
+      border-radius: 16px;
+      transform: scale(0.9);
+    }
+  }
+}
+
+// left: 0;
+// position: fixed;
+// top: 0;

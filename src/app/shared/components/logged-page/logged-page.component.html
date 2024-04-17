@@ -1,0 +1,15 @@
+<main
+  class="logged-page"
+  [ngClass]="{
+    open: open
+  }"
+>
+  <div class="logged-page-aside">
+    <app-aside-menu></app-aside-menu>
+  </div>
+
+  <div class="logged-page-content">
+    <app-button-menu [isOpen]="open" (click)="open = !open"></app-button-menu>
+    <ng-content></ng-content>
+  </div>
+</main>
