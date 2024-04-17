@@ -1,0 +1,12 @@
+<button
+  class="button-menu"
+  (click)="isOpen = !isOpen"
+  [ngClass]="{
+    close: !isOpen,
+    open: isOpen
+  }"
+>
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>

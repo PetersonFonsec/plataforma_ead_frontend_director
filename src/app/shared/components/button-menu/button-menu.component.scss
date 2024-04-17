@@ -1,0 +1,55 @@
+.button-menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 26px;
+  position: relative;
+  width: 32px;
+
+  .bar {
+    background-color: #181818;
+    border-radius: 8px;
+    display: block;
+    height: 6px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    transform: rotate(0);
+    transition: var(--transition-fast);
+    width: 100%;
+  }
+
+  .bar:nth-child(3) {
+    width: 50%;
+  }
+
+  &.close {
+    .bar:nth-child(1) {
+      top: 0;
+    }
+
+    .bar:nth-child(2) {
+      top: 10px;
+    }
+
+    .bar:nth-child(3) {
+      top: 20px;
+    }
+  }
+
+  &.open {
+    .bar:nth-child(1) {
+      transform: rotate(45deg);
+      top: 50%;
+    }
+
+    .bar:nth-child(2) {
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+
+    .bar:nth-child(3) {
+      opacity: 0;
+    }
+  }
+}
