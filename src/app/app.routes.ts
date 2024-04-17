@@ -5,8 +5,10 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
 import { NewPasswordComponent } from './pages/auth/new-password/new-password.component';
+import { LoggedAreaComponent } from './pages/logged-area/logged-area.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/entre', pathMatch: 'full' },
   {
     path: 'entre',
     component: AuthComponent,
@@ -33,7 +35,37 @@ export const routes: Routes = [
       },
     ]
   },
-  { path: '', redirectTo: '/entre', pathMatch: 'full' },
+  {
+    path: 'area-logada',
+    component: LoggedAreaComponent,
+    children: [
+      {
+        path: 'home',
+        component: NewPasswordComponent,
+        data: { animation: 'home' }
+      },
+      {
+        path: 'publicacoes',
+        component: NewPasswordComponent,
+        data: { animation: 'publicacoes' }
+      },
+      {
+        path: 'materias',
+        component: NewPasswordComponent,
+        data: { animation: 'materias' }
+      },
+      {
+        path: 'materias/:id',
+        component: NewPasswordComponent,
+        data: { animation: 'materias' }
+      },
+      {
+        path: 'atividades',
+        component: NewPasswordComponent,
+        data: { animation: 'atividades' }
+      },
+    ]
+  },
   { path: 'recuperar-senha', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];
