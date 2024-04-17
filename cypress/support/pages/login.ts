@@ -10,6 +10,9 @@ export default class LoginElements {
   get submitButton() {
     return cy.get('#login-submit-button');
   }
+  get alertComponent() {
+    return cy.get('.alert');
+  }
   get passwordInput() {
     return cy.get('#password-input');
   }

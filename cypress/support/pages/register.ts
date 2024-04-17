@@ -31,6 +31,9 @@ export default class RegisterElements {
   get nameInput() {
     return cy.get('#name-input');
   }
+  get alertComponent() {
+    return cy.get('.alert')
+  }
 
   public fillFormValid() {
     this.documentNumberInput.type(this.user.documentNumber);
