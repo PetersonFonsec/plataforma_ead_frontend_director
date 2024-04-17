@@ -60,7 +60,9 @@
       <app-button
         id="register-submit"
         type="submit"
-        [disabled]="!!form.invalid"
+        [disabled]="
+          !!form.invalid || payload.password != payload.confirm_password
+        "
       >
         Entrar
       </app-button>

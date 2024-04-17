@@ -8,6 +8,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { ErrorDefault } from '../../../shared/interfaces/error.model';
 import { AuthService } from '../services/auth/auth.service';
 import { fadeAnimation } from '../../../shared/animations/fade/fade.animation';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -33,8 +34,8 @@ export class LoginComponent {
       next: () => {
         this.#router.navigateByUrl("/home")
       },
-      error: (error: ErrorDefault) => {
-        this.error = error.message
+      error: (error: HttpErrorResponse) => {
+        this.error = error.error.message
       }
     })
   }
