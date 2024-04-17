@@ -1,0 +1,10 @@
+app-jumbotron {
+  max-width: 400px;
+  display: block;
+
+  app-button,
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
