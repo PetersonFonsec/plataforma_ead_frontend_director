@@ -1,0 +1,5 @@
+{
+  "message": ["password is not strong enough"],
+  "error": "Bad Request",
+  "statusCode": 400
+}

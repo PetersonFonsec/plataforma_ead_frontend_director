@@ -2,7 +2,8 @@ import LoginElements from "../support/pages/login";
 import RegisterElements from "../support/pages/register";
 import WellComeElements from "../support/pages/wellcome";
 
-const usuarios = require('../fixtures/usuarios.json')
+const usuarios = require('../fixtures/usuarios.json');
+const error = require('../fixtures/error-login.json');
 
 describe('Auth jorney - ', () => {
   let loginElements: LoginElements;
@@ -11,6 +12,16 @@ describe('Auth jorney - ', () => {
   beforeEach(() => {
     loginElements = new LoginElements(usuarios);
     registerElements = new RegisterElements(usuarios);
+
+    cy.intercept('POST', 'http://localhost:3000/auth/login', {
+      statusCode: 400,
+      body: error
+    }).as('stubLogin');
+
+    cy.intercept('POST', 'http://localhost:3000/auth/register/director', {
+      statusCode: 400,
+      body: error
+    }).as('stubRegister');
   });
 
   describe('Test redirects', () => {
@@ -73,6 +84,11 @@ describe('Auth jorney - ', () => {
       loginElements.submitButton.should('be.disabled');
     });
 
+    it('Should showing alert component when service return error', () => {
+      loginElements.submitButton.click();
+      loginElements.alertComponent.should("be.visible");
+    });
+
     it('Should enable submit button when form is valid', () => {
       loginElements.submitButton.should('be.enabled');
     });
@@ -112,6 +128,16 @@ describe('Auth jorney - ', () => {
     it('Should disabled submit button when "document_number" field is empty', () => {
       registerElements.documentNumberInput.clear();
       registerElements.submitButton.should('be.disabled');
+    });
+
+    it('Should disabled submit button when "confirm_password" is "password" are diferents', () => {
+      registerElements.passwordInput.type("senha diferente");
+      registerElements.submitButton.should('be.disabled');
+    });
+
+    it('Should showing alert component when service return error', () => {
+      registerElements.submitButton.click();
+      registerElements.alertComponent.should("be.visible");
     });
 
     it('Should enable submit button when form is valid', () => {
