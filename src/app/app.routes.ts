@@ -7,6 +7,8 @@ import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
 import { NewPasswordComponent } from './pages/auth/new-password/new-password.component';
 import { LoggedAreaComponent } from './pages/logged-area/logged-area.component';
 import { HomeComponent } from './pages/logged-area/pages/home/home.component';
+import { ProfileComponent } from './pages/logged-area/pages/profile/profile.component';
+import { CreateCollegeComponent } from './pages/logged-area/pages/create-college/create-college.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -44,6 +46,16 @@ export const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         data: { animation: 'home' }
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        data: { animation: 'profile' }
+      },
+      {
+        path: 'create-college',
+        component: CreateCollegeComponent,
+        data: { animation: 'create-college' }
       },
       {
         path: 'publicacoes',
