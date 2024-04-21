@@ -1,0 +1,16 @@
+<div role="listitem" class="college-item">
+  <img
+    class="college-item-thumb"
+    [src]="college.CollegeStyle[0].thumb"
+    [alt]="college.name"
+  />
+  <h4 class="college-item-title subtitle">
+    {{ college.name }}
+  </h4>
+
+  <span
+    [ngStyle]="{
+      backgroundColor: college.CollegeStyle[0].thumb
+    }"
+  ></span>
+</div>

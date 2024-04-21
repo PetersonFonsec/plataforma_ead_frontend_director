@@ -1,23 +1,30 @@
 .input-upload {
+  display: flex;
   position: relative;
   width: 100%;
   height: 160px;
   background-color: var(--background-color-1);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 4px dashed #afafaf;
 
   &_input {
-    display: none;
+    opacity: 0;
   }
 
   &_button {
-    background-color: var(--background-color-1);
-    cursor: pointer;
     position: absolute;
+    background-color: var(--background-color-1);
+    border: none;
     width: 100%;
     height: 100%;
-    border-radius: 14px;
-    border: 4px dashed #afafaf;
     margin: 0;
     padding: 0;
+    color: #afafaf;
+    font-size: 62px;
+    pointer-events: none;
   }
 
   &_text {

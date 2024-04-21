@@ -1,0 +1,102 @@
+@import "../../../../scss/index.scss";
+
+#list-college {
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: calc(100vh - 132px);
+
+  &-header {
+    margin-bottom: 24px;
+    width: 100%;
+
+    .subtitle {
+      margin-top: 24px;
+    }
+
+    jumbotron-notification {
+      display: block;
+      max-width: 100%;
+      width: 330px;
+      margin: 0 auto;
+    }
+  }
+
+  &-container {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    margin-bottom: 34px;
+    text-align: center;
+    width: 100%;
+
+    h3.subtitle {
+      color: #d9d9d9;
+      text-align: center;
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      width: 100%;
+      display: grid;
+      grid-gap: 24px;
+
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 190px);
+
+      @media (min-width: $tablet) {
+        grid-gap: 12px 24px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+
+      @media (min-width: $desktop) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+
+    ul:has(li.empty-list) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li {
+      width: 340px;
+      max-width: 100%;
+      grid-row: span 1;
+    }
+
+    li + li {
+      margin-top: 24px;
+
+      @media (min-width: $tablet) {
+        margin: 0;
+      }
+    }
+
+    alert {
+      position: fixed;
+      z-index: 1;
+      bottom: 105px;
+      width: calc(100% - 64px);
+      left: 32px;
+      right: 32px;
+      margin: 0 auto;
+      max-width: 300px;
+    }
+  }
+
+  &-footer {
+    width: 100%;
+
+    app-button {
+      max-width: 100%;
+      width: 300px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

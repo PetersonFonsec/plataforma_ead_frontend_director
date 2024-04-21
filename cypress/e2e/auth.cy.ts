@@ -26,7 +26,7 @@ describe('Auth jorney - ', () => {
 
   describe('Test redirects', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:53379/')
+      cy.visit('http://localhost:64301/')
     });
 
     it("should redirect to /login page when click in 'login' button", () => {
@@ -40,19 +40,19 @@ describe('Auth jorney - ', () => {
     });
 
     it("should redirect to /recuperar-senha page when click in 'Esqueceu a senha ? Clique aqui.' link", () => {
-      cy.visit('http://localhost:53379/entre/login');
+      cy.visit('http://localhost:64301/entre/login');
       loginElements.forgotPasswordLink.click();
       cy.url().should('include', '/entre/recuperar-senha');
     });
 
     it("should redirect to /cadastrar page when click in 'Ainda não tem uma conta ? Cadastre-se !' button", () => {
-      cy.visit('http://localhost:53379/entre/login');
+      cy.visit('http://localhost:64301/entre/login');
       loginElements.registerLink.click();
       cy.url().should('include', '/entre/cadastrar');
     });
 
     it("should redirect to /login page when click in 'Já tem uma conta ? Entre!' button", () => {
-      cy.visit('http://localhost:53379/entre/cadastrar');
+      cy.visit('http://localhost:64301/entre/cadastrar');
       registerElements.loginLink.click();
       cy.url().should('include', '/entre/login');
     });
@@ -60,7 +60,7 @@ describe('Auth jorney - ', () => {
 
   describe('login form validations ', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:53379/entre/login');
+      cy.visit('http://localhost:64301/entre/login');
       loginElements.fillFormValid();
     });
 
@@ -96,7 +96,7 @@ describe('Auth jorney - ', () => {
 
   describe('register form validations', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:53379/entre/cadastrar');
+      cy.visit('http://localhost:64301/entre/cadastrar');
       registerElements.fillFormValid();
     });
 

@@ -9,6 +9,7 @@ import { LoggedAreaComponent } from './pages/logged-area/logged-area.component';
 import { HomeComponent } from './pages/logged-area/pages/home/home.component';
 import { ProfileComponent } from './pages/logged-area/pages/profile/profile.component';
 import { CreateCollegeComponent } from './pages/logged-area/pages/create-college/create-college.component';
+import { ListCollegeComponent } from './pages/logged-area/pages/list-college/list-college.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -56,6 +57,11 @@ export const routes: Routes = [
         path: 'create-college',
         component: CreateCollegeComponent,
         data: { animation: 'create-college' }
+      },
+      {
+        path: 'list-college',
+        component: ListCollegeComponent,
+        data: { animation: 'list-college' }
       },
       {
         path: 'publicacoes',

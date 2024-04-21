@@ -1,0 +1,14 @@
+[
+  {
+    "name": "senac",
+    "thumb": "cypress/fixtures/images/senac.png",
+    "primaryColor": "#004A8D",
+    "secundaryColor": "#F9A94A"
+  },
+  {
+    "name": "mackenzie",
+    "thumb": "cypress/fixtures/images/mackenzie.png",
+    "primaryColor": "#E4051F",
+    "secundaryColor": "#FFFFFF"
+  }
+]

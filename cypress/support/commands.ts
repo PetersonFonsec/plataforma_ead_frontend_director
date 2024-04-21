@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+
+import LoginElements from "./pages/login";
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -35,3 +38,12 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.addAll({
+  login(user) {
+    const loginElements = new LoginElements(user);
+    cy.visit('http://localhost:64301/entre/login');
+    loginElements.fillFormValid();
+    loginElements.submitButton.click();
+  }
+});

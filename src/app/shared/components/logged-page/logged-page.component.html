@@ -10,8 +10,12 @@
 
   <div class="logged-page-content">
     <header class="logged-page-header container">
-      <app-button-menu [isOpen]="open" (click)="open = !open"></app-button-menu>
-      <app-avatar></app-avatar>
+      <app-button-menu
+        id="button-menu-header"
+        [isOpen]="open"
+        (click)="open = !open"
+      ></app-button-menu>
+      <app-avatar id="avatar-header"></app-avatar>
     </header>
     <ng-content></ng-content>
   </div>

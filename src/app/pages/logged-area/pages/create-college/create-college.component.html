@@ -1,20 +1,62 @@
 <section id="create-college" class="container">
   <header id="create-college-header">
-    <jumbotron-notification>
-      <p class="text">Estou vendo que não tem nenhuma escola. Cadastre aqui.</p>
-    </jumbotron-notification>
-
-    <h1 class="subtitle border">Escolas</h1>
+    <h1 class="subtitle border">Nova Escola</h1>
   </header>
 
-  <div id="create-college-container">
-    <h3 class="subtitle">
-      Esta conta não possui nenhuma escola inclusa. Cadastre uma nova clicando
-      em
-    </h3>
-  </div>
+  <form #form="ngForm" id="create-college-container">
+    <div class="row">
+      <app-input-text
+        [(ngModel)]="payload.name"
+        label="Nome"
+        id="college-name"
+        name="name"
+        [required]="true"
+        type="text"
+        placeholder="Informe o nome da instituição"
+      ></app-input-text>
+    </div>
+    <div class="row">
+      <app-input-color
+        [(ngModel)]="payload.primaryColor"
+        id="college-primary-color"
+        name="primaryColor"
+        [required]="true"
+        label="Cor pricipal"
+      ></app-input-color>
+
+      <app-input-color
+        [(ngModel)]="payload.secundaryColor"
+        id="college-secundary-color"
+        name="secundaryColor"
+        [required]="true"
+        label="Cor secundaria"
+      ></app-input-color>
+    </div>
+    <div class="row">
+      <input-upload
+        [(ngModel)]="payload.thumb"
+        id="college-thumb"
+        [required]="true"
+        name="thumb"
+      >
+        Faça o upload do logo da instituição
+      </input-upload>
+    </div>
+  </form>
 
   <footer id="create-college-footer">
-    <app-button>Nova Escola</app-button>
+    <app-button
+      (click)="submit()"
+      id="create-college-submit"
+      [disabled]="!!form.invalid"
+    >
+      Criar
+    </app-button>
+
+    @if (alertMessage) {
+      <alert id="create-college-alert" [type]="alertType">
+        {{ alertMessage }}
+      </alert>
+    }
   </footer>
 </section>

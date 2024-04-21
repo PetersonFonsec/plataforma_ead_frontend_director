@@ -1,10 +1,8 @@
 .input-color {
   display: flex;
   flex-direction: column;
-
-  input {
-    display: none;
-  }
+  position: relative;
+  background-color: #fff;
 
   &_header {
     margin-bottom: var(--space-4);
@@ -18,8 +16,8 @@
   &_square {
     border-radius: 6px;
     border: 1px solid var(--neutral-color-1);
-    cursor: pointer;
     height: 60px;
     width: 60px;
+    cursor: pointer;
   }
 }

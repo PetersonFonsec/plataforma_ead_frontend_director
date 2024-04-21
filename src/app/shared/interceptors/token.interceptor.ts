@@ -9,7 +9,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   if (tokenService.token) {
     req = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${}`,
+        Authorization: `Bearer ${tokenService.token}`,
         Accept: 'application/json',
       },
     });

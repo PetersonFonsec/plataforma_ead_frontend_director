@@ -1,0 +1,23 @@
+.college-item {
+  border-radius: 16px;
+  position: relative;
+  height: 124px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+
+  &-title {
+    color: var(--neutral-color-3);
+    position: absolute;
+    left: 0;
+    margin: auto;
+    right: 0;
+    bottom: 22px;
+  }
+
+  &-thumb {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}

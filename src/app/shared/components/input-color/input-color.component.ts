@@ -1,11 +1,11 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-input-color',
   standalone: true,
-  imports: [FormsModule, NgStyle],
+  imports: [FormsModule, NgStyle, CommonModule],
   templateUrl: './input-color.component.html',
   styleUrl: './input-color.component.scss',
   providers: [
@@ -41,6 +41,18 @@ export class InputColorComponent implements OnInit, ControlValueAccessor {
   }
 
   onBlur() { }
+
+  /**
+   * @description Essa função foi criada para atender ha uma
+   * necessidade do cypress pois no cypress quando disparamos
+   * uma função com trigger não esta atualizando o ngModel do angular.
+   *
+   * Fica como TODO como fazer isso de uma forma menos gambiarra
+   */
+  getColorToValProperty(color: any) {
+    console.log(color)
+    this.value = color;
+  }
 
   writeValue(value: any) {
     this.value = value;

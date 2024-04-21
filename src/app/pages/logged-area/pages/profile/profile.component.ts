@@ -33,11 +33,7 @@ export class ProfileComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    // const user = this.#userService.user();
-    const user = {
-      "email": "peterson4@gmail.com",
-      "name": "Peterson",
-    };
+    const user = this.#userService.user();
 
     this.payload.email = user.email;
     this.payload.name = user.name;
@@ -55,6 +51,6 @@ export class ProfileComponent implements OnInit {
         this.alertType = AlertTypes.error;
         this.alertMessage = error.error.message;
       }
-    })
+    });
   }
 }

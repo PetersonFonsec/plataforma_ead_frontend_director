@@ -32,10 +32,10 @@ export class LoginComponent {
   submit() {
     this.#authService.login(this.payload).subscribe({
       next: () => {
-        this.#router.navigateByUrl("/home")
+        this.#router.navigateByUrl("/area-logada/home");
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.error.message
+        this.error = error.error.message;
       }
     })
   }

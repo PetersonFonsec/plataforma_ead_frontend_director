@@ -37,7 +37,7 @@ export class RegisterComponent {
   submit() {
     this.#authService.register(this.payload).subscribe({
       next: () => {
-        this.#router.navigateByUrl("/home")
+        this.#router.navigateByUrl("/area-logada/list-college");
       },
       error: (error: HttpErrorResponse) => {
         console.log(error)

@@ -1,28 +1,21 @@
-<div class="input-upload">
-  @if (value.b64) {
-  <img [src]="value.b64" class="input-upload_preview" />
-  }
-
+<label [id]="id" [for]="id + '-input-file'" class="input-upload">
   <input
-    #inputFile
     type="file"
-    [id]="id"
+    [id]="id + '-input-file'"
     [name]="id"
     (change)="showImage($event)"
     accept="image/png, image/jpeg"
     class="input-upload_input"
   />
-
-  <button
-    [id]="id + '-input-upload-button'"
-    type="button"
-    (click)="inputFile.click()"
-    class="input-upload_button"
-  >
-    icone
-  </button>
-</div>
-
-<label [for]="id + '-input-upload-button'" class="input-upload_text">
-  <ng-content></ng-content>
+  @if (value.b64) {
+    <img [src]="value.b64" class="input-upload_preview" />
+  } @else {
+    <button type="button" class="input-upload_button">
+      <fa-icon [icon]="icon"></fa-icon>
+    </button>
+  }
 </label>
+
+<span class="input-upload_text">
+  <ng-content></ng-content>
+</span>
