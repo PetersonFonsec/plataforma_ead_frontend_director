@@ -35,6 +35,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const user = this.#userService.user();
 
+    if (!user) return;
+
     this.payload.email = user.email;
     this.payload.name = user.name;
   }

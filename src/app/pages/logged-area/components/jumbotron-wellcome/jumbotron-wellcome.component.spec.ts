@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 import { JumbotronWellcomeComponent } from './jumbotron-wellcome.component';
 
@@ -8,10 +10,10 @@ describe('JumbotronWellcomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JumbotronWellcomeComponent]
+      imports: [JumbotronWellcomeComponent, RouterTestingModule]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(JumbotronWellcomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

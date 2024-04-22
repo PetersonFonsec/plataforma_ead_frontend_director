@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CollegeItemComponent } from './college-item.component';
+import { collageMock } from '../../../services/college/collage.mock';
 
 describe('CollegeItemComponent', () => {
   let component: CollegeItemComponent;
@@ -10,10 +11,11 @@ describe('CollegeItemComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CollegeItemComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(CollegeItemComponent);
     component = fixture.componentInstance;
+    component.college = collageMock;
     fixture.detectChanges();
   });
 
