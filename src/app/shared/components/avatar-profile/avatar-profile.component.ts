@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
@@ -9,5 +9,7 @@ import { AvatarComponent } from '../avatar/avatar.component';
   styleUrl: './avatar-profile.component.scss'
 })
 export class AvatarProfileComponent {
+  @Input() src = "";
+  @Input() name = "";
 
 }

@@ -8,11 +8,21 @@ import { ProfileService } from './services/profile/profile.service';
 import { UserLoggedService } from '../../../../shared/services/user-logged/user-logged.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { fadeAnimation } from '../../../../shared/animations/fade/fade.animation';
+import { RouterLink } from '@angular/router';
+import { ButtonBackComponent } from '../../../../shared/components/button-back/button-back.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [InputTextComponent, ButtonComponent, AlertComponent, AvatarComponent, FormsModule],
+  imports: [
+    InputTextComponent,
+    ButtonComponent,
+    AlertComponent,
+    AvatarComponent,
+    FormsModule,
+    RouterLink,
+    ButtonBackComponent
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
   animations: [fadeAnimation]

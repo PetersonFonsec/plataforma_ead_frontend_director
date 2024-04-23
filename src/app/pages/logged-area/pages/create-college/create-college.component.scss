@@ -8,10 +8,6 @@
   &-header {
     margin-bottom: 24px;
     width: 100%;
-
-    .subtitle {
-      margin-top: 24px;
-    }
   }
 
   &-container {
@@ -59,7 +55,14 @@
   }
 
   &-footer {
+    display: flex;
     width: 100%;
+
+    app-button {
+      flex: 1;
+      display: block;
+      margin-left: 14px;
+    }
 
     alert {
       display: block;

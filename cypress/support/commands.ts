@@ -42,7 +42,7 @@ import LoginElements from "./pages/login";
 Cypress.Commands.addAll({
   login(user) {
     const loginElements = new LoginElements(user);
-    cy.visit('http://localhost:64301/entre/login');
+    cy.visit('http://localhost:4200/entre/login');
     loginElements.fillFormValid();
     loginElements.submitButton.click();
   }

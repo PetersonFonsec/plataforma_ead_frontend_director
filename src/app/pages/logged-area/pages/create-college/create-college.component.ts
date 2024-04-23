@@ -9,6 +9,8 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 import { CollegeService } from '../../../../shared/services/college/college.service';
 import { CollegeRequest } from '../../../../shared/services/college/collage.model';
 import { AlertComponent, AlertTypes } from '../../../../shared/components/alert/alert.component';
+import { ButtonBackComponent } from '../../../../shared/components/button-back/button-back.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-create-college',
@@ -19,7 +21,9 @@ import { AlertComponent, AlertTypes } from '../../../../shared/components/alert/
     InputUploadComponent,
     ButtonComponent,
     FormsModule,
-    AlertComponent
+    ButtonBackComponent,
+    AlertComponent,
+    RouterLink
   ],
   templateUrl: './create-college.component.html',
   styleUrl: './create-college.component.scss'

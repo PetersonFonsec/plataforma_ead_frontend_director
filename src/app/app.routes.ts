@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/logged-area/pages/home/home.component';
 import { ProfileComponent } from './pages/logged-area/pages/profile/profile.component';
 import { CreateCollegeComponent } from './pages/logged-area/pages/create-college/create-college.component';
 import { ListCollegeComponent } from './pages/logged-area/pages/list-college/list-college.component';
+import { CollegeService } from './shared/services/college/college.service';
+import { inject } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -46,7 +48,7 @@ export const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
-        data: { animation: 'home' }
+        data: { animation: 'home' },
       },
       {
         path: 'profile',
@@ -61,7 +63,14 @@ export const routes: Routes = [
       {
         path: 'list-college',
         component: ListCollegeComponent,
-        data: { animation: 'list-college' }
+        data: { animation: 'list-college' },
+
+        resolve: {
+          colleges: () => {
+            const collegeService = inject(CollegeService);
+            return collegeService.getCollages();
+          }
+        }
       },
       {
         path: 'publicacoes',

@@ -57,6 +57,8 @@
   </form>
 
   <footer id="profile-footer">
+    <app-button-back routerLink="../home"></app-button-back>
+
     <app-button (click)="submit()" [disabled]="!!form.invalid">
       Atualizar perfil
     </app-button>
