@@ -6,6 +6,7 @@ import { Observable, tap } from 'rxjs';
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from './auth.model';
 import { TokenService } from '@shared/services/token/token.service';
 import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ export class AuthService {
   #userService = inject(UserLoggedService);
   #tokenService = inject(TokenService);
   #http = inject(HttpClient);
+  #baseUrl = environment.url;
 
   login({ email, password }: LoginRequest): Observable<LoginResponse> {
-    return this.#http.post<LoginResponse>("http://localhost:3000/auth/login", { email, password })
+    return this.#http.post<LoginResponse>(`${this.#baseUrl}/auth/login`, { email, password })
       .pipe(
         tap(({ access_token }) => this.#tokenService.token = access_token),
         tap(response => {
@@ -26,7 +28,7 @@ export class AuthService {
   }
 
   register(payload: RegisterRequest): Observable<RegisterResponse> {
-    let url = "http://localhost:3000/auth/register/";
+    let url = `${this.#baseUrl}/auth/register/`;
     url += payload.role.toLocaleLowerCase();
 
     return this.#http.post<RegisterResponse>(url, payload)

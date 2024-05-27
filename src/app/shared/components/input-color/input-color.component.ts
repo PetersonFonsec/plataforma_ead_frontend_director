@@ -50,7 +50,6 @@ export class InputColorComponent implements OnInit, ControlValueAccessor {
    * Fica como TODO como fazer isso de uma forma menos gambiarra
    */
   getColorToValProperty(color: any) {
-    console.log(color)
     this.value = color;
   }
 

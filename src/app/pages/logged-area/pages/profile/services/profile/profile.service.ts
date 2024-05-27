@@ -8,18 +8,20 @@ import {
   UpdateProfileRequest,
   UpdateProfileResponse
 } from './profile.model';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
   #http = inject(HttpClient);
+  #baseUrl = environment.url;
 
   getProfile(payload: GetProfileRequest): Observable<GetProfileResponse> {
-    return this.#http.get<GetProfileResponse>(`http://localhost:3000/users/${payload.id}`)
+    return this.#http.get<GetProfileResponse>(`${this.#baseUrl}/users/${payload.id}`)
   }
 
   updateProfile(payload: UpdateProfileRequest): Observable<UpdateProfileResponse> {
-    return this.#http.patch<UpdateProfileResponse>(`http://localhost:3000/users/${payload.id}`, payload)
+    return this.#http.patch<UpdateProfileResponse>(`${this.#baseUrl}/users/${payload.id}`, payload)
   }
 }

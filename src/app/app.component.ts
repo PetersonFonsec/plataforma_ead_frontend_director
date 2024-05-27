@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,6 @@ import { ButtonComponent } from './shared/components/button/button.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  env = environment
   title = 'director';
 }

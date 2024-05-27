@@ -40,7 +40,6 @@ export class RegisterComponent {
         this.#router.navigateByUrl("/area-logada/list-college");
       },
       error: (error: HttpErrorResponse) => {
-        console.log(error)
         this.error = error.error.message
       }
     })
