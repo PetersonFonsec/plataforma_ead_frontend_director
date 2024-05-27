@@ -41,6 +41,16 @@ import LoginElements from "./pages/login";
 
 Cypress.Commands.addAll({
   login(user) {
+    cy.intercept('POST', 'http://localhost:3000/auth/login', {
+      statusCode: 200,
+      body: {
+        "email": user.email,
+        "name": user.name,
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJwZXRlcnNvbjRAZ21haWwuY29tIiwibmFtZSI6IlBldGVyc29uIiwicGFzc3dvcmQiOiIkMmIkMDgkZGxMVWN0UFo2TnVBSGozd2dKZHBtLjIzU0JmaWl5ZHhSWnA2SGRYMVB4Ly9KNFQ0RGVLMk8iLCJyb2xlIjoiU1RVREVOVCIsImlhdCI6MTcwMTAxMzMxOSwiZXhwIjoxNzAxMDE2OTE5LCJzdWIiOiI5In0.inLlmW6UOAtcheDLJwTrus0So1UZIh-cQlT7_N4TJbU",
+        "id": 9
+      }
+    }).as('stubLogin');
+
     const loginElements = new LoginElements(user);
     cy.visit('http://localhost:4200/entre/login');
     loginElements.fillFormValid();
