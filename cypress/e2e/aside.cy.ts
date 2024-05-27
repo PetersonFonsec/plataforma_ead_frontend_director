@@ -2,7 +2,7 @@
 describe("Aside redirects - ", () => {
   const usuarios = require('../fixtures/usuarios.json');
 
-  before(() => {
+  beforeEach(() => {
     cy.login(usuarios);
   });
 
