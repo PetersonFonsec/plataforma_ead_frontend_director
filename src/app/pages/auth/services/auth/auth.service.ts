@@ -1,11 +1,11 @@
 
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from './auth.model';
-import { TokenService } from '../../../../shared/services/token/token.service';
-import { UserLoggedService } from '../../../../shared/services/user-logged/user-logged.service';
+import { TokenService } from '@shared/services/token/token.service';
+import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,6 @@ export class AuthService {
       .pipe(
         tap(({ access_token }) => this.#tokenService.token = access_token),
         tap(response => {
-          console.log(response)
           this.#userService.setUser(response as any);
         })
       )
@@ -34,7 +33,6 @@ export class AuthService {
       .pipe(
         tap(({ access_token }) => this.#tokenService.token = access_token),
         tap(response => {
-          console.log(response)
           this.#userService.setUser(response as any);
         })
       )
