@@ -8,6 +8,17 @@
   transition: var(--transition);
   width: 100%;
 
+  button,
+  a {
+    border: none;
+    background-color: inherit;
+    font: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
   &-avatar {
     display: block;
     margin-bottom: 24px;

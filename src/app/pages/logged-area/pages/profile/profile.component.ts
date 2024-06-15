@@ -64,9 +64,7 @@ export class ProfileComponent implements OnInit {
     this.#profileService.updateProfile(this.payload).subscribe({
       next: (updatedUser) => {
         this.alertType = AlertTypes.success;
-        const loggedUser = this.#userService.user();
-        loggedUser.user = updatedUser;
-        this.#userService.setUser(loggedUser);
+        this.#userService.updatetUser(updatedUser);
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;

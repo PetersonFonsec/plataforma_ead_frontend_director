@@ -1,5 +1,6 @@
 import { Roles } from "@shared/enums/roles.enum"
 import { College } from "@shared/services/college/collage.model"
+import { IUser } from "@shared/services/user-logged/user-logged.model"
 
 export interface LoginRequest {
   email: string,
@@ -8,13 +9,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   access_token: string,
-  user: {
-    email: string,
-    name: string,
-    role: string,
-    photo: string,
-    id: number
-  },
+  user: IUser,
   colleges: College[],
   calendar: [],
 }

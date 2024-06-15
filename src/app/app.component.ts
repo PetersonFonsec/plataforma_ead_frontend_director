@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { ButtonComponent } from './shared/components/button/button.component';
-import { environment } from 'environments/environment';
+import { ButtonComponent } from '@shared/components/button/button.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +13,4 @@ import { environment } from 'environments/environment';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  env = environment
-  title = 'director';
 }

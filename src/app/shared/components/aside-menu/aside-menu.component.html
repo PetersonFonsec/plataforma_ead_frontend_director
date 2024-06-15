@@ -1,16 +1,26 @@
 <aside id="aside-menu" class="aside-menu">
-  <app-avatar-profile
-    name="Peterson F. Simião"
-    id="aside-menu-avatar"
-    class="aside-menu-avatar"
-  ></app-avatar-profile>
+  @if (!!userLogged?.user?.photo) {
+    <a routerLink="./home">
+      <app-avatar-profile
+        id="aside-menu-avatar"
+        [src]="userLogged?.user?.photo"
+        [name]="userLogged?.user?.name"
+        class="aside-menu-avatar"
+      />
+    </a>
+  } @else {
+    <app-avatar-profile id="aside-menu-avatar" class="aside-menu-avatar" />
+  }
+
   <nav class="aside-menu-content">
     <ul>
-      <li>Aluno</li>
-      <li>Avaliações</li>
-      <li>Materias</li>
-      <li>Atividades</li>
-      <li>Publicações</li>
+      @for (menus of menus; track $index) {
+        <li>
+          <a [routerLink]="menus.link">
+            {{ menus.label }}
+          </a>
+        </li>
+      }
     </ul>
 
     <ul>
@@ -21,7 +31,9 @@
     </ul>
 
     <ul>
-      <li>Sair</li>
+      <li>
+        <button (click)="logout()">Sair</button>
+      </li>
     </ul>
   </nav>
 </aside>

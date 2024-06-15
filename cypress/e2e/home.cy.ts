@@ -1,7 +1,7 @@
 import HomeElements from "../support/pages/home";
 
 describe("Home jorney - ", () => {
-  const usuarios = require('../fixtures/usuarios.json');
+  const usuarios = require('../fixtures/usuarios.json')[1];
   const homepageElements = new HomeElements();
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe("Home jorney - ", () => {
 
   it("Should redirect when to profile page when clicked in jumbotronFinalizeSeuCadastro", () => {
     homepageElements.buttonFinalizeSeuCadastro.click();
-    cy.url().should('include', '/area-logada/home');
+    cy.url().should('include', '/area-logada/create-college');
   });
 
   it("Should redirect when to create college page when clicked in jumbotronBemVindo", () => {

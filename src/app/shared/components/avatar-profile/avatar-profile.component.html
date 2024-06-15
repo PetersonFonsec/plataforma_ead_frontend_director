@@ -1,6 +1,11 @@
 <div class="avatar-profile">
   <div class="avatar-profile-avatar">
-    <app-avatar [src]="src" [alt]="name" [id]="name"></app-avatar>
+    <app-avatar
+      [loading]="false"
+      [src]="src"
+      [alt]="name"
+      [id]="name"
+    ></app-avatar>
   </div>
   <div class="avatar-profile-content">
     <div class="avatar-profile-name">{{ name }}</div>

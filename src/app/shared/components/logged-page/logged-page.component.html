@@ -5,7 +5,10 @@
   }"
 >
   <div class="logged-page-aside">
-    <app-aside-menu></app-aside-menu>
+    <app-aside-menu
+      [userLogged]="userLogged"
+      (userLogout)="logout()"
+    ></app-aside-menu>
   </div>
 
   <div class="logged-page-content">
