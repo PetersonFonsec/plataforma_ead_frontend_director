@@ -1,12 +1,12 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { JumbotronNotificationComponent } from '../../../../shared/components/jumbotron-notification/jumbotron-notification.component';
-import { CollegeItemComponent } from '../../../../shared/components/college-item/college-item/college-item.component';
-import { AlertComponent, AlertTypes } from '../../../../shared/components/alert/alert.component';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { fadeAnimation } from '../../../../shared/animations/fade/fade.animation';
-import { College } from '../../../../shared/services/college/collage.model';
+import { JumbotronNotificationComponent } from '@shared/components/jumbotron-notification/jumbotron-notification.component';
+import { CollegeItemComponent } from '@shared/components/college-item/college-item/college-item.component';
+import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { fadeAnimation } from '@shared/animations/fade/fade.animation';
+import { College } from '@shared/services/college/collage.model';
 
 @Component({
   selector: 'app-list-college',

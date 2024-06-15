@@ -30,7 +30,7 @@ export default class CollegeElements extends SharedElements {
   }
 
   get inputThumb() {
-    return cy.get("#college-thumb-input-file");
+    return cy.get("#college-thumb-input-upload-input-file");
   }
 
   get buttonSubmit() {

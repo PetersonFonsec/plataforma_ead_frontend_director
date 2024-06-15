@@ -1,16 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { InputTextComponent } from '../../../../shared/components/input-text/input-text.component';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { AlertComponent, AlertTypes } from '../../../../shared/components/alert/alert.component';
-import { AvatarComponent, AvatarSizeParam } from '../../../../shared/components/avatar/avatar.component';
-import { FormsModule } from '@angular/forms';
-import { ProfileService } from './services/profile/profile.service';
-import { UserLoggedService } from '../../../../shared/services/user-logged/user-logged.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { fadeAnimation } from '../../../../shared/animations/fade/fade.animation';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ButtonBackComponent } from '../../../../shared/components/button-back/button-back.component';
 
+import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
+import { AvatarComponent, AvatarSizeParam } from '@shared/components/avatar/avatar.component';
+import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
+import { InputTextComponent } from '@shared/components/input-text/input-text.component';
+import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { fadeAnimation } from '@shared/animations/fade/fade.animation';
+
+import { ProfileService } from './services/profile/profile.service';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -21,7 +23,8 @@ import { ButtonBackComponent } from '../../../../shared/components/button-back/b
     AvatarComponent,
     FormsModule,
     RouterLink,
-    ButtonBackComponent
+    ButtonBackComponent,
+    InputUploadComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
@@ -35,29 +38,35 @@ export class ProfileComponent implements OnInit {
   alertMessage = ""
   payload = {
     documentNumber: "",
-    celphone: "",
+    //TODO adicionar ao banco de dados o campo telefone
+    // celphone: "",
     email: "",
-    avatar: "",
+    photo: "",
     name: "",
-    id: ""
-  };
+  } as any;
 
   ngOnInit(): void {
-    const user = this.#userService.user();
+    const loggedUser = this.#userService.user();
+    if (!loggedUser) return;
 
-    if (!user) return;
+    const user = loggedUser.user;
 
+    this.payload.photo = user.photo;
     this.payload.email = user.email;
     this.payload.name = user.name;
   }
 
   submit() {
-    const user = this.#userService.user()
-    this.payload.id = user.id;
+    if (this.payload.photo) {
+      this.payload.photo = this.payload.photo.file;
+    }
 
     this.#profileService.updateProfile(this.payload).subscribe({
-      next: () => {
+      next: (updatedUser) => {
         this.alertType = AlertTypes.success;
+        const loggedUser = this.#userService.user();
+        loggedUser.user = updatedUser;
+        this.#userService.setUser(loggedUser);
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;

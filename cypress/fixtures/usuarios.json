@@ -1,6 +1,16 @@
-{
-  "name": "thaina",
-  "email": "thaina@gmail.com",
-  "password": "Senha123!",
-  "documentNumber": "36482444006"
-}
+[
+  {
+    "name": "thaina",
+    "email": "thaina@gmail.com",
+    "password": "Senha123!",
+    "documentNumber": "36482444006",
+    "photo": "cypress/fixtures/images/luffy.jpg"
+  },
+  {
+    "name": "Peterson Fonseca Simião",
+    "email": "peterson@gmail.com",
+    "password": "Senha123!",
+    "documentNumber": "36479747062",
+    "photo": "cypress/fixtures/images/luffy.jpg"
+  }
+]

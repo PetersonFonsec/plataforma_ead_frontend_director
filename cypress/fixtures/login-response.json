@@ -1,0 +1,123 @@
+[
+  {
+    "user": {
+      "email": "peterson@gmail.com",
+      "name": "Peterson Fonseca Simião",
+      "role": "DIRECTOR",
+      "photo": "",
+      "id": 1
+    },
+    "colleges": [
+      {
+        "id": 2,
+        "createdAt": "2024-06-10T03:14:33.516Z",
+        "updatedAt": "2024-06-10T03:14:33.516Z",
+        "name": "senac",
+        "CollegeStyle": [
+          {
+            "id": 2,
+            "createdAt": "2024-06-10T03:14:33.526Z",
+            "updatedAt": "2024-06-10T03:14:33.526Z",
+            "primaryColor": "#004A8D",
+            "secundaryColor": "#F9A94A",
+            "thumb": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/799cd700-3cdd-4080-a20a-3692d1361800/public",
+            "collegeId": 2
+          }
+        ],
+        "Course": [],
+        "CollegeStudent": [],
+        "_count": {
+          "Course": 0,
+          "CollegeStyle": 1,
+          "CollegeStudent": 0
+        }
+      },
+      {
+        "id": 4,
+        "createdAt": "2024-06-10T03:33:13.142Z",
+        "updatedAt": "2024-06-10T03:33:13.142Z",
+        "name": "Mackenze",
+        "CollegeStyle": [
+          {
+            "id": 4,
+            "createdAt": "2024-06-10T03:33:14.469Z",
+            "updatedAt": "2024-06-10T03:33:14.469Z",
+            "primaryColor": "#de0631",
+            "secundaryColor": "#ffffff",
+            "thumb": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/9714082b-da85-4fb0-9248-c7be68ad2a00/public",
+            "collegeId": 4
+          }
+        ],
+        "Course": [],
+        "CollegeStudent": [],
+        "_count": {
+          "Course": 0,
+          "CollegeStyle": 1,
+          "CollegeStudent": 0
+        }
+      },
+      {
+        "id": 1,
+        "createdAt": "2024-06-10T03:14:33.483Z",
+        "updatedAt": "2024-06-10T03:14:33.483Z",
+        "name": "makenze",
+        "CollegeStyle": [
+          {
+            "id": 1,
+            "createdAt": "2024-06-10T03:14:33.500Z",
+            "updatedAt": "2024-06-10T03:14:33.500Z",
+            "primaryColor": "212227",
+            "secundaryColor": "BDD4E7",
+            "thumb": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/799cd700-3cdd-4080-a20a-3692d1361800/public",
+            "collegeId": 1
+          }
+        ],
+        "Course": [],
+        "CollegeStudent": [],
+        "_count": {
+          "Course": 0,
+          "CollegeStyle": 1,
+          "CollegeStudent": 0
+        }
+      },
+      {
+        "id": 3,
+        "createdAt": "2024-06-10T03:26:55.646Z",
+        "updatedAt": "2024-06-10T03:26:55.646Z",
+        "name": "senac",
+        "CollegeStyle": [
+          {
+            "id": 3,
+            "createdAt": "2024-06-10T03:26:57.075Z",
+            "updatedAt": "2024-06-10T03:26:57.075Z",
+            "primaryColor": "#004a8d",
+            "secundaryColor": "#f9a94a",
+            "thumb": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/b8b34540-bf8c-429d-dd23-bf8305274100/public",
+            "collegeId": 3
+          }
+        ],
+        "Course": [],
+        "CollegeStudent": [],
+        "_count": {
+          "Course": 0,
+          "CollegeStyle": 1,
+          "CollegeStudent": 0
+        }
+      }
+    ],
+    "calendar": [],
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyc29uQGdtYWlsLmNvbSIsIm5hbWUiOiJQZXRlcnNvbiBGb25zZWNhIFNpbWnDo28iLCJyb2xlIjoiRElSRUNUT1IiLCJwaG90byI6IiIsImlkIjoxLCJpYXQiOjE3MTg0MTM4NjcsImV4cCI6MTcxODQxNzQ2Nywic3ViIjoiMSJ9.fHl_VpeHDtsNddfF8Yq4SLdQpJ_3qu44d_AAACGH5Hw"
+  },
+  {
+    "user": {
+      "email": "peterson@gmail.com",
+      "name": "Peterson Fonseca Simião",
+      "role": "DIRECTOR",
+      "photo": "",
+      "id": 1
+    },
+    "colleges": [],
+    "calendar": [],
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyc29uQGdtYWlsLmNvbSIsIm5hbWUiOiJQZXRlcnNvbiBGb25zZWNhIFNpbWnDo28iLCJyb2xlIjoiRElSRUNUT1IiLCJwaG90byI6IiIsImlkIjoxLCJpYXQiOjE3MTg0MTM4NjcsImV4cCI6MTcxODQxNzQ2Nywic3ViIjoiMSJ9.fHl_VpeHDtsNddfF8Yq4SLdQpJ_3qu44d_AAACGH5Hw"
+  }
+]

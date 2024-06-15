@@ -1,4 +1,11 @@
 <div id="home-page" class="container">
-  <jumbotron-profile id="home-page-jumbotron-profile"></jumbotron-profile>
-  <jumbotron-wellcome id="home-page-jumbotron-wellcome"></jumbotron-wellcome>
+  @if (!userLogged?.user?.photo) {
+    <jumbotron-profile id="home-page-jumbotron-profile" />
+  }
+
+  @for (college of userLogged?.colleges; track $index) {
+    <app-college-item [college]="college" />
+  } @empty {
+    <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
+  }
 </div>

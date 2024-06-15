@@ -1,13 +1,13 @@
 import { Injectable, signal } from '@angular/core';
-import { user } from './user-logged.model';
+import { IUserLogged } from './user-logged.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoggedService {
-  user = signal<any>(null);
+  user = signal<IUserLogged>(null as any);
 
-  setUser(user: user) {
+  setUser(user: IUserLogged) {
     this.user.update(() => user)
   }
 }

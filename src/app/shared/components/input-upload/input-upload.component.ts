@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -23,7 +23,7 @@ export interface InputPhotoValue {
   ],
 })
 export class InputUploadComponent implements OnInit, ControlValueAccessor {
-  @Input() id = '';
+  @Input({ transform: (value: string) => `${value}-input-upload` }) id = "";
   @Input() initialImage?: string = '';
   icon = faCloudUploadAlt
   val: InputPhotoValue = {

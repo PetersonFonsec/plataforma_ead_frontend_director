@@ -7,7 +7,7 @@ export default class HomeElements extends SharedElements {
   }
 
   get buttonFinalizeSeuCadastro() {
-    return cy.get("#home-page-jumbotron-profile");
+    return cy.get("#home-page-jumbotron-profile .button");
   }
 
   get jumbotronBemVindo() {

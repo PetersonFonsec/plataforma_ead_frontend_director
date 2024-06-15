@@ -22,7 +22,7 @@ export class AuthService {
       .pipe(
         tap(({ access_token }) => this.#tokenService.token = access_token),
         tap(response => {
-          this.#userService.setUser(response as any);
+          this.#userService.setUser(response);
         })
       )
   }

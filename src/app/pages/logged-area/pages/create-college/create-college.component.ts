@@ -2,14 +2,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { InputUploadComponent } from '../../../../shared/components/input-upload/input-upload.component';
-import { InputColorComponent } from '../../../../shared/components/input-color/input-color.component';
-import { InputTextComponent } from '../../../../shared/components/input-text/input-text.component';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
-import { CollegeService } from '../../../../shared/services/college/college.service';
-import { CollegeRequest } from '../../../../shared/services/college/collage.model';
-import { AlertComponent, AlertTypes } from '../../../../shared/components/alert/alert.component';
-import { ButtonBackComponent } from '../../../../shared/components/button-back/button-back.component';
+import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
+import { InputColorComponent } from '@shared/components/input-color/input-color.component';
+import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
+import { InputTextComponent } from '@shared/components/input-text/input-text.component';
+import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { CollegeService } from '@shared/services/college/college.service';
+import { CollegeRequest } from '@shared/services/college/collage.model';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -40,6 +40,7 @@ export class CreateCollegeComponent {
   }
 
   submit() {
+    this.payload.thumb = this.payload.thumb.file;
     this.#collegeService.createCollege(this.payload).subscribe({
       next: () => {
         this.alertType = AlertTypes.success;

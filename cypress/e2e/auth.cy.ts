@@ -2,7 +2,7 @@ import LoginElements from "../support/pages/login";
 import RegisterElements from "../support/pages/register";
 import WellComeElements from "../support/pages/wellcome";
 
-const usuarios = require('../fixtures/usuarios.json');
+const usuarios = require('../fixtures/usuarios.json')[0];
 const error = require('../fixtures/error-login.json');
 
 describe('Auth jorney - ', () => {

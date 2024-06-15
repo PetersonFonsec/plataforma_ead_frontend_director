@@ -9,6 +9,7 @@ import {
   UpdateProfileResponse
 } from './profile.model';
 import { environment } from 'environments/environment';
+import { Utils } from '@shared/services/utils/utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class ProfileService {
   }
 
   updateProfile(payload: UpdateProfileRequest): Observable<UpdateProfileResponse> {
-    return this.#http.patch<UpdateProfileResponse>(`${this.#baseUrl}/users/${payload.id}`, payload)
+    const formatedPayload = Utils.convertToFormData(payload);
+    return this.#http.patch<UpdateProfileResponse>(`${this.#baseUrl}/users/`, formatedPayload)
   }
 }

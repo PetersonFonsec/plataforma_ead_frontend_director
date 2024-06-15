@@ -22,7 +22,7 @@ export const routes: Routes = [
       {
         path: '',
         component: WelcomeComponent,
-        data: { animation: 'WelcomePage' }
+        data: { animation: 'WelcomePage' },
       },
       {
         path: 'login',

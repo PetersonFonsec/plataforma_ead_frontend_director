@@ -4,10 +4,14 @@
   </header>
 
   <div id="profile-avatar">
-    <app-avatar src="" [size]="avatarSize"></app-avatar>
+    <input-upload
+      id="photo"
+      [initialImage]="payload.photo"
+      [(ngModel)]="payload.photo"
+    />
   </div>
 
-  <form #form="ngForm" id="profile-container">
+  <form #form="ngForm" (ngSubmit)="submit()" id="profile-container">
     <app-input-text
       class="field"
       [(ngModel)]="payload.documentNumber"
@@ -17,7 +21,7 @@
       mask="000.000.000-AA"
       label="CPF"
       type="text"
-      placeholder="Informe o cof do novo usuario"
+      placeholder="Informe o CPF do novo usuario"
     ></app-input-text>
 
     <app-input-text
@@ -43,7 +47,7 @@
       placeholder="Informe o seu nome"
     ></app-input-text>
 
-    <app-input-text
+    <!-- <app-input-text
       class="field"
       [(ngModel)]="payload.celphone"
       id="celphone"
@@ -53,18 +57,27 @@
       type="text"
       mask="(00) 0 0000-0000"
       placeholder="Informe o seu nome"
-    ></app-input-text>
+    ></app-input-text> -->
+
+    <footer id="profile-footer">
+      <app-button-back
+        id="profile-back-button"
+        routerLink="../home"
+      ></app-button-back>
+
+      <app-button
+        id="profile-submit-button"
+        type="submit"
+        [disabled]="!!form.invalid"
+      >
+        Atualizar perfil
+      </app-button>
+
+      @if (alertMessage) {
+        <alert id="profile-alert" @fade [type]="alertType">
+          {{ alertMessage }}
+        </alert>
+      }
+    </footer>
   </form>
-
-  <footer id="profile-footer">
-    <app-button-back routerLink="../home"></app-button-back>
-
-    <app-button (click)="submit()" [disabled]="!!form.invalid">
-      Atualizar perfil
-    </app-button>
-
-    @if (alertMessage) {
-      <alert @fade [type]="alertType"> {{ alertMessage }} </alert>
-    }
-  </footer>
 </div>

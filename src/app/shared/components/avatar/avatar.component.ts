@@ -14,8 +14,8 @@ export enum AvatarSizeParam {
   styleUrl: './avatar.component.scss'
 })
 export class AvatarComponent {
-  @Input() src = "";
-  @Input() alt = "";
+  @Input() src? = "";
+  @Input() alt? = "";
   @Input() id = "";
   @Input() loading = true;
   @Input() size: AvatarSizeParam = AvatarSizeParam.small;

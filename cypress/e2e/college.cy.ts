@@ -4,7 +4,7 @@ import HomeElements from "../support/pages/home";
 describe("College jorney - ", () => {
   const response = require('../fixtures/college-response-success.json');
   const error = require('../fixtures/error-login.json');
-  const usuario = require('../fixtures/usuarios.json');
+  const usuario = require('../fixtures/usuarios.json')[1];
   const colleges = require('../fixtures/college.json')[0];
   const collegeElements = new CollegeElements(colleges);
   const homepageElements = new HomeElements();
@@ -61,10 +61,10 @@ describe("College jorney - ", () => {
   });
 
   it("Should show message success when service return a success", () => {
-    cy.intercept('POST', 'http://localhost:3000/college', {
-      statusCode: 201,
-      body: { response }
-    }).as('stubCollege');
+    // cy.intercept('POST', 'http://localhost:3000/college', {
+    //   statusCode: 201,
+    //   body: { response }
+    // }).as('stubCollege');
 
     collegeElements.fillFormValid();
     collegeElements.buttonSubmit.click();

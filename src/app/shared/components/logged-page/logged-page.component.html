@@ -15,7 +15,16 @@
         [isOpen]="open"
         (click)="open = !open"
       ></app-button-menu>
-      <app-avatar id="avatar-header"></app-avatar>
+      @if (!!userLogged?.user?.photo) {
+        <app-avatar
+          [loading]="false"
+          [src]="userLogged?.user?.photo"
+          [alt]="userLogged?.user?.name"
+          id="avatar-header"
+        />
+      } @else {
+        <app-avatar id="avatar-header" />
+      }
     </header>
     <ng-content></ng-content>
   </div>

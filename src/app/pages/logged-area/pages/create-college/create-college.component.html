@@ -3,7 +3,7 @@
     <h1 class="subtitle border">Nova Escola</h1>
   </header>
 
-  <form #form="ngForm" id="create-college-container">
+  <form #form="ngForm" (ngSubmit)="submit()" id="create-college-container">
     <div class="row">
       <app-input-text
         [(ngModel)]="payload.name"
@@ -42,23 +42,22 @@
         Faça o upload do logo da instituição
       </input-upload>
     </div>
+    <footer id="create-college-footer">
+      <app-button-back routerLink="../home"></app-button-back>
+
+      <app-button
+        id="create-college-submit"
+        type="submit"
+        [disabled]="!!form.invalid"
+      >
+        Criar
+      </app-button>
+
+      @if (alertMessage) {
+        <alert id="create-college-alert" [type]="alertType">
+          {{ alertMessage }}
+        </alert>
+      }
+    </footer>
   </form>
-
-  <footer id="create-college-footer">
-    <app-button-back routerLink="../home"></app-button-back>
-
-    <app-button
-      (click)="submit()"
-      id="create-college-submit"
-      [disabled]="!!form.invalid"
-    >
-      Criar
-    </app-button>
-
-    @if (alertMessage) {
-      <alert id="create-college-alert" [type]="alertType">
-        {{ alertMessage }}
-      </alert>
-    }
-  </footer>
 </section>

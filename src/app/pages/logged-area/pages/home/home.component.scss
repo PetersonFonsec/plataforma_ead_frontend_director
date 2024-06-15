@@ -1,23 +1,35 @@
 @import "../../../../scss/index.scss";
 
-jumbotron-wellcome,
-jumbotron-notification,
-jumbotron-profile {
-  display: block;
-  width: 780px;
-  margin: 0 auto 24px;
-  max-width: 100%;
-}
-
-jumbotron-notification {
-  width: 320px;
-}
-
 #home-page {
   display: flex;
   flex-direction: column;
 
   .text {
     font-weight: var(--font-weight-bold);
+  }
+
+  jumbotron-wellcome,
+  jumbotron-notification,
+  jumbotron-profile {
+    display: block;
+    width: 780px;
+    margin: 0 auto 24px;
+    max-width: 100%;
+  }
+
+  jumbotron-notification {
+    width: 320px;
+  }
+
+  app-college-item {
+    cursor: pointer;
+    display: block;
+    max-width: 330px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  app-college-item:not(:last-child) {
+    margin-bottom: 24px;
   }
 }

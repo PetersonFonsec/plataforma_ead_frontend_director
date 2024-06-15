@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { CollegeRequest, CollegeResponse, ResponseCollegelist } from './collage.model';
 import { environment } from 'environments/environment';
+import { Utils } from '../utils/utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class CollegeService {
   }
 
   createCollege(payload: CollegeRequest): Observable<CollegeResponse> {
-    return this.#http.post<CollegeResponse>(`${this.#baseUrl}/college`, payload)
+    const formatedPayload = Utils.convertToFormData(payload);
+    return this.#http.post<CollegeResponse>(`${this.#baseUrl}/college`, formatedPayload)
   }
 }

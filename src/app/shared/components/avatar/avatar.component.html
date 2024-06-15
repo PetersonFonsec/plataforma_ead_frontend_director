@@ -1,7 +1,7 @@
 <div class="avatar {{ size }}" [ngClass]="{ loading: loading }">
-  @if(!loading) {
-  <img [id]="id" [src]="src" [alt]="alt" />
+  @if (!loading) {
+    <img [id]="id" [src]="src" [alt]="alt" />
   } @else {
-  <div class="avatar-loader"></div>
+    <div class="avatar-loader"></div>
   }
 </div>

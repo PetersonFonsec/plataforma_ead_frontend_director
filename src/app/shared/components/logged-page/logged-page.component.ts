@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { CommonModule, NgClass } from '@angular/common';
 
+import { AvatarComponent } from '../avatar/avatar.component';
 import { AsideMenuComponent } from '../aside-menu/aside-menu.component';
 import { ButtonMenuComponent } from '../button-menu/button-menu.component';
-import { AvatarComponent } from '../avatar/avatar.component';
+import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
 @Component({
   selector: 'logged-page',
   standalone: true,
-  imports: [AsideMenuComponent, ButtonMenuComponent, NgClass, AvatarComponent],
+  imports: [AsideMenuComponent, ButtonMenuComponent, NgClass, AvatarComponent, CommonModule],
   templateUrl: './logged-page.component.html',
   styleUrl: './logged-page.component.scss'
 })
 export class LoggedPageComponent {
-  open = false
+  #userService = inject(UserLoggedService);
+  userLogged = this.#userService.user();
+  open = false;
 }

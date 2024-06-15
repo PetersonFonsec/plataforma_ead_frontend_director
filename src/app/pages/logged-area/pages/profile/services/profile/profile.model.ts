@@ -1,3 +1,5 @@
+import { Roles } from "@shared/enums/roles.enum"
+
 export interface GetProfileRequest {
   id: string
 }
@@ -12,11 +14,12 @@ export interface GetProfileResponse {
 export interface UpdateProfileRequest {
   documentNumber?: string,
   celphone?: string,
-  avatar?: string,
+  photo?: string,
   email?: string,
   name?: string,
-  id: string
 }
 
 export interface UpdateProfileResponse extends GetProfileResponse {
+  photo: string,
+  role: Roles
 }
