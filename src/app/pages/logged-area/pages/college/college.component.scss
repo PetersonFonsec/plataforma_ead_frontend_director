@@ -1,0 +1,61 @@
+@import "../../../../scss/index.scss";
+
+#college {
+  @include filledPage;
+  align-items: center;
+  width: 100%;
+
+  app-college-thumb {
+    @include overflowLateralPadding(32px);
+    margin-left: 0;
+  }
+
+  .subtitle {
+    margin-right: auto;
+  }
+
+  &-content {
+    @include container(var(--container-size-small));
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0;
+    flex: 1;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      width: 100%;
+
+      app-button {
+        max-width: 200px;
+        margin-left: 24px;
+      }
+    }
+  }
+
+  app-college-list,
+  app-college-form {
+    display: block;
+    width: 100%;
+  }
+
+  &-footer {
+    align-items: stretch;
+    display: flex;
+    max-width: 330px;
+    width: 100%;
+
+    ::ng-deep .button {
+      height: 100%;
+    }
+  }
+
+  &-back-button {
+    margin-right: 8px;
+  }
+
+  &-submit-button {
+    flex: 1;
+  }
+}

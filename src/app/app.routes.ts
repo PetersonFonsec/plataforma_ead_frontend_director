@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AuthComponent } from './pages/auth/auth.component';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { RegisterComponent } from './pages/auth/register/register.component';
-import { WelcomeComponent } from './pages/auth/welcome/welcome.component';
-import { NewPasswordComponent } from './pages/auth/new-password/new-password.component';
-import { LoggedAreaComponent } from './pages/logged-area/logged-area.component';
-import { HomeComponent } from './pages/logged-area/pages/home/home.component';
-import { ProfileComponent } from './pages/logged-area/pages/profile/profile.component';
-import { CreateCollegeComponent } from './pages/logged-area/pages/create-college/create-college.component';
-import { ListCollegeComponent } from './pages/logged-area/pages/list-college/list-college.component';
-import { CollegeService } from './shared/services/college/college.service';
-import { inject } from '@angular/core';
+
+import { CreateCollegeComponent } from '@pages/logged-area/pages/create-college/create-college.component';
+import { ListCollegeComponent } from '@pages/logged-area/pages/list-college/list-college.component';
+import { NewPasswordComponent } from '@pages/auth/new-password/new-password.component';
+import { CollegeComponent } from '@pages/logged-area/pages/college/college.component';
+import { ProfileComponent } from '@pages/logged-area/pages/profile/profile.component';
+import { LoggedAreaComponent } from '@pages/logged-area/logged-area.component';
+import { HomeComponent } from '@pages/logged-area/pages/home/home.component';
+import { RegisterComponent } from '@pages/auth/register/register.component';
+import { NotFoundComponent } from '@pages/not-found/not-found.component';
+import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
+import { LoginComponent } from '@pages/auth/login/login.component';
+import { AuthComponent } from '@pages/auth/auth.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -64,13 +64,11 @@ export const routes: Routes = [
         path: 'list-college',
         component: ListCollegeComponent,
         data: { animation: 'list-college' },
-
-        resolve: {
-          colleges: () => {
-            const collegeService = inject(CollegeService);
-            return collegeService.getCollages();
-          }
-        }
+      },
+      {
+        path: 'college/:id',
+        component: CollegeComponent,
+        data: { animation: 'college' },
       },
       {
         path: 'publicacoes',

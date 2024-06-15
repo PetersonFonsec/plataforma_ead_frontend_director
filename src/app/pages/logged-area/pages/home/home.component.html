@@ -3,9 +3,28 @@
     <jumbotron-profile id="home-page-jumbotron-profile" />
   }
 
-  @for (college of userLogged?.colleges; track $index) {
-    <app-college-item [college]="college" />
-  } @empty {
+  @if (!userLogged?.colleges?.length) {
     <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
+  } @else {
+    <ul>
+      @for (college of userLogged?.colleges; track $index) {
+        <li>
+          <a [routerLink]="'../college/' + college.id">
+            <app-college-item [college]="college" />
+          </a>
+        </li>
+      } @empty {
+        <li>
+          <h3 class="empty subtitle">
+            Esta conta não possui nenhuma escola inclusa. Cadastre uma nova
+            clicando em “Nova Escola”
+          </h3>
+        </li>
+      }
+
+      <li>
+        <app-button class="new-college"> Nova Escola </app-button>
+      </li>
+    </ul>
   }
 </div>

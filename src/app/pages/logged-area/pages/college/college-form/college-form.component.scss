@@ -1,0 +1,24 @@
+#college-form {
+  .row {
+    display: flex;
+    width: 100%;
+  }
+
+  .row:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  app-input-text {
+    width: 100%;
+  }
+
+  app-input-color:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  input-upload {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

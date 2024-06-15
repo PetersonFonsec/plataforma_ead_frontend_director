@@ -15,6 +15,6 @@ export const menus = {
   ],
   DIRECTOR: [
     { label: 'Pefil', link: 'profile' },
-    { label: 'Escolas', link: 'colleges' },
+    { label: 'Escolas', link: 'list-college' },
   ]
 } as any;

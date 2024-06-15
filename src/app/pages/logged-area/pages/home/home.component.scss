@@ -21,6 +21,17 @@
     width: 320px;
   }
 
+  ul {
+    list-style: none;
+    margin: 0 auto;
+    max-width: 330px;
+    width: 100%;
+
+    li:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
   app-college-item {
     cursor: pointer;
     display: block;
@@ -29,7 +40,13 @@
     width: 100%;
   }
 
-  app-college-item:not(:last-child) {
-    margin-bottom: 24px;
+  .new-college {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .empty {
+    color: var(--neutral-color-1);
+    text-align: center;
   }
 }
