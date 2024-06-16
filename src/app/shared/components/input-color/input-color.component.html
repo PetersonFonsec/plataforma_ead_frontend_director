@@ -1,4 +1,4 @@
-<div (click)="input.click()" class="input-color">
+<div (click)="input.click()" class="input-color" [ngClass]="{ disabled }">
   <div class="input-color_header">
     <label [for]="id + '-input-color'">{{ label }}</label>
   </div>
@@ -14,6 +14,7 @@
     #input
     type="color"
     hidden="true"
+    [disabled]="disabled"
     (change)="getColorToValProperty(input.value)"
     [(ngModel)]="value"
     [id]="id + '-input-color'"

@@ -1,6 +1,6 @@
 import SharedElements from "./shared";
 
-export default class CollegeElements extends SharedElements {
+export default class CollegeCreateElements extends SharedElements {
   constructor(public college: any) {
     super()
   }
@@ -33,15 +33,18 @@ export default class CollegeElements extends SharedElements {
     return cy.get("#college-thumb-input-upload-input-file");
   }
 
-  get updateButton() {
-    return cy.get('#create-college-submit .button')
-  }
-
-  get newCourseButton() {
+  get buttonSubmit() {
     return cy.get('#create-college-submit .button')
   }
 
   get alert() {
     return cy.get('#create-college-alert')
+  }
+
+  public fillFormValid() {
+    this.inputName.type(this.college.name);
+    this.inputThumb.selectFile(this.college.thumb);
+    this.inputPrimaryColor = this.college.primaryColor;
+    this.inputSecundaryColor = this.college.secundaryColor;
   }
 }

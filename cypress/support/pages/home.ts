@@ -17,4 +17,8 @@ export default class HomeElements extends SharedElements {
   get buttonBemVindo() {
     return cy.get("#home-page-jumbotron-wellcome .button");
   }
+
+  get cardsCollege() {
+    return cy.get("#home-page li:nth-child(1) app-college-item");
+  }
 }

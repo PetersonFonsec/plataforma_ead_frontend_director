@@ -1,4 +1,4 @@
-<div class="input-text" [ngClass]="{ 'has-error': error, success: success }">
+<div class="input-text" [ngClass]="{ 'has-error': error, success, disabled }">
   <div class="input-text_header">
     <label [for]="id">{{ label }}</label>
 
@@ -9,6 +9,7 @@
 
   <input
     [(ngModel)]="value"
+    [disabled]="disabled"
     [id]="id"
     [name]="id"
     [type]="type"

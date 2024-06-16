@@ -1,8 +1,14 @@
-<label [id]="id" [for]="id + '-input-file'" class="input-upload">
+<label
+  [id]="id"
+  [for]="id + '-input-file'"
+  class="input-upload"
+  [ngClass]="{ disabled }"
+>
   <input
     type="file"
     [id]="id + '-input-file'"
     [name]="id"
+    [disabled]="disabled"
     (change)="showImage($event)"
     accept="image/png, image/jpeg"
     class="input-upload_input"

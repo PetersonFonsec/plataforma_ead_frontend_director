@@ -1,9 +1,22 @@
 <form #form="ngForm" id="college-form">
+  <div id="college-form-header">
+    <h1 class="subtitle border">Senac</h1>
+    <app-button
+      [disabled]="!disabledFields"
+      size="small"
+      (click)="update()"
+      id="college-submit-button"
+    >
+      Alterar
+    </app-button>
+  </div>
+
   <div class="row">
     <app-input-text
       [(ngModel)]="payload.name"
       id="college-name"
       [required]="true"
+      [disabled]="disabledFields"
       label="Nome"
       name="name"
       type="text"
@@ -15,6 +28,7 @@
     <app-input-color
       [(ngModel)]="payload.primaryColor"
       id="college-primary-color"
+      [disabled]="disabledFields"
       label="Cor pricipal"
       name="primaryColor"
       [required]="true"
@@ -22,6 +36,7 @@
 
     <app-input-color
       [(ngModel)]="payload.secundaryColor"
+      [disabled]="disabledFields"
       id="college-secundary-color"
       label="Cor secundaria"
       name="secundaryColor"
@@ -32,6 +47,7 @@
   <div class="row">
     <input-upload
       [(ngModel)]="payload.thumb"
+      [disabled]="disabledFields"
       id="college-thumb"
       [required]="true"
       name="thumb"

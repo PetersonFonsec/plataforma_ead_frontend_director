@@ -25,6 +25,7 @@ export enum InputTextTypes {
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = '';
+  @Input() disabled = false;
   @Input() success = false;
   @Input() error = false;
   @Input() label = '';

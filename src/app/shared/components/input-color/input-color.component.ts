@@ -17,6 +17,7 @@ import { CommonModule, NgStyle } from '@angular/common';
   ],
 })
 export class InputColorComponent implements OnInit, ControlValueAccessor {
+  @Input() disabled = false;
   @Input() error = false;
   @Input() label = '';
   @Input() id = '';

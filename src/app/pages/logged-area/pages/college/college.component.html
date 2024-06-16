@@ -2,19 +2,7 @@
   <app-college-thumb />
 
   <div id="college-content" class="container">
-    <div id="college-content-header">
-      <h1 class="subtitle border">Senac</h1>
-      <app-button
-        [disabled]="!!form?.form?.invalid"
-        size="small"
-        (click)="update()"
-        id="college-submit-button"
-      >
-        Alterar
-      </app-button>
-    </div>
-
-    <app-college-form #form />
+    <app-college-form />
     <app-college-list />
 
     @if (alertMessage) {
