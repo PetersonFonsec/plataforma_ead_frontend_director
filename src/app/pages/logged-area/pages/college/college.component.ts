@@ -11,6 +11,7 @@ import { InputTextComponent } from '@shared/components/input-text/input-text.com
 import { CollegeThumbComponent } from './college-thumb/college-thumb.component';
 import { CollegeFormComponent } from './college-form/college-form.component';
 import { CollegeListComponent } from './college-list/college-list.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-college',
@@ -21,7 +22,8 @@ import { CollegeListComponent } from './college-list/college-list.component';
     AlertComponent,
     CollegeFormComponent,
     CollegeThumbComponent,
-    CollegeListComponent
+    CollegeListComponent,
+    RouterLink
   ],
   templateUrl: './college.component.html',
   styleUrl: './college.component.scss'

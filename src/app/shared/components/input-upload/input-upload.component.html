@@ -9,6 +9,8 @@
   />
   @if (value.b64) {
     <img [src]="value.b64" class="input-upload_preview" />
+  } @else if (initialImage) {
+    <img [src]="initialImage" class="input-upload_preview" />
   } @else {
     <button type="button" class="input-upload_button">
       <fa-icon [icon]="icon"></fa-icon>

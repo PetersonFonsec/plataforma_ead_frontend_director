@@ -12,6 +12,7 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
+import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -44,6 +45,7 @@ export const routes: Routes = [
   {
     path: 'area-logada',
     component: LoggedAreaComponent,
+    canActivate: [unauthorizedGuard],
     children: [
       {
         path: 'home',
