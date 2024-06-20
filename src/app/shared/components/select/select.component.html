@@ -3,8 +3,8 @@
     <app-input-text
       (click)="showOptions = true"
       (blur)="showOptions = false"
-      label="Produto"
-      placeholder="Nome do produto"
+      [label]="label"
+      [placeholder]="placeholder"
       [(ngModel)]="inputValue"
       (ngModelChange)="filterOptions()"
       [id]="id"
@@ -13,12 +13,14 @@
   </div>
 
   <ul class="select_options scroll-style" [ngClass]="{ show: showOptions }">
-    @for(option of _options; track $index){
-    <li (click)="setValue(option)" class="select_options_item">
-      {{ option.label }}
-    </li>
+    @for (option of _options; track $index) {
+      <li (click)="setValue(option)" class="select_options_item">
+        {{ option.label }}
+      </li>
     } @empty {
-    <li class="select_options_empty">sem resultados</li>
+      <li (click)="showOptions = false" class="select_options_empty">
+        sem resultados
+      </li>
     }
   </ul>
 </div>

@@ -1,0 +1,51 @@
+#create-course {
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: calc(100vh - 132px);
+  max-width: 400px;
+
+  &-container {
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    text-align: center;
+    width: 480px;
+    max-width: 100%;
+
+    > *:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    input-upload,
+    app-input-text {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &-new-user {
+    display: block;
+    margin-top: 24px;
+  }
+
+  &-footer {
+    margin-top: 34px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    app-button {
+      flex: 1;
+      display: block;
+      margin-left: 14px;
+    }
+
+    alert {
+      display: block;
+      margin-top: 24px;
+      width: 100%;
+    }
+  }
+}

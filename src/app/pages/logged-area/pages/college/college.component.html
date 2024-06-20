@@ -1,9 +1,9 @@
 <section id="college">
-  <app-college-thumb />
+  <app-college-thumb [college]="payload" />
 
   <div id="college-content" class="container">
-    <app-college-form />
-    <app-college-list />
+    <app-college-form [payload]="payload" />
+    <app-college-list [courses]="courses" />
 
     @if (alertMessage) {
       <alert id="college-alert" [type]="alertType">
@@ -13,12 +13,9 @@
   </div>
 
   <footer id="college-footer">
-    <app-button-back
-      id="college-back-button"
-      routerLink="../../home"
-    ></app-button-back>
+    <app-button-back id="college-back-button"></app-button-back>
 
-    <app-button (click)="submit()" id="college-submit-button">
+    <app-button routerLink="./course" id="college-submit-button">
       Cadastrar um curso
     </app-button>
   </footer>

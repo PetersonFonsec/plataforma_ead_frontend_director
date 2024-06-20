@@ -8,11 +8,7 @@ import { AvatarComponent } from '../avatar/avatar.component';
   templateUrl: './avatar-profile.component.html',
   styleUrl: './avatar-profile.component.scss'
 })
-export class AvatarProfileComponent implements OnInit {
+export class AvatarProfileComponent {
   @Input() src? = "";
   @Input() name? = "";
-
-  ngOnInit(): void {
-    console.log(this.src)
-  }
 }

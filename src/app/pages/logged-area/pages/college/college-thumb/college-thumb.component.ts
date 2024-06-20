@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CollegeForm } from '../model/college.model';
 
 @Component({
   selector: 'app-college-thumb',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './college-thumb.component.scss'
 })
 export class CollegeThumbComponent {
-
+  @Input() college = new CollegeForm();
 }

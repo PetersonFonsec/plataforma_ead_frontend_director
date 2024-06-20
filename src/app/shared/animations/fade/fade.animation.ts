@@ -17,7 +17,7 @@ export const fadeAnimation = trigger('fade', [
       stagger(30, [
         animate('300ms ease-in', style({ opacity: 1 })),
       ])
-    ]),
+    ], optional),
   ])
 ]);
 

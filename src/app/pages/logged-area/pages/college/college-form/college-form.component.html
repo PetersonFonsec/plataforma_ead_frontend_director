@@ -46,6 +46,7 @@
 
   <div class="row">
     <input-upload
+      [initialImage]="payload.thumb"
       [(ngModel)]="payload.thumb"
       [disabled]="disabledFields"
       id="college-thumb"

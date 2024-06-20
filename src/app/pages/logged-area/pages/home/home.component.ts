@@ -9,6 +9,7 @@ import { JumbotronWellcomeComponent } from '../../components/jumbotron-wellcome/
 import { JumbotronProfileComponent } from '../../components/jumbotron-profile/jumbotron-profile.component';
 import { CollegeItemComponent } from '@shared/components/college-item/college-item/college-item.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ import { ButtonComponent } from '@shared/components/button/button.component';
     ButtonComponent
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   userService = inject(UserLoggedService);

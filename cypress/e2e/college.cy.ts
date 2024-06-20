@@ -13,13 +13,17 @@ describe("College jorney - ", () => {
   });
 
   it("the form must be previously filled out", () => {
+    collegeElements.inputName.should('have.value', colleges.name);
+    collegeElements.inputThumb.should('have.value', colleges.CollegeStyle.thumb);
+    collegeElements.inputPrimaryColor.should('have.value', colleges.CollegeStyle.primaryColor);
+    collegeElements.inputSecundaryColor.should('have.value', colleges.CollegeStyle.secundaryColor);
+  });
+
+  it("all fields must be disable when page is loaded", () => {
     collegeElements.inputName.should('be.disabled');
     collegeElements.inputThumb.should('be.disabled');
     collegeElements.inputPrimaryColor.should('be.disabled');
     collegeElements.inputSecundaryColor.should('be.disabled');
-  });
-
-  xit("all fields must be disable when page is loaded", () => {
   });
 
   xit("should enabled all fields when user click in update button", () => {

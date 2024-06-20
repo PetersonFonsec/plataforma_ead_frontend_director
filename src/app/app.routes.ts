@@ -13,6 +13,8 @@ import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
 import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
+import { CourseComponent } from '@pages/logged-area/pages/course/course.component';
+import { CreateCourseComponent } from '@pages/logged-area/pages/create-course/create-course.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -70,7 +72,17 @@ export const routes: Routes = [
       {
         path: 'college/:id',
         component: CollegeComponent,
-        data: { animation: 'college' },
+        data: { animation: 'college/:id' },
+      },
+      {
+        path: 'college/:id/course',
+        component: CreateCourseComponent,
+        data: { animation: 'course' },
+      },
+      {
+        path: 'college/:id/course/:id',
+        component: CourseComponent,
+        data: { animation: 'course/:id' },
       },
       {
         path: 'publicacoes',

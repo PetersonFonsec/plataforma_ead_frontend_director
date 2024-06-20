@@ -1,11 +1,22 @@
 #college-list {
   ul {
     list-style: none;
+
+    li {
+      max-width: 330px;
+      margin: 0 auto;
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 24px;
+    }
   }
+
   .empty {
     color: var(--neutral-color-1);
     margin: 24px auto;
     max-width: 330px;
     text-align: center;
+    width: 100%;
   }
 }

@@ -1,10 +1,6 @@
-<header id="college-header" style="background-color: #f9a94a">
+<header id="college-header" [style]="{ backgroundColor: college.primaryColor }">
   <div id="college-header-overlay"></div>
   <div class="container">
-    <img
-      id="college-header-thumb"
-      src="https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/b8b34540-bf8c-429d-dd23-bf8305274100/public"
-      alt="senac"
-    />
+    <img id="college-header-thumb" [src]="college.thumb" [alt]="college.name" />
   </div>
 </header>

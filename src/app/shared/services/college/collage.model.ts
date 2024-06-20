@@ -1,7 +1,10 @@
+import { Course } from "../course/course.model"
+
 export interface College {
   CollegeStyle: CollegeStyle[]
   createdAt: string,
   updatedAt: string,
+  Course: Course[],
   userId: number,
   name: string,
   id: number,

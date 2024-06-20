@@ -1,1 +1,9 @@
-<p>course-item works!</p>
+<div class="course-item">
+  <div class="course-item-thumb">
+    <img [src]="thumb" alt="imagem meramente ilustrativa" />
+    <div class="course-item-overlay"></div>
+  </div>
+  <div class="course-item-content">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -2,9 +2,12 @@
   <h2 class="subtitle border">Cursos</h2>
 
   <ul>
-    @for (course of []; track $index) {
+    @for (course of [0, 1]; track $index) {
       <li>
-        <app-course-item />
+        <app-course-item thumb="https://dummyimage.com/600x400/000/fff">
+          <h3 class="title">Conceitos de computação I</h3>
+          <app-button size="small">editar</app-button>
+        </app-course-item>
       </li>
     } @empty {
       <li>

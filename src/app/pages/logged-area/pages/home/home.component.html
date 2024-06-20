@@ -6,6 +6,7 @@
   @if (!userLogged?.colleges?.length) {
     <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
   } @else {
+    <h1 class="subtitle border">Escolas</h1>
     <ul>
       @for (college of userLogged?.colleges; track $index) {
         <li>
