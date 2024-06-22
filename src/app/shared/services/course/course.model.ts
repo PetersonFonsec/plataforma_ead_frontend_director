@@ -1,8 +1,24 @@
-export interface Course {
+export interface ICourse {
   createdAt: string
   collegeId: number
   updatedAt: string
-  thumb: String
-  name: String
+  thumb: string
+  name: string
   id: number
+}
+
+export class CourseForm {
+  thumb = ""
+  name = ""
+  id = -1
+}
+
+export interface IRequestCourseCreate {
+  thumb: any,
+  name: string,
+  collegeId: number
+}
+
+export interface IResponseCourseCreate extends ICourse { }
+export interface IResponseCourseGetById extends ICourse {
 }

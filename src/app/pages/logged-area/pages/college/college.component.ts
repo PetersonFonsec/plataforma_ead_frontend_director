@@ -2,15 +2,16 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
+import { PageThumbComponent } from '@shared/components/page-thumb/page-thumb.component';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { CollegeThumbComponent } from './college-thumb/college-thumb.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CollegeService } from '@shared/services/college/college.service';
+import { ICourse } from '@shared/services/course/course.model';
 
-import { CollegeThumbComponent } from './college-thumb/college-thumb.component';
 import { CollegeFormComponent } from './college-form/college-form.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { CollegeForm } from './model/college.model';
-import { Course } from '@shared/services/course/course.model';
 
 @Component({
   selector: 'app-college',
@@ -20,6 +21,7 @@ import { Course } from '@shared/services/course/course.model';
     ButtonComponent,
     AlertComponent,
     CollegeFormComponent,
+    PageThumbComponent,
     CollegeThumbComponent,
     CollegeListComponent,
     RouterLink
@@ -32,7 +34,7 @@ export class CollegeComponent implements OnInit {
   #router = inject(ActivatedRoute);
   alertType = AlertTypes.success;
   payload = new CollegeForm();
-  courses: Course[] = [];
+  courses: ICourse[] = [];
   alertMessage = "";
 
   ngOnInit(): void {

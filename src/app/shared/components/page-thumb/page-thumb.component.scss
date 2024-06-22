@@ -1,0 +1,32 @@
+@import "../../../../app/scss/index.scss";
+
+#page-header {
+  align-items: center;
+  display: flex;
+  height: 197px;
+  justify-content: center;
+  margin-left: 0;
+  position: relative;
+
+  .container {
+    height: 100%;
+  }
+
+  &-thumb {
+    @include validSizeImage();
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background: linear-gradient(#fff, #000);
+  }
+}

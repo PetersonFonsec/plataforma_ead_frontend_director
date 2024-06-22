@@ -1,10 +1,10 @@
-import { Course } from "../course/course.model"
+import { ICourse } from "../course/course.model"
 
 export interface College {
   CollegeStyle: CollegeStyle[]
   createdAt: string,
   updatedAt: string,
-  Course: Course[],
+  Course: ICourse[],
   userId: number,
   name: string,
   id: number,

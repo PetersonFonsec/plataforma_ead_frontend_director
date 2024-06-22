@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { CourseItemComponent } from '@shared/components/course-item/course-item.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
-import { Course } from '@shared/services/course/course.model';
+import { ICourse } from '@shared/services/course/course.model';
 
 @Component({
   selector: 'app-college-list',
@@ -13,5 +13,5 @@ import { Course } from '@shared/services/course/course.model';
   styleUrl: './college-list.component.scss'
 })
 export class CollegeListComponent {
-  @Input() courses: Course[] = []
+  @Input() courses: ICourse[] = []
 }

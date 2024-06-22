@@ -1,0 +1,25 @@
+#course-form {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    width: 100%;
+
+    app-button {
+      max-width: 200px;
+      margin-left: 24px;
+    }
+  }
+
+  app-input-text {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  input-upload {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

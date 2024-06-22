@@ -1,0 +1,23 @@
+<form #form="ngForm" id="course-form">
+  <app-input-text
+    [(ngModel)]="payload.name"
+    label="Nome"
+    id="course-name"
+    name="name"
+    [required]="true"
+    [disabled]="disabledFields"
+    type="text"
+    placeholder="Informe o nome da instituição"
+  />
+
+  <input-upload
+    [(ngModel)]="payload.thumb"
+    [initialImage]="payload.thumb"
+    [disabled]="disabledFields"
+    id="course-thumb"
+    [required]="true"
+    name="thumb"
+  >
+    Faça o upload da thumb do curso
+  </input-upload>
+</form>

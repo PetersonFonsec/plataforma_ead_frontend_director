@@ -10,7 +10,7 @@ import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.compo
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CollegeService } from '@shared/services/college/college.service';
 import { CollegeRequest } from '@shared/services/college/collage.model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-create-college',
@@ -30,6 +30,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CreateCollegeComponent {
   #collegeService = inject(CollegeService);
+  #router = inject(Router);
   alertType = AlertTypes.success;
   alertMessage = "";
   payload: CollegeRequest = {
@@ -40,11 +41,10 @@ export class CreateCollegeComponent {
   }
 
   submit() {
-    this.payload.thumb = this.payload.thumb.file;
+    this.payload.thumb = this.payload?.thumb?.file ?? '';
     this.#collegeService.createCollege(this.payload).subscribe({
-      next: () => {
-        this.alertType = AlertTypes.success;
-        this.alertMessage = "Instituição criada com sucesso";
+      next: async (college) => {
+        await this.#router.navigateByUrl(`/area-logada/college/${college.id}`);
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;

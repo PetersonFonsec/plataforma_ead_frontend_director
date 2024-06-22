@@ -80,7 +80,7 @@ export const routes: Routes = [
         data: { animation: 'course' },
       },
       {
-        path: 'college/:id/course/:id',
+        path: 'course/:id',
         component: CourseComponent,
         data: { animation: 'course/:id' },
       },

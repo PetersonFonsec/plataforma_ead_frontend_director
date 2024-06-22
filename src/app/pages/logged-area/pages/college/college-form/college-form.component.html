@@ -1,6 +1,6 @@
 <form #form="ngForm" id="college-form">
   <div id="college-form-header">
-    <h1 class="subtitle border">Senac</h1>
+    <h1 class="subtitle border">{{ payload.name }}</h1>
     <app-button
       [disabled]="!disabledFields"
       size="small"

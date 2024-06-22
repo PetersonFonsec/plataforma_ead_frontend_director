@@ -2,11 +2,16 @@
   <h2 class="subtitle border">Cursos</h2>
 
   <ul>
-    @for (course of [0, 1]; track $index) {
+    @for (course of courses; track $index) {
       <li>
-        <app-course-item thumb="https://dummyimage.com/600x400/000/fff">
+        <app-course-item [thumb]="course.thumb">
           <h3 class="title">Conceitos de computação I</h3>
-          <app-button size="small">editar</app-button>
+          <app-button
+            routerLink="/area-logada/course/{{ course.id }}"
+            size="small"
+          >
+            editar
+          </app-button>
         </app-course-item>
       </li>
     } @empty {

@@ -23,35 +23,35 @@
       Faça o upload da thumb do curso
     </input-upload>
 
-    <app-select
+    <!-- <app-select
       label="Professor(a)"
       placeholder="Selecione um professor(a)"
       [(ngModel)]="payload.users"
       id="course-users"
       [required]="true"
       name="thumb"
-    />
+    /> -->
 
-    <app-button id="create-course-new-user" type="button">
+    <!-- <app-button id="create-course-new-user" type="button">
       Vincular um novo usuario
-    </app-button>
+    </app-button> -->
+
+    <footer id="create-course-footer">
+      <app-button-back></app-button-back>
+
+      <app-button
+        id="create-course-submit"
+        type="submit"
+        [disabled]="!!form.invalid"
+      >
+        Criar
+      </app-button>
+
+      @if (alertMessage) {
+        <alert id="create-course-alert" [type]="alertType">
+          {{ alertMessage }}
+        </alert>
+      }
+    </footer>
   </form>
-
-  <footer id="create-course-footer">
-    <app-button-back></app-button-back>
-
-    <app-button
-      id="create-course-submit"
-      type="submit"
-      [disabled]="!!form.invalid"
-    >
-      Criar
-    </app-button>
-
-    @if (alertMessage) {
-      <alert id="create-course-alert" [type]="alertType">
-        {{ alertMessage }}
-      </alert>
-    }
-  </footer>
 </section>
