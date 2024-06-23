@@ -34,7 +34,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       login(user: any, stub?: boolean): Chainable<void>
-      createNewCollege(college: any): Chainable<void>
+      createNewCollege(college: any, stub?: boolean): Chainable<void>
       // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
       // dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
       // visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>

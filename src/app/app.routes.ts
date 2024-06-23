@@ -15,6 +15,7 @@ import { AuthComponent } from '@pages/auth/auth.component';
 import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
 import { CourseComponent } from '@pages/logged-area/pages/course/course.component';
 import { CreateCourseComponent } from '@pages/logged-area/pages/create-course/create-course.component';
+import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -83,6 +84,11 @@ export const routes: Routes = [
         path: 'course/:id',
         component: CourseComponent,
         data: { animation: 'course/:id' },
+      },
+      {
+        path: 'lesson',
+        component: LessonComponent,
+        data: { animation: 'lesson' },
       },
       {
         path: 'publicacoes',
