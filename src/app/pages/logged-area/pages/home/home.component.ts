@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -26,7 +26,13 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   userService = inject(UserLoggedService);
   userLogged = this.userService.user();
+
+
+  ngOnInit(): void {
+
+    console.log(this.userLogged)
+  }
 }

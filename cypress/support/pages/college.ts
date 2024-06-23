@@ -33,15 +33,28 @@ export default class CollegeElements extends SharedElements {
     return cy.get("#college-thumb-input-upload-input-file");
   }
 
-  get updateButton() {
-    return cy.get('#create-college-submit .button')
+  get inputThumbImage() {
+    return cy.get("#college-thumb img.input-upload_preview");
+  }
+
+  get updateSubmitButton() {
+    return cy.get('#college-form-submit-button')
+  }
+
+  get buttonEnabledFields() {
+    return cy.get("#college-enabled-button")
+  }
+
+  get backButton() {
+    return cy.get("#college-back-button")
   }
 
   get newCourseButton() {
-    return cy.get('#create-college-submit .button')
+    return cy.get('#college-submit-button-button');
   }
 
   get alert() {
     return cy.get('#create-college-alert')
   }
+
 }

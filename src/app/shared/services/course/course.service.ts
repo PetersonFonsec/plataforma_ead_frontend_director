@@ -53,8 +53,8 @@ export class CourseService {
 
   getCoursesInMemory(): ICourse[] {
     const user = this.#userService.user();
-    return user.colleges.reduce((acumulator, current) => {
-      acumulator.push(current.Course as never);
+    return user.colleges.reduce<ICourse[]>((acumulator, current) => {
+      if (current.Course.length) acumulator.push(...current.Course);
       return acumulator
     }, []);
   }

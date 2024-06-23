@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import CollegeCreateElements from "./pages/college-create";
 import LoginElements from "./pages/login";
 import WellComeElements from "./pages/wellcome";
 
@@ -33,6 +34,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       login(user: any, stub?: boolean): Chainable<void>
+      createNewCollege(college: any): Chainable<void>
       // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
       // dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
       // visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
@@ -43,10 +45,12 @@ declare global {
 Cypress.Commands.addAll({
   login(user, stub = true) {
     if (stub) {
-      const body = require('../fixtures/login-response.json')[1];
-      cy.intercept('POST', 'http://localhost:3000/auth/login', {
+      const users = require('../fixtures/login-response.json');
+      const response = users.filter(mockedUser => mockedUser.user.email === user.email)[0];
+
+      cy.intercept('POST', `${Cypress.env('url')}/auth/login`, {
         statusCode: 200,
-        body
+        body: response
       }).as('stubLogin');
     }
 
@@ -57,5 +61,21 @@ Cypress.Commands.addAll({
     wellElements.loginButton.click();
     loginElements.fillFormValid();
     loginElements.submitButton.click();
+  },
+
+  createNewCollege(college: any, stub = true) {
+    cy.visit('http://localhost:4200/area-logada/create-college');
+    const collegeElements = new CollegeCreateElements(college);
+
+    if (stub) {
+      const response = require('../fixtures/college-response-success.json');
+      cy.intercept('POST', `${Cypress.env('url')}/college`, {
+        statusCode: 201,
+        body: response
+      }).as('stubCollege');
+    }
+
+    collegeElements.fillFormValid();
+    collegeElements.buttonSubmit.click();
   }
 });

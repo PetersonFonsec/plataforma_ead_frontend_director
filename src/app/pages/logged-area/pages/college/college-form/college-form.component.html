@@ -1,13 +1,12 @@
-<form #form="ngForm" id="college-form">
+<form #form="ngForm" (ngSubmit)="update()" id="college-form">
   <div id="college-form-header">
     <h1 class="subtitle border">{{ payload.name }}</h1>
     <app-button
-      [disabled]="!disabledFields"
       size="small"
-      (click)="update()"
-      id="college-submit-button"
+      (click)="disabledFields = !disabledFields"
+      id="college-enabled"
     >
-      Alterar
+      {{ !disabledFields ? "Alterar" : "Apenas visualizar" }}
     </app-button>
   </div>
 
@@ -56,4 +55,10 @@
       Faça o upload do logo da instituição
     </input-upload>
   </div>
+
+  @if (disabledFields) {
+    <app-button type="submit" id="college-form-submit">
+      Salvar alterações
+    </app-button>
+  }
 </form>

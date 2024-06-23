@@ -42,9 +42,10 @@ export default class CollegeCreateElements extends SharedElements {
   }
 
   public fillFormValid() {
+    this.inputThumb.selectFile(this.college.CollegeStyle[0].thumbCy);
     this.inputName.type(this.college.name);
-    this.inputThumb.selectFile(this.college.thumb);
-    this.inputPrimaryColor = this.college.primaryColor;
+
     this.inputSecundaryColor = this.college.secundaryColor;
+    this.inputPrimaryColor = this.college.primaryColor;
   }
 }

@@ -11,6 +11,13 @@
     }
   }
 
+  &-submit {
+    display: block;
+    margin: 44px auto;
+    max-width: 330px;
+    width: 100%;
+  }
+
   .row {
     display: flex;
     width: 100%;

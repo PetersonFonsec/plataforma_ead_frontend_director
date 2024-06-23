@@ -13,12 +13,12 @@ describe('Auth jorney - ', () => {
     loginElements = new LoginElements(usuarios);
     registerElements = new RegisterElements(usuarios);
 
-    cy.intercept('POST', 'http://localhost:3000/auth/login', {
+    cy.intercept('POST', `${Cypress.env('url')}/auth/login`, {
       statusCode: 400,
       body: error
     }).as('stubLogin');
 
-    cy.intercept('POST', 'http://localhost:3000/auth/register/director', {
+    cy.intercept('POST', `${Cypress.env('url')}/auth/register/director`, {
       statusCode: 400,
       body: error
     }).as('stubRegister');
