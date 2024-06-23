@@ -15,7 +15,6 @@ const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
