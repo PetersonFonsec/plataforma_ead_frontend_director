@@ -1,0 +1,13 @@
+@import "../../../../scss/index";
+
+#lesson {
+  @include directionColumn();
+
+  &-container {
+    width: 100%;
+
+    quill-editor {
+      width: inherit;
+    }
+  }
+}

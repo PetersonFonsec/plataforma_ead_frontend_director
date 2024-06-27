@@ -1,1 +1,18 @@
-<p>lesson works!</p>
+<div id="lesson" class="container">
+  <div id="lesson-header"></div>
+
+  <div>
+    Presentation in HTML
+    <div class="ql-container ql-snow" style="border-width: 0">
+      <div
+        style="width: 100%"
+        class="ql-editor"
+        [innerHTML]="byPassHTML(form.get('html')!.value)"
+      ></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form">
+    <quill-editor format="html" formControlName="html"></quill-editor>
+  </form>
+</div>
