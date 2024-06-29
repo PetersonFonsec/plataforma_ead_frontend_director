@@ -47,6 +47,7 @@
       <input-upload
         [(ngModel)]="payload.video"
         [required]="true"
+        accept="video/mp4,video/x-m4v,video/*"
         name="video"
         id="video"
         >Video da aula</input-upload
@@ -59,6 +60,12 @@
       name="lesson-content"
       [(ngModel)]="payload.content"
     />
+
+    @if (alertMessage) {
+      <alert id="create-course-alert" [type]="alertType">
+        {{ alertMessage }}
+      </alert>
+    }
 
     <app-button [disabled]="!!form.invalid"> Criar aula </app-button>
   </form>
