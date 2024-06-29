@@ -9,8 +9,8 @@
     [id]="id + '-input-file'"
     [name]="id"
     [disabled]="disabled"
+    [accept]="accept"
     (change)="showImage($event)"
-    accept="image/png, image/jpeg"
     class="input-upload_input"
   />
   @if (value.b64) {

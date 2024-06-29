@@ -26,6 +26,7 @@ export class InputUploadComponent implements OnInit, ControlValueAccessor {
   @Input({ transform: (value: string) => `${value}-input-upload` }) id = "";
   @Input() initialImage?: string = '';
   @Input() disabled = false;
+  @Input() accept = 'image/png, image/jpeg';
   icon = faCloudUploadAlt
   val: InputPhotoValue = {
     b64: '',
