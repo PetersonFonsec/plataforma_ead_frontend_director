@@ -2,12 +2,28 @@
 
 #lesson {
   @include directionColumn();
+  align-items: flex-start;
 
-  &-container {
+  .row {
+    display: flex;
+    width: 100%;
+  }
+
+  &-form {
+    @include container(var(--container-size-small));
     width: 100%;
 
     quill-editor {
       width: inherit;
+    }
+
+    app-input-radio {
+      margin-right: 24px;
+    }
+
+    & > * {
+      display: block;
+      margin-top: 24px;
     }
   }
 }

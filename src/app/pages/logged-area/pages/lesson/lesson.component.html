@@ -1,18 +1,65 @@
-<div id="lesson" class="container">
-  <div id="lesson-header"></div>
+<section id="lesson" class="container">
+  <header id="lesson-header">
+    <h1 class="subtitle border">Aula</h1>
+  </header>
 
-  <div>
-    Presentation in HTML
-    <div class="ql-container ql-snow" style="border-width: 0">
-      <div
-        style="width: 100%"
-        class="ql-editor"
-        [innerHTML]="byPassHTML(form.get('html')!.value)"
-      ></div>
+  <form id="lesson-form" #form="ngForm">
+    <app-input-text
+      name="title"
+      [(ngModel)]="payload.title"
+      id="title"
+      type="title"
+      [required]="true"
+      label="Titulo"
+      placeholder="Informe o titulo da aula"
+    />
+
+    <app-input-text
+      [(ngModel)]="payload.description"
+      name="description"
+      id="description"
+      [required]="true"
+      label="Descrição"
+      placeholder="Descreva o conteudo da aula"
+    />
+
+    <div class="row">
+      <app-input-radio [(ngModel)]="videoType" value="upload" name="video">
+        Upload
+      </app-input-radio>
+      <app-input-radio [(ngModel)]="videoType" value="link" name="video">
+        Link
+      </app-input-radio>
     </div>
-  </div>
 
-  <form [formGroup]="form">
-    <quill-editor format="html" formControlName="html"></quill-editor>
+    @if (videoType === "link") {
+      <app-input-text
+        [(ngModel)]="payload.urlContent"
+        name="urlContent"
+        [required]="true"
+        id="urlContent"
+        label="Link"
+        placeholder="Link da video aula"
+      />
+    }
+
+    @if (videoType === "upload") {
+      <input-upload
+        [(ngModel)]="payload.video"
+        [required]="true"
+        name="video"
+        id="video"
+        >Video da aula</input-upload
+      >
+    }
+
+    <quill-editor
+      format="html"
+      id="lesson-content"
+      name="lesson-content"
+      [(ngModel)]="payload.content"
+    />
+
+    <app-button [disabled]="!!form.invalid"> Criar aula </app-button>
   </form>
-</div>
+</section>

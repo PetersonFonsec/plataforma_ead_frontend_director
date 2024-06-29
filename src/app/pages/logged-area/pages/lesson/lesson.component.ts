@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser'
-import { QuillEditorComponent } from 'ngx-quill'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
+import { QuillEditorComponent } from 'ngx-quill';
+import { Component, inject } from '@angular/core';
+
+import { InputRadioComponent } from '@shared/components/input-radio/input-radio.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { LessonCreateRequest } from '@shared/services/lesson/lesson.model';
+import { InputTextComponent } from '@shared/components/input-text/input-text.component';
+import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
+
+export class LessonForm implements LessonCreateRequest {
+  description = "";
+  urlContent = "";
+  courseId = 0;
+  content = "";
+  title = "";
+  video = null;
+}
 
 @Component({
   selector: 'app-lesson',
   standalone: true,
-  imports: [QuillEditorComponent, FormsModule, ReactiveFormsModule],
+  imports: [
+    QuillEditorComponent,
+    ReactiveFormsModule,
+    InputRadioComponent,
+    ButtonComponent,
+    FormsModule,
+    InputTextComponent,
+
+    InputUploadComponent
+  ],
   templateUrl: './lesson.component.html',
   styleUrl: './lesson.component.scss',
 })
 export class LessonComponent {
-  textFormat = ''
-  form: FormGroup = this.fb.group({
-    html: new FormControl('<div>test</div><ul><li>1</li><li class="ql-indent-1">1-1</li><li>2</li><ol><li>numbered</li><li class="ql-indent-1">numbered-1</li></ol></ul><div><br></div>'),
-    matQuillHtml: new FormControl('<div>test</div><ul><li>1</li><li class="ql-indent-1">1-1</li><li>2</li><ol><li>numbered</li><li class="ql-indent-1">numbered-1</li></ol></ul><div><br></div>')
-  })
-
-  constructor(private sanitizer: DomSanitizer, private fb: FormBuilder) { }
-
-  ngOnInit() {
-  }
+  sanitizer = inject(DomSanitizer);
+  payload = new LessonForm();
+  videoType = '';
 
   byPassHTML(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html)
