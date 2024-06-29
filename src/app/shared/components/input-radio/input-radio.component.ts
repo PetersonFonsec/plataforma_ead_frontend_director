@@ -1,5 +1,5 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input-radio',
@@ -15,8 +15,45 @@ import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class InputRadioComponent {
-  @Input() name = ""
-  @Input() id = ""
+export class InputRadioComponent implements OnInit, ControlValueAccessor {
+  @Input() value = "";
+  @Input() name = "";
+  @Input() id = "";
+  val = '';
 
+  get _value() {
+    return this.val;
+  }
+
+  set _value(val: any) {
+    if (val !== undefined && val !== null) {
+      this.val = val;
+      this.onChange(val);
+      this.onTouched(val);
+    }
+  }
+
+  toggle(event: any) {
+    this._value = event
+  }
+
+  ngOnInit(): void { }
+
+  onChange: any = () => { };
+
+  onTouched: any = () => { };
+
+  onBlur() { }
+
+  writeValue(value: any) {
+    this._value = value;
+  }
+
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
+  }
 }
