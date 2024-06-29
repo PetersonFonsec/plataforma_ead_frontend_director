@@ -86,7 +86,7 @@ export const routes: Routes = [
         data: { animation: 'course/:id' },
       },
       {
-        path: 'lesson',
+        path: 'course/:id/lesson',
         component: LessonComponent,
         data: { animation: 'lesson' },
       },
