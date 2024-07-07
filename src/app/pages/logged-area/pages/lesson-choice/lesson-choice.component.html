@@ -1,1 +1,21 @@
-<p>lesson-choice works!</p>
+<form (ngSubmit)="redirect()" id="lesson-choice" class="container">
+  <div id="lesson-choice-content">
+    <app-input-card [(ngModel)]="task" valor="Tarefa" id="tarefa" name="task">
+      <img src="/assets/ilustrations/programer.svg" />
+      <h3 label>Tarefa</h3>
+    </app-input-card>
+
+    <app-input-card [(ngModel)]="task" valor="Quiz" id="quiz" name="task">
+      <img src="/assets/ilustrations/computador.svg" />
+      <h3 label>Quiz</h3>
+    </app-input-card>
+  </div>
+
+  <footer id="lesson-choice-footer">
+    <app-button-back id="lesson-choice-back-button" />
+
+    <app-button [disabled]="!task" id="lesson-choice-submit-button">
+      Criar um conteudo
+    </app-button>
+  </footer>
+</form>
