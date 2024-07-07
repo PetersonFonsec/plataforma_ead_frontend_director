@@ -1,0 +1,30 @@
+.input-card {
+  align-items: center;
+  border: 1px solid var(--neutral-color-2);
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+
+  &-content {
+    display: flex;
+    flex: 1;
+    pointer-events: none;
+  }
+
+  &-footer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    width: 100%;
+
+    app-input-radio {
+      margin-left: 24px;
+    }
+  }
+}
