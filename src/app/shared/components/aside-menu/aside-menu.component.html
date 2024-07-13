@@ -1,10 +1,10 @@
 <aside id="aside-menu" class="aside-menu">
-  @if (!!userLogged?.user?.photo) {
+  @if (!!userLogged && !!userLogged.user.photo) {
     <a routerLink="./home">
       <app-avatar-profile
         id="aside-menu-avatar"
-        [src]="userLogged?.user?.photo"
-        [name]="userLogged?.user?.name"
+        [src]="userLogged.user.photo"
+        [name]="userLogged.user.name"
         class="aside-menu-avatar"
       />
     </a>

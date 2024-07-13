@@ -1,6 +1,6 @@
-@import "../../../../../styles.scss";
+@use "../../../../scss/index.scss" as v;
 
-#lesson-choice {
+#task-choice {
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -16,7 +16,7 @@
     flex: 1;
     width: 100%;
 
-    @media (min-width: $tablet) {
+    @media (min-width: v.$tablet) {
       flex-direction: row;
       align-items: stretch;
       justify-content: space-between;
@@ -25,7 +25,7 @@
     app-input-card {
       width: 100%;
 
-      @media (min-width: $tablet) {
+      @media (min-width: 768px) {
         max-height: 400px;
         max-width: 300px;
       }
@@ -34,7 +34,7 @@
     app-input-card + app-input-card {
       margin-top: 24px;
 
-      @media (min-width: $tablet) {
+      @media (min-width: 768px) {
         margin-top: 0;
         margin-left: 24px;
       }

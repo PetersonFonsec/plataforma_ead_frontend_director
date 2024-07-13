@@ -9,7 +9,7 @@
 
   <div id="list-college-container">
     <ul>
-      @for (college of userLogged?.colleges; track $index) {
+      @for (college of userLogged.colleges; track $index) {
         <li>
           <a [routerLink]="'../college/' + college.id">
             <app-college-item [college]="college" />

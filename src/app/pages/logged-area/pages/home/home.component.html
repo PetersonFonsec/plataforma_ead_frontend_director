@@ -1,14 +1,14 @@
 <div id="home-page" class="container">
-  @if (!userLogged?.user?.photo) {
+  @if (!userLogged.user || !userLogged.user.photo) {
     <jumbotron-profile id="home-page-jumbotron-profile" />
   }
 
-  @if (!userLogged?.colleges?.length) {
+  @if (!userLogged.colleges || !userLogged.colleges.length) {
     <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
   } @else {
     <h1 class="subtitle border">Escolas</h1>
     <ul>
-      @for (college of userLogged?.colleges; track $index) {
+      @for (college of userLogged.colleges; track $index) {
         <li>
           <a [routerLink]="'../college/' + college.id">
             <app-college-item [college]="college" />
@@ -24,7 +24,9 @@
       }
 
       <li>
-        <app-button class="new-college"> Nova Escola </app-button>
+        <app-button routerLink="../create-college" class="new-college">
+          Nova Escola
+        </app-button>
       </li>
     </ul>
   }

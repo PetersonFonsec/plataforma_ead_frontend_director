@@ -1,12 +1,23 @@
-@import "../../../../scss/index.scss";
+@use "../../../../scss/index.scss" as import;
 
 #course {
-  @include filledPage;
+  @include import.filledPage;
   align-items: center;
   width: 100%;
 
+  ul {
+    list-style: none;
+    margin-bottom: 14px;
+    padding: 0;
+    width: 100%;
+
+    li + li {
+      margin-top: 18px;
+    }
+  }
+
   app-page-thumb {
-    @include overflowLateralPadding(32px);
+    @include import.overflowLateralPadding(32px);
     margin-left: 0;
   }
 
@@ -16,13 +27,14 @@
   }
 
   &-content {
-    @include container(var(--container-size-small));
+    @include import.container(var(--container-size-small));
     flex-direction: column;
     align-items: center;
     margin: 24px 0;
     flex: 1;
   }
 
+  app-item-bar,
   app-course-list,
   app-course-form {
     display: block;
@@ -38,6 +50,14 @@
     ::ng-deep .button {
       height: 100%;
     }
+  }
+
+  .empty {
+    color: var(--neutral-color-1);
+    margin: 24px auto;
+    max-width: 330px;
+    text-align: center;
+    width: 100%;
   }
 
   &-back-button {

@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 
 import { ICourse, IRequestCourseCreate, IResponseCourseCreate, IResponseCourseGetById } from './course.model';
 import { UserLoggedService } from '../user-logged/user-logged.service';
@@ -18,7 +18,9 @@ export class CourseService {
 
   create(payload: IRequestCourseCreate): Observable<IResponseCourseCreate> {
     const formatedPayload = Utils.convertToFormData(payload);
-    return this.#http.post<IResponseCourseCreate>(`${this.#baseUrl}/course`, formatedPayload);
+    return this.#http.post<IResponseCourseCreate>(`${this.#baseUrl}/course`, formatedPayload).pipe(
+      tap((res) => this.updateCourseInMemory(res))
+    )
   }
 
   getCourse(collegeId: string | number): Observable<ICourse> {
@@ -51,12 +53,24 @@ export class CourseService {
     return course[0] ?? null;
   }
 
+  updateCourseInMemory(course: ICourse): void {
+    const user = this.#userService.user();
+    const college = user.colleges.filter((college) => college.id === course.collegeId)[0];
+
+    let currentCourse = college.Course.filter((college) => college.id === course.id)[0];
+    currentCourse ? currentCourse = course : user.colleges.push(college);
+  }
+
   getCoursesInMemory(): ICourse[] {
     const user = this.#userService.user();
     return user.colleges.reduce<ICourse[]>((acumulator, current) => {
       if (current.Course.length) acumulator.push(...current.Course);
       return acumulator
     }, []);
+  }
+
+  getContent(coursesId: string | number): Observable<any> {
+    return this.#http.get<any>(`${this.#baseUrl}/course/${coursesId}/content`);
   }
 
   searchCourseById(coursesId: string): Observable<IResponseCourseGetById> {

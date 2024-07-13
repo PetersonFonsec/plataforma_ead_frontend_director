@@ -38,3 +38,14 @@ export interface CollegeResponse {
   thumb: string,
   id: number,
 }
+
+export interface College {
+  CollegeStyle: CollegeStyle[]
+  createdAt: string,
+  updatedAt: string,
+  Course: ICourse[],
+  userId: number,
+  name: string,
+  id: number,
+}
+

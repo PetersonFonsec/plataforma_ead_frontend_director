@@ -30,9 +30,7 @@ export class HomeComponent implements OnInit {
   userService = inject(UserLoggedService);
   userLogged = this.userService.user();
 
-
   ngOnInit(): void {
-
     console.log(this.userLogged)
   }
 }

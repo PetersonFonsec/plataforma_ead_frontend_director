@@ -12,9 +12,6 @@
     "build-storybook": "ng run director:build-storybook",
     "cypress:open": "cypress open"
   },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.6",

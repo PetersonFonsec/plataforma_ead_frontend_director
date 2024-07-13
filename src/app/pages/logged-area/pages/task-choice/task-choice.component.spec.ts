@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LessonChoiceComponent } from './lesson-choice.component';
+import { TaskChoiceComponent } from './task-choice.component';
 
 describe('LessonChoiceComponent', () => {
-  let component: LessonChoiceComponent;
-  let fixture: ComponentFixture<LessonChoiceComponent>;
+  let component: TaskChoiceComponent;
+  let fixture: ComponentFixture<TaskChoiceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LessonChoiceComponent]
+      imports: [TaskChoiceComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(LessonChoiceComponent);
+    fixture = TestBed.createComponent(TaskChoiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

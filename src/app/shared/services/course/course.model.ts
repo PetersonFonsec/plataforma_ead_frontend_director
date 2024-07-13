@@ -5,6 +5,7 @@ export interface ICourse {
   thumb: string
   name: string
   id: number
+  content: any
 }
 
 export class CourseForm {
@@ -20,5 +21,4 @@ export interface IRequestCourseCreate {
 }
 
 export interface IResponseCourseCreate extends ICourse { }
-export interface IResponseCourseGetById extends ICourse {
-}
+export interface IResponseCourseGetById extends ICourse { }

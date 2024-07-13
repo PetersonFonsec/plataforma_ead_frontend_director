@@ -1,0 +1,74 @@
+<section id="create-quiz" class="container">
+  <header id="create-quiz-header">
+    <h1 class="subtitle border">Quiz</h1>
+  </header>
+
+  <form #form="ngForm" (ngSubmit)="submit()" id="create-quiz-content">
+    <app-input-text
+      [(ngModel)]="payload.name"
+      [required]="true"
+      label="enunciado"
+      name="name"
+      id="name"
+      type="text"
+      placeholder="Formule o enunciado do Quiz"
+    />
+
+    <alert id="create-college-alert" [hideShadow]="true" [type]="alertType">
+      Todo quiz deve ter entre 4 a 5 opções e apenas uma deve ser valida
+    </alert>
+
+    <ul>
+      @for (option of options; track $index) {
+        <li>
+          <app-input-text
+            [(ngModel)]="option.title"
+            [required]="true"
+            [label]="'Opção' + ($index + 1)"
+            name="title-{{ $index }}"
+            id="title-{{ $index }}"
+            type="text"
+            placeholder="Formule o enunciado do Quiz"
+          />
+
+          <app-input-radio
+            [(ngModel)]="correctOptions"
+            value="{{ $index }}"
+            [required]="true"
+            name="correctOptions"
+            (click)="updateOptions($index)"
+            [id]="'correctOptions-' + $index"
+          >
+            Opção correta
+          </app-input-radio>
+        </li>
+      }
+    </ul>
+
+    <app-button
+      [disabled]="options.length >= 5"
+      (click)="addOption()"
+      id="create-quiz-add-option"
+    >
+      Criar opção
+    </app-button>
+
+    @if (alertMessage) {
+      <alert id="create-college-alert" [hideShadow]="true">
+        {{ alertMessage }}
+      </alert>
+    }
+
+    <footer id="create-quiz-footer">
+      <app-button-back id="create-quiz-back-button" />
+
+      <app-button
+        [disabled]="!!form.invalid || options.length < 4"
+        id="create-quiz-submit-button"
+        type="submit"
+      >
+        Criar um conteudo
+      </app-button>
+    </footer>
+  </form>
+</section>

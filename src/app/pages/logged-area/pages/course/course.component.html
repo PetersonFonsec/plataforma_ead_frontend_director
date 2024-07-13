@@ -12,12 +12,55 @@
         {{ alertMessage }}
       </alert>
     }
+
+    <h1 class="subtitle border">Aulas</h1>
+    <ul>
+      @for (lesson of lessons; track lesson.id) {
+        <li>
+          <app-item-bar [routerLink]="">
+            <h3>{{ lesson.name }}</h3>
+          </app-item-bar>
+        </li>
+      } @empty {
+        <li>
+          <h3 class="subtitle empty">Essse curso não tem nenhuma aula</h3>
+        </li>
+      }
+    </ul>
+
+    <h1 class="subtitle border">Quizes</h1>
+    <ul>
+      @for (quiz of quizes; track quiz.id) {
+        <li>
+          <app-item-bar [routerLink]="" [title]="quiz.name" />
+        </li>
+      } @empty {
+        <li>
+          <h3 class="subtitle empty">Essse curso não tem nenhum quiz</h3>
+        </li>
+      }
+    </ul>
+
+    <h1 class="subtitle border">Tarefas</h1>
+    <ul>
+      @for (task of tasks; track task.id) {
+        <li>
+          <app-item-bar [routerLink]="">
+            <h3>{{ task.name }}</h3>
+          </app-item-bar>
+        </li>
+      } @empty {
+        <li>
+          <h3 class="subtitle empty">Essse curso não tem nenhuma atividade</h3>
+        </li>
+      }
+    </ul>
   </div>
 
   <footer id="course-footer">
-    <app-button-back id="course-back-button"></app-button-back>
+    <app-button-back id="course-back-button" />
 
-    <app-button routerLink="../../choice-lesson" id="course-submit-button">
+    <app-button routerLink="./choice-task" id="course-submit-button">
       Criar conteudo
     </app-button>
   </footer>

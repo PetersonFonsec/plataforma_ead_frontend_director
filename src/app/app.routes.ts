@@ -1,21 +1,14 @@
 import { Routes } from '@angular/router';
 
-import { CreateCollegeComponent } from '@pages/logged-area/pages/create-college/create-college.component';
-import { ListCollegeComponent } from '@pages/logged-area/pages/list-college/list-college.component';
 import { NewPasswordComponent } from '@pages/auth/new-password/new-password.component';
-import { CollegeComponent } from '@pages/logged-area/pages/college/college.component';
-import { ProfileComponent } from '@pages/logged-area/pages/profile/profile.component';
+import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
+import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 import { LoggedAreaComponent } from '@pages/logged-area/logged-area.component';
-import { HomeComponent } from '@pages/logged-area/pages/home/home.component';
 import { RegisterComponent } from '@pages/auth/register/register.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
-import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
-import { CourseComponent } from '@pages/logged-area/pages/course/course.component';
-import { CreateCourseComponent } from '@pages/logged-area/pages/create-course/create-course.component';
-import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -52,41 +45,66 @@ export const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeComponent,
+        loadComponent: () => import('@pages/logged-area/pages/home/home.component').then(c => c.HomeComponent),
         data: { animation: 'home' },
       },
       {
         path: 'profile',
-        component: ProfileComponent,
+        loadComponent: () => import('@pages/logged-area/pages/profile/profile.component').then(c => c.ProfileComponent),
         data: { animation: 'profile' }
       },
       {
         path: 'create-college',
-        component: CreateCollegeComponent,
+        loadComponent: () => import('@pages/logged-area/pages/create-college/create-college.component').then(c => c.CreateCollegeComponent),
         data: { animation: 'create-college' }
       },
       {
         path: 'list-college',
-        component: ListCollegeComponent,
+        loadComponent: () => import('@pages/logged-area/pages/list-college/list-college.component').then(c => c.ListCollegeComponent),
         data: { animation: 'list-college' },
       },
       {
         path: 'college/:id',
-        component: CollegeComponent,
+        loadComponent: () => import('@pages/logged-area/pages/college/college.component').then(c => c.CollegeComponent),
         data: { animation: 'college/:id' },
       },
       {
         path: 'college/:id/course',
-        component: CreateCourseComponent,
+        loadComponent: () => import('@pages/logged-area/pages/create-course/create-course.component').then(c => c.CreateCourseComponent),
         data: { animation: 'course' },
       },
       {
         path: 'course/:id',
-        component: CourseComponent,
+        loadComponent: () => import('@pages/logged-area/pages/course/course.component').then(c => c.CourseComponent),
         data: { animation: 'course/:id' },
       },
       {
+        path: 'course/:id/choice-task',
+        loadComponent: () => import('@pages/logged-area/pages/task-choice/task-choice.component').then(c => c.TaskChoiceComponent),
+        data: { animation: 'lesson' },
+      },
+      {
+        path: 'course/:id/quiz',
+        loadComponent: () => import('@pages/logged-area/pages/create-quiz/create-quiz.component').then(c => c.CreateQuizComponent),
+        data: { animation: 'lesson' },
+      },
+      {
+        path: 'course/:id/task',
+        loadComponent: () => import('@pages/logged-area/pages/create-task/create-task.component').then(c => c.CreateTaskComponent),
+        data: { animation: 'lesson' },
+      },
+      {
         path: 'course/:id/lesson',
+        loadComponent: () => import('@pages/logged-area/pages/lesson/lesson.component').then(c => c.LessonComponent),
+        data: { animation: 'lesson' },
+      },
+      {
+        path: 'course/:id/',
+        component: LessonComponent,
+        data: { animation: 'lesson' },
+      },
+      {
+        path: '',
         component: LessonComponent,
         data: { animation: 'lesson' },
       },

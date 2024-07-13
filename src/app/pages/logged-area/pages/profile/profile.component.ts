@@ -57,14 +57,14 @@ export class ProfileComponent implements OnInit {
   }
 
   submit() {
-    if (this.payload.photo) {
-      this.payload.photo = this.payload.photo.file;
-    }
+    const payload = JSON.parse(JSON.stringify(this.payload));
+    if (payload.photo) payload.photo = payload.photo.file;
 
-    this.#profileService.updateProfile(this.payload).subscribe({
+    this.#profileService.updateProfile(payload).subscribe({
       next: (updatedUser) => {
         this.alertType = AlertTypes.success;
         this.#userService.updatetUser(updatedUser);
+        this.payload.photo = updatedUser.photo;
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;

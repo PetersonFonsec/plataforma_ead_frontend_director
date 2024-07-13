@@ -1,0 +1,13 @@
+<div class="item-bar">
+  <div class="item-bar-content">
+    @if (title) {
+      <div class="item-bar-title">{{ title }}</div>
+    }
+    @if (legend) {
+      <div class="item-bar-legend">{{ legend }}</div>
+    }
+  </div>
+  <div class="item-bar-icon">
+    <ng-content></ng-content>
+  </div>
+</div>
