@@ -10,6 +10,7 @@ import { JumbotronProfileComponent } from '../../components/jumbotron-profile/ju
 import { CollegeItemComponent } from '@shared/components/college-item/college-item/college-item.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { fadeAnimation } from '@shared/animations/fade/fade.animation';
+import { CollegeItemLoaderComponent } from '@shared/components/loaders/college-item-loader/college-item-loader.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
     JumbotronProfileComponent,
     JumbotronNotificationComponent,
     CollegeItemComponent,
-    ButtonComponent
+    ButtonComponent,
+    CollegeItemLoaderComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

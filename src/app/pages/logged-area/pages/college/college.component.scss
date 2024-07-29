@@ -5,9 +5,11 @@
   align-items: center;
   width: 100%;
 
+  app-page-thumb-loader,
   app-page-thumb {
     @include overflowLateralPadding(32px);
     margin-left: 0;
+    height: 197px;
   }
 
   .subtitle {

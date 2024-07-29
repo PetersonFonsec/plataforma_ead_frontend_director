@@ -4,21 +4,22 @@ import { menus } from '@shared/data/menus';
 
 import { AvatarProfileComponent } from '../avatar-profile/avatar-profile.component';
 import { RouterLink } from '@angular/router';
+import { IuserToAvatarPipe } from '@shared/pipes/iuser-to-avatar.pipe';
 
 @Component({
   selector: 'app-aside-menu',
   standalone: true,
-  imports: [AvatarProfileComponent, RouterLink],
+  imports: [AvatarProfileComponent, RouterLink, IuserToAvatarPipe],
   templateUrl: './aside-menu.component.html',
   styleUrl: './aside-menu.component.scss'
 })
 export class AsideMenuComponent implements OnInit {
-  @Input() userLogged?: IUserLogged;
+  @Input() userLogged!: IUserLogged;
   @Output() userLogout = new EventEmitter();
   menus: any;
 
   ngOnInit(): void {
-    const role = this.userLogged?.user.role;
+    const role = this.userLogged.user.role;
     if (role) this.menus = menus[role];
   }
 

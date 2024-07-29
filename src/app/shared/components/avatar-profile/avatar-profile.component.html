@@ -1,14 +1,10 @@
 <div class="avatar-profile">
   <div class="avatar-profile-avatar">
-    <app-avatar
-      [loading]="false"
-      [src]="src"
-      [alt]="name"
-      [id]="name"
-    ></app-avatar>
+    <app-avatar [content]="content" />
   </div>
+
   <div class="avatar-profile-content">
-    <div class="avatar-profile-name">{{ name }}</div>
-    <div class="avatar-profile-description">Perfil</div>
+    <div class="avatar-profile-name">{{ content.name }}</div>
+    <div class="avatar-profile-description">{{ description }}</div>
   </div>
 </div>

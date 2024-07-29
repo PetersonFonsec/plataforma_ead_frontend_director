@@ -1,5 +1,11 @@
 <section id="college">
-  <app-page-thumb [college]="payload" />
+  @defer (on viewport) {
+    <app-page-thumb [college]="payload" />
+  } @placeholder {
+    <app-page-thumb-loader />
+  } @loading {
+    <app-page-thumb-loader />
+  }
 
   <div id="college-content" class="container">
     <app-college-form [payload]="payload" />

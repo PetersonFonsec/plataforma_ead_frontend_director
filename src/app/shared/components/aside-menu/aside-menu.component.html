@@ -1,16 +1,12 @@
 <aside id="aside-menu" class="aside-menu">
-  @if (!!userLogged && !!userLogged.user.photo) {
-    <a routerLink="./home">
-      <app-avatar-profile
-        id="aside-menu-avatar"
-        [src]="userLogged.user.photo"
-        [name]="userLogged.user.name"
-        class="aside-menu-avatar"
-      />
-    </a>
-  } @else {
-    <app-avatar-profile id="aside-menu-avatar" class="aside-menu-avatar" />
-  }
+  <a routerLink="./home">
+    <app-avatar-profile
+      [content]="userLogged.user | iuserToAvatar"
+      description="Perfil"
+      class="aside-menu-avatar"
+      id="aside-menu-avatar"
+    />
+  </a>
 
   <nav class="aside-menu-content">
     <ul>

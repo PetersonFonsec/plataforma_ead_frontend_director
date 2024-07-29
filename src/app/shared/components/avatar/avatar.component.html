@@ -1,7 +1,11 @@
-<div class="avatar {{ size }}" [ngClass]="{ loading: loading }">
-  @if (!loading) {
-    <img [id]="id" [src]="src" [alt]="alt" />
-  } @else {
-    <div class="avatar-loader"></div>
+<div class="avatar {{ size }}">
+  @defer (on viewport) {
+    <img [src]="content.src" [alt]="content.name" />
+  } @placeholder {
+    <div class="avatar-loader skeleton"></div>
+  } @loading {
+    <div class="avatar-loader skeleton"></div>
+  } @error {
+    <div class="avatar-loader skeletons"></div>
   }
 </div>

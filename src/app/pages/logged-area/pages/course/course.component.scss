@@ -16,9 +16,11 @@
     }
   }
 
+  app-page-thumb-loader,
   app-page-thumb {
     @include import.overflowLateralPadding(32px);
     margin-left: 0;
+    height: 197px;
   }
 
   .subtitle {

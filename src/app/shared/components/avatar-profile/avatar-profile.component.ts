@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AvatarComponent } from '../avatar/avatar.component';
+import { Component, Input } from '@angular/core';
+import { AvatarComponent, IAvatarParans } from '../avatar/avatar.component';
 
 @Component({
   selector: 'app-avatar-profile',
@@ -9,6 +9,6 @@ import { AvatarComponent } from '../avatar/avatar.component';
   styleUrl: './avatar-profile.component.scss'
 })
 export class AvatarProfileComponent {
-  @Input() src? = "";
-  @Input() name? = "";
+  @Input({ required: true }) content!: IAvatarParans;
+  @Input() description = '';
 }

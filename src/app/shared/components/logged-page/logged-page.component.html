@@ -1,14 +1,11 @@
 <main
   class="logged-page"
   [ngClass]="{
-    open: open
+    open: open,
   }"
 >
   <div class="logged-page-aside">
-    <app-aside-menu
-      [userLogged]="userLogged"
-      (userLogout)="logout()"
-    ></app-aside-menu>
+    <app-aside-menu [userLogged]="userLogged" (userLogout)="logout()" />
   </div>
 
   <div class="logged-page-content">
@@ -17,18 +14,14 @@
         id="button-menu-header"
         [isOpen]="open"
         (click)="open = !open"
-      ></app-button-menu>
-      @if (!!userLogged && !!userLogged.user.photo) {
-        <app-avatar
-          [loading]="false"
-          [src]="userLogged.user.photo"
-          [alt]="userLogged.user.name"
-          id="avatar-header"
-        />
-      } @else {
-        <app-avatar id="avatar-header" />
-      }
+      />
+
+      <app-avatar
+        [content]="userLogged.user | iuserToAvatar"
+        id="avatar-header"
+      />
     </header>
+
     <ng-content></ng-content>
   </div>
 </main>

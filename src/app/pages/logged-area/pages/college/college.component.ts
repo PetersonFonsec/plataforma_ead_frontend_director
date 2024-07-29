@@ -12,6 +12,7 @@ import { ICourse } from '@shared/services/course/course.model';
 import { CollegeFormComponent } from './college-form/college-form.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { CollegeForm } from './model/college.model';
+import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-loader/page-thumb-loader.component';
 
 @Component({
   selector: 'app-college',
@@ -24,7 +25,8 @@ import { CollegeForm } from './model/college.model';
     PageThumbComponent,
     CollegeThumbComponent,
     CollegeListComponent,
-    RouterLink
+    RouterLink,
+    PageThumbLoaderComponent
   ],
   templateUrl: './college.component.html',
   styleUrl: './college.component.scss'

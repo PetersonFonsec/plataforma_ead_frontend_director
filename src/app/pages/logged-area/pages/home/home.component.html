@@ -11,7 +11,13 @@
       @for (college of userLogged.colleges; track $index) {
         <li>
           <a [routerLink]="'../college/' + college.id">
-            <app-college-item [college]="college" />
+            @defer (on viewport) {
+              <app-college-item [college]="college" />
+            } @loading {
+              <app-college-item-loader />
+            } @placeholder {
+              <app-college-item-loader />
+            }
           </a>
         </li>
       } @empty {
