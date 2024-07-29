@@ -9,4 +9,13 @@ export default defineConfig({
   env: {
     url: 'http://localhost:3000',
   },
+  video: true,
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results',
+    overwrite: false,
+    html: true,
+    json: false,
+    timestamp: 'mmddyyyy_HHMMss'
+  }
 });
