@@ -8,6 +8,7 @@
   .row {
     display: flex;
     width: 100%;
+    margin: 24px 0;
   }
 
   &-form {
@@ -21,9 +22,23 @@
       margin-right: 24px;
     }
 
-    & > * {
+    & app-input-upload,
+    & app-input-text,
+    & quill-editor {
       display: block;
       margin-top: 24px;
+    }
+
+    &-footer {
+      display: flex;
+      width: 100%;
+      margin-top: 34px;
+
+      app-button {
+        flex: 1;
+        display: block;
+        margin-left: 14px;
+      }
     }
   }
 }

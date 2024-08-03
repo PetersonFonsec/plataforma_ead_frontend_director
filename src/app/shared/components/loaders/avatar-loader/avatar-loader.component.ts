@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AvatarSizeParam } from '@shared/components/avatar/avatar.component';
 
 @Component({
   selector: 'app-avatar-loader',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './avatar-loader.component.scss'
 })
 export class AvatarLoaderComponent {
-
+  @Input() size: AvatarSizeParam = AvatarSizeParam.small;
 }

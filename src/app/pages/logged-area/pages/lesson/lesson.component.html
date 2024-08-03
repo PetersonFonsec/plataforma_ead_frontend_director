@@ -67,6 +67,9 @@
       </alert>
     }
 
-    <app-button [disabled]="!!form.invalid"> Criar aula </app-button>
+    <footer id="lesson-form-footer">
+      <app-button-back />
+      <app-button [disabled]="!!form.invalid"> Criar aula </app-button>
+    </footer>
   </form>
 </section>

@@ -1,0 +1,29 @@
+<section id="list-post-page" class="container">
+  <header id="list-post-page-header">
+    <h1 class="subtitle border">Nova Escola</h1>
+  </header>
+
+  <div id="list-post-page-container">
+    <ul>
+      @for (post of posts; track $index) {
+        <li>
+          @defer (on viewport) {
+            <app-post [postParams]="post" />
+          } @loading {
+            <app-post-loading />
+          } @placeholder {
+            <app-post-loading />
+          }
+        </li>
+      } @empty {
+        <li>
+          <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <footer id="list-post-page-footer">
+    <app-button-back />
+  </footer>
+</section>

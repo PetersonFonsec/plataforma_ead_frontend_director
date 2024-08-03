@@ -9,6 +9,8 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
+import { CreatePostComponent } from '@pages/logged-area/pages/create-post/create-post.component';
+import { ListPostComponent } from '@pages/logged-area/pages/list-post/list-post.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -109,8 +111,8 @@ export const routes: Routes = [
         data: { animation: 'lesson' },
       },
       {
-        path: 'publicacoes',
-        component: NewPasswordComponent,
+        path: 'feed',
+        component: ListPostComponent,
         data: { animation: 'publicacoes' }
       },
       {

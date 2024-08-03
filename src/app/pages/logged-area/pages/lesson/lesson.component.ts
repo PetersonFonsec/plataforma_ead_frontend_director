@@ -11,6 +11,7 @@ import { LessonCreateRequest } from '@shared/services/lesson/lesson.model';
 import { LessonService } from '@shared/services/lesson/lesson.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
 
 export class LessonForm implements LessonCreateRequest {
   content: any = "";
@@ -32,7 +33,8 @@ export class LessonForm implements LessonCreateRequest {
     FormsModule,
     InputTextComponent,
     InputUploadComponent,
-    AlertComponent
+    AlertComponent,
+    ButtonBackComponent
   ],
   templateUrl: './lesson.component.html',
   styleUrl: './lesson.component.scss',

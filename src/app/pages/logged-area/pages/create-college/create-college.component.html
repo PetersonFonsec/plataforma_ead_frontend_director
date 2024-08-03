@@ -22,7 +22,7 @@
         name="primaryColor"
         [required]="true"
         label="Cor pricipal"
-      ></app-input-color>
+      />
 
       <app-input-color
         [(ngModel)]="payload.secundaryColor"
@@ -30,7 +30,7 @@
         name="secundaryColor"
         [required]="true"
         label="Cor secundaria"
-      ></app-input-color>
+      />
     </div>
     <div class="row">
       <input-upload
@@ -43,7 +43,7 @@
       </input-upload>
     </div>
     <footer id="create-college-footer">
-      <app-button-back routerLink="../home"></app-button-back>
+      <app-button-back routerLink="../home" />
 
       <app-button
         id="create-college-submit"

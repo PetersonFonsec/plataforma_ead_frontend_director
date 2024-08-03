@@ -1,0 +1,47 @@
+@import "../../../../scss/index.scss";
+
+#list-post-page {
+  @include directionColumn();
+  @include filledHeigthPage();
+  align-items: stretch;
+
+  &-header {
+    margin-bottom: 24px;
+  }
+
+  &-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      list-style: none;
+      margin-bottom: 24px;
+      width: 100%;
+
+      li {
+        max-width: 330px;
+        margin: 0 auto;
+      }
+
+      li:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+
+    .empty {
+      color: var(--neutral-color-1);
+      margin: 24px auto;
+      max-width: 330px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &-footer {
+    max-width: 330px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

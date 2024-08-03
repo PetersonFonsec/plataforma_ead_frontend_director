@@ -30,16 +30,4 @@
     width: 160px;
     height: 160px;
   }
-
-  &:has(.avatar-loader) {
-    cursor: unset;
-    border-color: var(--neutral-color-1);
-
-    .avatar-loader {
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 100%;
-    }
-  }
 }

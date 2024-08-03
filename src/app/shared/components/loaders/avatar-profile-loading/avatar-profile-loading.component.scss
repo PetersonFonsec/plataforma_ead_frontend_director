@@ -1,0 +1,26 @@
+.avatar-profile {
+  display: flex;
+  font-family: var(--primary-font-family);
+
+  &-content {
+    flex: 1;
+    display: flex;
+    margin-left: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .bar {
+      height: 20px;
+      width: 100%;
+
+      & + .bar {
+        margin-top: 8px;
+      }
+
+      &.sm {
+        width: 50%;
+      }
+    }
+  }
+}
