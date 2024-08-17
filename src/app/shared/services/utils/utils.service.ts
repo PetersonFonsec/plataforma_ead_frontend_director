@@ -1,4 +1,6 @@
 export class Utils {
+  static readonly byteValue = 1048576;
+
   static convertToFormData(form: any) {
     let form_data = new FormData();
 

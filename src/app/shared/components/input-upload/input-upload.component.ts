@@ -3,6 +3,7 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { Utils } from '@shared/services/utils/utils.service';
 
 export interface InputPhotoValue {
   b64: string;
@@ -70,6 +71,10 @@ export class InputUploadComponent implements OnInit, ControlValueAccessor {
     const reader = new FileReader();
 
     reader.onload = () => {
+      const limit = 10 * Utils.byteValue;
+
+      if (files[0].size > limit) return;
+
       this.value = {
         b64: reader.result as string,
         file: files[0],

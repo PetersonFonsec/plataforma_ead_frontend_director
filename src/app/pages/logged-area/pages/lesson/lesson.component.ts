@@ -12,6 +12,7 @@ import { LessonService } from '@shared/services/lesson/lesson.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
+import { ActivatedRoute } from '@angular/router';
 
 export class LessonForm implements LessonCreateRequest {
   content: any = "";
@@ -19,7 +20,7 @@ export class LessonForm implements LessonCreateRequest {
   urlContent = "";
   courseId = 0;
   title = "";
-  video = null;
+  fileVideo: any = null;
 }
 
 @Component({
@@ -41,11 +42,22 @@ export class LessonForm implements LessonCreateRequest {
 })
 export class LessonComponent {
   #sanitizer = inject(DomSanitizer);
+  #router = inject(ActivatedRoute);
   #lesson = inject(LessonService);
+  alertTypes = AlertTypes;
   alertType = AlertTypes.success;
   payload = new LessonForm();
   alertMessage = "";
   videoType = "";
+
+  public ngOnInit(): void {
+    this.#router.paramMap.subscribe({
+      next: params => {
+        const collegeId = Number(params.get('id'));
+        this.payload.courseId = collegeId;
+      }
+    });
+  }
 
   byPassHTML(html: string) {
     return
@@ -53,12 +65,19 @@ export class LessonComponent {
 
   create() {
     const payload = this.payload;
+
     if (payload.content) {
       payload.content = this.#sanitizer.bypassSecurityTrustHtml(payload.content);
     }
 
+    if (payload.fileVideo) {
+      payload.fileVideo = this.payload?.fileVideo?.file
+    }
+
     this.#lesson.create(payload).subscribe({
       next: () => {
+        this.alertType = AlertTypes.success;
+        this.alertMessage = 'Aula criada com sucesso!!';
 
       },
       error: (error: HttpErrorResponse) => {

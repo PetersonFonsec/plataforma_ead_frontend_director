@@ -3,11 +3,11 @@
     <h1 class="subtitle border">Aula</h1>
   </header>
 
-  <form id="lesson-form" #form="ngForm">
+  <form (ngSubmit)="create()" id="lesson-form" #form="ngForm">
     <app-input-text
       name="title"
       [(ngModel)]="payload.title"
-      id="title"
+      id="lesson-form-title"
       type="title"
       [required]="true"
       label="Titulo"
@@ -17,17 +17,41 @@
     <app-input-text
       [(ngModel)]="payload.description"
       name="description"
-      id="description"
+      id="lesson-form-description"
       [required]="true"
       label="Descrição"
       placeholder="Descreva o conteudo da aula"
     />
 
     <div class="row">
-      <app-input-radio [(ngModel)]="videoType" value="upload" name="video">
+      <alert
+        id="create-course-alert"
+        [hideShadow]="true"
+        [type]="alertTypes.info"
+      >
+        Por questões de performance, é possível fazer um upload de no máximo 10.
+        megabytes
+      </alert>
+    </div>
+
+    <div class="row">
+      <app-input-radio
+        [required]="true"
+        id="lesson-form-upload"
+        [(ngModel)]="videoType"
+        value="upload"
+        name="video"
+      >
         Upload
       </app-input-radio>
-      <app-input-radio [(ngModel)]="videoType" value="link" name="video">
+
+      <app-input-radio
+        [required]="true"
+        id="lesson-form-link"
+        [(ngModel)]="videoType"
+        value="link"
+        name="video"
+      >
         Link
       </app-input-radio>
     </div>
@@ -37,7 +61,7 @@
         [(ngModel)]="payload.urlContent"
         name="urlContent"
         [required]="true"
-        id="urlContent"
+        id="lesson-form-url"
         label="Link"
         placeholder="Link da video aula"
       />
@@ -45,7 +69,7 @@
 
     @if (videoType === "upload") {
       <input-upload
-        [(ngModel)]="payload.video"
+        [(ngModel)]="payload.fileVideo"
         [required]="true"
         accept="video/mp4,video/x-m4v,video/*"
         name="video"
@@ -54,9 +78,11 @@
       >
     }
 
+    <h2 class="subtitle">Conteudo</h2>
+
     <quill-editor
       format="html"
-      id="lesson-content"
+      id="lesson-form-content"
       name="lesson-content"
       [(ngModel)]="payload.content"
     />
@@ -68,8 +94,14 @@
     }
 
     <footer id="lesson-form-footer">
-      <app-button-back />
-      <app-button [disabled]="!!form.invalid"> Criar aula </app-button>
+      <app-button-back id="lesson-form-button-back" />
+      <app-button
+        type="submit"
+        id="lesson-form-submit"
+        [disabled]="!!form.invalid"
+      >
+        Criar aula
+      </app-button>
     </footer>
   </form>
 </section>
