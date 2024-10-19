@@ -58,6 +58,7 @@
     "mochawesome": "^7.1.3",
     "storybook": "^8.1.10",
     "typescript": "^5.4.5",
+    "video.js": "^8.17.3",
     "webpack-bundle-analyzer": "^4.10.2"
   }
 }

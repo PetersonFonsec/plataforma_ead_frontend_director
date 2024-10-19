@@ -1,14 +1,15 @@
 <main class="auth">
-  @if(logo){
-  <header class="auth-header">
-    <img
-      src="/assets/ilustrations/celular-lg.png"
-      alt="ilustração de dois jovens em volta de um smartfone"
-      priority
-      fetchpriority="high"
-    />
-  </header>
+  @if (logo) {
+    <header class="auth-header">
+      <img
+        src="/assets/ilustrations/celular-lg.png"
+        alt="ilustração de dois jovens em volta de um smartfone"
+        priority
+        fetchpriority="high"
+      />
+    </header>
   }
+
   <div class="auth-image">
     <picture>
       <source
@@ -23,6 +24,7 @@
       />
     </picture>
   </div>
+
   <div class="auth-route">
     <div [@fade]="outlet.isActivated ? outlet.activatedRoute : ''">
       <router-outlet #outlet="outlet"></router-outlet>

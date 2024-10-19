@@ -57,10 +57,14 @@ Cypress.Commands.addAll({
     const wellElements = WellComeElements;
     const loginElements = new LoginElements(user);
     cy.visit('http://localhost:4200/');
+    cy.wait(100);
 
     wellElements.loginButton.click();
     loginElements.fillFormValid();
+    cy.wait(100);
+
     loginElements.submitButton.click();
+    cy.wait(100);
   },
 
   createNewCollege(college: any, stub = true) {

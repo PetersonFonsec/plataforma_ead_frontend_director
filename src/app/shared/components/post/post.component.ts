@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { AvatarProfileComponent } from "../avatar-profile/avatar-profile.component";
-import { IuserToAvatarPipe } from '@shared/pipes/iuser-to-avatar.pipe';
+import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 import { IAvatarParans } from '../avatar/avatar.component';
 
 export interface IPost extends IAvatarParans { }

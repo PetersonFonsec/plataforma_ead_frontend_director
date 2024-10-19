@@ -4,6 +4,7 @@
 /cypress/screenshots
 /cypress/results
 /cypress/fixtures/videos
+/cypress/downloads
 
 # Compiled output
 /dist

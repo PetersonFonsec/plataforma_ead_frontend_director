@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 
 import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
-import { IuserToAvatarPipe } from '@shared/pipes/iuser-to-avatar.pipe';
+import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 
 import { ButtonMenuComponent } from '../button-menu/button-menu.component';
 import { AsideMenuComponent } from '../aside-menu/aside-menu.component';

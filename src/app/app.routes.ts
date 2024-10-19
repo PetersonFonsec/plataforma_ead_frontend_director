@@ -101,6 +101,11 @@ export const routes: Routes = [
         data: { animation: 'lesson' },
       },
       {
+        path: 'feed',
+        loadComponent: () => import('@pages/logged-area/pages/list-post/list-post.component').then(c => c.ListPostComponent),
+        data: { animation: 'publicacoes' }
+      },
+      {
         path: 'course/:id/',
         component: LessonComponent,
         data: { animation: 'lesson' },
@@ -109,11 +114,6 @@ export const routes: Routes = [
         path: '',
         component: LessonComponent,
         data: { animation: 'lesson' },
-      },
-      {
-        path: 'feed',
-        component: ListPostComponent,
-        data: { animation: 'publicacoes' }
       },
       {
         path: 'materias',

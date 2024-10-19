@@ -1,5 +1,5 @@
 describe("Curse jorney - ", () => {
-  const [usuarioSemRegistros, usuarioComRegistros] = require('../fixtures/usuarios.json');
+  const [_, usuarioComRegistros] = require('../fixtures/usuarios.json');
   const [colegioComCurso, colegioSemCurso] = require('../fixtures/college.json');
 
   beforeEach(() => {

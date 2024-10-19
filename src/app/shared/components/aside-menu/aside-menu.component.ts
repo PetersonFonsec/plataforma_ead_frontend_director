@@ -4,7 +4,7 @@ import { menus } from '@shared/data/menus';
 
 import { AvatarProfileComponent } from '../avatar-profile/avatar-profile.component';
 import { RouterLink } from '@angular/router';
-import { IuserToAvatarPipe } from '@shared/pipes/iuser-to-avatar.pipe';
+import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 
 @Component({
   selector: 'app-aside-menu',

@@ -1,14 +1,17 @@
 <section id="list-post-page" class="container">
   <header id="list-post-page-header">
-    <h1 class="subtitle border">Nova Escola</h1>
+    <h1 class="subtitle border">Publicações</h1>
   </header>
 
   <div id="list-post-page-container">
     <ul>
-      @for (post of posts; track $index) {
+      @for (post of posts | async; track $index) {
         <li>
           @defer (on viewport) {
-            <app-post [postParams]="post" />
+            <app-post [postParams]="post">
+              <span [innerHTML]="post.content | trustHtml"> </span>
+            </app-post>
+            <app-post-loading />
           } @loading {
             <app-post-loading />
           } @placeholder {

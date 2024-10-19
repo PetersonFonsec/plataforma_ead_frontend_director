@@ -11,10 +11,6 @@ describe("Lesson jorney - ", () => {
   });
 
   describe("Form validation", () => {
-    it("Should disabled submit button when form is empty", () => {
-      lessonElements.submitButton.should('be.disabled');
-    });
-
     it("Should submit button when not has content video or text", () => {
       lessonElements.inputTitle.type(lesson.title);
       lessonElements.inputDescription.type(lesson.description);
@@ -39,6 +35,10 @@ describe("Lesson jorney - ", () => {
       lessonElements.inputUpload.selectFile(lesson.file);
 
       lessonElements.submitButton.should('be.enabled');
+    });
+
+    it("Should disabled submit button when form is empty", () => {
+      lessonElements.submitButton.should('be.disabled');
     });
   });
 });
