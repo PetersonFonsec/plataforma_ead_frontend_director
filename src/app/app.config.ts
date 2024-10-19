@@ -2,7 +2,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { IConfig, provideEnvironmentNgxMask } from 'ngx-mask';
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideQuillConfig } from 'ngx-quill';
 
@@ -33,6 +33,7 @@ export const appConfig: ApplicationConfig = {
           whitelist: ['mirza', 'roboto', 'aref', 'serif', 'sansserif', 'monospace']
         }]
       }
-    )
+    ),
+    provideExperimentalZonelessChangeDetection()
   ]
 };
