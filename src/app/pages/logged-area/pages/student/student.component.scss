@@ -1,0 +1,7 @@
+@import "../../../../scss/index";
+
+#student {
+  @include container(var(--container-size));
+  @include directionColumn();
+  align-items: flex-start;
+}

@@ -2,15 +2,16 @@ import { Routes } from '@angular/router';
 
 import { NewPasswordComponent } from '@pages/auth/new-password/new-password.component';
 import { unauthorizedGuard } from '@shared/guards/unauthorized/unauthorized.guard';
-import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 import { LoggedAreaComponent } from '@pages/logged-area/logged-area.component';
 import { RegisterComponent } from '@pages/auth/register/register.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
+
 import { CreatePostComponent } from '@pages/logged-area/pages/create-post/create-post.component';
 import { ListPostComponent } from '@pages/logged-area/pages/list-post/list-post.component';
+import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
@@ -106,29 +107,9 @@ export const routes: Routes = [
         data: { animation: 'publicacoes' }
       },
       {
-        path: 'course/:id/',
-        component: LessonComponent,
-        data: { animation: 'lesson' },
-      },
-      {
-        path: '',
-        component: LessonComponent,
-        data: { animation: 'lesson' },
-      },
-      {
-        path: 'materias',
-        component: NewPasswordComponent,
-        data: { animation: 'materias' }
-      },
-      {
-        path: 'materias/:id',
-        component: NewPasswordComponent,
-        data: { animation: 'materias' }
-      },
-      {
-        path: 'atividades',
-        component: NewPasswordComponent,
-        data: { animation: 'atividades' }
+        path: 'student',
+        loadComponent: () => import('@pages/logged-area/pages/student/student.component').then(c => c.StudentComponent),
+        data: { animation: 'student' },
       },
     ]
   },
