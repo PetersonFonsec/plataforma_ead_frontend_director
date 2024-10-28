@@ -3,5 +3,49 @@
 #student {
   @include container(var(--container-size));
   @include directionColumn();
-  align-items: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: $tablet) {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-aside {
+    @include directionColumn();
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+
+    @media (min-width: $tablet) {
+      margin-right: 24px;
+      flex: 1;
+    }
+
+    .jumbotron {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    &-avatar-name {
+      margin: 24px 0;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    flex: 1;
+  }
+
+  &-list-post {
+    width: 100%;
+  }
+
+  &-list-courses ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
 }

@@ -1,33 +1,109 @@
 <main id="student">
-  <app-tabs>
-    <app-tab>
-      <ng-template appTabHeader>
-        <h2 class="subtitle border">Atividades</h2>
-      </ng-template>
+  <aside id="student-aside">
+    @if (userLogged.user) {
+      <app-avatar
+        id="student-aside-avatar"
+        [size]="avatarSize"
+        [content]="userLogged.user | iuserToAvatar"
+      />
 
-      <ng-template appTabContent>
-        <h1>Conteúdo da Tab 1</h1>
-      </ng-template>
-    </app-tab>
+      <span id="student-aside-avatar-name" class="subtitle">{{
+        userLogged.user.name
+      }}</span>
+    } @else {
+      <jumbotron-profile class="jumbotron" id="student-jumbotron-profile" />
+    }
 
-    <app-tab>
-      <ng-template appTabHeader>
-        <h2 class="subtitle border">Avaliações</h2>
-      </ng-template>
+    <section id="student-list-post">
+      <header id="student-list-post-header">
+        <h2 class="subtitle border">Publicações</h2>
+      </header>
+      <ul>
+        @for (post of posts | async; track $index) {
+          <li>
+            @defer (on viewport) {
+              <app-post [postParams]="post">
+                <span [innerHTML]="post.content | trustHtml"></span>
+              </app-post>
+              <app-post-loading />
+            } @loading {
+              <app-post-loading />
+            } @placeholder {
+              <app-post-loading />
+            }
+          </li>
+        } @empty {
+          <li>
+            <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
+          </li>
+        }
+      </ul>
+    </section>
+  </aside>
 
-      <ng-template appTabContent>
-        <h1>Conteúdo da Tab 2</h1>
-      </ng-template>
-    </app-tab>
+  <div id="student-content">
+    <app-tabs>
+      <app-tab>
+        <ng-template appTabHeader>
+          <h2 class="subtitle border">Atividades</h2>
+        </ng-template>
 
-    <app-tab>
-      <ng-template appTabHeader>
-        <h2 class="subtitle border">Materias</h2>
-      </ng-template>
+        <ng-template appTabContent>
+          <span>Conteúdo da Tab 1</span>
+        </ng-template>
+      </app-tab>
 
-      <ng-template appTabContent>
-        <h1>Conteúdo da Tab 3</h1>
-      </ng-template>
-    </app-tab>
-  </app-tabs>
+      <app-tab>
+        <ng-template appTabHeader>
+          <h2 class="subtitle border">Avaliações</h2>
+        </ng-template>
+
+        <ng-template appTabContent>
+          <span>Conteúdo da Tab 2</span>
+        </ng-template>
+      </app-tab>
+
+      <app-tab>
+        <ng-template appTabHeader>
+          <h2 class="subtitle border">Materias</h2>
+        </ng-template>
+
+        <ng-template appTabContent>
+          <div id="college-list">
+            <h2 class="subtitle border">Cursos</h2>
+
+            <section id="student-list-courses">
+              <ul>
+                @for (course of courses; track $index) {
+                  <li>
+                    <app-course-item [thumb]="course.thumb">
+                      <h3 class="title">
+                        {{ course.name }}
+                      </h3>
+
+                      <app-progress-bar />
+
+                      <app-button
+                        routerLink="/area-logada/course/{{ course.id }}"
+                        size="small"
+                      >
+                        Entrar
+                      </app-button>
+                    </app-course-item>
+                  </li>
+                } @empty {
+                  <li>
+                    <h3 class="subtitle empty">
+                      Você ainda não atribuiu nenhum curso para essa
+                      instituição.
+                    </h3>
+                  </li>
+                }
+              </ul>
+            </section>
+          </div>
+        </ng-template>
+      </app-tab>
+    </app-tabs>
+  </div>
 </main>

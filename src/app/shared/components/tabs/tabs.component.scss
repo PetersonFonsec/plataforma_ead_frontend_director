@@ -14,6 +14,14 @@
     transition: var(--transition);
   }
 
+  &-active {
+    transition: var(--transition);
+  }
+
+  &-content {
+    width: 100%;
+  }
+
   &-item {
     cursor: pointer;
 

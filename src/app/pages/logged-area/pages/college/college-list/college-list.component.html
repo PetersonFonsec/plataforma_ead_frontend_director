@@ -5,7 +5,7 @@
     @for (course of courses; track $index) {
       <li>
         <app-course-item [thumb]="course.thumb">
-          <h3 class="title">Conceitos de computação I</h3>
+          <h3 class="title">{{ course.name }}</h3>
           <app-button
             routerLink="/area-logada/course/{{ course.id }}"
             size="small"
