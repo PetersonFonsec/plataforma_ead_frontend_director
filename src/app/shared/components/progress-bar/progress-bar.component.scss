@@ -1,0 +1,15 @@
+.progressbar {
+  height: 8px;
+  border-radius: 8px;
+  background-color: var(--secundary-color-4);
+  width: 100%;
+  display: block;
+  overflow: hidden;
+
+  &-bar {
+    border-radius: 8px;
+    background-color: var(--secundary-color-1);
+    height: 100%;
+    display: block;
+  }
+}

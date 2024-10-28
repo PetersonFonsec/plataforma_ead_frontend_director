@@ -8,6 +8,7 @@ import { AvatarProfileComponent } from '@shared/components/avatar-profile/avatar
 import { AvatarComponent, AvatarSizeParam } from '@shared/components/avatar/avatar.component';
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { CalendarComponent } from '@shared/components/calendar/calendar.component';
 import { CourseItemComponent } from '@shared/components/course-item/course-item.component';
 import { JumbotronNotificationComponent } from '@shared/components/jumbotron-notification/jumbotron-notification.component';
 import { PostLoadingComponent } from '@shared/components/loaders/post-loading/post-loading.component';
@@ -15,6 +16,7 @@ import { PostComponent } from '@shared/components/post/post.component';
 import { ProgressBarComponent } from '@shared/components/progress-bar/progress-bar.component';
 import { TabComponent } from '@shared/components/tab/tab.component';
 import { TabContentDirective, TabHeaderDirective, TabsComponent } from '@shared/components/tabs/tabs.component';
+import { TimeLineComponent } from '@shared/components/time-line/time-line.component';
 import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 import { TrustHtmlPipe } from '@shared/pipes/trust-html/trust-html.pipe';
 import { CollegeService } from '@shared/services/college/college.service';
@@ -43,7 +45,9 @@ import { UserLoggedService } from '@shared/services/user-logged/user-logged.serv
     IuserToAvatarPipe,
     AvatarComponent,
     CourseItemComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    CalendarComponent,
+    TimeLineComponent
   ],
   templateUrl: './student.component.html',
   styleUrl: './student.component.scss'

@@ -1,0 +1,13 @@
+<div class="calendar">
+  <div class="calendar-header">
+    <button class="calendar-button">p</button>
+    {{ month }}
+    <button class="calendar-button">n</button>
+  </div>
+
+  <div class="calendar-body">
+    @for (item of items; track $index) {
+      <div class="calendar-day"></div>
+    }
+  </div>
+</div>

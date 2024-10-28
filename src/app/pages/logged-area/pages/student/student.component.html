@@ -7,9 +7,9 @@
         [content]="userLogged.user | iuserToAvatar"
       />
 
-      <span id="student-aside-avatar-name" class="subtitle">{{
-        userLogged.user.name
-      }}</span>
+      <span id="student-aside-avatar-name" class="subtitle">
+        {{ userLogged.user.name }}
+      </span>
     } @else {
       <jumbotron-profile class="jumbotron" id="student-jumbotron-profile" />
     }
@@ -49,7 +49,10 @@
         </ng-template>
 
         <ng-template appTabContent>
-          <span>Conteúdo da Tab 1</span>
+          <div id="student-ativeidade-content">
+            <app-time-line />
+            <app-calendar />
+          </div>
         </ng-template>
       </app-tab>
 
@@ -81,7 +84,7 @@
                         {{ course.name }}
                       </h3>
 
-                      <app-progress-bar />
+                      <app-progress-bar [progress]="$index" />
 
                       <app-button
                         routerLink="/area-logada/course/{{ course.id }}"

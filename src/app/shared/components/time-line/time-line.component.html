@@ -1,0 +1,20 @@
+<ul class="time-line">
+  <li class="time-line-item no-bullet">
+    <span class="time-line-date text"> Date </span>
+    <span class="time-line-content"> </span>
+  </li>
+
+  @for (event of events; track $index) {
+    <li class="time-line-item">
+      <div class="time-line-date">
+        <app-date-item [date]="event.date" />
+      </div>
+
+      <div class="time-line-content">
+        <span class="bg">
+          {{ event.title }}
+        </span>
+      </div>
+    </li>
+  }
+</ul>

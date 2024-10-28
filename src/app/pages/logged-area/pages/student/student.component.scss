@@ -40,6 +40,14 @@
 
   &-list-post {
     width: 100%;
+
+    &-header {
+      margin-bottom: 24px;
+    }
+
+    ul {
+      list-style: none;
+    }
   }
 
   &-list-courses ul {
@@ -47,5 +55,14 @@
     list-style: none;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 24px;
+  }
+
+  app-progress-bar {
+    margin-bottom: 24px;
+  }
+
+  &-ativeidade-content {
+    display: flex;
+    justify-content: space-between;
   }
 }

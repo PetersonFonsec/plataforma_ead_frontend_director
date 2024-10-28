@@ -1,0 +1,61 @@
+@import "../../../scss/index";
+
+.time-line {
+  @include directionColumn();
+  width: 300px;
+
+  &-item {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    position: relative;
+
+    &:not(:last-child) {
+      padding-bottom: 24px;
+    }
+
+    &:not(.no-bullet)::after {
+      @include circle(8px);
+      content: "";
+      background-color: var(--neutral-color-2);
+      left: 53px;
+      position: absolute;
+      top: 14px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      left: 56px;
+      background-color: var(--neutral-color-2);
+    }
+  }
+
+  &-date {
+    width: 48px;
+    display: flex;
+    height: fit-content;
+  }
+
+  &-content {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 24px;
+    flex-direction: column;
+
+    .bg {
+      background-color: var(--neutral-color-2);
+      border-radius: var(--border-radius-1);
+      padding: 8px;
+    }
+
+    .bg + .bg {
+      margin-top: 12px;
+    }
+  }
+}
