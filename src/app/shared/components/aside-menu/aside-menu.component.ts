@@ -3,13 +3,13 @@ import { IUserLogged } from '@shared/services/user-logged/user-logged.model';
 import { menus } from '@shared/data/menus';
 
 import { AvatarProfileComponent } from '../avatar-profile/avatar-profile.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 
 @Component({
   selector: 'app-aside-menu',
   standalone: true,
-  imports: [AvatarProfileComponent, RouterLink, IuserToAvatarPipe],
+  imports: [AvatarProfileComponent, RouterLink, IuserToAvatarPipe, RouterLinkActive],
   templateUrl: './aside-menu.component.html',
   styleUrl: './aside-menu.component.scss'
 })

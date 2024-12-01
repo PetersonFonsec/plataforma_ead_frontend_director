@@ -12,7 +12,11 @@
     <ul>
       @for (menus of menus; track $index) {
         <li>
-          <a [routerLink]="menus.link">
+          <a
+            [routerLink]="menus.link"
+            [routerLinkActive]="menus.link"
+            ariaCurrentWhenActive="page"
+          >
             {{ menus.label }}
           </a>
         </li>
