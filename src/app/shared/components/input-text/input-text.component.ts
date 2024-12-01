@@ -58,7 +58,6 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, AfterVi
   ngAfterViewInit() {
     if (!this.autofocus) return;
 
-    console.log(this.inputHTML.nativeElement)
     this.inputHTML.nativeElement.focus();
   }
 
