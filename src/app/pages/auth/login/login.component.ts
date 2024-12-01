@@ -1,19 +1,26 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-
-import { InputTextComponent } from '../../../shared/components/input-text/input-text.component';
-import { AlertComponent, AlertTypes } from '../../../shared/components/alert/alert.component';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { AuthService } from '../services/auth/auth.service';
-import { fadeAnimation } from '../../../shared/animations/fade/fade.animation';
+import { Component, inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router, RouterLink } from '@angular/router';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { FormsModule } from '@angular/forms';
+
+import { InputTextComponent } from '@shared/components/input-text/input-text.component';
+import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { fadeAnimation } from '@shared/animations/fade/fade.animation';
+
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent],
+  imports: [
+    ButtonComponent,
+    InputTextComponent,
+    RouterLink,
+    FormsModule,
+    AlertComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   animations: [fadeAnimation]

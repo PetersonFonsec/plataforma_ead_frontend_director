@@ -4,12 +4,13 @@
       [(ngModel)]="payload.email"
       id="email"
       name="email"
+      [autofocus]="true"
       [required]="true"
       label="Email"
       email
       type="text"
       placeholder="Informe o seu email"
-    ></app-input-text>
+    />
 
     <app-input-text
       name="password"
@@ -19,7 +20,7 @@
       [required]="true"
       label="Senha"
       placeholder="Informe a sua senha"
-    ></app-input-text>
+    />
 
     <a class="link" id="login-forget-link" routerLink="../recuperar-senha">
       Esqueceu a senha ? <span>Clique aqui.</span>

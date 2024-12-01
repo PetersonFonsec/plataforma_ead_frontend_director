@@ -1,5 +1,5 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, forwardRef, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
@@ -23,7 +23,7 @@ export enum InputTextTypes {
     provideNgxMask()
   ],
 })
-export class InputTextComponent implements OnInit, ControlValueAccessor {
+export class InputTextComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   @Input() placeholder = '';
   @Input() disabled = false;
   @Input() success = false;
@@ -32,7 +32,10 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input({ transform: (value: string) => `${value}-input` }) id = "";
   @Input() type = "text";
   @Input() mask = "";
+  @Input() autofocus = false;
   val = '';
+
+  @ViewChild("inputHTML") inputHTML!: ElementRef;
 
   ngOnInit(): void { }
 
@@ -51,6 +54,14 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
       this.onTouched(val);
     }
   }
+
+  ngAfterViewInit() {
+    if (!this.autofocus) return;
+
+    console.log(this.inputHTML.nativeElement)
+    this.inputHTML.nativeElement.focus();
+  }
+
 
   onBlur() { }
 
