@@ -13,6 +13,8 @@ import { CreatePostComponent } from '@pages/logged-area/pages/create-post/create
 import { ListPostComponent } from '@pages/logged-area/pages/list-post/list-post.component';
 import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
 
+const PROJECT_NAME = "Odin";
+
 export const routes: Routes = [
   { path: '', redirectTo: '/entre', pathMatch: 'full' },
   {
@@ -22,21 +24,25 @@ export const routes: Routes = [
       {
         path: '',
         component: WelcomeComponent,
+        title: `Seja bem vindo - ${PROJECT_NAME}`,
         data: { animation: 'WelcomePage' },
       },
       {
         path: 'login',
         component: LoginComponent,
+        title: `Acesse sua conta - ${PROJECT_NAME}`,
         data: { animation: 'LoginPage' }
       },
       {
         path: 'cadastrar',
         component: RegisterComponent,
+        title: `Crie uma conta - ${PROJECT_NAME}`,
         data: { animation: 'RegisterPage' }
       },
       {
         path: 'nova-senha/:token',
         component: NewPasswordComponent,
+        title: `Cadastre uma nova senha - ${PROJECT_NAME}`,
         data: { animation: 'NewPassword' }
       },
     ]
