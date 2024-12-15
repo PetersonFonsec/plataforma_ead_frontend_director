@@ -1,4 +1,4 @@
-@import "../../../scss/index.scss";
+@use "../../../scss/mixins/image";
 
 .course-item {
   overflow: hidden;
@@ -10,7 +10,7 @@
     height: 150px;
 
     img {
-      @include validSizeImage();
+      @include image.validSizeImage();
     }
   }
 

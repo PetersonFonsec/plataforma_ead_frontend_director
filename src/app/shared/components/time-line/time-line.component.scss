@@ -1,7 +1,8 @@
-@import "../../../scss/index";
+@use "../../../scss/mixins/grid";
+@use "../../../scss/mixins/geometric";
 
 .time-line {
-  @include directionColumn();
+  @include grid.directionColumn();
   width: 300px;
 
   &-item {
@@ -15,7 +16,7 @@
     }
 
     &:not(.no-bullet)::after {
-      @include circle(8px);
+      @include geometric.circle(8px);
       content: "";
       background-color: var(--neutral-color-2);
       left: 53px;

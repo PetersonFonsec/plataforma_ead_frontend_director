@@ -1,4 +1,5 @@
-@import "../../../scss/index.scss";
+@use "../../../scss/mixins/geometric";
+@use "../../../scss/mixins/position";
 
 .radio {
   cursor: pointer;
@@ -7,7 +8,7 @@
   width: max-content;
 
   &-input {
-    @include circle(40px);
+    @include geometric.circle(40px);
     background-color: var(--neutral-color-2);
     position: relative;
 
@@ -18,8 +19,8 @@
   }
 
   &-bullet {
-    @include absoluteCenter();
-    @include circle(26px);
+    @include position.absoluteCenter();
+    @include geometric.circle(26px);
     background-color: var(--primary-color-1);
     pointer-events: none;
     opacity: 0;

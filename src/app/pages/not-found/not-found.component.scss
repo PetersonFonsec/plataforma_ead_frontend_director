@@ -1,4 +1,4 @@
-@import "../../scss/index.scss";
+@use "../../scss/variables/breakpoints";
 
 .not-found {
   width: 100vw;
@@ -13,12 +13,12 @@
   justify-content: center;
   align-items: center;
 
-  @media (min-width: $tablet) {
+  @media (min-width: breakpoints.$tablet) {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  @media (min-width: $desktop-lg) {
+  @media (min-width: breakpoints.$desktop-lg) {
     justify-content: center;
     margin: 0 auto;
   }
@@ -31,7 +31,7 @@
     justify-content: center;
     margin-bottom: 88px;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       height: auto;
       flex: 1;
     }
@@ -55,7 +55,7 @@
     padding-bottom: 24px;
     height: 250px;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       text-align: center;
     }
   }

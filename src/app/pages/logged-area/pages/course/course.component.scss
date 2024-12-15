@@ -1,13 +1,14 @@
-@use "../../../../scss/index.scss" as import;
+@use "../../../../scss/mixins/position";
+@use "../../../../scss/mixins/grid";
 
 #course {
-  @include import.filledPage;
+  @include position.filledPage;
   align-items: center;
   width: 100%;
 
   app-page-thumb-loader,
   app-page-thumb {
-    @include import.overflowLateralPadding(32px);
+    @include grid.overflowLateralPadding(32px);
     margin-left: 0;
     height: 197px;
   }
@@ -18,7 +19,7 @@
   }
 
   &-content {
-    @include import.container(var(--container-size-small));
+    @include grid.container(var(--container-size-small));
     flex-direction: column;
     align-items: center;
     margin: 24px 0;

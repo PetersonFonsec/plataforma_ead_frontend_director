@@ -1,7 +1,7 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { AfterViewInit, Component, ElementRef, OnInit, forwardRef, input, viewChild } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 export enum InputTextTypes {
   password = "password",
@@ -9,18 +9,18 @@ export enum InputTextTypes {
 }
 
 @Component({
-    selector: 'app-input-text',
-    imports: [FormsModule, NgClass, NgxMaskDirective, NgxMaskPipe],
-    templateUrl: './input-text.component.html',
-    styleUrl: './input-text.component.scss',
-    providers: [
-        {
-            multi: true,
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputTextComponent),
-        },
-        provideNgxMask()
-    ]
+  selector: 'app-input-text',
+  imports: [FormsModule, NgClass, NgxMaskDirective],
+  templateUrl: './input-text.component.html',
+  styleUrl: './input-text.component.scss',
+  providers: [
+    {
+      multi: true,
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputTextComponent),
+    },
+    provideNgxMask()
+  ]
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   readonly placeholder = input('');

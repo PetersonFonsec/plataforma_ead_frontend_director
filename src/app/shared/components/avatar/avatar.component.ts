@@ -13,10 +13,10 @@ export enum AvatarSizeParam {
   "large" = "lg"
 }
 @Component({
-    selector: 'app-avatar',
-    imports: [NgClass, AvatarLoaderComponent],
-    templateUrl: './avatar.component.html',
-    styleUrl: './avatar.component.scss'
+  selector: 'app-avatar',
+  imports: [AvatarLoaderComponent],
+  templateUrl: './avatar.component.html',
+  styleUrl: './avatar.component.scss'
 })
 export class AvatarComponent {
   readonly content = input.required<IAvatarParans>();

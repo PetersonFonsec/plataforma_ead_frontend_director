@@ -1,4 +1,4 @@
-@import "../../scss/index.scss";
+@use "../../scss/variables/breakpoints";
 
 .auth {
   width: 100vw;
@@ -11,12 +11,12 @@
   position: relative;
   justify-content: center;
 
-  @media (min-width: $desktop) {
+  @media (min-width: breakpoints.$desktop) {
     justify-content: space-between;
     margin: 0 auto;
   }
 
-  @media (min-width: $desktop-lg) {
+  @media (min-width: breakpoints.$desktop-lg) {
     justify-content: center;
     max-width: 1418px;
   }
@@ -30,7 +30,7 @@
     margin-right: -32px;
     overflow: hidden;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       margin-left: 0;
       margin-right: 0;
       height: auto;

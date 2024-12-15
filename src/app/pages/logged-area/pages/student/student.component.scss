@@ -1,24 +1,25 @@
-@import "../../../../scss/index";
+@use "../../../../scss/mixins/grid";
+@use "../../../../scss/variables/breakpoints";
 
 #student {
-  @include container(var(--container-size));
-  @include directionColumn();
+  @include grid.container(var(--container-size));
+  @include grid.directionColumn();
   align-items: center;
   flex-wrap: wrap;
 
-  @media (min-width: $tablet) {
+  @media (min-width: breakpoints.$tablet) {
     align-items: flex-start;
     flex-direction: row;
     justify-content: space-between;
   }
 
   &-aside {
-    @include directionColumn();
+    @include grid.directionColumn();
     align-items: center;
     margin-bottom: 24px;
     width: 100%;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       margin-right: 24px;
       flex: 1;
     }

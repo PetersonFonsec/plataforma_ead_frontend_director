@@ -1,4 +1,4 @@
-@use "../../../../scss/index.scss" as v;
+@use "../../../../scss/variables/breakpoints";
 
 #task-choice {
   align-items: center;
@@ -16,7 +16,7 @@
     flex: 1;
     width: 100%;
 
-    @media (min-width: v.$tablet) {
+    @media (min-width: breakpoints.$tablet) {
       flex-direction: row;
       align-items: stretch;
       justify-content: space-between;

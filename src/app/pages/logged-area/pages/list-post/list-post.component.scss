@@ -1,8 +1,8 @@
-@import "../../../../scss/index.scss";
+@use "../../../../scss/mixins/grid";
 
 #list-post-page {
-  @include directionColumn();
-  @include filledHeigthPage();
+  @include grid.directionColumn();
+  @include grid.filledHeigthPage();
   align-items: stretch;
 
   &-header {

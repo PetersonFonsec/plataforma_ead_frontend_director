@@ -1,10 +1,10 @@
-@import "../../../../scss/index.scss";
+@use "../../../../scss/variables/breakpoints";
 
 app-jumbotron {
   max-width: 400px;
   display: block;
 
-  @media (min-width: $tablet) {
+  @media (min-width: breakpoints.$tablet) {
     max-width: var(--container-size);
 
     & ::ng-deep {
@@ -42,20 +42,20 @@ app-jumbotron {
     display: none;
     margin: 24px auto;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       display: block;
     }
   }
 
   .hide-mobile {
     display: none;
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       display: block;
     }
   }
 
   .hide-descktop {
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       display: none;
     }
   }

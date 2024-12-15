@@ -1,4 +1,4 @@
-@import "../../../../app/scss/index.scss";
+@use "../../../scss/mixins/image";
 
 #page-header {
   align-items: center;
@@ -13,7 +13,7 @@
   }
 
   &-thumb {
-    @include validSizeImage();
+    @include image.validSizeImage();
     display: block;
     margin: auto;
     width: 100%;

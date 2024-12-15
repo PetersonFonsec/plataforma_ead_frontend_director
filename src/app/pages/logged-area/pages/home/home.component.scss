@@ -1,4 +1,4 @@
-@import "../../../../scss/index.scss";
+@use "../../../../scss/mixins/position";
 
 #home-page {
   display: flex;
@@ -51,7 +51,7 @@
   }
 
   .avatar-container {
-    @include flexCenter();
+    @include position.flexCenter();
     flex-direction: column;
   }
 }

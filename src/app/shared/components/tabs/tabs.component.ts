@@ -2,12 +2,9 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   computed,
-  contentChild,
   contentChildren,
   Directive,
-  NgModule,
   signal,
-  TemplateRef,
 } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 
@@ -24,15 +21,12 @@ export class TabHeaderDirective { }
 export class TabContentDirective { }
 
 @Component({
-    selector: 'app-tabs',
-    imports: [
-        CommonModule,
-        TabComponent,
-        TabContentDirective,
-        TabHeaderDirective,
-    ],
-    templateUrl: './tabs.component.html',
-    styleUrl: './tabs.component.scss'
+  selector: 'app-tabs',
+  imports: [
+    CommonModule,
+  ],
+  templateUrl: './tabs.component.html',
+  styleUrl: './tabs.component.scss'
 })
 export class TabsComponent {
   tabs = contentChildren(TabComponent);

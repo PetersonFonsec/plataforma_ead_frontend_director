@@ -1,4 +1,4 @@
-@import "../../../scss/index.scss";
+@use "../../../scss/variables/breakpoints";
 
 .logged-page {
   background-color: var(--primary-color-2);
@@ -18,7 +18,7 @@
     top: 0;
     width: 280px;
 
-    @media (min-width: $tablet) {
+    @media (min-width: breakpoints.$tablet) {
       width: 320px;
     }
   }
@@ -50,7 +50,7 @@
       transform: scale(1, 0.9) translateX(280px);
       overflow: hidden;
 
-      @media (min-width: $tablet) {
+      @media (min-width: breakpoints.$tablet) {
         transform: scale(1, 0.9) translateX(320px);
       }
     }

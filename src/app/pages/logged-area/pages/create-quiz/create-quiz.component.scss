@@ -1,8 +1,9 @@
-@use "../../../../scss/index.scss" as import;
+@use "../../../../scss/mixins/grid";
+@use "../../../../scss/mixins/position";
 
 #create-quiz {
-  @include import.container(var(--container-size-small));
-  @include import.filledPage;
+  @include grid.container(var(--container-size-small));
+  @include position.filledPage;
   align-items: center;
   width: 100%;
 

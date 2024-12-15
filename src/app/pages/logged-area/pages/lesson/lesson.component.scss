@@ -1,8 +1,8 @@
-@import "../../../../scss/index";
+@use "../../../../scss/mixins/grid";
 
 #lesson {
-  @include container(var(--container-size-small));
-  @include directionColumn();
+  @include grid.container(var(--container-size-small));
+  @include grid.directionColumn();
   align-items: flex-start;
 
   .row {

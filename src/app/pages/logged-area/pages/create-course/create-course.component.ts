@@ -7,7 +7,6 @@ import { InputUploadComponent } from '@shared/components/input-upload/input-uplo
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
 import { InputTextComponent } from '@shared/components/input-text/input-text.component';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
-import { SelectComponent } from '@shared/components/select/select.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { IRequestCourseCreate } from '@shared/services/course/course.model';
 import { CourseService } from '@shared/services/course/course.service';
@@ -15,18 +14,17 @@ import { CourseService } from '@shared/services/course/course.service';
 import { CreateCourse } from './create-course.model';
 
 @Component({
-    selector: 'app-create-course',
-    imports: [
-        ButtonComponent,
-        SelectComponent,
-        InputUploadComponent,
-        InputTextComponent,
-        FormsModule,
-        ButtonBackComponent,
-        AlertComponent
-    ],
-    templateUrl: './create-course.component.html',
-    styleUrl: './create-course.component.scss'
+  selector: 'app-create-course',
+  imports: [
+    ButtonComponent,
+    InputUploadComponent,
+    InputTextComponent,
+    FormsModule,
+    ButtonBackComponent,
+    AlertComponent
+  ],
+  templateUrl: './create-course.component.html',
+  styleUrl: './create-course.component.scss'
 })
 export class CreateCourseComponent {
   #courseService = inject(CourseService);

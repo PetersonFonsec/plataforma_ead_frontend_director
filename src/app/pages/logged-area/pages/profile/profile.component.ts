@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
-import { AvatarComponent, AvatarSizeParam } from '@shared/components/avatar/avatar.component';
+import { AvatarSizeParam } from '@shared/components/avatar/avatar.component';
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
 import { InputTextComponent } from '@shared/components/input-text/input-text.component';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
@@ -14,20 +14,19 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 
 import { ProfileService } from './services/profile/profile.service';
 @Component({
-    selector: 'app-profile',
-    imports: [
-        InputTextComponent,
-        ButtonComponent,
-        AlertComponent,
-        AvatarComponent,
-        FormsModule,
-        RouterLink,
-        ButtonBackComponent,
-        InputUploadComponent
-    ],
-    templateUrl: './profile.component.html',
-    styleUrl: './profile.component.scss',
-    animations: [fadeAnimation]
+  selector: 'app-profile',
+  imports: [
+    InputTextComponent,
+    ButtonComponent,
+    AlertComponent,
+    FormsModule,
+    RouterLink,
+    ButtonBackComponent,
+    InputUploadComponent
+  ],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.scss',
+  animations: [fadeAnimation]
 })
 export class ProfileComponent implements OnInit {
   #userService = inject(UserLoggedService);
