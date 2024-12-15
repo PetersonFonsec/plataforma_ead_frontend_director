@@ -5,6 +5,6 @@
 
   <div class="input-card-footer">
     <ng-content select="[label]"></ng-content>
-    <app-input-radio [(ngModel)]="value" [value]="valor" [name]="id" />
+    <app-input-radio [(ngModel)]="value" [value]="valor()" [name]="id()" />
   </div>
 </label>

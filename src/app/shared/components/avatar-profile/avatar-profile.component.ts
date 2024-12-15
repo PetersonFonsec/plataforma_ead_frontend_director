@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { AvatarComponent, IAvatarParans } from '../avatar/avatar.component';
 
 @Component({
@@ -8,6 +8,6 @@ import { AvatarComponent, IAvatarParans } from '../avatar/avatar.component';
     styleUrl: './avatar-profile.component.scss'
 })
 export class AvatarProfileComponent {
-  @Input({ required: true }) content!: IAvatarParans;
-  @Input() description = '';
+  readonly content = input.required<IAvatarParans>();
+  readonly description = input('');
 }

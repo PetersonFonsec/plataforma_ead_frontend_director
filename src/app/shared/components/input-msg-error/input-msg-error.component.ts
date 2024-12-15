@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, input } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MESSAGES_ERRO } from '@shared/data/messages-erros';
 
@@ -9,14 +9,15 @@ import { MESSAGES_ERRO } from '@shared/data/messages-erros';
     styleUrl: './input-msg-error.component.scss'
 })
 export class InputMsgErrorComponent implements OnInit {
-  @Input({ required: true }) controler!: NgModel;
-  @Input() describeBy = "";
+  readonly controler = input.required<NgModel>();
+  readonly describeBy = input("");
   errorMsg = "";
 
   ngOnInit() {
-    if (!this.controler.errors) return;
+    const controler = this.controler();
+    if (!controler.errors) return;
 
-    const errors = Object.keys(this.controler.errors);
+    const errors = Object.keys(controler.errors);
     const firstError = errors[0];
 
     if (firstError) {

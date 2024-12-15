@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
     selector: 'app-progress-bar',
@@ -8,5 +8,5 @@ import { Component, Input, input } from '@angular/core';
     styleUrl: './progress-bar.component.scss'
 })
 export class ProgressBarComponent {
-  @Input({ transform: (value: number) => `${value} %` }) progress = "";
+  readonly progress = input("", { transform: (value: number /*T:VAE*/) => `${value} %` });
 }

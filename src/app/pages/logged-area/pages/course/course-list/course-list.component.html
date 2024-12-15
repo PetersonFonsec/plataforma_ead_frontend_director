@@ -1,11 +1,11 @@
 <div class="course-list">
   <h3 class="course-list-title subtitle border">
-    {{ name }}
+    {{ name() }}
   </h3>
 
   <ul>
-    @defer (when !isLoading) {
-      @for (item of itens; track $index) {
+    @defer (when !isLoading()) {
+      @for (item of itens(); track $index) {
         <li>
           <app-item-bar
             [title]="'lesson/' + item.title"
@@ -14,7 +14,7 @@
         </li>
       } @empty {
         <li>
-          <h3 class="subtitle empty">Essse curso não tem {{ name }}</h3>
+          <h3 class="subtitle empty">Essse curso não tem {{ name() }}</h3>
         </li>
       }
     } @placeholder (minimum 500ms) {

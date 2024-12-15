@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { CourseItemComponent } from '@shared/components/course-item/course-item.component';
@@ -12,5 +12,5 @@ import { ICourse } from '@shared/services/course/course.model';
     styleUrl: './college-list.component.scss'
 })
 export class CollegeListComponent {
-  @Input() courses: ICourse[] = []
+  readonly courses = input<ICourse[]>([]);
 }

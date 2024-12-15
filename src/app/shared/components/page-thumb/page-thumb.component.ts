@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { IPageThumbParams } from './page-thumb.interface';
 
 @Component({
@@ -8,6 +8,6 @@ import { IPageThumbParams } from './page-thumb.interface';
     styleUrl: './page-thumb.component.scss'
 })
 export class PageThumbComponent {
-  @Input({ required: true }) college!: IPageThumbParams;
+  readonly college = input.required<IPageThumbParams>();
   defaultColor = "linear-gradient(#888, #000)";
 }

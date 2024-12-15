@@ -2,11 +2,11 @@
   <div class="radio-input">
     <input
       type="radio"
-      [value]="value"
+      [value]="value()"
       [(ngModel)]="val"
-      [name]="name"
+      [name]="name()"
       (change)="toggle(val)"
-      [id]="id"
+      [id]="id()"
     />
 
     <div class="radio-bullet"></div>

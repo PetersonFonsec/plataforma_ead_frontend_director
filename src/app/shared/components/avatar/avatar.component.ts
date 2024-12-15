@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { AvatarLoaderComponent } from '../loaders/avatar-loader/avatar-loader.component';
 
 export interface IAvatarParans {
@@ -19,6 +19,6 @@ export enum AvatarSizeParam {
     styleUrl: './avatar.component.scss'
 })
 export class AvatarComponent {
-  @Input({ required: true }) content!: IAvatarParans;
-  @Input() size: AvatarSizeParam = AvatarSizeParam.small;
+  readonly content = input.required<IAvatarParans>();
+  readonly size = input<AvatarSizeParam>(AvatarSizeParam.small);
 }

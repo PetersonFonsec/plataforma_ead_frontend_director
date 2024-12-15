@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CollegeForm } from '../model/college.model';
 
 @Component({
@@ -8,5 +8,5 @@ import { CollegeForm } from '../model/college.model';
     styleUrl: './college-thumb.component.scss'
 })
 export class CollegeThumbComponent {
-  @Input() college = new CollegeForm();
+  readonly college = input(new CollegeForm());
 }

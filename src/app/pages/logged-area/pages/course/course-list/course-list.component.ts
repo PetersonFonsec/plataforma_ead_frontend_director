@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ItemBarComponent } from '@shared/components/item-bar/item-bar.component';
 
@@ -12,8 +12,8 @@ import { ItemBarComponent } from '@shared/components/item-bar/item-bar.component
     styleUrl: './course-list.component.scss'
 })
 export class CourseListComponent {
-  @Input() isLoading = true
-  @Input() itens: any = []
+  readonly isLoading = input(true);
+  readonly itens = input<any>([]);
 
-  @Input() name = ""
+  readonly name = input("");
 }

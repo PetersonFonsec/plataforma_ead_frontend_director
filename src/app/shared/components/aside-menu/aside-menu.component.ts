@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, input, output } from '@angular/core';
 import { IUserLogged } from '@shared/services/user-logged/user-logged.model';
 import { menus } from '@shared/data/menus';
 
@@ -13,12 +13,12 @@ import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.p
     styleUrl: './aside-menu.component.scss'
 })
 export class AsideMenuComponent implements OnInit {
-  @Input() userLogged!: IUserLogged;
-  @Output() userLogout = new EventEmitter();
+  readonly userLogged = input.required<IUserLogged>();
+  readonly userLogout = output();
   menus: any;
 
   ngOnInit(): void {
-    const role = this.userLogged.user.role;
+    const role = this.userLogged().user.role;
     if (role) this.menus = menus[role];
   }
 

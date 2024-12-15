@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
     selector: 'app-date-item',
@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
     styleUrl: './date-item.component.scss'
 })
 export class DateItemComponent {
-  @Input() date!: string;
+  readonly date = input.required<string>();
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
     selector: 'app-course-item',
@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
     styleUrl: './course-item.component.scss'
 })
 export class CourseItemComponent {
-  @Input() thumb = ""
+  readonly thumb = input("");
 }

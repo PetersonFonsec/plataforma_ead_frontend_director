@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { InputRadioComponent } from "../input-radio/input-radio.component";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -17,9 +17,9 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
     ]
 })
 export class InputCardComponent implements OnInit, ControlValueAccessor {
-  @Input({ transform: (value: string) => `${value}-input` }) id = "";
-  @Input() valor = "";
-  @Input() name = "";
+  readonly id = input("", { transform: (value: string /*T:VAE*/) => `${value}-input` });
+  readonly valor = input("");
+  readonly name = input("");
   val = '';
 
   get value() {

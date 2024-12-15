@@ -1,5 +1,5 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, forwardRef, input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, forwardRef, input, viewChild } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
@@ -23,19 +23,19 @@ export enum InputTextTypes {
     ]
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor, AfterViewInit {
-  @Input() placeholder = '';
-  @Input() disabled = false;
-  @Input() success = false;
-  @Input() error = false;
-  @Input() label = '';
-  @Input({ transform: (value: string) => `${value}-input` }) id = "";
-  @Input() type = "text";
-  @Input() mask = "";
-  @Input() autofocus = false;
-  @Input() describeBy = "";
+  readonly placeholder = input('');
+  readonly disabled = input(false);
+  readonly success = input(false);
+  readonly error = input(false);
+  readonly label = input('');
+  readonly id = input("", { transform: (value: string /*T:VAE*/) => `${value}-input` });
+  readonly type = input("text");
+  readonly mask = input("");
+  readonly autofocus = input(false);
+  readonly describeBy = input("");
   val = '';
 
-  @ViewChild("inputHTML") inputHTML!: ElementRef;
+  readonly inputHTML = viewChild.required<ElementRef>("inputHTML");
 
   ngOnInit(): void { }
 
@@ -56,9 +56,9 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, AfterVi
   }
 
   ngAfterViewInit() {
-    if (!this.autofocus) return;
+    if (!this.autofocus()) return;
 
-    this.inputHTML.nativeElement.focus();
+    this.inputHTML().nativeElement.focus();
   }
 
 

@@ -2,7 +2,7 @@
   <h2 class="subtitle border">Cursos</h2>
 
   <ul>
-    @for (course of courses; track $index) {
+    @for (course of courses(); track $index) {
       <li>
         <app-course-item [thumb]="course.thumb">
           <h3 class="title">{{ course.name }}</h3>

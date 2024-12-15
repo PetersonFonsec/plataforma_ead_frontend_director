@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
@@ -23,10 +23,10 @@ export interface InputPhotoValue {
     ]
 })
 export class InputUploadComponent implements OnInit, ControlValueAccessor {
-  @Input({ transform: (value: string) => `${value}-input-upload` }) id = "";
+  readonly id = input("", { transform: (value: string /*T:VAE*/) => `${value}-input-upload` });
   @Input() initialImage?: string = '';
-  @Input() disabled = false;
-  @Input() accept = 'image/png, image/jpeg';
+  readonly disabled = input(false);
+  readonly accept = input('image/png, image/jpeg');
   icon = faCloudUploadAlt
   val: InputPhotoValue = {
     b64: '',

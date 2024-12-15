@@ -1,7 +1,7 @@
 <div
   role="alert"
   class="alert alert-{{ type }}"
-  [ngClass]="{ 'alert-shadow': hideShadow }"
+  [ngClass]="{ 'alert-shadow': hideShadow() }"
 >
   <fa-icon class="alert-icon" [icon]="icon"></fa-icon>
   <ng-content></ng-content>

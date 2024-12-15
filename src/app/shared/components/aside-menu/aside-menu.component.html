@@ -1,7 +1,7 @@
 <aside id="aside-menu" class="aside-menu">
   <a routerLink="./home">
     <app-avatar-profile
-      [content]="userLogged.user | iuserToAvatar"
+      [content]="userLogged().user | iuserToAvatar"
       description="Perfil"
       class="aside-menu-avatar"
       id="aside-menu-avatar"

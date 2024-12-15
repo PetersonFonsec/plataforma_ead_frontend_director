@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { InputTextComponent } from '../input-text/input-text.component';
 
@@ -22,11 +22,11 @@ export interface ISelectOptions {
     ]
 })
 export class SelectComponent implements OnInit, ControlValueAccessor {
-  @Input() placeholder = '';
-  @Input() error = false;
-  @Input() label = '';
-  @Input() id = '';
-  @Input() options: ISelectOptions[] | null = [];
+  readonly placeholder = input('');
+  readonly error = input(false);
+  readonly label = input('');
+  readonly id = input('');
+  readonly options = input<ISelectOptions[] | null>([]);
   _options: ISelectOptions[] | null = [];
   inputValue = '';
   showOptions = false;
@@ -51,7 +51,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   constructor() { }
 
   ngOnInit(): void {
-    this._options = this.options;
+    this._options = this.options();
   }
 
   setValue(product: any) {
@@ -74,8 +74,9 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   }
 
   filterOptions(): ISelectOptions[] {
-    if (!this.options) return [];
-    this._options = this.options.filter(({ label }) => label.includes(this.inputValue));
+    const options = this.options();
+    if (!options) return [];
+    this._options = options.filter(({ label }) => label.includes(this.inputValue));
     return this._options;
   }
 

@@ -1,15 +1,15 @@
 <label
-  [id]="id"
-  [for]="id + '-input-file'"
+  [id]="id()"
+  [for]="id() + '-input-file'"
   class="input-upload"
-  [ngClass]="{ disabled }"
+  [ngClass]="{ disabled: disabled() }"
 >
   <input
     type="file"
-    [id]="id + '-input-file'"
-    [name]="id"
-    [disabled]="disabled"
-    [accept]="accept"
+    [id]="id() + '-input-file'"
+    [name]="id()"
+    [disabled]="disabled()"
+    [accept]="accept()"
     (change)="showImage($event)"
     class="input-upload_input"
   />

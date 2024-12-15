@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInfoCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +18,7 @@ export enum AlertTypes {
 })
 export class AlertComponent {
   @Input() type: AlertTypes = AlertTypes.error;
-  @Input() hideShadow = false;
+  readonly hideShadow = input(false);
 
   get icon() {
     return this.type != AlertTypes.success ? faInfoCircle : faCheckCircle

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 export enum ButtonColors {
   "primary" = "primary",
@@ -16,9 +16,9 @@ export enum ButtonSize {
     styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-  @Input() color = "primary";
-  @Input() size = "medium";
-  @Input({ transform: (value: string) => `${value}-button` }) id = "";
-  @Input() disabled = false;
-  @Input() type = "button";
+  readonly color = input("primary");
+  readonly size = input("medium");
+  readonly id = input("", { transform: (value: string /*T:VAE*/) => `${value}-button` });
+  readonly disabled = input(false);
+  readonly type = input("button");
 }

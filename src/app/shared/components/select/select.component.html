@@ -3,11 +3,11 @@
     <app-input-text
       (click)="showOptions = true"
       (blur)="showOptions = false"
-      [label]="label"
-      [placeholder]="placeholder"
+      [label]="label()"
+      [placeholder]="placeholder()"
       [(ngModel)]="inputValue"
       (ngModelChange)="filterOptions()"
-      [id]="id"
+      [id]="id()"
     >
     </app-input-text>
   </div>

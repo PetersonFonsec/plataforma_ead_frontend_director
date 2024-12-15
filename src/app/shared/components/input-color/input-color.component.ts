@@ -1,5 +1,5 @@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { CommonModule, NgStyle } from '@angular/common';
 
 @Component({
@@ -16,10 +16,10 @@ import { CommonModule, NgStyle } from '@angular/common';
     ]
 })
 export class InputColorComponent implements OnInit, ControlValueAccessor {
-  @Input() disabled = false;
-  @Input() error = false;
-  @Input() label = '';
-  @Input() id = '';
+  readonly disabled = input(false);
+  readonly error = input(false);
+  readonly label = input('');
+  readonly id = input('');
   val = '';
 
   ngOnInit(): void { }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,9 +15,9 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
     ]
 })
 export class InputRadioComponent implements OnInit, ControlValueAccessor {
-  @Input() value = "";
-  @Input() name = "";
-  @Input() id = "";
+  readonly value = input("");
+  readonly name = input("");
+  readonly id = input("");
   val = '';
 
   get _value() {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { AvatarProfileComponent } from "../avatar-profile/avatar-profile.component";
 import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
@@ -13,5 +13,5 @@ export interface IPost extends IAvatarParans { }
     styleUrl: './post.component.scss'
 })
 export class PostComponent {
-  @Input({ required: true }) postParams!: IPost;
+  readonly postParams = input.required<IPost>();
 }
