@@ -13,20 +13,19 @@ import { QuizCreateRequest } from '@shared/services/quiz/quiz.model';
 import { QuizService } from '@shared/services/quiz/quiz.service';
 
 @Component({
-  selector: 'app-create-quiz',
-  standalone: true,
-  imports: [
-    ButtonBackComponent,
-    ButtonComponent,
-    RouterLink,
-    FormsModule,
-    InputTextComponent,
-    InputRadioComponent,
-    AlertComponent,
-    CommonModule
-  ],
-  templateUrl: './create-quiz.component.html',
-  styleUrl: './create-quiz.component.scss'
+    selector: 'app-create-quiz',
+    imports: [
+        ButtonBackComponent,
+        ButtonComponent,
+        RouterLink,
+        FormsModule,
+        InputTextComponent,
+        InputRadioComponent,
+        AlertComponent,
+        CommonModule
+    ],
+    templateUrl: './create-quiz.component.html',
+    styleUrl: './create-quiz.component.scss'
 })
 export class CreateQuizComponent implements OnInit {
   #activatedRouter = inject(ActivatedRoute);

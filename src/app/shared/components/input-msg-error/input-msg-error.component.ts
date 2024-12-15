@@ -3,11 +3,10 @@ import { NgModel } from '@angular/forms';
 import { MESSAGES_ERRO } from '@shared/data/messages-erros';
 
 @Component({
-  selector: 'app-input-msg-error',
-  standalone: true,
-  imports: [],
-  templateUrl: './input-msg-error.component.html',
-  styleUrl: './input-msg-error.component.scss'
+    selector: 'app-input-msg-error',
+    imports: [],
+    templateUrl: './input-msg-error.component.html',
+    styleUrl: './input-msg-error.component.scss'
 })
 export class InputMsgErrorComponent implements OnInit {
   @Input({ required: true }) controler!: NgModel;

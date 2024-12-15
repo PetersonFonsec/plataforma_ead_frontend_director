@@ -24,21 +24,20 @@ export class LessonForm implements LessonCreateRequest {
 }
 
 @Component({
-  selector: 'app-lesson',
-  standalone: true,
-  imports: [
-    QuillEditorComponent,
-    ReactiveFormsModule,
-    InputRadioComponent,
-    ButtonComponent,
-    FormsModule,
-    InputTextComponent,
-    InputUploadComponent,
-    AlertComponent,
-    ButtonBackComponent
-  ],
-  templateUrl: './lesson.component.html',
-  styleUrl: './lesson.component.scss',
+    selector: 'app-lesson',
+    imports: [
+        QuillEditorComponent,
+        ReactiveFormsModule,
+        InputRadioComponent,
+        ButtonComponent,
+        FormsModule,
+        InputTextComponent,
+        InputUploadComponent,
+        AlertComponent,
+        ButtonBackComponent
+    ],
+    templateUrl: './lesson.component.html',
+    styleUrl: './lesson.component.scss'
 })
 export class LessonComponent {
   #sanitizer = inject(DomSanitizer);

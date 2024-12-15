@@ -7,11 +7,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
 
 @Component({
-  selector: 'app-aside-menu',
-  standalone: true,
-  imports: [AvatarProfileComponent, RouterLink, IuserToAvatarPipe, RouterLinkActive],
-  templateUrl: './aside-menu.component.html',
-  styleUrl: './aside-menu.component.scss'
+    selector: 'app-aside-menu',
+    imports: [AvatarProfileComponent, RouterLink, IuserToAvatarPipe, RouterLinkActive],
+    templateUrl: './aside-menu.component.html',
+    styleUrl: './aside-menu.component.scss'
 })
 export class AsideMenuComponent implements OnInit {
   @Input() userLogged!: IUserLogged;

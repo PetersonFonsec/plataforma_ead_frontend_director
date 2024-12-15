@@ -10,15 +10,14 @@ import { CourseForm } from '@shared/services/course/course.model';
 import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
 
 @Component({
-  selector: 'app-course-form',
-  standalone: true,
-  imports: [
-    InputTextComponent,
-    InputUploadComponent,
-    FormsModule,
-  ],
-  templateUrl: './course-form.component.html',
-  styleUrl: './course-form.component.scss'
+    selector: 'app-course-form',
+    imports: [
+        InputTextComponent,
+        InputUploadComponent,
+        FormsModule,
+    ],
+    templateUrl: './course-form.component.html',
+    styleUrl: './course-form.component.scss'
 })
 export class CourseFormComponent {
   @Input() payload = new CourseForm();

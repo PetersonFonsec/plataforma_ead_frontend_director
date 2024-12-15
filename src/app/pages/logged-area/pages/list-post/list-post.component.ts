@@ -7,17 +7,16 @@ import { AsyncPipe } from '@angular/common';
 import { TrustHtmlPipe } from '@shared/pipes/trust-html/trust-html.pipe';
 
 @Component({
-  selector: 'app-list-post',
-  standalone: true,
-  imports: [
-    PostLoadingComponent,
-    ButtonBackComponent,
-    PostComponent,
-    AsyncPipe,
-    TrustHtmlPipe
-  ],
-  templateUrl: './list-post.component.html',
-  styleUrl: './list-post.component.scss'
+    selector: 'app-list-post',
+    imports: [
+        PostLoadingComponent,
+        ButtonBackComponent,
+        PostComponent,
+        AsyncPipe,
+        TrustHtmlPipe
+    ],
+    templateUrl: './list-post.component.html',
+    styleUrl: './list-post.component.scss'
 })
 export class ListPostComponent {
   #postService = inject(PostService);

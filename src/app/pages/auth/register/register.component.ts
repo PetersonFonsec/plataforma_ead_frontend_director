@@ -14,14 +14,13 @@ import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input
 import { RegisterPayload } from './register.model';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
-    InputMsgErrorComponent,
-    NgModelErrorPipe],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
-  animations: [fadeAnimation]
+    selector: 'app-register',
+    imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
+        InputMsgErrorComponent,
+        NgModelErrorPipe],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss',
+    animations: [fadeAnimation]
 })
 export class RegisterComponent {
   #authService = inject(AuthService);

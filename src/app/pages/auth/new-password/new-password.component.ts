@@ -5,11 +5,10 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-new-password',
-  standalone: true,
-  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule],
-  templateUrl: './new-password.component.html',
-  styleUrl: './new-password.component.scss'
+    selector: 'app-new-password',
+    imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule],
+    templateUrl: './new-password.component.html',
+    styleUrl: './new-password.component.scss'
 })
 export class NewPasswordComponent {
   payload = {

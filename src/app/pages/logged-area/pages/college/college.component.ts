@@ -15,20 +15,19 @@ import { CollegeForm } from './model/college.model';
 import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-loader/page-thumb-loader.component';
 
 @Component({
-  selector: 'app-college',
-  standalone: true,
-  imports: [
-    ButtonBackComponent,
-    ButtonComponent,
-    AlertComponent,
-    CollegeFormComponent,
-    PageThumbComponent,
-    CollegeListComponent,
-    RouterLink,
-    PageThumbLoaderComponent
-  ],
-  templateUrl: './college.component.html',
-  styleUrl: './college.component.scss'
+    selector: 'app-college',
+    imports: [
+        ButtonBackComponent,
+        ButtonComponent,
+        AlertComponent,
+        CollegeFormComponent,
+        PageThumbComponent,
+        CollegeListComponent,
+        RouterLink,
+        PageThumbLoaderComponent
+    ],
+    templateUrl: './college.component.html',
+    styleUrl: './college.component.scss'
 })
 export class CollegeComponent implements OnInit {
   #collegeService = inject(CollegeService);

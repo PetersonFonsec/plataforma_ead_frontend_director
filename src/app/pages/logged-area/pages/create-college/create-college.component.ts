@@ -13,20 +13,19 @@ import { CollegeRequest } from '@shared/services/college/collage.model';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-create-college',
-  standalone: true,
-  imports: [
-    InputColorComponent,
-    InputTextComponent,
-    InputUploadComponent,
-    ButtonComponent,
-    FormsModule,
-    ButtonBackComponent,
-    AlertComponent,
-    RouterLink
-  ],
-  templateUrl: './create-college.component.html',
-  styleUrl: './create-college.component.scss'
+    selector: 'app-create-college',
+    imports: [
+        InputColorComponent,
+        InputTextComponent,
+        InputUploadComponent,
+        ButtonComponent,
+        FormsModule,
+        ButtonBackComponent,
+        AlertComponent,
+        RouterLink
+    ],
+    templateUrl: './create-college.component.html',
+    styleUrl: './create-college.component.scss'
 })
 export class CreateCollegeComponent {
   #collegeService = inject(CollegeService);

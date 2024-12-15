@@ -8,17 +8,16 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { CollegeForm } from '../model/college.model';
 
 @Component({
-  selector: 'app-college-form',
-  standalone: true,
-  imports: [
-    InputUploadComponent,
-    InputColorComponent,
-    InputTextComponent,
-    FormsModule,
-    ButtonComponent
-  ],
-  templateUrl: './college-form.component.html',
-  styleUrl: './college-form.component.scss'
+    selector: 'app-college-form',
+    imports: [
+        InputUploadComponent,
+        InputColorComponent,
+        InputTextComponent,
+        FormsModule,
+        ButtonComponent
+    ],
+    templateUrl: './college-form.component.html',
+    styleUrl: './college-form.component.scss'
 })
 export class CollegeFormComponent {
   @ViewChild('form', { static: false }) form!: NgForm;

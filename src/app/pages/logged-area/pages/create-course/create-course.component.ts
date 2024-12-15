@@ -15,19 +15,18 @@ import { CourseService } from '@shared/services/course/course.service';
 import { CreateCourse } from './create-course.model';
 
 @Component({
-  selector: 'app-create-course',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    SelectComponent,
-    InputUploadComponent,
-    InputTextComponent,
-    FormsModule,
-    ButtonBackComponent,
-    AlertComponent
-  ],
-  templateUrl: './create-course.component.html',
-  styleUrl: './create-course.component.scss'
+    selector: 'app-create-course',
+    imports: [
+        ButtonComponent,
+        SelectComponent,
+        InputUploadComponent,
+        InputTextComponent,
+        FormsModule,
+        ButtonBackComponent,
+        AlertComponent
+    ],
+    templateUrl: './create-course.component.html',
+    styleUrl: './create-course.component.scss'
 })
 export class CreateCourseComponent {
   #courseService = inject(CourseService);

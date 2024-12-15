@@ -18,21 +18,20 @@ import { concatAll, concatMap, forkJoin, map } from 'rxjs';
 import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-loader/page-thumb-loader.component';
 import { CourseListComponent } from './course-list/course-list.component';
 @Component({
-  selector: 'app-course',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    PageThumbComponent,
-    AlertComponent,
-    CourseFormComponent,
-    ButtonBackComponent,
-    CommonModule,
-    RouterLink,
-    PageThumbLoaderComponent,
-    CourseListComponent
-  ],
-  templateUrl: './course.component.html',
-  styleUrl: './course.component.scss'
+    selector: 'app-course',
+    imports: [
+        ButtonComponent,
+        PageThumbComponent,
+        AlertComponent,
+        CourseFormComponent,
+        ButtonBackComponent,
+        CommonModule,
+        RouterLink,
+        PageThumbLoaderComponent,
+        CourseListComponent
+    ],
+    templateUrl: './course.component.html',
+    styleUrl: './course.component.scss'
 })
 export class CourseComponent {
   #router = inject(ActivatedRoute);

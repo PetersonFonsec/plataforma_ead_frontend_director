@@ -15,20 +15,19 @@ import { CommonModule } from '@angular/common';
 import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    InputTextComponent,
-    RouterLink,
-    FormsModule,
-    AlertComponent,
-    InputMsgErrorComponent,
-    NgModelErrorPipe
-  ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  animations: [fadeAnimation]
+    selector: 'app-login',
+    imports: [
+        ButtonComponent,
+        InputTextComponent,
+        RouterLink,
+        FormsModule,
+        AlertComponent,
+        InputMsgErrorComponent,
+        NgModelErrorPipe
+    ],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    animations: [fadeAnimation]
 })
 export class LoginComponent {
   #liveAnnouncer = inject(LiveAnnouncer);

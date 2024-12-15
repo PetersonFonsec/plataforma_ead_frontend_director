@@ -9,18 +9,17 @@ export interface ISelectOptions {
 }
 
 @Component({
-  selector: 'app-select',
-  standalone: true,
-  imports: [CommonModule, FormsModule, InputTextComponent],
-  templateUrl: './select.component.html',
-  styleUrl: './select.component.scss',
-  providers: [
-    {
-      multi: true,
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
-    },
-  ],
+    selector: 'app-select',
+    imports: [CommonModule, FormsModule, InputTextComponent],
+    templateUrl: './select.component.html',
+    styleUrl: './select.component.scss',
+    providers: [
+        {
+            multi: true,
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => SelectComponent),
+        },
+    ]
 })
 export class SelectComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder = '';

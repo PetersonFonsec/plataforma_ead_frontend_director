@@ -7,17 +7,16 @@ import { InputCardComponent } from '@shared/components/input-card/input-card.com
 import { ButtonComponent } from '@shared/components/button/button.component';
 
 @Component({
-  selector: 'app-task-choice',
-  standalone: true,
-  imports: [
-    ButtonBackComponent,
-    ButtonComponent,
-    RouterLink,
-    InputCardComponent,
-    FormsModule
-  ],
-  templateUrl: './task-choice.component.html',
-  styleUrl: './task-choice.component.scss'
+    selector: 'app-task-choice',
+    imports: [
+        ButtonBackComponent,
+        ButtonComponent,
+        RouterLink,
+        InputCardComponent,
+        FormsModule
+    ],
+    templateUrl: './task-choice.component.html',
+    styleUrl: './task-choice.component.scss'
 })
 export class TaskChoiceComponent {
   task = '';

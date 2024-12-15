@@ -10,12 +10,11 @@ import { College } from '@shared/services/college/collage.model';
 import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
 
 @Component({
-  selector: 'app-list-college',
-  standalone: true,
-  imports: [JumbotronNotificationComponent, ButtonComponent, AlertComponent, CollegeItemComponent, RouterModule],
-  templateUrl: './list-college.component.html',
-  styleUrl: './list-college.component.scss',
-  animations: [fadeAnimation]
+    selector: 'app-list-college',
+    imports: [JumbotronNotificationComponent, ButtonComponent, AlertComponent, CollegeItemComponent, RouterModule],
+    templateUrl: './list-college.component.html',
+    styleUrl: './list-college.component.scss',
+    animations: [fadeAnimation]
 })
 export class ListCollegeComponent implements OnInit {
   userService = inject(UserLoggedService);

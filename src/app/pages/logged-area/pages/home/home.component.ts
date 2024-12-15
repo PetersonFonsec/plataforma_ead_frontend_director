@@ -16,19 +16,18 @@ import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.p
 import { Roles } from '@shared/enums/roles.enum';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    JumbotronWellcomeComponent,
-    JumbotronProfileComponent,
-    CollegeItemComponent,
-    ButtonComponent,
-    CollegeItemLoaderComponent,
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        RouterLink,
+        JumbotronWellcomeComponent,
+        JumbotronProfileComponent,
+        CollegeItemComponent,
+        ButtonComponent,
+        CollegeItemLoaderComponent,
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   userService = inject(UserLoggedService);

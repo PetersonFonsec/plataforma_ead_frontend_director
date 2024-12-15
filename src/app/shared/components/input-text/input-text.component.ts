@@ -9,19 +9,18 @@ export enum InputTextTypes {
 }
 
 @Component({
-  selector: 'app-input-text',
-  standalone: true,
-  imports: [FormsModule, NgClass, NgxMaskDirective, NgxMaskPipe],
-  templateUrl: './input-text.component.html',
-  styleUrl: './input-text.component.scss',
-  providers: [
-    {
-      multi: true,
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputTextComponent),
-    },
-    provideNgxMask()
-  ],
+    selector: 'app-input-text',
+    imports: [FormsModule, NgClass, NgxMaskDirective, NgxMaskPipe],
+    templateUrl: './input-text.component.html',
+    styleUrl: './input-text.component.scss',
+    providers: [
+        {
+            multi: true,
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => InputTextComponent),
+        },
+        provideNgxMask()
+    ]
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   @Input() placeholder = '';

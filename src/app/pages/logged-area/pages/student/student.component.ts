@@ -25,32 +25,31 @@ import { PostService } from '@shared/services/post/post.service';
 import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
 
 @Component({
-  selector: 'app-student',
-  standalone: true,
-  imports: [
-    TabsComponent,
-    TabComponent,
-    TabContentDirective,
-    TabHeaderDirective,
-    RouterLink,
-    JumbotronWellcomeComponent,
-    JumbotronProfileComponent,
-    JumbotronNotificationComponent,
-    ButtonComponent,
-    PostLoadingComponent,
-    PostComponent,
-    AsyncPipe,
-    TrustHtmlPipe,
-    AvatarProfileComponent,
-    IuserToAvatarPipe,
-    AvatarComponent,
-    CourseItemComponent,
-    ProgressBarComponent,
-    CalendarComponent,
-    TimeLineComponent
-  ],
-  templateUrl: './student.component.html',
-  styleUrl: './student.component.scss'
+    selector: 'app-student',
+    imports: [
+        TabsComponent,
+        TabComponent,
+        TabContentDirective,
+        TabHeaderDirective,
+        RouterLink,
+        JumbotronWellcomeComponent,
+        JumbotronProfileComponent,
+        JumbotronNotificationComponent,
+        ButtonComponent,
+        PostLoadingComponent,
+        PostComponent,
+        AsyncPipe,
+        TrustHtmlPipe,
+        AvatarProfileComponent,
+        IuserToAvatarPipe,
+        AvatarComponent,
+        CourseItemComponent,
+        ProgressBarComponent,
+        CalendarComponent,
+        TimeLineComponent
+    ],
+    templateUrl: './student.component.html',
+    styleUrl: './student.component.scss'
 })
 export class StudentComponent {
   #postService = inject(PostService);

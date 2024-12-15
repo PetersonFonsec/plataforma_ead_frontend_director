@@ -3,19 +3,18 @@ import { InputRadioComponent } from "../input-radio/input-radio.component";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-card',
-  standalone: true,
-  imports: [InputRadioComponent, FormsModule
-  ],
-  templateUrl: './input-card.component.html',
-  styleUrl: './input-card.component.scss',
-  providers: [
-    {
-      multi: true,
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputCardComponent),
-    },
-  ],
+    selector: 'app-input-card',
+    imports: [InputRadioComponent, FormsModule
+    ],
+    templateUrl: './input-card.component.html',
+    styleUrl: './input-card.component.scss',
+    providers: [
+        {
+            multi: true,
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => InputCardComponent),
+        },
+    ]
 })
 export class InputCardComponent implements OnInit, ControlValueAccessor {
   @Input({ transform: (value: string) => `${value}-input` }) id = "";

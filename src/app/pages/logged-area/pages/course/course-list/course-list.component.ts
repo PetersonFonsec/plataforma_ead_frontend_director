@@ -3,14 +3,13 @@ import { RouterLink } from '@angular/router';
 import { ItemBarComponent } from '@shared/components/item-bar/item-bar.component';
 
 @Component({
-  selector: 'app-course-list',
-  standalone: true,
-  imports: [
-    ItemBarComponent,
-    RouterLink
-  ],
-  templateUrl: './course-list.component.html',
-  styleUrl: './course-list.component.scss'
+    selector: 'app-course-list',
+    imports: [
+        ItemBarComponent,
+        RouterLink
+    ],
+    templateUrl: './course-list.component.html',
+    styleUrl: './course-list.component.scss'
 })
 export class CourseListComponent {
   @Input() isLoading = true

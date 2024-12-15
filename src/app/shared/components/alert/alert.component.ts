@@ -11,11 +11,10 @@ export enum AlertTypes {
 }
 
 @Component({
-  selector: 'alert',
-  standalone: true,
-  imports: [FontAwesomeModule, NgClass],
-  templateUrl: './alert.component.html',
-  styleUrl: './alert.component.scss'
+    selector: 'alert',
+    imports: [FontAwesomeModule, NgClass],
+    templateUrl: './alert.component.html',
+    styleUrl: './alert.component.scss'
 })
 export class AlertComponent {
   @Input() type: AlertTypes = AlertTypes.error;

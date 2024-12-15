@@ -4,11 +4,10 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'jumbotron-profile',
-  standalone: true,
-  imports: [JumbotronComponent, ButtonComponent, RouterLink],
-  templateUrl: './jumbotron-profile.component.html',
-  styleUrl: './jumbotron-profile.component.scss'
+    selector: 'jumbotron-profile',
+    imports: [JumbotronComponent, ButtonComponent, RouterLink],
+    templateUrl: './jumbotron-profile.component.html',
+    styleUrl: './jumbotron-profile.component.scss'
 })
 export class JumbotronProfileComponent {
 

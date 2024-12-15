@@ -14,21 +14,20 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 
 import { ProfileService } from './services/profile/profile.service';
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [
-    InputTextComponent,
-    ButtonComponent,
-    AlertComponent,
-    AvatarComponent,
-    FormsModule,
-    RouterLink,
-    ButtonBackComponent,
-    InputUploadComponent
-  ],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss',
-  animations: [fadeAnimation]
+    selector: 'app-profile',
+    imports: [
+        InputTextComponent,
+        ButtonComponent,
+        AlertComponent,
+        AvatarComponent,
+        FormsModule,
+        RouterLink,
+        ButtonBackComponent,
+        InputUploadComponent
+    ],
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss',
+    animations: [fadeAnimation]
 })
 export class ProfileComponent implements OnInit {
   #userService = inject(UserLoggedService);

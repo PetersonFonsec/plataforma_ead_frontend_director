@@ -9,18 +9,17 @@ import { AsideMenuComponent } from '../aside-menu/aside-menu.component';
 import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
-  selector: 'logged-page',
-  standalone: true,
-  imports: [
-    AsideMenuComponent,
-    ButtonMenuComponent,
-    NgClass,
-    AvatarComponent,
-    CommonModule,
-    IuserToAvatarPipe
-  ],
-  templateUrl: './logged-page.component.html',
-  styleUrl: './logged-page.component.scss'
+    selector: 'logged-page',
+    imports: [
+        AsideMenuComponent,
+        ButtonMenuComponent,
+        NgClass,
+        AvatarComponent,
+        CommonModule,
+        IuserToAvatarPipe
+    ],
+    templateUrl: './logged-page.component.html',
+    styleUrl: './logged-page.component.scss'
 })
 export class LoggedPageComponent {
   #userService = inject(UserLoggedService);

@@ -10,20 +10,19 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 import { PayloadRequest } from '@shared/services/encript/payload.model';
 
 @Component({
-  selector: 'app-auth',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    LoginComponent,
-    RegisterComponent,
-    NgOptimizedImage,
-    ButtonComponent,
-  ],
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss',
-  animations: [
-    fadeAnimation
-  ]
+    selector: 'app-auth',
+    imports: [
+        RouterOutlet,
+        LoginComponent,
+        RegisterComponent,
+        NgOptimizedImage,
+        ButtonComponent,
+    ],
+    templateUrl: './auth.component.html',
+    styleUrl: './auth.component.scss',
+    animations: [
+        fadeAnimation
+    ]
 })
 export class AuthComponent implements OnInit {
   logo = "";

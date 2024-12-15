@@ -4,11 +4,10 @@ import { ITimeLine } from '@shared/interfaces/timeline.model';
 import { DateItemComponent } from '../date-item/date-item.component';
 
 @Component({
-  selector: 'app-time-line',
-  standalone: true,
-  imports: [DateItemComponent],
-  templateUrl: './time-line.component.html',
-  styleUrl: './time-line.component.scss'
+    selector: 'app-time-line',
+    imports: [DateItemComponent],
+    templateUrl: './time-line.component.html',
+    styleUrl: './time-line.component.scss'
 })
 export class TimeLineComponent implements OnInit {
   @Input() events: ITimeLine[] = []
