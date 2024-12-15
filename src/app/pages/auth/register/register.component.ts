@@ -7,32 +7,28 @@ import { InputTextComponent } from '../../../shared/components/input-text/input-
 import { AlertComponent, AlertTypes } from '../../../shared/components/alert/alert.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AuthService } from '../services/auth/auth.service';
-import { Roles } from '../../../shared/enums/roles.enum';
 import { HttpErrorResponse } from '@angular/common/http';
 import { fadeAnimation } from '../../../shared/animations/fade/fade.animation';
+import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
+import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input-msg-error.component';
+import { RegisterPayload } from './register.model';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent],
+  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
+    InputMsgErrorComponent,
+    NgModelErrorPipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   animations: [fadeAnimation]
 })
 export class RegisterComponent {
   #authService = inject(AuthService);
+  payload = new RegisterPayload();
   alertType = AlertTypes.error;
   #router = inject(Router);
   error = "";
-
-  payload = {
-    role: Roles.DIRECTOR,
-    confirm_password: "",
-    documentNumber: "",
-    password: "",
-    email: "",
-    name: "",
-  };
 
   submit() {
     this.#authService.register(this.payload).subscribe({

@@ -1,0 +1,25 @@
+.course-list {
+  &-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .college-item {
+    border-radius: 16px;
+    position: relative;
+    height: 44px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 14px;
+    padding: 0;
+    width: 100%;
+
+    li + li {
+      margin-top: 18px;
+    }
+  }
+}

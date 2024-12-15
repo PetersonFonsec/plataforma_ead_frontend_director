@@ -49,4 +49,9 @@
     color: var(--neutral-color-1);
     text-align: center;
   }
+
+  .avatar-container {
+    @include flexCenter();
+    flex-direction: column;
+  }
 }

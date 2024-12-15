@@ -9,10 +9,6 @@ import { WelcomeComponent } from '@pages/auth/welcome/welcome.component';
 import { LoginComponent } from '@pages/auth/login/login.component';
 import { AuthComponent } from '@pages/auth/auth.component';
 
-import { CreatePostComponent } from '@pages/logged-area/pages/create-post/create-post.component';
-import { ListPostComponent } from '@pages/logged-area/pages/list-post/list-post.component';
-import { LessonComponent } from '@pages/logged-area/pages/lesson/lesson.component';
-
 const PROJECT_NAME = "Odin";
 
 export const routes: Routes = [
@@ -44,6 +40,11 @@ export const routes: Routes = [
         component: NewPasswordComponent,
         title: `Cadastre uma nova senha - ${PROJECT_NAME}`,
         data: { animation: 'NewPassword' }
+      },
+      {
+        path: 'recuperar-senha', component: NotFoundComponent,
+        title: `Recuperar a senha - ${PROJECT_NAME}`,
+        data: { animation: 'recov' }
       },
     ]
   },
@@ -108,6 +109,11 @@ export const routes: Routes = [
         data: { animation: 'lesson' },
       },
       {
+        path: 'lesson/:id',
+        loadComponent: () => import('@pages/logged-area/pages/lesson/single/single.component').then(c => c.SingleComponent),
+        data: { animation: 'lessonSingle' },
+      },
+      {
         path: 'feed',
         loadComponent: () => import('@pages/logged-area/pages/list-post/list-post.component').then(c => c.ListPostComponent),
         data: { animation: 'publicacoes' }
@@ -119,6 +125,5 @@ export const routes: Routes = [
       },
     ]
   },
-  { path: 'recuperar-senha', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];

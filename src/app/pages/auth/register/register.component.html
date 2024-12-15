@@ -8,7 +8,14 @@
       label="Nome"
       type="text"
       placeholder="Informe o seu nome"
-    ></app-input-text>
+      #name="ngModel"
+      [autofocus]="true"
+      [error]="name | ngModelError"
+    />
+
+    @if (name | ngModelError) {
+      <app-input-msg-error [controler]="name" />
+    }
 
     <app-input-text
       [(ngModel)]="payload.email"
@@ -19,7 +26,13 @@
       email
       type="text"
       placeholder="Informe o seu email"
-    ></app-input-text>
+      #email="ngModel"
+      [error]="email | ngModelError"
+    />
+
+    @if (email | ngModelError) {
+      <app-input-msg-error [controler]="email" />
+    }
 
     <app-input-text
       name="password"
@@ -29,7 +42,13 @@
       [required]="true"
       label="Senha"
       placeholder="Informe a sua senha"
-    ></app-input-text>
+      #password="ngModel"
+      [error]="password | ngModelError"
+    />
+
+    @if (password | ngModelError) {
+      <app-input-msg-error [controler]="password" />
+    }
 
     <app-input-text
       name="confirm_password"
@@ -39,7 +58,13 @@
       [required]="true"
       label="Confirme sua Senha"
       placeholder="Confirme sua senha"
-    ></app-input-text>
+      #confirmPassword="ngModel"
+      [error]="confirmPassword | ngModelError"
+    />
+
+    @if (confirmPassword | ngModelError) {
+      <app-input-msg-error [controler]="confirmPassword" />
+    }
 
     <app-input-text
       [(ngModel)]="payload.documentNumber"
@@ -50,7 +75,13 @@
       label="CPF"
       type="text"
       placeholder="Informe o seu email"
-    ></app-input-text>
+      #documentNumber="ngModel"
+      [error]="documentNumber | ngModelError"
+    />
+
+    @if (documentNumber | ngModelError) {
+      <app-input-msg-error [controler]="documentNumber" />
+    }
 
     <a class="link" id="register-login-link" routerLink="../login">
       Já tem uma conta ? <span>Entre!</span>

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { UserLoggedService } from '@shared/services/user-logged/user-logged.service';
 
@@ -11,6 +11,9 @@ import { CollegeItemComponent } from '@shared/components/college-item/college-it
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 import { CollegeItemLoaderComponent } from '@shared/components/loaders/college-item-loader/college-item-loader.component';
+import { AvatarComponent, AvatarSizeParam } from '@shared/components/avatar/avatar.component';
+import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
+import { Roles } from '@shared/enums/roles.enum';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +23,9 @@ import { CollegeItemLoaderComponent } from '@shared/components/loaders/college-i
     RouterLink,
     JumbotronWellcomeComponent,
     JumbotronProfileComponent,
-    JumbotronNotificationComponent,
     CollegeItemComponent,
     ButtonComponent,
-    CollegeItemLoaderComponent
+    CollegeItemLoaderComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -31,8 +33,12 @@ import { CollegeItemLoaderComponent } from '@shared/components/loaders/college-i
 export class HomeComponent implements OnInit {
   userService = inject(UserLoggedService);
   userLogged = this.userService.user();
+  router = inject(Router);
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     console.log(this.userLogged)
+    if (this.userLogged.user.role === Roles.STUDENT) {
+      await this.router.navigateByUrl("/area-logada/student");
+    }
   }
 }

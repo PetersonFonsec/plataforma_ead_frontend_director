@@ -10,6 +10,10 @@
     pointer-events: none;
   }
 
+  .error-msg {
+    display: none;
+  }
+
   input {
     appearance: none;
     background: var(--background-color-1);

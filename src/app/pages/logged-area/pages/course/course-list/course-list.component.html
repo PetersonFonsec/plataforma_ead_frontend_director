@@ -1,0 +1,42 @@
+<div class="course-list">
+  <h3 class="course-list-title subtitle border">
+    {{ name }}
+  </h3>
+
+  <ul>
+    @defer (when !isLoading) {
+      @for (item of itens; track $index) {
+        <li>
+          <app-item-bar
+            [title]="'lesson/' + item.title"
+            [routerLink]="item.id"
+          />
+        </li>
+      } @empty {
+        <li>
+          <h3 class="subtitle empty">Essse curso não tem {{ name }}</h3>
+        </li>
+      }
+    } @placeholder (minimum 500ms) {
+      <ul>
+        <li>
+          <div role="listitem" class="college-item skeleton"></div>
+        </li>
+
+        <li>
+          <div role="listitem" class="college-item skeleton"></div>
+        </li>
+      </ul>
+    } @loading (after 100ms; minimum 1s) {
+      <ul>
+        <li>
+          <div role="listitem" class="college-item skeleton"></div>
+        </li>
+
+        <li>
+          <div role="listitem" class="college-item skeleton"></div>
+        </li>
+      </ul>
+    }
+  </ul>
+</div>

@@ -23,7 +23,6 @@ import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-
     AlertComponent,
     CollegeFormComponent,
     PageThumbComponent,
-    CollegeThumbComponent,
     CollegeListComponent,
     RouterLink,
     PageThumbLoaderComponent

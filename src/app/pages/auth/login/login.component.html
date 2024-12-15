@@ -8,9 +8,16 @@
       [required]="true"
       label="Email"
       email
+      [error]="email | ngModelError"
       type="text"
       placeholder="Informe o seu email"
+      #email="ngModel"
+      describeBy="emailError"
     />
+
+    @if (email | ngModelError) {
+      <app-input-msg-error describeBy="emailError" [controler]="email" />
+    }
 
     <app-input-text
       name="password"
@@ -18,9 +25,16 @@
       id="password"
       type="password"
       [required]="true"
+      [error]="password | ngModelError"
+      #password="ngModel"
       label="Senha"
       placeholder="Informe a sua senha"
+      describeBy="passwordError"
     />
+
+    @if (password | ngModelError) {
+      <app-input-msg-error describeBy="passwordError" [controler]="password" />
+    }
 
     <a class="link" id="login-forget-link" routerLink="../recuperar-senha">
       Esqueceu a senha ? <span>Clique aqui.</span>

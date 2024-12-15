@@ -1,7 +1,7 @@
 import { Injector } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
-import { EncriptService } from '@shared/services/encript.service';
+import { EncriptService } from '@shared/services/encript/encript.service';
 
 import "reflect-metadata";
 

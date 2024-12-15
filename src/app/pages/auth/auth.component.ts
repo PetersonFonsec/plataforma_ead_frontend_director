@@ -7,7 +7,8 @@ import { RegisterComponent } from './register/register.component';
 
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { fadeAnimation } from '@shared/animations/fade/fade.animation';
-import { PayloadRequest } from '@shared/services/payload.model';
+import { PayloadRequest } from '@shared/services/encript/payload.model';
+
 @Component({
   selector: 'app-auth',
   standalone: true,

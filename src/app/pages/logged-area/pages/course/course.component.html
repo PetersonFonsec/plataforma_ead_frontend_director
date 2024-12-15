@@ -1,6 +1,10 @@
 <section id="course">
-  @if (payload.id) {
+  @defer (when !isLoading) {
     <app-page-thumb [college]="payload" />
+  } @placeholder {
+    <app-page-thumb-loader />
+  } @loading {
+    <app-page-thumb-loader />
   }
 
   <div id="course-content" class="container">
@@ -13,48 +17,9 @@
       </alert>
     }
 
-    <h1 class="subtitle border">Aulas</h1>
-    <ul>
-      @for (lesson of lessons; track lesson.id) {
-        <li>
-          <app-item-bar [routerLink]="">
-            <h3>{{ lesson.name }}</h3>
-          </app-item-bar>
-        </li>
-      } @empty {
-        <li>
-          <h3 class="subtitle empty">Essse curso não tem nenhuma aula</h3>
-        </li>
-      }
-    </ul>
-
-    <h1 class="subtitle border">Quizes</h1>
-    <ul>
-      @for (quiz of quizes; track quiz.id) {
-        <li>
-          <app-item-bar [routerLink]="" [title]="quiz.name" />
-        </li>
-      } @empty {
-        <li>
-          <h3 class="subtitle empty">Essse curso não tem nenhum quiz</h3>
-        </li>
-      }
-    </ul>
-
-    <h1 class="subtitle border">Tarefas</h1>
-    <ul>
-      @for (task of tasks; track task.id) {
-        <li>
-          <app-item-bar [routerLink]="">
-            <h3>{{ task.name }}</h3>
-          </app-item-bar>
-        </li>
-      } @empty {
-        <li>
-          <h3 class="subtitle empty">Essse curso não tem nenhuma atividade</h3>
-        </li>
-      }
-    </ul>
+    <app-course-list name="Aulas" [isLoading]="isLoading" [itens]="lessons" />
+    <app-course-list name="Quizes" [isLoading]="isLoading" [itens]="quizes" />
+    <!-- <app-course-list name="Tarefas" [isLoading]="isLoading" [itens]="tasks" /> -->
   </div>
 
   <footer id="course-footer">

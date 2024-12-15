@@ -5,17 +5,6 @@
   align-items: center;
   width: 100%;
 
-  ul {
-    list-style: none;
-    margin-bottom: 14px;
-    padding: 0;
-    width: 100%;
-
-    li + li {
-      margin-top: 18px;
-    }
-  }
-
   app-page-thumb-loader,
   app-page-thumb {
     @include import.overflowLateralPadding(32px);

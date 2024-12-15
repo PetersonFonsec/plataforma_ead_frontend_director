@@ -10,6 +10,9 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 
 import { AuthService } from '../services/auth/auth.service';
+import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input-msg-error.component';
+import { CommonModule } from '@angular/common';
+import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +23,8 @@ import { AuthService } from '../services/auth/auth.service';
     RouterLink,
     FormsModule,
     AlertComponent,
+    InputMsgErrorComponent,
+    NgModelErrorPipe
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -30,12 +35,9 @@ export class LoginComponent {
   #authService = inject(AuthService);
   alertType = AlertTypes.error;
   #router = inject(Router);
-  error = ""
+  error = "";
 
-  payload = {
-    password: "",
-    email: "",
-  };
+  payload: any = {};
 
   submit() {
     this.#authService.login(this.payload).subscribe({
@@ -45,7 +47,7 @@ export class LoginComponent {
       },
       error: (error: HttpErrorResponse) => {
         this.#liveAnnouncer.announce("Houve um erro ao realizar login");
-        this.error = error.error.message;
+        this.error = error.error.message[0];
       }
     })
   }

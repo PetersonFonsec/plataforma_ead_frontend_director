@@ -13,12 +13,8 @@ import { InputUploadComponent } from '@shared/components/input-upload/input-uplo
   selector: 'app-course-form',
   standalone: true,
   imports: [
-    ButtonBackComponent,
     InputTextComponent,
     InputUploadComponent,
-    PageThumbComponent,
-    ButtonComponent,
-    AlertComponent,
     FormsModule,
   ],
   templateUrl: './course-form.component.html',

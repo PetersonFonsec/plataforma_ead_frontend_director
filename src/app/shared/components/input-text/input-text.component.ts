@@ -33,6 +33,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor, AfterVi
   @Input() type = "text";
   @Input() mask = "";
   @Input() autofocus = false;
+  @Input() describeBy = "";
   val = '';
 
   @ViewChild("inputHTML") inputHTML!: ElementRef;

@@ -1,0 +1,12 @@
+.error-msg {
+  color: var(--error-color-1);
+  display: block;
+  font-family: var(--primary-font-family);
+  font-size: var(--font-size-2);
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+  margin-bottom: var(--space-4);
+  text-align: left;
+  width: 100%;
+}
