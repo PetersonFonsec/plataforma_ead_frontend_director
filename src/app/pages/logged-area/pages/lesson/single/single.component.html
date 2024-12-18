@@ -1,1 +1,38 @@
-<p>single works!</p>
+<section id="lesson-single" class="container">
+  <header id="lesson-single-header">
+    <h1 class="subtitle border">Aula</h1>
+  </header>
+
+  <app-video-player [options]="playerVideoOptions" id="lesson-single-video" />
+
+  <div [innerHTML]="lesson().content" id="lesson-single-description"></div>
+
+  <div id="lesson-single-tabs">
+    <app-tabs>
+      <app-tab>
+        <ng-template appTabHeader>
+          <h2 class="subtitle border">Atividades</h2>
+        </ng-template>
+
+        <ng-template appTabContent>
+          <div id="student-ativeidade-content">Atividades content</div>
+        </ng-template>
+      </app-tab>
+
+      <app-tab>
+        <ng-template appTabHeader>
+          <h2 class="subtitle border">Histórico</h2>
+        </ng-template>
+
+        <ng-template appTabContent>
+          <span>Conteúdo da Tab Histórico</span>
+        </ng-template>
+      </app-tab>
+    </app-tabs>
+  </div>
+
+  <footer id="lesson-single-footer">
+    <app-button-back id="lesson-single-button-back" />
+    <app-button id="lesson-single-watch"> Assistir as aulas </app-button>
+  </footer>
+</section>

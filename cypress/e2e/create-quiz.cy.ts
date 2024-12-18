@@ -6,7 +6,9 @@ describe("Create Quiz - ", () => {
   const quizElements = new CreateQuizElements(quiz);
 
   beforeEach(() => {
-    cy.login(UsuarioComRegistros).visit(`http://localhost:4200/area-logada/course/1/quiz`);
+    cy.login(UsuarioComRegistros);
+    cy.wait(100);
+    cy.visit(`http://localhost:4200/area-logada/course/1/quiz`);
   })
 
   describe("Validade Form ", () => {
@@ -21,15 +23,15 @@ describe("Create Quiz - ", () => {
       quizElements.buttonAddOption.should('be.disabled');
     });
 
-    it("Should enabled submit button when form is valid", () => {
-      quizElements.fillFormValid();
-      quizElements.submitButton.should('be.enabled');
-    });
-
     it("should not allow create quiz when all options is not complete", () => {
       quizElements.fillFormValid();
       quizElements.getInputOptionTitle(1).clear();
       quizElements.submitButton.should('be.disabled');
+    });
+
+    it("Should enabled submit button when form is valid", () => {
+      quizElements.fillFormValid();
+      quizElements.submitButton.should('be.enabled');
     });
   });
 });

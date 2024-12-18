@@ -51,7 +51,7 @@
     </div>
   </form>
 
-  @if (error) {
-    <alert @fade [type]="alertType"> {{ error }} </alert>
+  @if (error()) {
+    <alert @fade [type]="alertType"> {{ error() }} </alert>
   }
 </div>

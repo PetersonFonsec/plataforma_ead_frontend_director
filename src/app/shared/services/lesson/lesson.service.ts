@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Utils } from '../utils/utils.service';
-import { LessonCreateRequest } from './lesson.model';
+import { GetLessonResponse, LessonCreateRequest } from './lesson.model';
 import { environment } from 'environments/environment';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class LessonService {
 
   create(payload: LessonCreateRequest): Observable<any> {
     const formatedPayload = Utils.convertToFormData(payload);
-    return this.#http.post<LessonCreateRequest>(`${this.#baseUrl}/lesson`, formatedPayload);
+    return this.#http.post(`${this.#baseUrl}/lesson`, formatedPayload);
+  }
+
+  get(lessonId: number | string): Observable<GetLessonResponse> {
+    return this.#http.get<GetLessonResponse>(`${this.#baseUrl}/lesson/${lessonId}`);
   }
 }

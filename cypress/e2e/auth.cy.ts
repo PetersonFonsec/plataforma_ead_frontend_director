@@ -24,6 +24,21 @@ describe('Auth jorney - ', () => {
     }).as('stubRegister');
   });
 
+
+  describe('Test accessibility', () => {
+    it("should autofocus in email field", () => {
+      cy.visit('http://localhost:4200/entre/login');
+      loginElements.emailInput.should('be.focused');
+    });
+
+
+    it("should autofocus in name field", () => {
+      cy.visit('http://localhost:4200/entre/cadastrar');
+      registerElements.nameInput.should('be.focused');
+    });
+  });
+
+
   describe('Test redirects', () => {
     beforeEach(() => {
       cy.visit('http://localhost:4200/')

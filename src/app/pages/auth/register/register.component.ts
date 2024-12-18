@@ -1,6 +1,6 @@
 
 import { FormsModule } from '@angular/forms';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 import { InputTextComponent } from '../../../shared/components/input-text/input-text.component';
@@ -14,20 +14,20 @@ import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input
 import { RegisterPayload } from './register.model';
 
 @Component({
-    selector: 'app-register',
-    imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
-        InputMsgErrorComponent,
-        NgModelErrorPipe],
-    templateUrl: './register.component.html',
-    styleUrl: './register.component.scss',
-    animations: [fadeAnimation]
+  selector: 'app-register',
+  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
+    InputMsgErrorComponent,
+    NgModelErrorPipe],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
+  animations: [fadeAnimation]
 })
 export class RegisterComponent {
   #authService = inject(AuthService);
   payload = new RegisterPayload();
   alertType = AlertTypes.error;
   #router = inject(Router);
-  error = "";
+  error = signal("");
 
   submit() {
     this.#authService.register(this.payload).subscribe({
@@ -35,7 +35,7 @@ export class RegisterComponent {
         this.#router.navigateByUrl("/area-logada/list-college");
       },
       error: (error: HttpErrorResponse) => {
-        this.error = error.error.message
+        this.error.set(error.error.message);
       }
     })
   }

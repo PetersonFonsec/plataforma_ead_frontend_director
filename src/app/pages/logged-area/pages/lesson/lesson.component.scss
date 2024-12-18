@@ -11,6 +11,15 @@
     margin: 24px 0;
   }
 
+  &-header {
+    margin-bottom: var(--space-14);
+  }
+
+  app-lesson-form-loading {
+    display: block;
+    width: 100%;
+  }
+
   &-form {
     width: 100%;
 

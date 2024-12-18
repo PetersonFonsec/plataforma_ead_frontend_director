@@ -3,105 +3,109 @@
     <h1 class="subtitle border">Aula</h1>
   </header>
 
-  <form (ngSubmit)="create()" id="lesson-form" #form="ngForm">
-    <app-input-text
-      name="title"
-      [(ngModel)]="payload.title"
-      id="lesson-form-title"
-      type="title"
-      [required]="true"
-      label="Titulo"
-      placeholder="Informe o titulo da aula"
-    />
-
-    <app-input-text
-      [(ngModel)]="payload.description"
-      name="description"
-      id="lesson-form-description"
-      [required]="true"
-      label="Descrição"
-      placeholder="Descreva o conteudo da aula"
-    />
-
-    <div class="row">
-      <alert
-        id="create-course-alert"
-        [hideShadow]="true"
-        [type]="alertTypes.info"
-      >
-        Por questões de performance, é possível fazer um upload de no máximo 10.
-        megabytes
-      </alert>
-    </div>
-
-    <div class="row">
-      <app-input-radio
-        [required]="true"
-        id="lesson-form-upload"
-        [(ngModel)]="videoType"
-        value="upload"
-        name="video"
-      >
-        Upload
-      </app-input-radio>
-
-      <app-input-radio
-        [required]="true"
-        id="lesson-form-link"
-        [(ngModel)]="videoType"
-        value="link"
-        name="video"
-      >
-        Link
-      </app-input-radio>
-    </div>
-
-    @if (videoType === "link") {
+  @defer (when !loading()) {
+    <form (ngSubmit)="create()" id="lesson-form" #form="ngForm">
       <app-input-text
-        [(ngModel)]="payload.urlContent"
-        name="urlContent"
+        name="title"
+        [(ngModel)]="payload.title"
+        id="lesson-form-title"
+        type="title"
         [required]="true"
-        id="lesson-form-url"
-        label="Link"
-        placeholder="Link da video aula"
+        label="Titulo"
+        placeholder="Informe o titulo da aula"
       />
-    }
 
-    @if (videoType === "upload") {
-      <input-upload
-        [(ngModel)]="payload.fileVideo"
+      <app-input-text
+        [(ngModel)]="payload.description"
+        name="description"
+        id="lesson-form-description"
         [required]="true"
-        accept="video/mp4,video/x-m4v,video/*"
-        name="video"
-        id="video"
-        >Video da aula</input-upload
-      >
-    }
+        label="Descrição"
+        placeholder="Descreva o conteudo da aula"
+      />
 
-    <h2 class="subtitle">Conteudo</h2>
+      <div class="row">
+        <alert
+          id="create-course-alert"
+          [hideShadow]="true"
+          [type]="alertTypes.info"
+        >
+          Por questões de performance, é possível fazer um upload de no máximo
+          10. megabytes
+        </alert>
+      </div>
 
-    <quill-editor
-      format="html"
-      id="lesson-form-content"
-      name="lesson-content"
-      [(ngModel)]="payload.content"
-    />
+      <div class="row">
+        <app-input-radio
+          [required]="true"
+          id="lesson-form-upload"
+          [(ngModel)]="videoType"
+          value="upload"
+          name="video"
+        >
+          Upload
+        </app-input-radio>
 
-    @if (alertMessage) {
-      <alert id="create-course-alert" [type]="alertType">
-        {{ alertMessage }}
-      </alert>
-    }
+        <app-input-radio
+          [required]="true"
+          id="lesson-form-link"
+          [(ngModel)]="videoType"
+          value="link"
+          name="video"
+        >
+          Link
+        </app-input-radio>
+      </div>
 
-    <footer id="lesson-form-footer">
-      <app-button-back id="lesson-form-button-back" />
-      <app-button
-        type="submit"
-        id="lesson-form-submit"
-        [disabled]="!!form.invalid"
-      >
-        Criar aula
-      </app-button>
-    </footer>
-  </form>
+      @if (videoType === "link") {
+        <app-input-text
+          [(ngModel)]="payload.urlContent"
+          name="urlContent"
+          [required]="true"
+          id="lesson-form-url"
+          label="Link"
+          placeholder="Link da video aula"
+        />
+      }
+
+      @if (videoType === "upload") {
+        <input-upload
+          [(ngModel)]="payload.fileVideo"
+          [required]="true"
+          accept="video/mp4,video/x-m4v,video/*"
+          name="video"
+          id="video"
+          >Video da aula</input-upload
+        >
+      }
+
+      <h2 class="subtitle">Conteudo</h2>
+
+      <quill-editor
+        format="html"
+        id="lesson-form-content"
+        name="lesson-content"
+        [(ngModel)]="payload.content"
+      />
+
+      @if (alertMessage()) {
+        <alert id="create-course-alert" [type]="alertType">
+          {{ alertMessage() }}
+        </alert>
+      }
+
+      <footer id="lesson-form-footer">
+        <app-button-back id="lesson-form-button-back" />
+        <app-button
+          type="submit"
+          id="lesson-form-submit"
+          [disabled]="!!form.invalid"
+        >
+          Criar aula
+        </app-button>
+      </footer>
+    </form>
+  } @placeholder (minimum 500ms) {
+    <app-lesson-form-loading />
+  }
 </section>

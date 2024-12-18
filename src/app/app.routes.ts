@@ -109,6 +109,11 @@ export const routes: Routes = [
         data: { animation: 'lesson' },
       },
       {
+        path: 'course/:id/lesson/:lessonId',
+        loadComponent: () => import('@pages/logged-area/pages/lesson/lesson.component').then(c => c.LessonComponent),
+        data: { animation: 'lesson' },
+      },
+      {
         path: 'lesson/:id',
         loadComponent: () => import('@pages/logged-area/pages/lesson/single/single.component').then(c => c.SingleComponent),
         data: { animation: 'lessonSingle' },

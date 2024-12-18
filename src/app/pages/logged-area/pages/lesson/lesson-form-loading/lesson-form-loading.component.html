@@ -1,0 +1,26 @@
+<div class="lesson-form-lading">
+  <ul class="loading-list-item">
+    @for (item of [1, 2]; track $index) {
+      <li>
+        <div role="listitem" class="loading-item skeleton"></div>
+      </li>
+    }
+  </ul>
+
+  <ul class="bullets-container">
+    @for (item of [1, 2]; track $index) {
+      <li>
+        <div role="listitem" class="loading-item skeleton bullets"></div>
+      </li>
+    }
+  </ul>
+
+  <ul class="loading-list-item">
+    @for (item of [1, 2]; track $index) {
+      <li>
+        <div role="listitem" class="loading-item skeleton"></div>
+      </li>
+    }
+  </ul>
+  <div class="loading-item skeleton textArea"></div>
+</div>

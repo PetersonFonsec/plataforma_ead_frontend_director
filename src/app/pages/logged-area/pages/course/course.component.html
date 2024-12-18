@@ -1,5 +1,5 @@
 <section id="course">
-  @defer (when !isLoading) {
+  @defer (when !isLoading()) {
     <app-page-thumb [college]="payload" />
   } @placeholder {
     <app-page-thumb-loader />
@@ -17,8 +17,8 @@
       </alert>
     }
 
-    <app-course-list name="Aulas" [isLoading]="isLoading" [itens]="lessons" />
-    <app-course-list name="Quizes" [isLoading]="isLoading" [itens]="quizes" />
+    <app-course-list name="Aulas" [isLoading]="isLoading()" [itens]="lessons" />
+    <app-course-list name="Quizes" [isLoading]="isLoading()" [itens]="quizes" />
     <!-- <app-course-list name="Tarefas" [isLoading]="isLoading" [itens]="tasks" /> -->
   </div>
 

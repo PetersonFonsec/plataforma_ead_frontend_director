@@ -8,3 +8,15 @@ export interface LessonCreateRequest {
   content: SafeHtml
   fileVideo: any
 }
+
+export interface GetLessonResponse {
+  authorId: number
+  courseId: number
+  createdAt: string
+  description: string
+  id: number
+  title: string
+  updatedAt: string
+  urlContent: string
+  content: string
+}

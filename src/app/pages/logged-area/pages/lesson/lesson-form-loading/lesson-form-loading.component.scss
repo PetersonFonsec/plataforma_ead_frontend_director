@@ -1,0 +1,46 @@
+@use "../../../../../scss/mixins/geometric";
+
+.lesson-form-lading {
+  .loading-item {
+    border-radius: 16px;
+    position: relative;
+    height: 44px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .bullets {
+    @include geometric.circle(40px);
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 14px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .loading-list-item {
+    li + li {
+      margin-top: 18px;
+    }
+  }
+
+  .bullets-container {
+    display: flex;
+    flex-direction: row;
+
+    li {
+      margin: 0;
+    }
+
+    li + li {
+      margin-left: 18px;
+    }
+  }
+
+  .textArea {
+    height: 240px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
@@ -15,26 +15,26 @@ import { CommonModule } from '@angular/common';
 import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
 
 @Component({
-    selector: 'app-login',
-    imports: [
-        ButtonComponent,
-        InputTextComponent,
-        RouterLink,
-        FormsModule,
-        AlertComponent,
-        InputMsgErrorComponent,
-        NgModelErrorPipe
-    ],
-    templateUrl: './login.component.html',
-    styleUrl: './login.component.scss',
-    animations: [fadeAnimation]
+  selector: 'app-login',
+  imports: [
+    ButtonComponent,
+    InputTextComponent,
+    RouterLink,
+    FormsModule,
+    AlertComponent,
+    InputMsgErrorComponent,
+    NgModelErrorPipe
+  ],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
+  animations: [fadeAnimation]
 })
 export class LoginComponent {
   #liveAnnouncer = inject(LiveAnnouncer);
   #authService = inject(AuthService);
   alertType = AlertTypes.error;
   #router = inject(Router);
-  error = "";
+  error = signal("");
 
   payload: any = {};
 
@@ -46,7 +46,7 @@ export class LoginComponent {
       },
       error: (error: HttpErrorResponse) => {
         this.#liveAnnouncer.announce("Houve um erro ao realizar login");
-        this.error = error.error.message[0];
+        this.error.set(error.error.message[0]);
       }
     })
   }

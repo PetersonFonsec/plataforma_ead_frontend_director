@@ -1,6 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { QuillEditorComponent } from 'ngx-quill';
 
 import { InputUploadComponent } from '@shared/components/input-upload/input-upload.component';
@@ -13,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
 import { ActivatedRoute } from '@angular/router';
+import { LessonFormLoadingComponent } from './lesson-form-loading/lesson-form-loading.component';
 
 export class LessonForm implements LessonCreateRequest {
   content: any = "";
@@ -24,20 +25,21 @@ export class LessonForm implements LessonCreateRequest {
 }
 
 @Component({
-    selector: 'app-lesson',
-    imports: [
-        QuillEditorComponent,
-        ReactiveFormsModule,
-        InputRadioComponent,
-        ButtonComponent,
-        FormsModule,
-        InputTextComponent,
-        InputUploadComponent,
-        AlertComponent,
-        ButtonBackComponent
-    ],
-    templateUrl: './lesson.component.html',
-    styleUrl: './lesson.component.scss'
+  selector: 'app-lesson',
+  imports: [
+    QuillEditorComponent,
+    ReactiveFormsModule,
+    InputRadioComponent,
+    ButtonComponent,
+    FormsModule,
+    InputTextComponent,
+    InputUploadComponent,
+    AlertComponent,
+    ButtonBackComponent,
+    LessonFormLoadingComponent
+  ],
+  templateUrl: './lesson.component.html',
+  styleUrl: './lesson.component.scss'
 })
 export class LessonComponent {
   #sanitizer = inject(DomSanitizer);
@@ -46,7 +48,8 @@ export class LessonComponent {
   alertTypes = AlertTypes;
   alertType = AlertTypes.success;
   payload = new LessonForm();
-  alertMessage = "";
+  alertMessage = signal("");
+  loading = signal(true);
   videoType = "";
 
   public ngOnInit(): void {
@@ -54,6 +57,28 @@ export class LessonComponent {
       next: params => {
         const collegeId = Number(params.get('id'));
         this.payload.courseId = collegeId;
+
+        const lessonId = params.get('lessonId');
+        if (!lessonId) return this.loading.set(false);
+
+        this.#lesson.get(lessonId).subscribe({
+          next: (res) => {
+            this.payload.title = res.title;
+            this.payload.description = res.description;
+            this.payload.urlContent = res.urlContent;
+
+            if (this.payload.urlContent) {
+              this.videoType = "link";
+            }
+
+            this.loading.set(false);
+          },
+          error: (error: HttpErrorResponse) => {
+            this.alertType = AlertTypes.error;
+            this.alertMessage.set(error.error.message);
+            this.loading.set(false);
+          }
+        })
       }
     });
   }
@@ -76,12 +101,13 @@ export class LessonComponent {
     this.#lesson.create(payload).subscribe({
       next: () => {
         this.alertType = AlertTypes.success;
-        this.alertMessage = 'Aula criada com sucesso!!';
+
+        this.alertMessage.set('Aula criada com sucesso!!');
 
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;
-        this.alertMessage = error.error.message;
+        this.alertMessage.set(error.error.message);
       }
     })
   }

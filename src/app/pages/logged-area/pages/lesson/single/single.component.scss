@@ -1,0 +1,41 @@
+@use "../../../../../scss/mixins/grid";
+
+#lesson-single {
+  @include grid.container(var(--container-size-small));
+  @include grid.directionColumn();
+  align-items: flex-start;
+
+  &-video {
+    display: block;
+    margin: var(--space-19) 0;
+  }
+
+  &-description {
+    overflow: hidden;
+    width: 100%;
+
+    &::ng-deep * {
+      max-width: 100%;
+      width: 100%;
+      white-space: break-spaces;
+      margin: 8px 0;
+    }
+  }
+
+  &-tabs {
+    display: block;
+    margin: var(--space-19) 0;
+  }
+
+  &-footer {
+    display: flex;
+    width: 100%;
+    margin-top: 34px;
+
+    app-button {
+      flex: 1;
+      display: block;
+      margin-left: 14px;
+    }
+  }
+}
