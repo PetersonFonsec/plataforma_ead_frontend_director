@@ -1,11 +1,11 @@
 @defer (on viewport) {
-  <div class="avatar {{ size() }}">
-    <img [src]="content().src" [alt]="content().name" />
-  </div>
+<div class="avatar {{ size() }}">
+  <img [src]="content().src | trustUrl" [alt]="content().name" />
+</div>
 } @placeholder {
-  <app-avatar-loader />
+<app-avatar-loader />
 } @loading {
-  <app-avatar-loader />
+<app-avatar-loader />
 } @error {
-  <app-avatar-loader />
+<app-avatar-loader />
 }

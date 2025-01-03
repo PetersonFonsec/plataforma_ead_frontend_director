@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
@@ -28,12 +27,6 @@ export class SingleComponent implements OnInit {
   lesson = signal<any>({});
 
   loading = signal(true);
-  playerVideoOptions: any = {
-    autoplay: true,
-    controls: true,
-    fluid: true,
-    sources: [],
-  }
 
   public ngOnInit(): void {
     this.#router.paramMap.subscribe({
@@ -43,10 +36,7 @@ export class SingleComponent implements OnInit {
 
         this.#lesson.get(lessonId).subscribe({
           next: (res) => {
-            console.log(res);
-
-            this.lesson.update((lesson) => lesson = res)
-            this.playerVideoOptions.sources.push({ src: "https://www.youtube.com/watch?v=Toij3ZYxrzE" })
+            this.lesson.update((lesson) => lesson = res);
             this.loading.set(false);
           },
           error: () => {

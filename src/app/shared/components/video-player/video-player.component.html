@@ -1,8 +1,10 @@
-<video
-  #target
-  class="video-js vjs-theme-city"
-  controls
-  muted
-  playsinline
-  preload="none"
-></video>
+@let src = options().src; @if (src) {
+<div #target class="plyr__video-embed" id="player">
+  <iframe
+    [src]="src | trustUrl"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+  ></iframe>
+</div>
+}

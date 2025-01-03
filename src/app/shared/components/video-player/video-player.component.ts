@@ -1,42 +1,28 @@
-import { Component, ElementRef, inject, input, Input, OnDestroy, OnInit, viewChild, ViewChild, ViewEncapsulation } from '@angular/core';
-import videojs from 'video.js';
-import Player from 'video.js/dist/types/player';
-
-interface PlayerVideo {
-  fluid: boolean,
-  aspectRatio: string,
-  autoplay: boolean,
-  sources: {
-    src: string,
-    type: string,
-  }[],
-}
+import { AfterViewChecked, Component, ElementRef, inject, input, viewChild, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { TrustUrlPipe } from '@shared/pipes/trust-url/trust-url.pipe';
+import Plyr from 'plyr';
 
 @Component({
   selector: 'app-video-player',
-  imports: [],
-  template: `
-    <video #target class="video-js vjs-theme-city" controls muted playsinline preload="none"></video>
-  `,
+  templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.scss',
   encapsulation: ViewEncapsulation.None,
+  imports: [TrustUrlPipe]
 })
-export class VideoPlayerComponent implements OnInit, OnDestroy {
+export class VideoPlayerComponent implements AfterViewChecked {
   readonly target = viewChild.required<ElementRef>('target');
+  sanitizer = inject(DomSanitizer);
   elementRef = inject(ElementRef);
-  options = input<PlayerVideo>();
-  player!: Player;
 
-  ngOnInit() {
-    console.log(this.options())
-    console.log(this.target().nativeElement)
-    this.player = videojs(this.target().nativeElement, this.options(), function onPlayerReady() {
-      console.log('onPlayerReady', this);
-    });
-  }
+  options = input<any>({
+    require: true, Transform: (value: any) => {
+      if (value.src) value.src = this.sanitizer.bypassSecurityTrustUrl(value.src)
+      return value
+    }
+  });
 
-  ngOnDestroy() {
-    if (this.player) this.player.dispose();
-
+  ngAfterViewChecked(): void {
+    if (this.target()) new Plyr(this.target().nativeElement);
   }
 }

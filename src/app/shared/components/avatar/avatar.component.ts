@@ -1,6 +1,8 @@
-import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
+
 import { AvatarLoaderComponent } from '../loaders/avatar-loader/avatar-loader.component';
+import { TrustHtmlPipe } from '@shared/pipes/trust-html/trust-html.pipe';
+import { TrustUrlPipe } from '@shared/pipes/trust-url/trust-url.pipe';
 
 export interface IAvatarParans {
   src: string
@@ -14,7 +16,7 @@ export enum AvatarSizeParam {
 }
 @Component({
   selector: 'app-avatar',
-  imports: [AvatarLoaderComponent],
+  imports: [AvatarLoaderComponent, TrustUrlPipe],
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss'
 })

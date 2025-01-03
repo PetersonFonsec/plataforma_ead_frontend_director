@@ -30,7 +30,7 @@ import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
   animations: [fadeAnimation]
 })
 export class LoginComponent {
-  #liveAnnouncer = inject(LiveAnnouncer);
+  #liveAnnouncer = inject<any>(LiveAnnouncer);
   #authService = inject(AuthService);
   alertType = AlertTypes.error;
   #router = inject(Router);

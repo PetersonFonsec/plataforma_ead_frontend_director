@@ -3,7 +3,7 @@
     <h1 class="subtitle border">Aula</h1>
   </header>
 
-  <app-video-player [options]="playerVideoOptions" id="lesson-single-video" />
+  <app-video-player [options]="{ src: 'https://www.youtube.com/watch?v=irSp2gwJi4A'}" id="lesson-single-video" />
 
   <div [innerHTML]="lesson().content" id="lesson-single-description"></div>
 
