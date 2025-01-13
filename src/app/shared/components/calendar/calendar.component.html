@@ -4,7 +4,8 @@
       <fa-icon [icon]="prevIcon" />
     </button>
 
-    {{ month() }} de {{ year() }}
+    <span class="calendar-header-title"> {{ month() }} de {{ year() }} </span>
+
     <button (click)="next()" class="calendar-button">
       <fa-icon [icon]="nextIcon" />
     </button>
