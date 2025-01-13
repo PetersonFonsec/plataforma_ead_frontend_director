@@ -10,9 +10,10 @@ describe('PostComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PostComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PostComponent);
+    fixture.componentRef.setInput('postParams', {});
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

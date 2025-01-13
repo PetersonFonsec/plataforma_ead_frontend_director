@@ -10,6 +10,7 @@ export enum InputTextTypes {
 
 @Component({
   selector: 'app-input-text',
+  standalone: true,
   imports: [FormsModule, NgClass, NgxMaskDirective],
   templateUrl: './input-text.component.html',
   styleUrl: './input-text.component.scss',

@@ -10,9 +10,10 @@ describe('VideoPlayerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [VideoPlayerComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(VideoPlayerComponent);
+    fixture.componentRef.setInput('options', { src: 'https://www.youtube.com/watch?v=123456' });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

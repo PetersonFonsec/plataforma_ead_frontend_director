@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
   selector: '[appMask]',
@@ -20,7 +20,7 @@ export class MaskDirective {
   @HostListener('input', ['$event.target.value'])
   onInputChange(value: string): void {
     if (this.mask) {
-      const alphanumericValue = value.replace(/[^a-zA-Z0-9]/g, ''); // Remove caracteres não alfanuméricos
+      const alphanumericValue = value.replace(/[^a-zA-Z0-9]/g, '');
       const maskedValue = this.applyMask(alphanumericValue, this.mask);
       this.renderer.setProperty(this.el.nativeElement, 'value', maskedValue);
     }

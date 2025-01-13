@@ -10,9 +10,13 @@ describe('AvatarProfileComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AvatarProfileComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(AvatarProfileComponent);
+    fixture.componentRef.setInput("content", {
+      src: "string",
+      name: "string"
+    });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

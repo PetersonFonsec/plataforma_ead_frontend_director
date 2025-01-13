@@ -4,6 +4,7 @@ import {
   computed,
   contentChildren,
   Directive,
+  OnInit,
   signal,
 } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
@@ -29,7 +30,7 @@ export class TabContentDirective { }
   styleUrl: './tabs.component.scss'
 })
 export class TabsComponent {
-  tabs = contentChildren(TabComponent);
+  tabs = contentChildren(TabComponent)
 
   tabsData = computed(() => {
     return this.tabs().map(({ content, header }) => {

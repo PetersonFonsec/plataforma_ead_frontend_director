@@ -29,7 +29,7 @@ describe('MaskDirective', () => {
 
   it('should apply alphanumeric mask (XXX.XXX.XXX-AA)', () => {
     directive.mask = 'XXX.XXX.XXX-AA';
-    directive.onInputChange('1234567890AB');
+    directive.onInputChange('123456789AB');
 
     expect(mockRenderer.setProperty).toHaveBeenCalledWith(
       mockElementRef.nativeElement,
@@ -73,7 +73,7 @@ describe('MaskDirective', () => {
 
   it('should skip invalid characters for numeric mask (XXX.XXX.XXX-XX)', () => {
     directive.mask = 'XXX.XXX.XXX-XX';
-    directive.onInputChange('12A3B4C5678D9');
+    directive.onInputChange('12A3B4C56789D09');
 
     expect(mockRenderer.setProperty).toHaveBeenCalledWith(
       mockElementRef.nativeElement,

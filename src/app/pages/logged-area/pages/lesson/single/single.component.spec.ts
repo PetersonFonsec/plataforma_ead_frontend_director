@@ -1,6 +1,10 @@
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { SingleComponent } from './single.component';
+import { routes } from 'app/app.routes';
 
 describe('SingleComponent', () => {
   let component: SingleComponent;
@@ -8,9 +12,10 @@ describe('SingleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SingleComponent]
+      imports: [SingleComponent],
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting(), provideRouter(routes)]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SingleComponent);
     component = fixture.componentInstance;

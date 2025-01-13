@@ -10,17 +10,18 @@ export interface InputPhotoValue {
   file: any;
 }
 @Component({
-    selector: 'input-upload',
-    imports: [CommonModule, FontAwesomeModule],
-    templateUrl: './input-upload.component.html',
-    styleUrl: './input-upload.component.scss',
-    providers: [
-        {
-            multi: true,
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputUploadComponent),
-        },
-    ]
+  selector: 'input-upload',
+  standalone: true,
+  imports: [CommonModule, FontAwesomeModule],
+  templateUrl: './input-upload.component.html',
+  styleUrl: './input-upload.component.scss',
+  providers: [
+    {
+      multi: true,
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputUploadComponent),
+    },
+  ]
 })
 export class InputUploadComponent implements OnInit, ControlValueAccessor {
   readonly id = input("", { transform: (value: string /*T:VAE*/) => `${value}-input-upload` });

@@ -3,7 +3,6 @@ import { TabContentDirective, TabHeaderDirective } from '../tabs/tabs.component'
 
 @Component({
   selector: 'app-tab',
-  imports: [],
   templateUrl: './tab.component.html',
   styleUrl: './tab.component.scss'
 })

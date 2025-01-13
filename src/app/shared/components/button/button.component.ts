@@ -10,10 +10,11 @@ export enum ButtonSize {
 }
 
 @Component({
-    selector: 'app-button',
-    imports: [],
-    templateUrl: './button.component.html',
-    styleUrl: './button.component.scss'
+  selector: 'app-button',
+  standalone: true,
+  imports: [],
+  templateUrl: './button.component.html',
+  styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
   readonly color = input("primary");

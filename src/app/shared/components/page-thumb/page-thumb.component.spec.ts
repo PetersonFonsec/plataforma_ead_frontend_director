@@ -10,9 +10,10 @@ describe('PageThumbComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PageThumbComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PageThumbComponent);
+    fixture.componentRef.setInput('college', { name: 'Test College', logo: 'test-logo.png' });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

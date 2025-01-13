@@ -3,17 +3,18 @@ import { Component, OnInit, forwardRef, input } from '@angular/core';
 import { CommonModule, NgStyle } from '@angular/common';
 
 @Component({
-    selector: 'app-input-color',
-    imports: [FormsModule, NgStyle, CommonModule],
-    templateUrl: './input-color.component.html',
-    styleUrl: './input-color.component.scss',
-    providers: [
-        {
-            multi: true,
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputColorComponent),
-        },
-    ]
+  selector: 'app-input-color',
+  imports: [FormsModule, NgStyle, CommonModule],
+  standalone: true,
+  templateUrl: './input-color.component.html',
+  styleUrl: './input-color.component.scss',
+  providers: [
+    {
+      multi: true,
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputColorComponent),
+    },
+  ]
 })
 export class InputColorComponent implements OnInit, ControlValueAccessor {
   readonly disabled = input(false);

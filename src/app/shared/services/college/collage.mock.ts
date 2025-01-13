@@ -16,7 +16,8 @@ export const collageMock: College = {
   updatedAt: "2024-04-19T19:28:18.952Z",
   userId: 3,
   name: "senac",
-  CollegeStyle: [collegeStyleMock]
+  CollegeStyle: [collegeStyleMock],
+  Course: []
 }
 
 export const collageList = Array(2).fill(collageMock);

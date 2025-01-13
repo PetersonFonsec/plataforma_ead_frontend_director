@@ -20,7 +20,7 @@
       name="name"
       type="text"
       placeholder="Informe o nome da instituição"
-    ></app-input-text>
+    />
   </div>
 
   <div class="row">
@@ -31,7 +31,7 @@
       label="Cor pricipal"
       name="primaryColor"
       [required]="true"
-    ></app-input-color>
+    />
 
     <app-input-color
       [(ngModel)]="payload.secundaryColor"
@@ -40,7 +40,7 @@
       label="Cor secundaria"
       name="secundaryColor"
       [required]="true"
-    ></app-input-color>
+    />
   </div>
 
   <div class="row">
@@ -57,8 +57,8 @@
   </div>
 
   @if (disabledFields) {
-    <app-button type="submit" id="college-form-submit">
-      Salvar alterações
-    </app-button>
+  <app-button type="submit" id="college-form-submit">
+    Salvar alterações
+  </app-button>
   }
 </form>

@@ -10,9 +10,10 @@ describe('DateItemComponent', () => {
     await TestBed.configureTestingModule({
       imports: [DateItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DateItemComponent);
+    fixture.componentRef.setInput('date', new Date('2021/10/10'));
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
