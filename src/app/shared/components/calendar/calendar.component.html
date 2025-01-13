@@ -1,13 +1,34 @@
 <div class="calendar">
-  <div class="calendar-header">
-    <button class="calendar-button">p</button>
-    {{ month }}
-    <button class="calendar-button">n</button>
-  </div>
+  <header class="calendar-header text">
+    <button (click)="prev()" class="calendar-button">
+      <fa-icon [icon]="prevIcon" />
+    </button>
+
+    {{ month() }} de {{ year() }}
+    <button (click)="next()" class="calendar-button">
+      <fa-icon [icon]="nextIcon" />
+    </button>
+  </header>
 
   <div class="calendar-body">
-    @for (item of items; track $index) {
-      <div class="calendar-day"></div>
-    }
+    <ol class="calendar-body-week">
+      @for (day of daysInWeek; track $index) {
+      <li class="calendar-day text">{{ day }}</li>
+      }
+    </ol>
+
+    <ol class="calendar-body-days">
+      @for (day of days(); track $index) {
+      <li
+        (click)="selectDay = day"
+        [ngClass]="{ selected: selectDay === day }"
+        class="calendar-day"
+      >
+        <span class="circle text">
+          {{ day | date : "dd" }}
+        </span>
+      </li>
+      }
+    </ol>
   </div>
 </div>

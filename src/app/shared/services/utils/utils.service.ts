@@ -9,4 +9,12 @@ export class Utils {
     }
     return form_data;
   }
+
+  static addMounth(date: Date, mounth: number) {
+    return new Date(date.setMonth(date.getMonth() + mounth));
+  }
+
+  static subtractMounth(date: Date, mounth: number) {
+    return new Date(date.setMonth(date.getMonth() - mounth));
+  }
 }
