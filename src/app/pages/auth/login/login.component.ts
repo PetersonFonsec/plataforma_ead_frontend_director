@@ -31,7 +31,7 @@ import { Utils } from '@shared/services/utils/utils.service';
   animations: [fadeAnimation]
 })
 export class LoginComponent {
-  #liveAnnouncer = inject<any>(LiveAnnouncer);
+  #liveAnnouncer = inject(LiveAnnouncer);
   #authService = inject(AuthService);
   alertType = AlertTypes.error;
   #router = inject(Router);

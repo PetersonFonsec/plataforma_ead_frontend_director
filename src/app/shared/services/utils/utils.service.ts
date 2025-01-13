@@ -1,3 +1,7 @@
+import { Routes } from "@angular/router";
+import { backOfficeRoutes } from "app/routes/backoffice.routes";
+import { studentPortalRoutes } from "app/routes/students.routes";
+
 export class Utils {
   static readonly byteValue = 1048576;
 
@@ -38,5 +42,39 @@ export class Utils {
     }
 
     return url;
+  }
+
+  static getMenusByRole(role: string) {
+    let newMenus: any[] = [];
+
+    switch (role) {
+      case 'ADMIN':
+        newMenus = Utils.extractMenus(backOfficeRoutes);
+        break;
+      case 'DIRECTOR':
+        newMenus = Utils.extractMenus(backOfficeRoutes);
+        break;
+      case 'TEACHER':
+        newMenus = Utils.extractMenus(backOfficeRoutes);
+        break;
+      case 'STUDENT':
+        newMenus = Utils.extractMenus(studentPortalRoutes);
+        break;
+    }
+
+    return newMenus;
+  }
+
+  static extractMenus(menus: Routes): { label: string, link: string }[] {
+    let newMenus: any = [];
+
+    menus.forEach(menu => {
+      newMenus.push({
+        label: (menu.title as string)?.split('-')[0]?.trim() || 'Menu desconhecido',
+        link: menu.path
+      });
+    });
+
+    return newMenus;
   }
 }

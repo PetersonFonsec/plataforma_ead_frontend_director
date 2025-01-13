@@ -16,6 +16,7 @@ export enum AvatarSizeParam {
 }
 @Component({
   selector: 'app-avatar',
+  standalone: true,
   imports: [AvatarLoaderComponent, TrustUrlPipe],
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss'

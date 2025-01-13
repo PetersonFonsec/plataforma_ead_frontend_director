@@ -10,24 +10,31 @@
 
   <nav class="aside-menu-content">
     <ul>
-      @for (menus of menus; track $index) {
-        <li>
-          <a
-            [routerLink]="menus.link"
-            [routerLinkActive]="menus.link"
-            ariaCurrentWhenActive="page"
-          >
-            {{ menus.label }}
-          </a>
-        </li>
+      @for (menu of menus; track $index) {
+      <li>
+        <a
+          [routerLink]="menu.link"
+          [routerLinkActive]="menu.link"
+          ariaCurrentWhenActive="page"
+        >
+          {{ menu.label }}
+        </a>
+      </li>
       }
     </ul>
 
     <ul>
-      <li>Ajuda</li>
-      <li>FAQ</li>
-      <li>Sobre a universidade</li>
-      <li>Suporte tecnico</li>
+      @for (menu of menusInstitucional; track $index) {
+      <li>
+        <a
+          [routerLink]="menu.link"
+          [routerLinkActive]="menu.link"
+          ariaCurrentWhenActive="page"
+        >
+          {{ menu.label }}
+        </a>
+      </li>
+      }
     </ul>
 
     <ul>

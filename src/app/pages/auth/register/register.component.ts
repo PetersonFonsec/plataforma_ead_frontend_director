@@ -12,17 +12,27 @@ import { fadeAnimation } from '../../../shared/animations/fade/fade.animation';
 import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
 import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input-msg-error.component';
 import { RegisterPayload } from './register.model';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Utils } from '@shared/services/utils/utils.service';
 
 @Component({
   selector: 'app-register',
-  imports: [ButtonComponent, InputTextComponent, RouterLink, FormsModule, AlertComponent,
+  standalone: true,
+  imports: [
+    ButtonComponent,
+    InputTextComponent,
+    RouterLink,
+    FormsModule,
+    AlertComponent,
     InputMsgErrorComponent,
-    NgModelErrorPipe],
+    NgModelErrorPipe
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   animations: [fadeAnimation]
 })
 export class RegisterComponent {
+  #liveAnnouncer = inject(LiveAnnouncer);
   #authService = inject(AuthService);
   payload = new RegisterPayload();
   alertType = AlertTypes.error;
@@ -31,10 +41,12 @@ export class RegisterComponent {
 
   submit() {
     this.#authService.register(this.payload).subscribe({
-      next: () => {
-        this.#router.navigateByUrl("/area-logada/list-college");
+      next: ({ user }) => {
+        this.#liveAnnouncer.announce("Login realizado com sucesso");
+        this.#router.navigateByUrl(Utils.getRouteByRole(user.role));
       },
       error: (error: HttpErrorResponse) => {
+        this.#liveAnnouncer.announce("Houve um erro ao realizar login");
         this.error.set(error.error.message);
       }
     })
