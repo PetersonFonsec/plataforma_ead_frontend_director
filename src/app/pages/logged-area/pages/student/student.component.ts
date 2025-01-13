@@ -5,6 +5,7 @@ import { JumbotronProfileComponent } from '@pages/logged-area/components/jumbotr
 import { AlertTypes } from '@shared/components/alert/alert.component';
 import { AvatarComponent, AvatarSizeParam } from '@shared/components/avatar/avatar.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { CalendarLegendComponent } from '@shared/components/calendar-legend/calendar-legend.component';
 import { CalendarComponent } from '@shared/components/calendar/calendar.component';
 import { CourseItemComponent } from '@shared/components/course-item/course-item.component';
 import { PostLoadingComponent } from '@shared/components/loaders/post-loading/post-loading.component';
@@ -38,6 +39,7 @@ import { UserLoggedService } from '@shared/services/user-logged/user-logged.serv
     CourseItemComponent,
     ProgressBarComponent,
     CalendarComponent,
+    CalendarLegendComponent,
     TimeLineComponent
   ],
   templateUrl: './student.component.html',

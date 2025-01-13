@@ -3,10 +3,11 @@ import { Component, computed, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '@shared/services/utils/utils.service';
+import { CalendarDayComponent } from '../calendar-day/calendar-day.component';
 
 @Component({
   selector: 'app-calendar',
-  imports: [FontAwesomeModule, DatePipe, NgClass],
+  imports: [FontAwesomeModule, DatePipe, CalendarDayComponent],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss'
 })
@@ -39,8 +40,7 @@ export class CalendarComponent {
 
   getMonth() {
     const month = new Date(this.currentDay().setMonth(this.currentDay().getMonth()));
-    const test = new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(month);
-    return test;
+    return new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(month);;
   }
 
   getYear() {

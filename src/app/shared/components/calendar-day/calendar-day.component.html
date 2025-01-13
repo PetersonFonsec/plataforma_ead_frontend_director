@@ -1,0 +1,6 @@
+<span
+  [ngClass]="{ 'calendar-day--selected': selected() }"
+  class="calendar-day text calendar-day--{{ event() }}"
+>
+  <ng-content></ng-content>
+</span>

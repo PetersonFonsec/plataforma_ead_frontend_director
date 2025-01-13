@@ -62,8 +62,28 @@
     margin-bottom: 24px;
   }
 
-  &-ativeidade-content {
+  &-atividade-content {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+
+    @media (min-width: breakpoints.$tablet) {
+      flex-direction: row;
+    }
+
+    app-time-line,
+    app-calendar-legend,
+    app-calendar {
+      display: block;
+      margin-bottom: var(--space-4);
+      width: 100%;
+    }
+
+    app-time-line {
+      @media (min-width: breakpoints.$tablet) {
+        max-width: 250px;
+        margin-right: var(--space-4);
+      }
+    }
   }
 }

@@ -1,0 +1,98 @@
+@use "../../../scss/mixins/geometric";
+@use "../../../scss/variables/breakpoints";
+
+.calendar-legend {
+  background-color: var(--neutral-color-2);
+  border-radius: 4px;
+  border: none;
+  flex-direction: column;
+  font-weight: var(--font-weight-bold);
+
+  display: flex;
+
+  padding: var(--space-4);
+  width: 100%;
+
+  @media (min-width: breakpoints.$mobile) {
+    flex-direction: row;
+  }
+
+  &-title {
+    align-items: center;
+    display: flex;
+    font-size: var(--font-size-2);
+    margin-bottom: var(--space-4);
+
+    @media (min-width: breakpoints.$mobile) {
+      margin-right: var(--space-4);
+    }
+  }
+
+  &-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: breakpoints.$mobile) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  &-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: var(--space-2);
+
+    @media (min-width: breakpoints.$mobile) {
+      margin-bottom: 0;
+      margin-right: var(--space-4);
+    }
+
+    &-text {
+      font-size: var(--font-size-1);
+    }
+
+    &-color {
+      @include geometric.circle(16px);
+      margin-right: var(--space-2);
+
+      //legends colors
+      &--today {
+        background-color: var(--primary-color-3);
+        color: var(--neutral-color-3);
+        font-weight: var(--font-weight-bold);
+      }
+
+      &--disabled {
+        background-color: var(--primary-color-3);
+        cursor: default;
+        opacity: 0.5;
+      }
+
+      &--meeting {
+        background-color: var(--primary-color-3);
+        color: var(--neutral-color-3);
+      }
+
+      &--proof {
+        background-color: var(--primary-color-2);
+        color: var(--neutral-color-3);
+      }
+
+      &--liveclass {
+        background-color: var(--primary-color-2);
+        color: var(--neutral-color-3);
+      }
+
+      &--others {
+        background-color: var(--primary-color-2);
+        color: var(--neutral-color-3);
+      }
+    }
+  }
+}

@@ -1,17 +1,17 @@
 <main id="student">
   <aside id="student-aside">
     @if (userLogged.user) {
-      <app-avatar
-        id="student-aside-avatar"
-        [size]="avatarSize"
-        [content]="userLogged.user | iuserToAvatar"
-      />
+    <app-avatar
+      id="student-aside-avatar"
+      [size]="avatarSize"
+      [content]="userLogged.user | iuserToAvatar"
+    />
 
-      <span id="student-aside-avatar-name" class="subtitle">
-        {{ userLogged.user.name }}
-      </span>
+    <span id="student-aside-avatar-name" class="subtitle">
+      {{ userLogged.user.name }}
+    </span>
     } @else {
-      <jumbotron-profile class="jumbotron" id="student-jumbotron-profile" />
+    <jumbotron-profile class="jumbotron" id="student-jumbotron-profile" />
     }
 
     <section id="student-list-post">
@@ -20,22 +20,22 @@
       </header>
       <ul>
         @for (post of posts | async; track $index) {
-          <li>
-            @defer (on viewport) {
-              <app-post [postParams]="post">
-                <span [innerHTML]="post.content | trustHtml"></span>
-              </app-post>
-              <app-post-loading />
-            } @loading {
-              <app-post-loading />
-            } @placeholder {
-              <app-post-loading />
-            }
-          </li>
+        <li>
+          @defer (on viewport) {
+          <app-post [postParams]="post">
+            <span [innerHTML]="post.content | trustHtml"></span>
+          </app-post>
+          <app-post-loading />
+          } @loading {
+          <app-post-loading />
+          } @placeholder {
+          <app-post-loading />
+          }
+        </li>
         } @empty {
-          <li>
-            <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
-          </li>
+        <li>
+          <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
+        </li>
         }
       </ul>
     </section>
@@ -49,9 +49,12 @@
         </ng-template>
 
         <ng-template appTabContent>
-          <div id="student-ativeidade-content">
+          <div id="student-atividade-content">
             <app-time-line />
-            <app-calendar />
+            <div>
+              <app-calendar />
+              <app-calendar-legend />
+            </div>
           </div>
         </ng-template>
       </app-tab>
@@ -78,29 +81,28 @@
             <section id="student-list-courses">
               <ul>
                 @for (course of courses; track $index) {
-                  <li>
-                    <app-course-item [thumb]="course.thumb">
-                      <h3 class="title">
-                        {{ course.name }}
-                      </h3>
-
-                      <app-progress-bar [progress]="$index" />
-
-                      <app-button
-                        routerLink="/area-logada/course/{{ course.id }}"
-                        size="small"
-                      >
-                        Entrar
-                      </app-button>
-                    </app-course-item>
-                  </li>
-                } @empty {
-                  <li>
-                    <h3 class="subtitle empty">
-                      Você ainda não atribuiu nenhum curso para essa
-                      instituição.
+                <li>
+                  <app-course-item [thumb]="course.thumb">
+                    <h3 class="title">
+                      {{ course.name }}
                     </h3>
-                  </li>
+
+                    <app-progress-bar [progress]="$index" />
+
+                    <app-button
+                      routerLink="/area-logada/course/{{ course.id }}"
+                      size="small"
+                    >
+                      Entrar
+                    </app-button>
+                  </app-course-item>
+                </li>
+                } @empty {
+                <li>
+                  <h3 class="subtitle empty">
+                    Você ainda não atribuiu nenhum curso para essa instituição.
+                  </h3>
+                </li>
                 }
               </ul>
             </section>

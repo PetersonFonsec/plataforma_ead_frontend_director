@@ -1,0 +1,53 @@
+@use "../../../scss/mixins/position";
+@use "../../../scss/mixins/geometric";
+
+.calendar-day {
+  @include position.flexCenter;
+  @include geometric.circle(32px);
+
+  border: 1px solid var(--neutral-color-1);
+  border-radius: var(--border-radius-1);
+
+  cursor: pointer;
+  font-size: 12px;
+
+  transition: var(--transition);
+
+  &--selected {
+    background-color: var(--primary-color-1);
+    border: none;
+    color: var(--neutral-color-3);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &--today {
+    background-color: var(--primary-color-3);
+    color: var(--neutral-color-3);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &--disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &--meeting {
+    background-color: var(--primary-color-3);
+    color: var(--neutral-color-3);
+  }
+
+  &--proof {
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color-3);
+  }
+
+  &--liveclass {
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color-3);
+  }
+
+  &--others {
+    background-color: var(--primary-color-2);
+    color: var(--neutral-color-3);
+  }
+}

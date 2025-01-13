@@ -3,6 +3,7 @@
 
 .time-line {
   @include grid.directionColumn();
+  max-width: 100%;
   width: 300px;
 
   &-item {

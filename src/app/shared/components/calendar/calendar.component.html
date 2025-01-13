@@ -20,14 +20,13 @@
 
     <ol class="calendar-body-days">
       @for (day of days(); track $index) {
-      <li
-        (click)="selectDay = day"
-        [ngClass]="{ selected: selectDay === day }"
-        class="calendar-day"
-      >
-        <span class="circle text">
-          {{ day | date : "dd" }}
-        </span>
+      <li>
+        <app-calendar-day
+          (click)="selectDay = day"
+          [selected]="selectDay === day"
+        >
+          {{ day | date : "d" }}
+        </app-calendar-day>
       </li>
       }
     </ol>
