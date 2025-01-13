@@ -17,4 +17,26 @@ export class Utils {
   static subtractMounth(date: Date, mounth: number) {
     return new Date(date.setMonth(date.getMonth() - mounth));
   }
+
+  static getRouteByRole(role: string): string {
+    let url = '';
+
+    switch (role) {
+      case 'ADMIN':
+        url = '/backoffice';
+        break;
+      case 'DIRECTOR':
+        url = '/backoffice';
+        break;
+      case 'TEACHER':
+        url = '/backoffice';
+        break;
+      case 'STUDENT':
+        url = '/student';
+        break;
+      default: "/authenticate";
+    }
+
+    return url;
+  }
 }

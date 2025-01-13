@@ -5,6 +5,7 @@ import { PayloadRequest } from '@shared/services/encript/payload.model';
 
 @Component({
   selector: 'app-auth',
+  standalone: true,
   imports: [
     RouterOutlet,
   ],
@@ -16,7 +17,6 @@ import { PayloadRequest } from '@shared/services/encript/payload.model';
 })
 export class AuthComponent implements OnInit {
   logo = "";
-
 
   async ngOnInit(): Promise<void> {
     const payload = new PayloadRequest();

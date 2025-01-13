@@ -11,11 +11,12 @@ import { fadeAnimation } from '@shared/animations/fade/fade.animation';
 
 import { AuthService } from '../services/auth/auth.service';
 import { InputMsgErrorComponent } from '@shared/components/input-msg-error/input-msg-error.component';
-import { CommonModule } from '@angular/common';
 import { NgModelErrorPipe } from '@shared/pipes/ngModel/ng-model-error.pipe';
+import { Utils } from '@shared/services/utils/utils.service';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     ButtonComponent,
     InputTextComponent,
@@ -40,9 +41,9 @@ export class LoginComponent {
 
   submit() {
     this.#authService.login(this.payload).subscribe({
-      next: () => {
+      next: ({ user }) => {
         this.#liveAnnouncer.announce("Login realizado com sucesso");
-        this.#router.navigateByUrl("/area-logada/home");
+        this.#router.navigateByUrl(Utils.getRouteByRole(user.role));
       },
       error: (error: HttpErrorResponse) => {
         this.#liveAnnouncer.announce("Houve um erro ao realizar login");

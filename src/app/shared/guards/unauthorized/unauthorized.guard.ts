@@ -7,7 +7,7 @@ export const unauthorizedGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   if (!tokenService.token) {
-    router.navigateByUrl('/entre/login')
+    router.navigateByUrl('/authenticate/login')
   }
 
   return !!tokenService.token;

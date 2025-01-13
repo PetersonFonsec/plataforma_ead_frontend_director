@@ -3,6 +3,7 @@ import { NgModel } from '@angular/forms';
 import { MESSAGES_ERRO } from '@shared/data/messages-erros';
 
 @Component({
+  standalone: true,
   selector: 'app-input-msg-error',
   templateUrl: './input-msg-error.component.html',
   styleUrl: './input-msg-error.component.scss'
