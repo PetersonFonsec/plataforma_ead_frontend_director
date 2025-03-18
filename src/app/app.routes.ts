@@ -11,12 +11,14 @@ import { backOfficeRoutes } from './routes/backoffice.routes';
 import { loggedOutRoutes } from './routes/logged-out.routes';
 import { permissionByRoleGuard } from '@shared/guards/permission-by-role/permission-by-role.guard';
 import { Roles } from '@shared/enums/roles.enum';
+import { userLoggedGuard } from '@shared/guards/userLogged/user-logged.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/authenticate', pathMatch: 'full' },
   {
     path: 'authenticate',
     component: AuthComponent,
+    canActivate: [userLoggedGuard],
     children: loggedOutRoutes
   },
   {

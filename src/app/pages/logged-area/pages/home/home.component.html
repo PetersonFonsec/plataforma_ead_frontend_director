@@ -1,39 +1,37 @@
 <div id="home-page" class="container">
   @if (!userLogged.user || !userLogged.user.photo) {
-    <jumbotron-profile id="home-page-jumbotron-profile" />
-  }
-
-  @if (!userLogged.colleges || !userLogged.colleges.length) {
-    <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
+  <jumbotron-profile id="home-page-jumbotron-profile" />
+  } @if (!userLogged.colleges || !userLogged.colleges.length) {
+  <jumbotron-wellcome id="home-page-jumbotron-wellcome" />
   } @else {
-    <h1 class="subtitle border">Escolas</h1>
-    <ul>
-      @for (college of userLogged.colleges; track $index) {
-        <li>
-          <a [routerLink]="'../college/' + college.id">
-            @defer (on viewport) {
-              <app-college-item [college]="college" />
-            } @loading {
-              <app-college-item-loader />
-            } @placeholder {
-              <app-college-item-loader />
-            }
-          </a>
-        </li>
-      } @empty {
-        <li>
-          <h3 class="empty subtitle">
-            Esta conta não possui nenhuma escola inclusa. Cadastre uma nova
-            clicando em “Nova Escola”
-          </h3>
-        </li>
-      }
+  <h1 class="subtitle border">Escolas</h1>
+  <ul>
+    @for (college of userLogged.colleges; track $index) {
+    <li>
+      <a [routerLink]="'./college/' + college.id">
+        @defer (on viewport) {
+        <app-college-item [college]="college" />
+        } @loading {
+        <app-college-item-loader />
+        } @placeholder {
+        <app-college-item-loader />
+        }
+      </a>
+    </li>
+    } @empty {
+    <li>
+      <h3 class="empty subtitle">
+        Esta conta não possui nenhuma escola inclusa. Cadastre uma nova clicando
+        em “Nova Escola”
+      </h3>
+    </li>
+    }
 
-      <li>
-        <app-button routerLink="../create-college" class="new-college">
-          Nova Escola
-        </app-button>
-      </li>
-    </ul>
+    <li>
+      <app-button routerLink="./create-college" class="new-college">
+        Nova Escola
+      </app-button>
+    </li>
+  </ul>
   }
 </div>

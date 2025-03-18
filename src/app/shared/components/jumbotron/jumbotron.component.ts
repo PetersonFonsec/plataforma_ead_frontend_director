@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-jumbotron',
-    imports: [],
-    templateUrl: './jumbotron.component.html',
-    styleUrl: './jumbotron.component.scss'
+  selector: 'app-jumbotron',
+  standalone: true,
+  templateUrl: './jumbotron.component.html',
+  styleUrl: './jumbotron.component.scss'
 })
 export class JumbotronComponent {
 
