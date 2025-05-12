@@ -1,12 +1,12 @@
 import { Component, OnInit, input, output } from '@angular/core';
-import { IUserLogged } from '@shared/services/user-logged/user-logged.model';
-import { menus } from '@shared/data/menus';
 
 import { AvatarProfileComponent } from '../avatar-profile/avatar-profile.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+
 import { IuserToAvatarPipe } from '@shared/pipes/iuserToAvatar/iuser-to-avatar.pipe';
+import { IUserLogged } from '@shared/services/user-logged/user-logged.model';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Utils } from '@shared/services/utils/utils.service';
-import { institutionalRoutes } from 'app/routes/institutional.routes';
+import { IMenu, menus } from '@shared/data/menus';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,8 +20,8 @@ export class AsideMenuComponent implements OnInit {
   readonly userLogged = input.required<IUserLogged>();
   readonly userLogout = output();
 
-  menusInstitucional = Utils.extractMenus(institutionalRoutes);
-  menus: any;
+  menusInstitucional = menus.INSTITUTIONAL;
+  menus: IMenu[] = [];
 
   ngOnInit(): void {
     const role = this.userLogged().user.role;

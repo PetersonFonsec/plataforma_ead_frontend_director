@@ -6,7 +6,7 @@ import { Utils } from '@shared/services/utils/utils.service';
 
 export const userLoggedGuard: CanActivateChildFn = (childRoute, state) => {
   const tokenService = inject(TokenService);
-  if (!tokenService) return true;
+  if (!tokenService.token) return true;
 
   const user = inject(UserLoggedService).user().user;
   const router = inject(Router);
