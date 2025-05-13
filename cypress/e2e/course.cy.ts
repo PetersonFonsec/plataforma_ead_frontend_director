@@ -4,9 +4,9 @@ describe("Curse jorney - ", () => {
 
   beforeEach(() => {
     cy.login(usuarioComRegistros).createNewCollege(colegioComCurso);
-    cy.visit(`http://localhost:4200/area-logada/college/${colegioComCurso.id}`);
+    cy.visit(`http://localhost:4200/backoffice/college/${colegioComCurso.id}`);
   });
 
-  it("the form must be previously filled out", () => {
+  it("the form must be previously filled out", () => {//TODO criar testes
   });
 });

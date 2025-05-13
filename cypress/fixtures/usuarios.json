@@ -7,6 +7,13 @@
     "photo": "cypress/fixtures/images/luffy.jpg"
   },
   {
+    "name": "Bianca Fonseca Simião",
+    "email": "bianca@gmail.com",
+    "password": "Senha123!",
+    "documentNumber": "69793804009",
+    "photo": "cypress/fixtures/images/luffy.jpg"
+  },
+  {
     "name": "Peterson Fonseca Simião",
     "email": "peterson@gmail.com",
     "password": "Senha123!",

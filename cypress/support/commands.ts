@@ -68,7 +68,7 @@ Cypress.Commands.addAll({
   },
 
   createNewCollege(college: any, stub = true) {
-    cy.visit('http://localhost:4200/area-logada/create-college');
+    cy.visit('http://localhost:4200/backoffice/create-college');
     const collegeElements = new CollegeCreateElements(college);
 
     if (stub) {

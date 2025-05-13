@@ -1,14 +1,14 @@
 import CreateQuizElements from "../support/pages/create-quiz";
 
 describe("Create Quiz - ", () => {
-  const [_, UsuarioComRegistros] = require('../fixtures/usuarios.json');
+  const [_, __, UsuarioComRegistros] = require('../fixtures/usuarios.json');
   const quiz = require('../fixtures/create-quiz.json');
   const quizElements = new CreateQuizElements(quiz);
 
   beforeEach(() => {
     cy.login(UsuarioComRegistros);
     cy.wait(100);
-    cy.visit(`http://localhost:4200/area-logada/course/1/quiz`);
+    cy.visit(`http://localhost:4200/backoffice/course/1/quiz`);
   })
 
   describe("Validade Form ", () => {

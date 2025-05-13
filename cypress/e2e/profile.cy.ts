@@ -6,15 +6,15 @@ describe("Profile - ", () => {
   const error = require('../fixtures/error-login.json');
 
   const registerElements = new ProfileElements(usuarioSemRegistros);
-  const homepageElements = new HomeElements();
 
   beforeEach(() => {
     cy.login(usuarioSemRegistros);
-    homepageElements.buttonFinalizeSeuCadastro.click();
+    cy.wait(100);
+    cy.visit(`http://localhost:4200/studant/profile`);
   });
 
   it("Should be in profile page", () => {
-    cy.url().should('include', '/area-logada/profile');
+    cy.url().should('include', '/profile');
   });
 
   it("the form must be previously filled out", () => {
@@ -30,7 +30,7 @@ describe("Profile - ", () => {
 
   it("should return to home", () => {
     registerElements.backButton.click();
-    cy.url().should('include', '/area-logada/home');
+    cy.url().should('include', '/stundant');
   });
 
   it("should show message error whem update profile fail", () => {

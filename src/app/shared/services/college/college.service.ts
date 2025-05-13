@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap, throwError } from 'rxjs';
 
 import { College, CollegeRequest, CollegeResponse, ResponseCollegelist } from './collage.model';
 import { environment } from 'environments/environment';

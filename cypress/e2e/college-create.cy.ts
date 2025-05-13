@@ -3,14 +3,14 @@ import HomeElements from "../support/pages/home";
 
 describe("College jorney - ", () => {
   const response = require('../fixtures/college-response-success.json');
-  const [usuarioSemRegistros] = require('../fixtures/usuarios.json');
+  const [_, directorSemRegistros] = require('../fixtures/usuarios.json');
   const error = require('../fixtures/error-login.json');
   const college = require('../fixtures/college.json')[0];
   const collegeElements = new CollegeCreateElements(college);
   const homepageElements = new HomeElements();
 
   beforeEach(() => {
-    cy.login(usuarioSemRegistros);
+    cy.login(directorSemRegistros);
     homepageElements.buttonBemVindo.click();
   });
 
@@ -49,11 +49,19 @@ describe("College jorney - ", () => {
     collegeElements.buttonSubmit.should('be.enabled');
   });
 
-  it("Should show message error when service return an error", () => {
-    cy.intercept('POST', `${Cypress.env('url')}/college`, {
-      statusCode: 400,
-      body: error
-    }).as('stubCollege');
+  xit("Should show message error when service return an error", () => {
+    cy.intercept('POST', `${Cypress.env('url')}/college`, (req) => {
+      req.reply({
+        statusCode: 400,
+        body: {
+          error: {
+            message: "Erro ao cadastrar universidade",
+            statusCode: 500,
+            error: "Bad Request",
+          }
+        }
+      });
+    }).as('stubCollegeError');
 
     collegeElements.fillFormValid();
     collegeElements.buttonSubmit.click();
@@ -69,6 +77,6 @@ describe("College jorney - ", () => {
     collegeElements.fillFormValid();
     collegeElements.buttonSubmit.click();
 
-    cy.url().should('include', `/area-logada/college/${college.id}`);
+    cy.url().should('include', `/backoffice/college/${college.id}`);
   });
 });

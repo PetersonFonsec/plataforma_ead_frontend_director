@@ -2,14 +2,14 @@ import CollegeElements from "../support/pages/college";
 import HomeElements from "../support/pages/home";
 
 describe("College jorney - ", () => {
-  const [usuarioSemRegistros, usuarioComRegistro] = require('../fixtures/usuarios.json');
+  const [_, __, usuarioComRegistro] = require('../fixtures/usuarios.json');
   const college = require('../fixtures/college.json')[0];
   const collegeStyle = college.CollegeStyle[0];
   const collegeElements = new CollegeElements(college);
   const homepageElements = new HomeElements();
 
   beforeEach(() => {
-    cy.login(usuarioComRegistro);
+    cy.login(usuarioComRegistro, true);
     homepageElements.cardsCollege.click();
   });
 
@@ -38,16 +38,16 @@ describe("College jorney - ", () => {
 
   it("should go to college list when user click in back button", () => {
     collegeElements.backButton.click();
-    cy.url().should('include', '/area-logada/home');
+    cy.url().should('include', '/backoffice');
   });
 
   it("should go to course page when user click in register a new course", () => {
     collegeElements.newCourseButton.click();
-    cy.url().should('include', `/area-logada/college/${college.id}/course`);
+    cy.url().should('include', `/backoffice/college/${college.id}/course`);
   });
 
   it("should go to course page when user click in register a new course", () => {
     collegeElements.newCourseButton.click();
-    cy.url().should('include', `/area-logada/college/${college.id}/course`);
+    cy.url().should('include', `/backoffice/college/${college.id}/course`);
   });
 });

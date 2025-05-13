@@ -80,5 +80,16 @@
     "colleges": [],
     "calendar": [],
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoYWluYUBnbWFpbC5jb20iLCJuYW1lIjoiVGhhaW5hIEFsZXhhbmRyZSBTaWx2YSIsInJvbGUiOiJTVFVERU5UIiwicGhvdG8iOiIiLCJpZCI6MiwiaWF0IjoxNzE5MDkwNjIzLCJleHAiOjE3MTkwOTQyMjMsInN1YiI6IjIifQ.Uy0mp9Oz1Z2svuVLa_lm03fVzKnMv0KS8vehLGxYu5k"
+  },
+  {
+    "user": {
+      "email": "bianca@gmail.com",
+      "name": "Bianca Fonseca Simião",
+      "role": "DIRECTOR",
+      "photo": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/ce7509f2-0d8f-490e-81a6-1531005e8100/public",
+      "id": 2
+    },
+    "colleges": [],
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJpYW5jYUBnbWFpbC5jb20iLCJuYW1lIjoiQmlhbmNhIEZvbnNlY2EgU2ltacOjbyIsInJvbGUiOiJESVJFQ1RPUiIsInBob3RvIjoiaHR0cHM6Ly9pbWFnZWRlbGl2ZXJ5Lm5ldC9CcGJ2OWQ4SjlOcUZobS0telVkeEVBL2NlNzUwOWYyLTBkOGYtNDkwZS04MWE2LTE1MzEwMDVlODEwMC9wdWJsaWMiLCJpZCI6MiwiaWF0IjoxNzQ3MDk1OTkwLCJleHAiOjE3NDcwOTk1OTAsInN1YiI6IjIifQ.dwCXKGHm_cXU8mhg28-8tL5W2c_3zwEpJBREWcYtUZM"
   }
 ]

@@ -6,6 +6,6 @@ describe("Aside redirects - ", () => {
   });
 
   it("Should be in home page", () => {
-    cy.url().should('include', '/area-logada/home');
+    cy.url().should('include', '/student');
   });
 })

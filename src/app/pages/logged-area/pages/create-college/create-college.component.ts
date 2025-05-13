@@ -43,11 +43,11 @@ export class CreateCollegeComponent {
     this.payload.thumb = this.payload?.thumb?.file ?? '';
     this.#collegeService.createCollege(this.payload).subscribe({
       next: async (college) => {
-        await this.#router.navigateByUrl(`./college/${college.id}`);
+        await this.#router.navigateByUrl(`/backoffice/college/${college.id}`);
       },
       error: (error: HttpErrorResponse) => {
         this.alertType = AlertTypes.error;
-        this.alertMessage = error.error.message;
+        this.alertMessage = error ? error.error.message : "Erro ao cadastrar universidade";
       }
     });
   }

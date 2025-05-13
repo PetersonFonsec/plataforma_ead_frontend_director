@@ -1,6 +1,7 @@
 import LoginElements from "../support/pages/login";
 import RegisterElements from "../support/pages/register";
 import WellComeElements from "../support/pages/wellcome";
+import { UrlBase } from "../../src/app/shared/data/base-url";
 
 const usuarios = require('../fixtures/usuarios.json')[0];
 const error = require('../fixtures/error-login.json');
@@ -27,13 +28,13 @@ describe('Auth jorney - ', () => {
 
   describe('Test accessibility', () => {
     it("should autofocus in email field", () => {
-      cy.visit('http://localhost:4200/entre/login');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/login`);
       loginElements.emailInput.should('be.focused');
     });
 
 
     it("should autofocus in name field", () => {
-      cy.visit('http://localhost:4200/entre/cadastrar');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/cadastrar`);
       registerElements.nameInput.should('be.focused');
     });
   });
@@ -46,36 +47,36 @@ describe('Auth jorney - ', () => {
 
     it("should redirect to /login page when click in 'login' button", () => {
       WellComeElements.loginButton.click();
-      cy.url().should('include', '/entre/login');
+      cy.url().should('include', `${UrlBase.AUTHENTICATE}/login`);
     });
 
     it("should redirect to /cadastrar page when click in 'Cadastre-se' button", () => {
       WellComeElements.cadastroButton.click();
-      cy.url().should('include', '/entre/cadastrar');
+      cy.url().should('include', `${UrlBase.AUTHENTICATE}/cadastrar`);
     });
 
     it("should redirect to /recuperar-senha page when click in 'Esqueceu a senha ? Clique aqui.' link", () => {
-      cy.visit('http://localhost:4200/entre/login');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/login`);
       loginElements.forgotPasswordLink.click();
-      cy.url().should('include', '/entre/recuperar-senha');
+      cy.url().should('include', `${UrlBase.AUTHENTICATE}/recuperar-senha`);
     });
 
     it("should redirect to /cadastrar page when click in 'Ainda não tem uma conta ? Cadastre-se !' button", () => {
-      cy.visit('http://localhost:4200/entre/login');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/login`);
       loginElements.registerLink.click();
-      cy.url().should('include', '/entre/cadastrar');
+      cy.url().should('include', `${UrlBase.AUTHENTICATE}/cadastrar`);
     });
 
     it("should redirect to /login page when click in 'Já tem uma conta ? Entre!' button", () => {
-      cy.visit('http://localhost:4200/entre/cadastrar');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/cadastrar`);
       registerElements.loginLink.click();
-      cy.url().should('include', '/entre/login');
+      cy.url().should('include', `${UrlBase.AUTHENTICATE}/login`);
     });
   });
 
   describe('login form validations ', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:4200/entre/login');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/login`);
       loginElements.fillFormValid();
     });
 
@@ -111,7 +112,7 @@ describe('Auth jorney - ', () => {
 
   describe('register form validations', () => {
     beforeEach(() => {
-      cy.visit('http://localhost:4200/entre/cadastrar');
+      cy.visit(`http://localhost:4200/${UrlBase.AUTHENTICATE}/cadastrar`);
       registerElements.fillFormValid();
     });
 

@@ -1,17 +1,19 @@
 import LessonElements from "../support/pages/lesson";
 
 describe("Lesson jorney - ", () => {
-  const [_, usuarioComRegistro] = require('../fixtures/usuarios.json');
-  const [colegioComCurso] = require('../fixtures/college.json');
+  const [_, __, usuarioComRegistro] = require('../fixtures/usuarios.json');
+  const [colegioComCurso] = require('../fixtures/course.json');
   const [lesson] = require('../fixtures/lesson.json');
   const lessonElements = new LessonElements(lesson);
 
   beforeEach(() => {
-    cy.login(usuarioComRegistro).visit(`http://localhost:4200/area-logada/course/${colegioComCurso.id}/lesson/`);
+    cy.login(usuarioComRegistro);
+    cy.wait(100);
+    cy.visit(`http://localhost:4200/backoffice/course/${colegioComCurso.id}/lesson/`);
   });
 
   describe("Form validation", () => {
-    it("Should submit button when not has content video or text", () => {
+    it("Should disabled submit button when not has content video or text", () => {
       lessonElements.inputTitle.type(lesson.title);
       lessonElements.inputDescription.type(lesson.description);
       lessonElements.submitButton.should('be.disabled');
