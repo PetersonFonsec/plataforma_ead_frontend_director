@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './college-item-loader.component.html',
   styleUrl: './college-item-loader.component.scss'
 })
-export class CollegeItemLoaderComponent {
-
-}
+export class CollegeItemLoaderComponent { }

@@ -60,13 +60,14 @@ export class StudentComponent {
 
   ngOnInit(): void {
     const course: ICourse = {
-      "id": 2,
+      "id": 1,
       "createdAt": "2024-09-16T19:15:02.315Z",
       "updatedAt": "2024-09-16T19:15:02.315Z",
       "name": "Conceitos de computação I",
       "thumb": "https://imagedelivery.net/Bpbv9d8J9NqFhm--zUdxEA/2bc5647a-6236-4cc6-57e0-d2b6a267fb00/public",
-      "collegeId": 4,
-      "content": ""
+      "collegeId": 1,
+      "content": "",
+      "description": ""
     }
 
     this.courses = Array(20).fill(course)

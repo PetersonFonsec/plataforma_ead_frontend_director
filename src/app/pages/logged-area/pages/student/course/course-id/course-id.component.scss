@@ -1,0 +1,61 @@
+@use "../../../../../../scss/mixins/grid";
+@use "../../../../../../scss/variables/breakpoints";
+@use "../../../../../../scss/mixins/position";
+
+#course {
+  @include position.filledPage;
+  align-items: center;
+  width: 100%;
+
+  app-page-thumb-loader,
+  app-page-thumb {
+    @include grid.overflowLateralPadding(32px);
+    margin-left: 0;
+    height: 197px;
+  }
+
+  .subtitle {
+    margin-right: auto;
+    margin-bottom: 24px;
+  }
+
+  &-content {
+    @include grid.container(var(--container-size-small));
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0;
+    flex: 1;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li ::ng-deep .item-bar {
+      min-height: 60px;
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-footer {
+    align-items: stretch;
+    display: flex;
+    max-width: 330px;
+    width: 100%;
+
+    ::ng-deep .button {
+      height: 100%;
+    }
+  }
+
+  &-back-button {
+    margin-right: 8px;
+  }
+
+  &-submit-button {
+    flex: 1;
+  }
+}

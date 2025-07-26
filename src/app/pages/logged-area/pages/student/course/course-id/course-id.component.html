@@ -1,0 +1,84 @@
+<section id="course">
+  @defer (when !isLoading()) {
+  <app-page-thumb [college]="payload" />
+
+  <div id="course-content">
+    <header id="course-content-header">
+      <h1 class="subtitle border">{{ payload.name }}</h1>
+    </header>
+
+    <p>{{ payload.description }}</p>
+
+    <div id="course-content">
+      <app-tabs>
+        <app-tab>
+          <ng-template appTabHeader>
+            <h2 class="subtitle border">Lições</h2>
+          </ng-template>
+
+          <ng-template appTabContent>
+            <ul>
+              @for (item of lessons; track $index) {
+              <li>
+                <app-item-bar [title]="item.title" [legend]="item.description">
+                  <ng-content select="[icon]">
+                    <app-button-play />
+                  </ng-content>
+                </app-item-bar>
+              </li>
+              }
+            </ul>
+          </ng-template>
+        </app-tab>
+
+        <app-tab>
+          <ng-template appTabHeader>
+            <h2 class="subtitle border">Quizzes</h2>
+          </ng-template>
+
+          <ng-template appTabContent>
+            <ul>
+              @for (item of quizes; track $index) {
+              <li>
+                <app-item-bar
+                  title="Quiz {{ $index + 1 }}"
+                  [legend]="item.title"
+                />
+              </li>
+              }
+            </ul>
+          </ng-template>
+        </app-tab>
+
+        <app-tab>
+          <ng-template appTabHeader>
+            <h2 class="subtitle border">Tarefas</h2>
+          </ng-template>
+
+          <ng-template appTabContent>
+            <ul>
+              @for (item of tasks; track $index) {
+              <li>{{ item.name }}</li>
+              }
+            </ul>
+          </ng-template>
+        </app-tab>
+      </app-tabs>
+    </div>
+  </div>
+
+  <footer id="course-footer">
+    <app-button-back id="course-back-button" />
+
+    <app-button routerLink="./choice-task" id="course-submit-button">
+      Iniciar curso
+    </app-button>
+  </footer>
+  } @placeholder {
+  <app-page-thumb-loader />
+  <app-lesson-form-loading id="course-content" />
+  } @loading {
+  <app-page-thumb-loader />
+  <app-lesson-form-loading id="course-content" />
+  }
+</section>

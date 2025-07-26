@@ -1,3 +1,4 @@
+@use "../../../scss/mixins/position";
 @use "../../../scss/typography.scss" as import;
 
 .item-bar {
@@ -30,5 +31,6 @@
   }
 
   &-icon {
+    @include position.flexCenter();
   }
 }

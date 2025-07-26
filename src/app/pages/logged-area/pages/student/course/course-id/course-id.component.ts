@@ -1,44 +1,54 @@
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { LessonFormLoadingComponent } from '@pages/logged-area/pages/lesson/lesson-form-loading/lesson-form-loading.component';
+import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
+import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
+import { ButtonPlayComponent } from '@shared/components/button-play/button-play.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { ItemBarComponent } from '@shared/components/item-bar/item-bar.component';
+import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-loader/page-thumb-loader.component';
+import { PageThumbComponent } from '@shared/components/page-thumb/page-thumb.component';
+import { TabComponent } from '@shared/components/tab/tab.component';
+import { TabContentDirective, TabHeaderDirective, TabsComponent } from '@shared/components/tabs/tabs.component';
+import { CourseForm } from '@shared/services/course/course.model';
+import { CourseService } from '@shared/services/course/course.service';
 import { forkJoin } from 'rxjs';
 
-import { PageThumbLoaderComponent } from '@shared/components/loaders/page-thumb-loader/page-thumb-loader.component';
-import { ButtonBackComponent } from '@shared/components/button-back/button-back.component';
-import { PageThumbComponent } from '@shared/components/page-thumb/page-thumb.component';
-import { AlertComponent, AlertTypes } from '@shared/components/alert/alert.component';
-import { ButtonComponent } from '@shared/components/button/button.component';
-import { CourseService } from '@shared/services/course/course.service';
-import { CourseForm } from '@shared/services/course/course.model';
-
-import { CourseFormComponent } from './course-form/course-form.component';
-import { CourseListComponent } from './course-list/course-list.component';
 @Component({
-  selector: 'app-course',
+  selector: 'app-course-id',
   imports: [
     ButtonComponent,
-    PageThumbComponent,
-    AlertComponent,
-    CourseFormComponent,
     ButtonBackComponent,
     CommonModule,
     RouterLink,
     PageThumbLoaderComponent,
-    CourseListComponent
+    LessonFormLoadingComponent,
+    PageThumbComponent,
+    TabsComponent,
+    TabComponent,
+    TabContentDirective,
+    TabHeaderDirective,
+    ItemBarComponent,
+    ButtonPlayComponent,
   ],
-  templateUrl: './course.component.html',
-  styleUrl: './course.component.scss'
+  templateUrl: './course-id.component.html',
+  styleUrl: './course-id.component.scss'
 })
-export class CourseComponent implements OnInit {
+export class CourseIdComponent implements OnInit {
   #router = inject(ActivatedRoute);
   #course = inject(CourseService);
+
   alertType = AlertTypes.success;
-  payload = new CourseForm();
   alertMessage = "";
+
   lessons: any[] = [];
   quizes: any[] = [];
   tasks: any[] = [];
+
   isLoading = signal(true);
+
+  payload = new CourseForm();
 
   public ngOnInit(): void {
     this.#router.paramMap.subscribe({
@@ -58,6 +68,7 @@ export class CourseComponent implements OnInit {
         this.payload.thumb = course.thumb;
         this.payload.name = course.name;
         this.payload.id = course.id;
+        this.payload.description = course.description || '';
 
         this.tasks = content.tasks;
         this.quizes = content.quizes;
@@ -73,8 +84,4 @@ export class CourseComponent implements OnInit {
       }
     })
   }
-
-  update() { }
-
-  submit() { }
 }

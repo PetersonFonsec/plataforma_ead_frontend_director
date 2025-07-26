@@ -1,0 +1,20 @@
+@use "../../../scss/mixins/geometric";
+@use "../../../scss/mixins/position";
+
+.button-play {
+  @include geometric.circle(32px);
+  @include position.flexCenter();
+
+  background-color: var(--neutral-color-2);
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color-1);
+  font-size: 14px;
+  line-height: 0;
+  padding: 0;
+
+  &.finished {
+    background-color: var(--success-color-3);
+    color: var(--neutral-color-3);
+  }
+}

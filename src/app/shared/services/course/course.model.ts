@@ -5,10 +5,12 @@ export interface ICourse {
   thumb: string
   name: string
   id: number
+  description: string
   content: any
 }
 
 export class CourseForm {
+  description = ""
   thumb = ""
   name = ""
   id = -1

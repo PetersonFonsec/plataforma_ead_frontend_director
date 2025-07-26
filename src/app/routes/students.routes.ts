@@ -25,6 +25,12 @@ export const studentPortalRoutes: Routes = [
     data: { animation: 'publicacoes' }
   },
   {
+    path: 'course/:id',
+    title: `Aula - ${PROJECT_NAME}`,
+    loadComponent: () => import('@pages/logged-area/pages/student/course/course-id/course-id.component').then(c => c.CourseIdComponent),
+    data: { animation: 'lessonSingle' },
+  },
+  {
     path: 'lesson/:id',
     title: `Aula - ${PROJECT_NAME}`,
     loadComponent: () => import('@pages/logged-area/pages/lesson/single/single.component').then(c => c.SingleComponent),
