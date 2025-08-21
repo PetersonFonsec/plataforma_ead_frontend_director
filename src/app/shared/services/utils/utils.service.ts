@@ -1,5 +1,4 @@
-import { Routes } from "@angular/router";
-import { IMenu, menus } from "@shared/data/menus";
+import { menus } from "@shared/data/menus";
 
 export class Utils {
   static readonly byteValue = 1048576;
@@ -12,12 +11,12 @@ export class Utils {
     return form_data;
   }
 
-  static addMounth(date: Date, mounth: number) {
-    return new Date(date.setMonth(date.getMonth() + mounth));
+  static addMonth(date: Date, month: number) {
+    return new Date(date.setMonth(date.getMonth() + month));
   }
 
-  static subtractMounth(date: Date, mounth: number) {
-    return new Date(date.setMonth(date.getMonth() - mounth));
+  static subtractMonth(date: Date, month: number) {
+    return new Date(date.setMonth(date.getMonth() - month));
   }
 
   static getRouteByRole(role: string): string {

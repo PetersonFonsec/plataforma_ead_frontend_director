@@ -24,23 +24,34 @@ export class CalendarComponent {
   selectDay: Date | null = null;
 
   generateDays() {
+    //1° passo - Recuperar o mes e ano
     const year = this.currentDay().getFullYear();
     const month = this.currentDay().getMonth();
-
     let date = new Date(`${year}/${month + 1}/01`);
-    let days = [];
 
+    const dayOfWeek: any = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: []
+    };
+
+    //2° passo - Recuperar os dias do mês
     while (date.getMonth() === month) {
-      days.push(new Date(date));
+      dayOfWeek[date.getDay()].push(new Date(date)); //3° passo - Separar os dias por semana
       date.setDate(date.getDate() + 1);
     }
 
-    return days;
+    console.log(dayOfWeek);
+    return dayOfWeek;
   }
 
   getMonth() {
     const month = new Date(this.currentDay().setMonth(this.currentDay().getMonth()));
-    return new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(month);;
+    return new Intl.DateTimeFormat("pt-BR", { month: "long" }).format(month);
   }
 
   getYear() {
@@ -48,12 +59,12 @@ export class CalendarComponent {
   }
 
   prev() {
-    const prevMonth = Utils.subtractMounth(this.currentDay(), 1);
+    const prevMonth = Utils.subtractMonth(this.currentDay(), 1);
     this.currentDay.set(prevMonth);
   }
 
   next() {
-    const nextMonth = Utils.addMounth(this.currentDay(), 1);
+    const nextMonth = Utils.addMonth(this.currentDay(), 1);
     this.currentDay.set(nextMonth);
   }
 }

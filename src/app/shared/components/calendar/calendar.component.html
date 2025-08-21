@@ -20,6 +20,7 @@
 
     <ol class="calendar-body-days">
       @for (day of days(); track $index) {
+
       <li>
         <app-calendar-day
           (click)="selectDay = day"
