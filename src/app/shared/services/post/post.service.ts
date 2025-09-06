@@ -1,9 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { environment } from 'environments/environment';
-import { ICreatePostRequest, ICreatePostResponse } from './post.model';
 import { Observable, timer } from 'rxjs';
+
+import { ICreatePostRequest, ICreatePostResponse, IListPostResponse } from './post.model';
+import { IPost } from '@shared/components/post/post.component';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class PostService {
     return this.#http.post<ICreatePostResponse>(`${this.#baseUrl}/post`, payload);
   }
 
-  list(): Observable<any[]> {
-    return this.#http.get<ICreatePostResponse[]>(`${this.#baseUrl}/post`);
+  list(): Observable<IListPostResponse> {
+    return this.#http.get<IListPostResponse>(`${this.#baseUrl}/post`);
   }
 
-  get(id: string): Observable<any> {
-    return this.#http.get<ICreatePostResponse>(`${this.#baseUrl}/post/${id}`);
+  get(id: string): Observable<IPost> {
+    return this.#http.get<IPost>(`${this.#baseUrl}/post/${id}`);
   }
 }

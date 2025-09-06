@@ -22,6 +22,6 @@ export enum AvatarSizeParam {
   styleUrl: './avatar.component.scss'
 })
 export class AvatarComponent {
-  readonly content = input.required<IAvatarParans>();
+  readonly content = input<IAvatarParans>();
   readonly size = input<AvatarSizeParam>(AvatarSizeParam.small);
 }

@@ -9,6 +9,6 @@ import { AvatarComponent, IAvatarParans } from '../avatar/avatar.component';
   styleUrl: './avatar-profile.component.scss'
 })
 export class AvatarProfileComponent {
-  readonly content = input.required<IAvatarParans>();
+  readonly content = input<IAvatarParans>();
   readonly description = input('');
 }

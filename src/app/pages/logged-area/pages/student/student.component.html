@@ -1,11 +1,7 @@
 <main id="student">
   <aside id="student-aside">
     @if (userLogged.user) {
-    <app-avatar
-      id="student-aside-avatar"
-      [size]="avatarSize"
-      [content]="userLogged.user | iuserToAvatar"
-    />
+    <app-avatar id="student-aside-avatar" [size]="avatarSize" [content]="userLogged.user | iuserToAvatar" />
 
     <span id="student-aside-avatar-name" class="subtitle">
       {{ userLogged.user.name }}
@@ -19,10 +15,11 @@
         <h2 class="subtitle border">Publicações</h2>
       </header>
       <ul>
-        @for (post of posts | async; track $index) {
+        @for (post of (posts | async)?.data; track $index) {
         <li>
           @defer (on viewport) {
-          <app-post [postParams]="post">
+          <!-- <app-post [postParams]="post"></app-post> -->
+          <app-post>
             <span [innerHTML]="post.content | trustHtml"></span>
           </app-post>
           <app-post-loading />
@@ -89,10 +86,7 @@
 
                     <app-progress-bar [progress]="$index" />
 
-                    <app-button
-                      routerLink="./course/{{ course.id }}"
-                      size="small"
-                    >
+                    <app-button routerLink="./course/{{ course.id }}" size="small">
                       Entrar
                     </app-button>
                   </app-course-item>

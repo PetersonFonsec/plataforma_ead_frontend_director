@@ -5,23 +5,24 @@
 
   <div id="list-post-page-container">
     <ul>
-      @for (post of posts | async; track $index) {
-        <li>
-          @defer (on viewport) {
-            <app-post [postParams]="post">
-              <span [innerHTML]="post.content | trustHtml"> </span>
-            </app-post>
-            <app-post-loading />
-          } @loading {
-            <app-post-loading />
-          } @placeholder {
-            <app-post-loading />
-          }
-        </li>
+      @for (post of (posts | async)?.data; track $index) {
+      <li>
+        @defer (on viewport) {
+        <!-- <app-post [postParams]="post"></app-post> -->
+        <app-post>
+          <span [innerHTML]="post.content | trustHtml"> </span>
+        </app-post>
+        <app-post-loading />
+        } @loading {
+        <app-post-loading />
+        } @placeholder {
+        <app-post-loading />
+        }
+      </li>
       } @empty {
-        <li>
-          <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
-        </li>
+      <li>
+        <h3 class="empty subtitle">Sem nenuma publicação encontrada.</h3>
+      </li>
       }
     </ul>
   </div>

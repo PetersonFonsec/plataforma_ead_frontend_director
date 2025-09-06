@@ -1,3 +1,5 @@
+import { IPagination } from '@shared/interfaces/pagination.interface';
+import { IPost } from './post.mock';
 export interface ICreatePostRequest {
   collegeId: string;
   courseId: string;
@@ -9,3 +11,5 @@ export interface ICreatePostResponse {
   courseId: string;
   content: string;
 }
+
+export interface IListPostResponse extends IPagination<IPost> { }

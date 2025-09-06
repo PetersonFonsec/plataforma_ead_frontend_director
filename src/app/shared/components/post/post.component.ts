@@ -12,5 +12,5 @@ export interface IPost extends IAvatarParans { }
   styleUrl: './post.component.scss'
 })
 export class PostComponent {
-  readonly postParams = input.required<IPost>();
+  readonly postParams = input<IPost>();
 }
