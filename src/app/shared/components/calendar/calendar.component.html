@@ -19,16 +19,16 @@
     </ol>
 
     <ol class="calendar-body-days">
-      @for (day of days(); track $index) {
-
-      <li>
-        <app-calendar-day
-          (click)="selectDay = day"
-          [selected]="selectDay === day"
-        >
-          {{ day | date : "d" }}
-        </app-calendar-day>
-      </li>
+      @for (dayToWeek of allDays(); track $index) {
+      <ul>
+        @for (day of dayToWeek; track $index) {
+        <li>
+          <app-calendar-day (click)="selectDay = day" [selected]="selectDay === day">
+            {{ day | date : "d" }}
+          </app-calendar-day>
+        </li>
+        }
+      </ul>
       }
     </ol>
   </div>

@@ -1,4 +1,4 @@
-import { DatePipe, NgClass } from '@angular/common';
+import { CommonModule, DatePipe, NgClass } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ import { CalendarDayComponent } from '../calendar-day/calendar-day.component';
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent {
-  days = computed(() => this.generateDays());
+  allDays = computed(() => this.generateDays());
   month = computed(() => this.getMonth());
   year = computed(() => this.getYear());
 
@@ -41,12 +41,21 @@ export class CalendarComponent {
 
     //2° passo - Recuperar os dias do mês
     while (date.getMonth() === month) {
-      dayOfWeek[date.getDay()].push(new Date(date)); //3° passo - Separar os dias por semana
+      //3° passo - Separar os dias por semana
+      dayOfWeek[date.getDay()].push(new Date(date));
       date.setDate(date.getDate() + 1);
     }
 
+    //4° passo - Converter novamente em um array para conseguir dar um for no html
     console.log(dayOfWeek);
-    return dayOfWeek;
+
+    const days = [];
+    for (const dayInWeek in dayOfWeek) {
+      days.push(dayOfWeek[dayInWeek]);
+    }
+
+    console.log(days);
+    return days;
   }
 
   getMonth() {

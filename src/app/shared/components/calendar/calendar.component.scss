@@ -32,21 +32,13 @@
   }
 
   &-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    text-align: center;
     width: 100%;
 
     li {
       @include position.flexCenter;
-      width: calc(100% / 7);
     }
 
     &-week {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
       margin-bottom: var(--space-4);
 
       li {
@@ -55,17 +47,20 @@
       }
     }
 
+    &-week,
     &-days {
-      align-items: center;
-      display: flex;
-      flex: 1;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      display: grid;
       list-style: none;
+      gap: 12px;
+      grid-template-columns: repeat(7, 1fr);
+    }
 
-      li {
-        margin-bottom: var(--space-4);
-      }
+    &-days ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 12px;
     }
   }
 
